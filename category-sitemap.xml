@@ -7,27 +7,10 @@
     </url>
 
     <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/</loc>
+        <loc>https://jaeyeophan.github.io/categories/ECMAScript6/</loc>
         <lastmod>2017-04-18T04:53:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-2-Arrow-function/</loc>
-        <lastmod>2017-04-18T04:52:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/let-const/</loc>
-        <lastmod>2017-04-18T04:50:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
+        <priority>0.2</priority>
     </url>
 
 </urlset>
