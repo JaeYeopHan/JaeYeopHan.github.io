@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 3. Iteration and for-of statement | Devlog</title>
+    <title>[ES6] 4. Spread, Rest parameter | Devlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="es6" />
     
-    <meta name="description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+    <meta name="description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 3. Iteration and for-of statement">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/index.html">
+<meta property="og:title" content="[ES6] 4. Spread, Rest parameter">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+<meta property="og:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T04:54:08.000Z">
+<meta property="og:updated_time" content="2017-04-18T12:01:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 3. Iteration and for-of statement">
-<meta name="twitter:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+<meta name="twitter:title" content="[ES6] 4. Spread, Rest parameter">
+<meta name="twitter:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
     
     
@@ -148,14 +148,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-3-Iteration-and-for-of-statement" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ES6-4-Spread-Rest-parameter" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 3. Iteration and for-of statement
+        [ES6] 4. Spread, Rest parameter
         </h1>
     
 
@@ -165,8 +165,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" class="article-date">
-            <time datetime="2017-04-18T04:52:45.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" class="article-date">
+            <time datetime="2017-04-18T11:59:13.000Z" itemprop="datePublished">2017-04-18</time>
         </a>
     </div>
 
@@ -181,26 +181,21 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-3-Iteration-and-for-of-statement"><a href="#ES6-3-Iteration-and-for-of-statement" class="headerlink" title="[ES6] 3. Iteration and for-of statement"></a>[ES6] 3. Iteration and for-of statement</h1><h2 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a>Iteration</h2><p>ES6에서 이터레이션 프로토콜은 <code>Iterable 프로토콜</code>과 <code>Iterator 프로토콜</code>로 구성된다. 결론부터 말하자면 <code>Iterable</code> 프로토콜은 <code>반복 가능한</code> 오브젝트를 나타내는 프로토콜이며 <code>Iterator</code> 프로토콜은 이터러블 오브젝트(<code>Iterable</code> 프로토콜을 따르는 오브젝트)의 값을 <code>작성한 순서대로</code> 처리하는 프로토콜이다.</p>
-<h2 id="Iterable-프로토콜"><a href="#Iterable-프로토콜" class="headerlink" title="Iterable 프로토콜"></a>Iterable 프로토콜</h2><p>오브젝트의 반복 처리 규약을 정의한다.<br>Iterable Object</p>
-<blockquote>
-<p><code>String</code>, <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>TypedArray</code>, <code>Argument</code> 오브젝트 그리고 DOM의 <code>NodeList</code>  </p>
-</blockquote>
-<p>위 <em>built in 오브젝트</em>들은 디폴트로 이터러블 프로토콜을 갖고 있다. 오브젝트에 <code>Symbol.iterator</code>가 있어야 한다. <code>Symbol.iterator</code>가 있는 오브젝트는 이터러블 오브젝트이다. 또한 상속받은 prototype chain에 있어도 이터러블 오브젝트이다. (Symbol에 대해서는 다음 포스팅에서 다룰 예정이다.)</p>
-<p>오브젝트에 프로퍼티 존재 여부를 체크할 때, Symbol의 경우에는 arrayObj[Symbol.iterator]와 같이 대괄호 []안에 작성해야 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//function values() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
-<p><code>Array</code> 오브젝트는 기본적으로 <code>iterable</code> 프로토콜을 구현한다. 하지만 <code>Object</code> 오브젝트는 <code>iterable</code> 프로토콜을 구현하지 않는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iteratorObj = arr[<span class="built_in">Symbol</span>.iterator](); <span class="comment">//iterator object</span></div></pre></td></tr></table></figure></p>
-<p>위와 같은 방식으로 <code>Array</code> 오브젝트는 <code>iterator</code>를 받을 수 있다.</p>
-<h2 id="JavaScript’s-for-statement"><a href="#JavaScript’s-for-statement" class="headerlink" title="JavaScript’s for statement"></a>JavaScript’s for statement</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>forEach 문은 arrow function과 조합해서 사용하면 추가적인 변수 사용 없이 코드가 깔끔해질 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> categories = [<span class="string">"Korean"</span>, <span class="string">"English"</span>, <span class="string">"Science"</span>];</div><div class="line">categories.forEach(<span class="function"><span class="params">subject</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(subject);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>그러나 for문 중간에 <code>continue</code> or <code>break</code> or <code>return</code> 선언문을 사용할 수 없다. 기존의 for-statement를 사용하는 경우를 보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; subject.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(categoried[i]);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p><code>i</code>의 역할이 index를 잡아주는 것 외에 별 다른 기능이 없다. 그래서 기존에는 <code>for-in statement</code>를 사용했다. 하지만 <code>for-in statement</code> 은 문자열 키를 가진 일반 <code>Object</code> 객체들을 위해 만들어졌다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure></p>
-<p>그래서 ES6에서 <code>for-of statement</code>가 등장했다.<br><code>for-in loop statement</code>는 객체의 프로퍼티들을 루프시키지만 <code>for-of loop statement</code>는 데이터, 즉 배열 내의 value들을 루프시킨다. 또한 for-of는 배열 뿐만 아니라 다양한 Collection에도 동작한다. DOM의 <code>NodeList</code> 같은 유사배열 객체들에도 동작하고 문자열에도 동작한다. 문자열을 유니코드 문자의 배열로 취급하는 것이다. <code>Set</code>, <code>Map</code>에 대해서도 물론 동작한다. key-value 형식의 <code>Map</code>에 대해서는 for (let [key, value] of …) 형식의 <code>destructuring</code>을 사용한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>단 for-of 가 만능은 아니다. <code>Object</code>의 프로퍼티를 루프시키려면 <code>for-in statement</code>를 사용해야 한다. 사실 <code>for-in statement</code>의 원래 목적이 <code>Object</code> 프로퍼티 순회이다. Object를 순회하는 경우를 살펴보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">    <span class="attr">one</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">two</span> : <span class="number">2</span>,</div><div class="line">    <span class="attr">three</span> : <span class="number">3</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>위와 같은 obj라는 오브젝트를 정의한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></p>
-<p><code>for-in statement</code>를 통해서 정의한 오브젝트(obj)의 key를 순회했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(obj[key]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
-<p>오브젝트를 <code>for-of statment</code>로 순회하면 어떻게 될까?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// Uncaught TypeError: obj[Symbol.iterator] is not a function</span></div></pre></td></tr></table></figure></p>
-<p>JavaScript의 Object는 <code>iterable</code> 프로토콜을 구현하고 있지 않기 때문에, <code>Symbol.iterator</code>가 존재하지 않는다.</p>
+<h1 id="ES6-4-Spread-Rest-parameter"><a href="#ES6-4-Spread-Rest-parameter" class="headerlink" title="[ES6] 4. Spread, Rest parameter"></a>[ES6] 4. Spread, Rest parameter</h1><h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prev = [<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">let</span> post = [<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">let</span> spreadObj = [<span class="number">1</span>, <span class="number">2</span>, ...prev, <span class="number">5</span>, <span class="number">6</span>, ...post, <span class="number">9</span>];</div><div class="line"><span class="built_in">console</span>.log(spreadObj); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></div></pre></td></tr></table></figure></p>
+<p>문자열도 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sObj = [...<span class="string">"javascript"</span>];</div><div class="line"><span class="built_in">console</span>.log(sObj); <span class="comment">// ["j", "a", "v", "a", "s", "c", "r", "i", "p", "t"]</span></div></pre></td></tr></table></figure></p>
+<h2 id="Rest-Parameter"><a href="#Rest-Parameter" class="headerlink" title="Rest Parameter"></a>Rest Parameter</h2><p>함수를 호출할 때 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>Rest parameter</code>라고 한다. 함수안의 코드를 확인하지 않고도 호출문의 형태만 보더라도 <code>Rest parameter</code> 의 범위를 확인할 수 있어 가독성이 높아진다. 또한 <code>Rest parameter</code>는 <code>Array</code>, 즉 배열이므로 <code>Array</code> 오브젝트의 메서드를 사용할 수 있다. 그리고 <code>arrow funtion</code>에서도 사용 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> price = [<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>];</div><div class="line"><span class="built_in">Math</span>.max(<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>);</div></pre></td></tr></table></figure></p>
+<p>built in Object인 <code>Math</code>의 메소드 <code>max()</code>를 사용하기 위해서는 위 코드처럼 하나씩 넘겨줘야 한다.<br>또는 다음과 같은 방식을 사용했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.max.call(<span class="built_in">Math</span>, price);</div></pre></td></tr></table></figure></p>
+<p>하지만 Rest parameter를 사용하면 보다 깔끔하게 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> maxPrice = Max.max(...price);</div></pre></td></tr></table></figure></p>
+<p><code>Rest parameter</code>는 동적(dynamic)으로 생성된 파라미터라고 할 수 있기 때문에 함수의 <code>length</code>에서 포함되지 않는다. 기본적으로 함수의 <code>length</code> 프로퍼티는 파라미터의 개수를 의미한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> getElementByRestWithParam = <span class="function">(<span class="params">param, ...rest</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(param);</div><div class="line">    <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(getElementByRestWithParam.length); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p>위 <code>getElementByRestWithParam</code>메소드에 <code>spread operator</code>를 사용하여 인자를 넘겨보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> values = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</div><div class="line">getElementByRestWithParam(...values); <span class="comment">//10 \n [20, 30]</span></div></pre></td></tr></table></figure></p>
+<p><code>param</code>에 해당하는 인자가 따로받아지고 나머지 인자들은 <code>...rest</code>로 넘겨지면서 다시 배열로 넘겨지게 된다!</p>
+<p><code>Rest parameter</code>를 사용했을 때와 기존의 자바스크립트에서 <code>arguments</code>를 사용했을 때의 차이점을 살펴보기 위해 <code>arguments</code>에 대해서 잠깐 살펴보자. <code>arguments</code>는 <code>Array-Like Object</code>라는 공식 명칭을 하고 있는 유사 배열이다.</p>
+<h2 id="Array-like-Object-유사배열"><a href="#Array-like-Object-유사배열" class="headerlink" title="Array-like Object(유사배열)"></a>Array-like Object(유사배열)</h2><p>배열의 특징 중 하나는 index를 갖고 있어서 임의 접근(random access)가 가능하고, 그 index가 순차적으로 증가한다는 것이다. 만약 Object가 key값이 순차적으로 증가하는 값이고, 그에 따른 value가 존재한다고 했을 때, <code>Array-like Object</code>라고 한다.<br>배열의 인덱스 값을 프로퍼티 key 값으로 사용하는 것이다. 그리고 <code>length</code>라는 프로퍼티 값을 갖고 있어서 전개를 할 때는 다음과 같이 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array-like object</span></div><div class="line"><span class="keyword">let</span> arrLikeObj = &#123;</div><div class="line">    <span class="number">0</span> : <span class="string">"zero"</span>,</div><div class="line">    <span class="number">1</span> : <span class="string">"one"</span>,</div><div class="line">    <span class="number">2</span> : <span class="string">"two"</span>,</div><div class="line">    <span class="attr">length</span> : <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLikeObj.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arrLikeObj[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>Array-like Object</code>는 다음 두 가지 규칙을 모두 만족시켜야 한다.<br>1) 프로퍼티 값을 0부터 1씩 증가하면서 순차적으로 작성해야 한다.<br>2) length를 프로퍼티 키로 하여 전체 프로퍼티 수를 작성해야 한다.</p>
+<h3 id="Rest-parameter와-arguments의-차이"><a href="#Rest-parameter와-arguments의-차이" class="headerlink" title="Rest parameter와 arguments의 차이"></a>Rest parameter와 arguments의 차이</h3><p><code>arguments</code>도 <code>Array-like object</code>이기 때문에 <code>for statement</code>로 전개할 수 있다. 하지만 <code>Array</code> 오브젝트의 메서드를 사용할 수 없다. 이것이 치명적인 단점인 것이다. 또 <code>arrow function</code>에서는 <code>arguments</code>를 사용할 수 없다. 이것으로 미루어보아, ES6에서는 <code>arguments</code>를 사용하는 것을 최대한 자제하라는 느낌이다. 사실 <code>Rest parameter</code>에 익숙해지기만 하면 <code>arguments</code>를 통해 인자를 받는 것보다 유연한 코드를 작성할 수 있다.</p>
+<p>한 가지 더 한계점을 지적하자면 <code>arguments</code>는 함수 내부를 봐야 어느 부분에서 <code>arguments</code> 객체를 사용하는지 알 수 있어 코드의 가독성이 떨어지게 된다. 그렇기 때문에 <code>arguments</code> 대신 <code>Rest parameter</code>를 도입한 것이다.</p>
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>3. end</em></p>
+<p><em>4. end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -208,7 +203,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/" data-id="cj1ni13tn0001l0wgpbv1mh1w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/" data-id="cj1ni13u50004l0wgv9myz19g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,20 +327,20 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/ES6-2-Arrow-function/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 2. Arrow function
+            [ES6] 3. Iteration and for-of statement
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 4. Spread, Rest parameter</p>
+        <p class="article-nav-title">[ES6] 5. Destructuring and Default Parameter</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -501,7 +496,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/';
     
     (function() {
     var dsq = document.createElement('script');
