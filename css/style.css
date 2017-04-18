@@ -279,9 +279,9 @@ code {
   background-image: url("images/main_logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-background-size: 138px 55px;
-  -moz-background-size: 138px 55px;
-  background-size: 138px 55px;
+  -webkit-background-size: 160px 80px;
+  -moz-background-size: 160px 80px;
+  background-size: 160px 80px;
 }
 .main-body {
   margin-top: -60px;
