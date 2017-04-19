@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="[TS] 0. Quick Start이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요. Install TypeScriptnpm을 통해서 간단하게 TypeScript를 설치할 수 있습니다. VSCode 등 타입스크립트를">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
-<meta property="og:updated_time" content="2017-04-19T04:50:02.000Z">
+<meta property="og:updated_time" content="2017-04-19T07:30:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[TS] 0. Quick Start">
 <meta name="twitter:description" content="[TS] 0. Quick Start이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요. Install TypeScriptnpm을 통해서 간단하게 TypeScript를 설치할 수 있습니다. VSCode 등 타입스크립트를">
@@ -183,8 +183,8 @@ ga('send', 'pageview');
             <p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-0-Quick-Start"><a href="#TS-0-Quick-Start" class="headerlink" title="[TS] 0. Quick Start"></a>[TS] 0. Quick Start</h1><p>이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요.</p>
 <h2 id="Install-TypeScript"><a href="#Install-TypeScript" class="headerlink" title="Install TypeScript"></a>Install TypeScript</h2><p>npm을 통해서 간단하게 TypeScript를 설치할 수 있습니다. VSCode 등 타입스크립트를 지원하는 에디터에서는 플러그인을 통해서 설치가 가능합니다.</p>
-<p>via npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g typescript</div></pre></td></tr></table></figure></p>
-<p>command를 이용하여 또는 Editor를 열어 <code>greeter.ts</code>라는 파일을 만듭니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch greeter.ts</div></pre></td></tr></table></figure></p>
+<p>via npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g typescript</div></pre></td></tr></table></figure></p>
+<p>command를 이용하여 또는 Editor를 열어 <code>greeter.ts</code>라는 파일을 만듭니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ touch greeter.ts</div></pre></td></tr></table></figure></p>
 <p><code>greeter.ts</code>코드는 다음과 같습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = <span class="string">"Jane User"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
 <p>TypeScript는 <code>.ts</code>라는 확장자를 사용합니다. 이 파일은 컴파일되어 <code>greeter.js</code>파일이 됩니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsc greeter.ts</div></pre></td></tr></table></figure></p>
 <p><code>tsc</code>라는 명령어를 통해서 TypeScript로 작성된 파일을 컴파일할 수 있습니다.<br>현재 <code>greeter.ts</code>에 작성되어있는 코드는 기존의 JavaScript와 다를 바가 없습니다. 이 JavaScript code인 <code>greeter.ts</code>에 TypeScript 문법을 하나씩 추가해보겠습니다.</p>
@@ -351,117 +351,6 @@ ga('send', 'pageview');
     
     <div class="widgets-container">
         
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/ES6-7-Template-literal/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 7. Template literal" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/19/ES6-7-Template-literal/" class="title">[ES6] 7. Template literal</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T07:26:04.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/TS-0-Quick-Start/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 0. Quick Start" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2017/04/19/TS-0-Quick-Start/" class="title">[TS] 0. Quick Start</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T04:49:15.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/TypeScript-Recent/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="TypeScript 근황" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2017/04/19/TypeScript-Recent/" class="title">TypeScript 근황</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T04:39:38.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/18/ES6-6-Class-sugar-syntax/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 6. Class sugar syntax" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/18/ES6-6-Class-sugar-syntax/" class="title">[ES6] 6. Class sugar syntax</a></p>
-                            <p class="item-date"><time datetime="2017-04-18T12:11:41.000Z" itemprop="datePublished">2017-04-18</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 5. Destructuring and Default Parameter" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" class="title">[ES6] 5. Destructuring and Default Parameter</a></p>
-                            <p class="item-date"><time datetime="2017-04-18T11:59:34.000Z" itemprop="datePublished">2017-04-18</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
             
                 
     <div class="widget-wrap widget-list">

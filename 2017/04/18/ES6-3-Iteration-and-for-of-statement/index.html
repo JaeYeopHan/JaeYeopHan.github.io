@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T04:54:08.000Z">
+<meta property="og:updated_time" content="2017-04-19T07:31:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ES6] 3. Iteration and for-of statement">
 <meta name="twitter:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
@@ -184,10 +184,10 @@ ga('send', 'pageview');
 <h1 id="ES6-3-Iteration-and-for-of-statement"><a href="#ES6-3-Iteration-and-for-of-statement" class="headerlink" title="[ES6] 3. Iteration and for-of statement"></a>[ES6] 3. Iteration and for-of statement</h1><h2 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a>Iteration</h2><p>ES6에서 이터레이션 프로토콜은 <code>Iterable 프로토콜</code>과 <code>Iterator 프로토콜</code>로 구성된다. 결론부터 말하자면 <code>Iterable</code> 프로토콜은 <code>반복 가능한</code> 오브젝트를 나타내는 프로토콜이며 <code>Iterator</code> 프로토콜은 이터러블 오브젝트(<code>Iterable</code> 프로토콜을 따르는 오브젝트)의 값을 <code>작성한 순서대로</code> 처리하는 프로토콜이다.</p>
 <h2 id="Iterable-프로토콜"><a href="#Iterable-프로토콜" class="headerlink" title="Iterable 프로토콜"></a>Iterable 프로토콜</h2><p>오브젝트의 반복 처리 규약을 정의한다.<br>Iterable Object</p>
 <blockquote>
-<p><code>String</code>, <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>TypedArray</code>, <code>Argument</code> 오브젝트 그리고 DOM의 <code>NodeList</code>  </p>
+<p><code>String</code>, <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>TypedArray</code>, <code>Argument</code> 오브젝트<br>그리고 DOM의 <code>NodeList</code>  </p>
 </blockquote>
-<p>위 <em>built in 오브젝트</em>들은 디폴트로 이터러블 프로토콜을 갖고 있다. 오브젝트에 <code>Symbol.iterator</code>가 있어야 한다. <code>Symbol.iterator</code>가 있는 오브젝트는 이터러블 오브젝트이다. 또한 상속받은 prototype chain에 있어도 이터러블 오브젝트이다. (Symbol에 대해서는 다음 포스팅에서 다룰 예정이다.)</p>
-<p>오브젝트에 프로퍼티 존재 여부를 체크할 때, Symbol의 경우에는 arrayObj[Symbol.iterator]와 같이 대괄호 []안에 작성해야 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//function values() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
+<p>위 <em>built in 오브젝트</em>들은 디폴트로 이터러블 프로토콜을 갖고 있다. 오브젝트에 <code>Symbol.iterator</code>가 있어야 한다. <code>Symbol.iterator</code>가 있는 오브젝트는 이터러블 오브젝트이다. 또한 상속받은 prototype chain에 있어도 이터러블 오브젝트이다. (<code>Symbol</code>에 대해서는 다음 포스팅에서 다룰 예정이다.)</p>
+<p>오브젝트에 프로퍼티 존재 여부를 체크할 때, Symbol의 경우에는 arrayObj[Symbol.iterator]와 같이 대괄호 <code>[]</code>안에 작성해야 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//function values() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
 <p><code>Array</code> 오브젝트는 기본적으로 <code>iterable</code> 프로토콜을 구현한다. 하지만 <code>Object</code> 오브젝트는 <code>iterable</code> 프로토콜을 구현하지 않는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iteratorObj = arr[<span class="built_in">Symbol</span>.iterator](); <span class="comment">//iterator object</span></div></pre></td></tr></table></figure></p>
 <p>위와 같은 방식으로 <code>Array</code> 오브젝트는 <code>iterator</code>를 받을 수 있다.</p>
 <h2 id="JavaScript’s-for-statement"><a href="#JavaScript’s-for-statement" class="headerlink" title="JavaScript’s for statement"></a>JavaScript’s for statement</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>forEach 문은 arrow function과 조합해서 사용하면 추가적인 변수 사용 없이 코드가 깔끔해질 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> categories = [<span class="string">"Korean"</span>, <span class="string">"English"</span>, <span class="string">"Science"</span>];</div><div class="line">categories.forEach(<span class="function"><span class="params">subject</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(subject);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
@@ -354,117 +354,6 @@ ga('send', 'pageview');
     
     <div class="widgets-container">
         
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/ES6-7-Template-literal/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 7. Template literal" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/19/ES6-7-Template-literal/" class="title">[ES6] 7. Template literal</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T07:26:04.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/TS-0-Quick-Start/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 0. Quick Start" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2017/04/19/TS-0-Quick-Start/" class="title">[TS] 0. Quick Start</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T04:49:15.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/19/TypeScript-Recent/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="TypeScript 근황" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2017/04/19/TypeScript-Recent/" class="title">TypeScript 근황</a></p>
-                            <p class="item-date"><time datetime="2017-04-19T04:39:38.000Z" itemprop="datePublished">2017-04-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/18/ES6-6-Class-sugar-syntax/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 6. Class sugar syntax" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/18/ES6-6-Class-sugar-syntax/" class="title">[ES6] 6. Class sugar syntax</a></p>
-                            <p class="item-date"><time datetime="2017-04-18T12:11:41.000Z" itemprop="datePublished">2017-04-18</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 5. Destructuring and Default Parameter" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" class="title">[ES6] 5. Destructuring and Default Parameter</a></p>
-                            <p class="item-date"><time datetime="2017-04-18T11:59:34.000Z" itemprop="datePublished">2017-04-18</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
             
                 
     <div class="widget-wrap widget-list">

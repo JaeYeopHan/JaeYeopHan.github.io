@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/</loc>
+        <lastmod>2017-04-19T07:31:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2017/04/19/TS-0-Quick-Start/</loc>
+        <lastmod>2017-04-19T07:30:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/ES6-7-Template-literal/</loc>
         <lastmod>2017-04-19T07:26:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +33,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/TypeScript-Recent/</loc>
         <lastmod>2017-04-19T04:53:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/19/TS-0-Quick-Start/</loc>
-        <lastmod>2017-04-19T04:50:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,14 +65,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/18/let-const/</loc>
         <lastmod>2017-04-18T06:48:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/</loc>
-        <lastmod>2017-04-18T04:54:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
