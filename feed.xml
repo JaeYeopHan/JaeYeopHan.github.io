@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-19T04:43:46.000Z</updated>
+  <updated>2017-04-19T04:50:02.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -16,11 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[TS] 0. Quick Start</title>
+    <link href="https://jaeyeophan.github.io/2017/04/19/TS-0-Quick-Start/"/>
+    <id>https://jaeyeophan.github.io/2017/04/19/TS-0-Quick-Start/</id>
+    <published>2017-04-19T04:49:15.000Z</published>
+    <updated>2017-04-19T04:50:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
+<h1 id="TS-0-Quick-Start"><a href="#TS-0-Quick-Start" class="headerlink" title="[TS] 0. Quick Start"></a>[TS] 0. Quick Start</h1><p>이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요.</p>
+<h2 id="Install-TypeScript"><a href="#Install-TypeScript" class="headerlink" title="Install TypeScript"></a>Install TypeScript</h2><p>npm을 통해서 간단하게 TypeScript를 설치할 수 있습니다. VSCode 등 타입스크립트를 지원하는 에디터에서는 플러그인을 통해서 설치가 가능합니다.</p>
+<p>via npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g typescript</div></pre></td></tr></table></figure></p>
+<p>command를 이용하여 또는 Editor를 열어 <code>greeter.ts</code>라는 파일을 만듭니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch greeter.ts</div></pre></td></tr></table></figure></p>
+<p><code>greeter.ts</code>코드는 다음과 같습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = <span class="string">"Jane User"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
+<p>TypeScript는 <code>.ts</code>라는 확장자를 사용합니다. 이 파일은 컴파일되어 <code>greeter.js</code>파일이 됩니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsc greeter.ts</div></pre></td></tr></table></figure></p>
+<p><code>tsc</code>라는 명령어를 통해서 TypeScript로 작성된 파일을 컴파일할 수 있습니다.<br>현재 <code>greeter.ts</code>에 작성되어있는 코드는 기존의 JavaScript와 다를 바가 없습니다. 이 JavaScript code인 <code>greeter.ts</code>에 TypeScript 문법을 하나씩 추가해보겠습니다.</p>
+<h2 id="TypeScript가-제공하는-대표적인-기능"><a href="#TypeScript가-제공하는-대표적인-기능" class="headerlink" title="TypeScript가 제공하는 대표적인 기능"></a>TypeScript가 제공하는 대표적인 기능</h2><h3 id="Type-annotations"><a href="#Type-annotations" class="headerlink" title="Type annotations"></a>Type annotations</h3><p>동적으로 변수의 타입을 결정했던 JavaScript에게 타입이 생겼습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>TypeScript</strong>는 Type을 제공합니다. Type annotations는 함수가 받는 parameter에 타입을 지정해주어, 함수 내부에서 별도의 타입 체크 없이 parameter를 사용할 수 있게 해줍니다. 즉, <code>person</code>에 다른 타입의 parameter가 주어지면 error가 발생하게 됩니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
+<p>error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">greeter.ts(7,26): Supplied parameters do not match any signature of call target</div></pre></td></tr></table></figure></p>
+<p>타입스크립트는 코드의 구조와 작성된 <code>type annotation</code>으로 정적 분석을 제공합니다. 위와 같이 error가 발생하더라도 타입스크립트 파일은 컴파일되어 <code>.js</code>파일을 만들게 됩니다. TypeScript의 역할은 제대로 동작하지 않을 것 같은 코드에 대해 개발자에게 <code>warning</code>해주는 역할이라고 생각해도 될 것 같습니다 :)</p>
+<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><p>Java개발자라면 익숙한 <code>interface</code> 문법입니다. 위에서 사용했던 예제를 <code>interface</code>를 사용하여 확장해보겠습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Person &#123;</div><div class="line">    firstName: <span class="built_in">string</span>;</div><div class="line">    lastName: <span class="built_in">string</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: Person</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person.firstName + <span class="string">" "</span> + person.lastName;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = &#123; firstName: <span class="string">"Jane"</span>, lastName: <span class="string">"User"</span> &#125;;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
+<p>함수의 parameter에 <code>String</code>이라는 타입 대신 인터페이스(interface)를 적용했습니다. Java의 Generic과 비슷하게 보이는데요, interface를 사용하여 함수가 넘겨받는 parameter의 타입을 보다 구체적으로 정의할 수 있게 되었습니다. 위의 예제 코드와 마찬가지로 정의된 type과 맞지 않은 type의 parameter가 전달되면 error를 출력합니다.</p>
+<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><p>ES6(ECMAScript2015)에서부터 추가된 <code>Class</code> 문법입니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Student &#123;</div><div class="line">    fullName: <span class="built_in">string</span>;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> firstName, <span class="keyword">public</span> middleInitial, <span class="keyword">public</span> lastName</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.fullName = firstName + <span class="string">" "</span> + middleInitial + <span class="string">" "</span> + lastName;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> Student(<span class="string">"Jane"</span>, <span class="string">"M."</span>, <span class="string">"User"</span>);</div></pre></td></tr></table></figure></p>
+<p>ES6의 <code>Class</code>와는 약간 다른 모습을 보입니다. 바로 Class 내부에서 <code>field member</code>를 갖게 된 것입니다. 하지만 그 근본은 ES6의 <code>Class</code>와 같습니다. JavaScript에서 프로토타입을 통해 구현했던 OOP를 보다 간결한 방법으로 문법을 제공하는 것입니다.</p>
+<p>공식 문서에서 제공하는 Quick Start를 통해서 TypeScript 맛보기를 해봤습니다. 감사합니다.</p>
+<p><em>0. Quick start end</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/typescript.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;TS-0-Quick-Start&quot;&gt;&lt;a href=&quot;#TS-0-Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;[TS] 0. Qui
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="https://jaeyeophan.github.io/categories/TypeScript/"/>
+    
+    
+      <category term="ts" scheme="https://jaeyeophan.github.io/tags/ts/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TypeScript 근황</title>
     <link href="https://jaeyeophan.github.io/2017/04/19/TypeScript-%E1%84%80%E1%85%B3%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC/"/>
     <id>https://jaeyeophan.github.io/2017/04/19/TypeScript-근황/</id>
     <published>2017-04-19T04:39:38.000Z</published>
-    <updated>2017-04-19T04:43:46.000Z</updated>
+    <updated>2017-04-19T04:48:52.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TypeScript-근황"><a href="#TypeScript-근황" class="headerlink" title="TypeScript 근황"></a>TypeScript 근황</h1><p>얼마 전, 구글의 발표에 타입스크립트에 관심을 갖게 되었습니다. 기술적인 내용보다는 여러 기술 소식이 담긴 포스팅입니다.</p>
@@ -37,7 +78,7 @@
 <p>Google이 만든 프론트엔드 프레임워크 Angular2(얼마 전, <a href="http://angularjs.blogspot.kr/2017/03/angular-400-now-available.html" target="_blank" rel="external">Angular4.0</a>이 release되었습니다.)도 Dart, JavaScript를 지원하지만 TypeScript를 공식 언어로 지정할만큼 TypeScript의 위상이 높아졌다는 것을 확인하실 수 있습니다.</p>
 <p>이에 더해, 다들 아실만한 협업 툴인 Slack이 TypeScript로 전환했습니다. 다음 링크는 Slack이 코드베이스를 TypeScript로 전환하는 과정에 대한 글로, 정적 분석의 필요성에 대해 인지했다는 내용입니다. <a href="https://slack.engineering/typescript-at-slack-a81307fa288d" target="_blank" rel="external">TypeScript at Slack</a></p>
 <p>Facebook에서 개발한 정적 타입 분석기(static typechecker of javascript) <code>Flow</code>도 마찬가지 행보가 아닐까 생각합니다. 애플리케이션의 규모가 커질 수록 안정성에 대한 수요는 높아지기 마련입니다. 동적 타입이라는 JavaScript가 갖고 있는 장점이자 한계점인 이 부분을 해결하기 위해 정적 분석의 중요도가 높아지고 있습니다.</p>
-<h2 id="TypeScript의-현주소"><a href="#TypeScript의-현주소" class="headerlink" title="TypeScript의 현주소"></a>TypeScript의 현주소</h2><p>이젠 개발자들에게 없어서는 안 될 존재인 <code>Github</code>의 <a href="https://github.com/Microsoft/TypeScript" target="_blank" rel="external">star</a>를 보니 <code>21,076개</code>입니다! (star개수가 64,556개인 React에 비하면 한참 멀었네요!) 올라온 Issue는 2,351개고 진행중인 Pull Request는 82개가 되네요.<br><img src="/images/gibhub_typescript.png" alt=""><br>다음 자료는 Github과 마찬가지로 개발자들에게 없어선 안 되는 <a href="http://stackoverflow.com/insights/survey/2017/#most-loved-dreaded-and-wanted" target="_blank" rel="external">Stackoverflow의 조사 자료</a>입니다. 개발자들이 가장 사랑하는 언어로 Rust, Smalltalk에 이어 TypeScript가 3위를 당당히 차지했습니다.(오, 이 정도인가요?)<br><img src="/images/stackoverflow_survey.png" alt=""></p>
+<h2 id="TypeScript의-현주소"><a href="#TypeScript의-현주소" class="headerlink" title="TypeScript의 현주소"></a>TypeScript의 현주소</h2><p>이젠 개발자들에게 없어서는 안 될 존재인 <code>Github</code>의 <a href="https://github.com/Microsoft/TypeScript" target="_blank" rel="external">star</a>를 보니 <code>21,076개</code>입니다! (star개수가 64,556개인 React에 비하면 한참 멀었네요!) 올라온 Issue는 2,351개고 진행중인 Pull Request는 82개가 되네요.<br><img src="/images/github_typescript.png" alt=""><br>다음 자료는 Github과 마찬가지로 개발자들에게 없어선 안 되는 <a href="http://stackoverflow.com/insights/survey/2017/#most-loved-dreaded-and-wanted" target="_blank" rel="external">Stackoverflow의 조사 자료</a>입니다. 개발자들이 가장 사랑하는 언어로 Rust, Smalltalk에 이어 TypeScript가 3위를 당당히 차지했습니다.(오, 이 정도인가요?)<br><img src="/images/stackoverflow_survey.png" alt=""></p>
 <p>추가된 Type System을 바탕으로 여러 가지 Tool과 구문 완성(content assist) 등의 도움을 받을 수 있는 TypeScript 소개였습니다. 얼마 전 공개된 <a href="https://github.com/Microsoft/reactxp" target="_blank" rel="external">ReactXP</a>를 만든 Microsoft의 지지로 React에서도 TypeScript 방향으로 가지 않을까 생각해봅니다.(Flow 의문의 1패?) 무엇을 공부해야 하나 걱정할 필요없는 프론트엔드 개발자분들을 응원합니다. 감사합니다 :)</p>
 <p><em>cf. 짤막하게 정리해본 <a href="">TypeScript Quick Start</a>입니다.</em></p>
 <h3 id="TypeScript와-관련된-글과-그룹"><a href="#TypeScript와-관련된-글과-그룹" class="headerlink" title="TypeScript와 관련된 글과 그룹"></a>TypeScript와 관련된 글과 그룹</h3><ul>
