@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/04/20/ES6-8-Symbol/</loc>
+        <lastmod>2017-04-20T02:54:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/</loc>
         <lastmod>2017-04-19T07:31:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,8 +31,16 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/</loc>
+        <lastmod>2017-04-19T07:30:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/ES6-7-Template-literal/</loc>
-        <lastmod>2017-04-19T07:26:26.000Z</lastmod>
+        <lastmod>2017-04-19T07:30:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,14 +49,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/TypeScript-Recent/</loc>
         <lastmod>2017-04-19T04:53:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/</loc>
-        <lastmod>2017-04-18T13:26:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
