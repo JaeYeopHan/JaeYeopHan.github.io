@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-21T10:28:26.000Z</updated>
+  <updated>2017-04-21T10:28:52.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>YARN, 새로운 Package Manger</title>
-    <link href="https://jaeyeophan.github.io/2017/04/21/YARN-%E1%84%89%E1%85%A2%E1%84%85%E1%85%A9%E1%84%8B%E1%85%AE%E1%86%AB-Package-Manger/"/>
-    <id>https://jaeyeophan.github.io/2017/04/21/YARN-새로운-Package-Manger/</id>
+    <link href="https://jaeyeophan.github.io/2017/04/21/YARN-New-Package-Manger/"/>
+    <id>https://jaeyeophan.github.io/2017/04/21/YARN-New-Package-Manger/</id>
     <published>2017-04-21T10:18:49.000Z</published>
-    <updated>2017-04-21T10:28:26.000Z</updated>
+    <updated>2017-04-21T10:28:52.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/fe_tool_yarn.jpg" alt=""></p>
 <h1 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h1><p><code>YARN</code>이란 Facebook에서 만든 새로운 자바스크립트 패키지 매니저입니다. 기존에 존재하는 <code>npm</code>과 동일한 기능을 수행합니다. 그렇다면 Facebook은 <code>YARN</code>을 왜 만들었을까요? 이 부분에 대해서는 정리가 잘 되어 있는 링크를 첨부할게요!<br><a href="http://fetobe.co.kr/%EC%83%88%EB%A1%9C%EC%9A%B4-npm-client-yarn/" target="_blank" rel="external">&gt;새로운 NPM Client YARN&gt;</a></p>
