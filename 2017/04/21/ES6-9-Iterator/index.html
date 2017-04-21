@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 2. Arrow function | Devlog</title>
+    <title>[ES6] 9. Iterator | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="es6" />
     
-    <meta name="description" content="[ES6] 2. Arrow Function Always apply to ‘Anonymous function’    자바스크립트의 Scope자바스크립트에서 생성자 함수를 통해 객체를 생성하면 변수 scope가 변경된다. 즉, 생성자 함수 내부에서의 this는 자신을 호출한 대상이 아닌 생성자 함수를 가리키게 된다. 생성자 함수를 통해 생성되는 객체의 과정">
+    <meta name="description" content="[ES6] 9. Iterator&amp;gt;&amp;gt;3. Iterable and for-of statement&amp;gt;&amp;gt;&amp;gt;&amp;gt;8. Symbol 이 포스팅은 이전에 작성된 두 포스팅을 기반으로 작성되었습니다.   iterator는 순회 가능한 값들의 시퀀스를 만드는 방법을 정의한다.대표적인 순회 가능한 것은 Array다. Array 오브젝트는 Symb">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 2. Arrow function">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-2-Arrow-function/index.html">
+<meta property="og:title" content="[ES6] 9. Iterator">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 2. Arrow Function Always apply to ‘Anonymous function’    자바스크립트의 Scope자바스크립트에서 생성자 함수를 통해 객체를 생성하면 변수 scope가 변경된다. 즉, 생성자 함수 내부에서의 this는 자신을 호출한 대상이 아닌 생성자 함수를 가리키게 된다. 생성자 함수를 통해 생성되는 객체의 과정">
+<meta property="og:description" content="[ES6] 9. Iterator&amp;gt;&amp;gt;3. Iterable and for-of statement&amp;gt;&amp;gt;&amp;gt;&amp;gt;8. Symbol 이 포스팅은 이전에 작성된 두 포스팅을 기반으로 작성되었습니다.   iterator는 순회 가능한 값들의 시퀀스를 만드는 방법을 정의한다.대표적인 순회 가능한 것은 Array다. Array 오브젝트는 Symb">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T04:54:06.000Z">
+<meta property="og:updated_time" content="2017-04-21T08:18:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 2. Arrow function">
-<meta name="twitter:description" content="[ES6] 2. Arrow Function Always apply to ‘Anonymous function’    자바스크립트의 Scope자바스크립트에서 생성자 함수를 통해 객체를 생성하면 변수 scope가 변경된다. 즉, 생성자 함수 내부에서의 this는 자신을 호출한 대상이 아닌 생성자 함수를 가리키게 된다. 생성자 함수를 통해 생성되는 객체의 과정">
+<meta name="twitter:title" content="[ES6] 9. Iterator">
+<meta name="twitter:description" content="[ES6] 9. Iterator&amp;gt;&amp;gt;3. Iterable and for-of statement&amp;gt;&amp;gt;&amp;gt;&amp;gt;8. Symbol 이 포스팅은 이전에 작성된 두 포스팅을 기반으로 작성되었습니다.   iterator는 순회 가능한 값들의 시퀀스를 만드는 방법을 정의한다.대표적인 순회 가능한 것은 Array다. Array 오브젝트는 Symb">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
     
     
@@ -149,14 +149,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-2-Arrow-function" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ES6-9-Iterator" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 2. Arrow function
+        [ES6] 9. Iterator
         </h1>
     
 
@@ -166,8 +166,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-2-Arrow-function/" class="article-date">
-            <time datetime="2017-04-18T04:51:49.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/04/21/ES6-9-Iterator/" class="article-date">
+            <time datetime="2017-04-21T08:15:09.000Z" itemprop="datePublished">2017-04-21</time>
         </a>
     </div>
 
@@ -182,21 +182,18 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-2-Arrow-Function"><a href="#ES6-2-Arrow-Function" class="headerlink" title="[ES6] 2. Arrow Function"></a>[ES6] 2. Arrow Function</h1><blockquote>
-<p>Always apply to ‘Anonymous function’  </p>
-</blockquote>
-<h3 id="자바스크립트의-Scope"><a href="#자바스크립트의-Scope" class="headerlink" title="자바스크립트의 Scope"></a>자바스크립트의 Scope</h3><p>자바스크립트에서 생성자 함수를 통해 객체를 생성하면 변수 scope가 변경된다. 즉, 생성자 함수 내부에서의 this는 자신을 호출한 대상이 아닌 생성자 함수를 가리키게 된다. 생성자 함수를 통해 생성되는 객체의 과정 때문이다. 그래서 우리는 여태껏 별의 별짓을 다해왔다. <code>self</code>며 <code>bind</code>며 jQuery에서는 <code>proxy</code>라는 녀석도 사용했다.</p>
-<h3 id="새로운-function의-등장"><a href="#새로운-function의-등장" class="headerlink" title="새로운 function의 등장"></a>새로운 function의 등장</h3><p>하지만 이제는 새로 도입된 Arrow function 을 사용하여 변수 스코프를 보존하자. Arrow function를 통해서 함수를 정의하게 되면, 변수들이 사용되는 위치와는 상관없이 변수들이 정의되어 있는 값으로 scope가 binding  된다. 한 가지 특징을 덧붙이자면, arrow function을 사용하게 되면 <code>arguments</code> 객체가 생성되지 않는다. 하지만 우리는 ES6 문법을 사용하는 이상, <code>arguments</code>는 필요하지 않다!</p>
-<h3 id="Arrow-function-Rule"><a href="#Arrow-function-Rule" class="headerlink" title="Arrow function Rule"></a>Arrow function Rule</h3><p>ES6의 arrow function에는 몇 가지 규칙이 존재하며 대부분의 <code>lamda</code>에서도 비슷한 규칙을 가지고 있어서 <code>lamda</code>를 사용해본 경험이 있다면 어색하지 않을 것이다.<br>1) Parameter와 화살표 사이에서 개행할 수 없다.<br>2) Parameter가 하나일 때는 괄호를 생략할 수 있다.<br>3) Parameter가 없으면 소괄호( ( ) )만 작성한다.<br>4) Block scope({ })를 지정하지 않고 한 줄로 arrow function을 사용할 때는 return이 생략될 수 있다.<br>5) 그 반대로 block scope를 사용한다면 return을 명시해줘야 한다.</p>
-<h3 id="Arrow-Function은-this를-bind하지-않는다"><a href="#Arrow-Function은-this를-bind하지-않는다" class="headerlink" title="Arrow Function은 this를 bind하지 않는다!"></a>Arrow Function은 this를 bind하지 않는다!</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//#todos</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//ES6</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="this의-정체"><a href="#this의-정체" class="headerlink" title="this의 정체"></a>this의 정체</h3><p>ES5에서 <code>this</code> 결정되는 세 가지 조건을 짚고 넘어가자.<br>1) 생성자 내에서<br>생성자 함수를 <code>new</code>라는 키워드를 통해 호출하면 내부에서 <code>this</code>는 인스턴스 그 자체를 가리킨다. 생성자 함수 내부에서 <code>return this;</code>가 생략되어 있기 때문이다.<br>2) 함수 내에서<br><code>this</code>는 생략된 매개 변수이다. 무엇이 함수를 호출했는가가 <code>this</code>를 결정한다.<br>3) <code>bind</code>, <code>apply</code>, <code>call</code> method or <code>proxy</code> method of jQuery<br><code>this</code>는 메소드로 바꿔준 대상을 가리키게 된다.</p>
-<blockquote>
-<p>그렇다면 arrow function 내에서 <code>this</code>는 무엇을 가리키는가.</p>
-</blockquote>
-<p>해당 function을 정의한 영역의 <code>this</code>를 가져온다. 한 단계 더 위의 <code>element</code>를 가리키는 것이다. 그렇기 때문에 <code>prototype</code>에 함수를 정의할 때 arrow function을 사용할 때 내부적으로 <code>this</code>를 사용하게 되면 객체를 가리키지 않고 <code>window</code> 객체를 가리키게 된다. 또한 arrow function은 명식적으로 <code>bind</code>, <code>call</code>로 <code>this</code>를 넣어줘도 이를 무시한다. </p>
-<p>ES6의 arrow function은 단순히 함수를 간단하게 작성할 수 있는 문법이 아니다. 기존의 방식대로 function을 작성해야만 의도대로 작동하는 function이 존재할 수 있고, arrow function으로 기존의 function을 작성하던 방식보다 편하게 작성할 수 있게 된 것이다. 두 가지 방식의 차이점을 제대로 이해하고 새로운 문법과 기존의 문법을 적재적소에서 사용하는 것이 중요해졌다.</p>
+<h1 id="ES6-9-Iterator"><a href="#ES6-9-Iterator" class="headerlink" title="[ES6] 9. Iterator"></a>[ES6] 9. Iterator</h1><p><a href="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/">&gt;&gt;3. Iterable and for-of statement&gt;&gt;</a><br><a href="https://jaeyeophan.github.io/2017/04/20/ES6-8-Symbol/">&gt;&gt;8. Symbol</a></p>
+<p><em>이 포스팅은 이전에 작성된 두 포스팅을 기반으로 작성되었습니다.</em>  </p>
+<p><code>iterator</code>는 순회 가능한 값들의 <code>시퀀스</code>를 만드는 방법을 정의한다.<br>대표적인 순회 가능한 것은 <code>Array</code>다. <code>Array</code> 오브젝트는 <code>Symbol.iterator</code>를 가지고 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr[<span class="built_in">Symbol</span>.iterator]);<span class="comment">// function</span></div></pre></td></tr></table></figure></p>
+<p>위 예제 코드에서 정의한 <code>arr</code>의 <code>iterator</code>를 추출하여 <code>arr</code>를 순회할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterator = arr[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 1, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 2, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 3, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>iterator</code>를 추출하자마자 <code>head</code>(공식 용어는 아니고 설명을 위한 용어)는 배열의 시작점을 가리키게 된다.(첫 원소를 가리키는 것이 아니다.) 그 상태에서 <code>next()</code>메소드를 호출하게 되면, 첫번재 원소가 출력된다. 출력 값은 원소의 값인 <code>value</code>와 <code>done</code>이라는 <code>boolean</code> 값을 가지고 있는 <code>Object</code>이다. 마지막 원소까지 출력된 상태에서 <code>next()</code> 메소드를 호출하게 되면 <code>value</code>는 <code>undefined</code>가 되고 <code>done</code> 값은 <code>true</code>가 된다.</p>
+<p>문자열에도 적용할 수 있다. <code>String</code> 오브젝트도 <code>iterable</code>프로토콜을 구현한 오브젝트이기 때문에 <code>iterator</code>를 사용할 수 있는 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name = <span class="string">"jbee"</span>;</div><div class="line"><span class="keyword">let</span> iterator = name[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: j, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: b, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: e, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: e, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>Object</code>에는 기본적으로 <code>iterator</code>가 존재하지 않는다. 때문에 <code>for-of</code>로 순회할 수 없다. 하지만 <code>iterator</code>를 오브젝트에 추가하여 <code>iterable</code>하게 만들 수 있다. 또한 배열을 상속받은 객체는 <code>iterable</code> 객체이므로 <code>iterator</code>를 사용할 수 있다.</p>
+<p><code>iterator</code>를 사용하다 보면 뭔가 Java의 <code>interface</code> 또는 <code>@FunctionalInterface</code> 같은 느낌도 든다. java에서 해당 <code>interface</code>를 <code>implements</code>하게 되면 해당 기능을 사용할 수 있는 것처럼 구현하고자 하는 <code>Symbol</code>, 즉 <code>iterator</code>를 프로퍼티에 추가해서 사용하면 <code>iterator</code> 기능을 사용할 수 있는 것이다.</p>
+<p>어떻게 하면 <code>iterator</code>를 그럴싸하게 사용해볼 수 있을까?<br>다음 예제는 이렇게 사용하면 어떨까? 정도의 예제 코드이다. 가볍게 보고 넘어가자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Object to create id</span></div><div class="line"><span class="keyword">let</span> autoIncrement = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>.iterator]() &#123;</div><div class="line">    <span class="keyword">let</span> id = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      next() &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">value</span>: ++id,</div><div class="line">          <span class="attr">done</span>: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Define User class</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(id, name) &#123;</div><div class="line">    <span class="keyword">this</span>.id = id;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> idCreator = autoIncrement[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"jbee"</span>));<span class="comment">// &#123; id: 1, name: 'jbee' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"foo"</span>));<span class="comment">// &#123; id: 2, name: 'foo' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"bar"</span>));<span class="comment">// &#123; id: 3, name: 'bar' &#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>autoIncraement</code> 객체에 <code>iterator</code> 프로퍼티를 추가하여, <code>id</code>를 순차적으로 생성하게 만들었다. <code>id</code>에 대해서는 외부에서 접근할 수 없으므로 안정적인 <code>id</code>가 생성될 수 있지 않을까?</p>
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>2. end</em></p>
+<p><em>9.end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -204,7 +201,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-2-Arrow-function/" data-id="cj1rkd5890000fswg6rg5kv9p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/" data-id="cj1rkd5ai000lfswg5aiq3w0x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -328,22 +325,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/let-const/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/04/20/ES6-8-Symbol/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 1. let-const
+            [ES6] 8. Symbol
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 3. Iteration and for-of statement</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -497,7 +488,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-2-Arrow-function/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/';
     
     (function() {
     var dsq = document.createElement('script');

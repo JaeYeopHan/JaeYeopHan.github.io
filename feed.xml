@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-20T02:54:26.000Z</updated>
+  <updated>2017-04-21T08:18:11.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[ES6] 9. Iterator</title>
+    <link href="https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/"/>
+    <id>https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/</id>
+    <published>2017-04-21T08:15:09.000Z</published>
+    <updated>2017-04-21T08:18:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/javascript_es6.png" alt=""></p>
+<h1 id="ES6-9-Iterator"><a href="#ES6-9-Iterator" class="headerlink" title="[ES6] 9. Iterator"></a>[ES6] 9. Iterator</h1><p><a href="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/">&gt;&gt;3. Iterable and for-of statement&gt;&gt;</a><br><a href="https://jaeyeophan.github.io/2017/04/20/ES6-8-Symbol/">&gt;&gt;8. Symbol</a></p>
+<p><em>이 포스팅은 이전에 작성된 두 포스팅을 기반으로 작성되었습니다.</em>  </p>
+<p><code>iterator</code>는 순회 가능한 값들의 <code>시퀀스</code>를 만드는 방법을 정의한다.<br>대표적인 순회 가능한 것은 <code>Array</code>다. <code>Array</code> 오브젝트는 <code>Symbol.iterator</code>를 가지고 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr[<span class="built_in">Symbol</span>.iterator]);<span class="comment">// function</span></div></pre></td></tr></table></figure></p>
+<p>위 예제 코드에서 정의한 <code>arr</code>의 <code>iterator</code>를 추출하여 <code>arr</code>를 순회할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterator = arr[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 1, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 2, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: 3, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>iterator</code>를 추출하자마자 <code>head</code>(공식 용어는 아니고 설명을 위한 용어)는 배열의 시작점을 가리키게 된다.(첫 원소를 가리키는 것이 아니다.) 그 상태에서 <code>next()</code>메소드를 호출하게 되면, 첫번재 원소가 출력된다. 출력 값은 원소의 값인 <code>value</code>와 <code>done</code>이라는 <code>boolean</code> 값을 가지고 있는 <code>Object</code>이다. 마지막 원소까지 출력된 상태에서 <code>next()</code> 메소드를 호출하게 되면 <code>value</code>는 <code>undefined</code>가 되고 <code>done</code> 값은 <code>true</code>가 된다.</p>
+<p>문자열에도 적용할 수 있다. <code>String</code> 오브젝트도 <code>iterable</code>프로토콜을 구현한 오브젝트이기 때문에 <code>iterator</code>를 사용할 수 있는 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name = <span class="string">"jbee"</span>;</div><div class="line"><span class="keyword">let</span> iterator = name[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: j, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: b, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: e, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: e, done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next());<span class="comment">// &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>Object</code>에는 기본적으로 <code>iterator</code>가 존재하지 않는다. 때문에 <code>for-of</code>로 순회할 수 없다. 하지만 <code>iterator</code>를 오브젝트에 추가하여 <code>iterable</code>하게 만들 수 있다. 또한 배열을 상속받은 객체는 <code>iterable</code> 객체이므로 <code>iterator</code>를 사용할 수 있다.</p>
+<p><code>iterator</code>를 사용하다 보면 뭔가 Java의 <code>interface</code> 또는 <code>@FunctionalInterface</code> 같은 느낌도 든다. java에서 해당 <code>interface</code>를 <code>implements</code>하게 되면 해당 기능을 사용할 수 있는 것처럼 구현하고자 하는 <code>Symbol</code>, 즉 <code>iterator</code>를 프로퍼티에 추가해서 사용하면 <code>iterator</code> 기능을 사용할 수 있는 것이다.</p>
+<p>어떻게 하면 <code>iterator</code>를 그럴싸하게 사용해볼 수 있을까?<br>다음 예제는 이렇게 사용하면 어떨까? 정도의 예제 코드이다. 가볍게 보고 넘어가자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Object to create id</span></div><div class="line"><span class="keyword">let</span> autoIncrement = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>.iterator]() &#123;</div><div class="line">    <span class="keyword">let</span> id = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      next() &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">value</span>: ++id,</div><div class="line">          <span class="attr">done</span>: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Define User class</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(id, name) &#123;</div><div class="line">    <span class="keyword">this</span>.id = id;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> idCreator = autoIncrement[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"jbee"</span>));<span class="comment">// &#123; id: 1, name: 'jbee' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"foo"</span>));<span class="comment">// &#123; id: 2, name: 'foo' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> User(idCreator.next().value, <span class="string">"bar"</span>));<span class="comment">// &#123; id: 3, name: 'bar' &#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>autoIncraement</code> 객체에 <code>iterator</code> 프로퍼티를 추가하여, <code>id</code>를 순차적으로 생성하게 만들었다. <code>id</code>에 대해서는 외부에서 접근할 수 없으므로 안정적인 <code>id</code>가 생성될 수 있지 않을까?</p>
+<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
+<p><em>9.end</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/javascript_es6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;ES6-9-Iterator&quot;&gt;&lt;a href=&quot;#ES6-9-Iterator&quot; class=&quot;headerlink&quot; title=&quot;[ES6] 9. It
+    
+    </summary>
+    
+      <category term="ECMAScript6" scheme="https://jaeyeophan.github.io/categories/ECMAScript6/"/>
+    
+    
+      <category term="es6" scheme="https://jaeyeophan.github.io/tags/es6/"/>
+    
+  </entry>
   
   <entry>
     <title>[ES6] 8. Symbol</title>
