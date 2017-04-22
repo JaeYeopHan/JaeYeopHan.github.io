@@ -1822,57 +1822,55 @@ i.icon:before {
   height: 1.6em;
 }
 .highlight {
-  padding: 0.5em;
-  color: #333;
+  color: #4d4d4c;
+  background: #fff;
 }
 .highlight .code .comment,
-.highlight .code .meta {
-  color: #969896;
+.highlight .code .quote {
+  color: #8e908c;
 }
-.highlight .code .string,
 .highlight .code .variable,
 .highlight .code .template-variable,
-.highlight .code .strong,
-.highlight .code .emphasis,
-.highlight .code .quote {
-  color: #df5000;
-}
-.highlight .code .keyword,
-.highlight .code .selector-tag,
-.highlight .code .type {
-  color: #a71d5d;
-}
-.highlight .code .literal,
-.highlight .code .symbol,
-.highlight .code .bullet,
-.highlight .code .attribute {
-  color: #0086b3;
-}
-.highlight .code .section,
-.highlight .code .name {
-  color: #63a35c;
-}
-.highlight .code .tag {
-  color: #333;
-}
-.highlight .code .title,
-.highlight .code .attr,
+.highlight .code .tag,
+.highlight .code .name,
 .highlight .code .selector-id,
 .highlight .code .selector-class,
-.highlight .code .selector-attr,
-.highlight .code .selector-pseudo {
-  color: #795da3;
-}
-.highlight .code .addition {
-  color: #55a532;
-  background-color: #eaffea;
-}
+.highlight .code .regexp,
 .highlight .code .deletion {
-  color: #bd2c00;
-  background-color: #ffecec;
+  color: #c82829;
 }
+.highlight .code .number,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .meta,
 .highlight .code .link {
-  text-decoration: underline;
+  color: #f5871f;
+}
+.highlight .code .attribute {
+  color: #eab700;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .addition {
+  color: #718c00;
+}
+.highlight .code .title,
+.highlight .code .section {
+  color: #4271ae;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag {
+  color: #8959a8;
+}
+.highlight .code .emphasis {
+  font-style: italic;
+}
+.highlight .code .strong {
+  font-weight: bold;
 }
 @media only screen and (min-width: 960px) {
   .nav-container-inner {
