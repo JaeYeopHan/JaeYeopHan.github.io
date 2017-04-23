@@ -7,24 +7,8 @@
     </url>
 
     <url>
-        <loc>https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/</loc>
-        <lastmod>2017-04-23T07:13:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jaeyeophan.github.io/2017/04/23/BDD-3-chai-http/</loc>
-        <lastmod>2017-04-23T07:11:41.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/</loc>
-        <lastmod>2017-04-23T07:10:22.000Z</lastmod>
+        <lastmod>2017-04-23T07:32:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,7 +16,23 @@
 
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/</loc>
-        <lastmod>2017-04-23T07:09:28.000Z</lastmod>
+        <lastmod>2017-04-23T07:31:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/</loc>
+        <lastmod>2017-04-23T07:29:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/</loc>
+        <lastmod>2017-04-23T07:13:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
