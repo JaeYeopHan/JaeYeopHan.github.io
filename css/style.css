@@ -1822,55 +1822,57 @@ i.icon:before {
   height: 1.6em;
 }
 .highlight {
-  color: #4d4d4c;
-  background: #fff;
+  color: #bababa;
+  background: #2b2b2b;
 }
-.highlight .code .comment,
-.highlight .code .quote {
-  color: #8e908c;
+.highlight .code .strong,
+.highlight .code .emphasis {
+  color: #a8a8a2;
 }
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .tag,
-.highlight .code .name,
-.highlight .code .selector-id,
-.highlight .code .selector-class,
-.highlight .code .regexp,
-.highlight .code .deletion {
-  color: #c82829;
-}
-.highlight .code .number,
-.highlight .code .built_in,
-.highlight .code .builtin-name,
-.highlight .code .literal,
-.highlight .code .type,
-.highlight .code .params,
-.highlight .code .meta,
-.highlight .code .link {
-  color: #f5871f;
-}
-.highlight .code .attribute {
-  color: #eab700;
-}
-.highlight .code .string,
-.highlight .code .symbol,
 .highlight .code .bullet,
-.highlight .code .addition {
-  color: #718c00;
+.highlight .code .quote,
+.highlight .code .link,
+.highlight .code .number,
+.highlight .code .regexp,
+.highlight .code .literal {
+  color: #6896ba;
 }
-.highlight .code .title,
-.highlight .code .section {
-  color: #4271ae;
-}
-.highlight .code .keyword,
-.highlight .code .selector-tag {
-  color: #8959a8;
+.highlight .code .code,
+.highlight .code .selector-class {
+  color: #a6e22e;
 }
 .highlight .code .emphasis {
   font-style: italic;
 }
-.highlight .code .strong {
-  font-weight: bold;
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .section,
+.highlight .code .attribute,
+.highlight .code .name,
+.highlight .code .variable {
+  color: #cb7832;
+}
+.highlight .code .params {
+  color: #b9b9b9;
+}
+.highlight .code .string,
+.highlight .code .subst,
+.highlight .code .type,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .symbol,
+.highlight .code .selector-id,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo,
+.highlight .code .template-tag,
+.highlight .code .template-variable,
+.highlight .code .addition {
+  color: #e0c46c;
+}
+.highlight .code .comment,
+.highlight .code .deletion,
+.highlight .code .meta {
+  color: #7f7f7f;
 }
 @media only screen and (min-width: 960px) {
   .nav-container-inner {
