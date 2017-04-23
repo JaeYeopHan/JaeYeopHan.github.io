@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/04/22/ES6-10-Generator/</loc>
+        <lastmod>2017-04-23T10:45:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/</loc>
         <lastmod>2017-04-23T09:30:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +41,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/</loc>
         <lastmod>2017-04-23T07:13:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/22/ES6-10-Generator/</loc>
-        <lastmod>2017-04-22T08:50:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

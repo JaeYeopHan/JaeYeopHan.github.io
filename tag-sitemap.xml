@@ -9,13 +9,6 @@
     </url>
 
     <url>
-        <loc>https://jaeyeophan.github.io/tags/es6/</loc>
-        <lastmod>2017-04-22T08:50:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jaeyeophan.github.io/tags/ts/</loc>
         <lastmod>2017-04-23T07:13:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,6 +18,13 @@
     <url>
         <loc>https://jaeyeophan.github.io/tags/bdd/</loc>
         <lastmod>2017-04-23T09:30:59.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/tags/es6/</loc>
+        <lastmod>2017-04-23T10:45:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
