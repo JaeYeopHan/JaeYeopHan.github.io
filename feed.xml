@@ -567,10 +567,10 @@
     <link href="https://jaeyeophan.github.io/2017/04/19/TypeScript-Recent/"/>
     <id>https://jaeyeophan.github.io/2017/04/19/TypeScript-Recent/</id>
     <published>2017-04-19T04:39:38.000Z</published>
-    <updated>2017-04-19T04:53:28.000Z</updated>
+    <updated>2017-04-28T06:16:46.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
-<h1 id="TypeScript-근황"><a href="#TypeScript-근황" class="headerlink" title="TypeScript 근황"></a>TypeScript 근황</h1><p>얼마 전, 구글의 발표에 타입스크립트에 관심을 갖게 되었습니다. 기술적인 내용보다는 여러 기술 소식이 담긴 포스팅입니다.</p>
+<h1 id="TypeScript-근황"><a href="#TypeScript-근황" class="headerlink" title="TypeScript 근황"></a>TypeScript 근황</h1><p>얼마 전, 구글의 발표에 타입스크립트에 관심을 갖게 되었습니다. 기술적인 내용보다는 여러 기술 소식이 담긴 포스팅입니다.<br>이 포스팅은 17년 4월 중순 경에 작성되었으며 작성되는 시점의 TypeScript version은 <code>2.2 version</code>입니다.<br>(4월 28일, 2.3 version이 release되었습니다.)</p>
 <h2 id="JavaScript의-미래"><a href="#JavaScript의-미래" class="headerlink" title="JavaScript의 미래"></a>JavaScript의 미래</h2><p>올해가 벌써 2017년이니, 재작년인 2015년에 <code>ECMAScript2015(aka ECMAScript6 or ES6)</code>가 JavaScript 표준으로 정의되었고, 작년에는 <code>ECMAScript2016(aka ECMAScript7 or ES7)</code>이 발표되었습니다. 머지않아 <code>ECMAScript2017</code>도 발표될 예정(6월 예정)이라고 합니다. <code>Node.js</code>의 등장으로 JavaScript가 소프트웨어 개발 환경에서 막대한 비중을 차지하자 현재 <a href="https://github.com/tc39/tc39-notes" target="_blank" rel="external">tc39</a>라는 커뮤니티에서 끊임없이 JavaScript라는 언어의 표준을 명세하고 있습니다. 이것은 무엇을 의미할까요?</p>
 <p>TypeScript에 대한 이야기를 하기 위해 JavaScript에 관한 내용은 다음 글을 참조하시면 좋을 것 같아 링크를 첨부합니다. <a href="http://d2.naver.com/helloworld/2809766" target="_blank" rel="external">2017년과 이후 JavaScript의 동향 - JavaScript(ECMAScript)</a></p>
 <h2 id="TypeScript의-정체"><a href="#TypeScript의-정체" class="headerlink" title="TypeScript의 정체"></a>TypeScript의 정체</h2><blockquote>
