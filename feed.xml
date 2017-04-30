@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-30T14:11:59.000Z</updated>
+  <updated>2017-04-30T14:12:57.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/"/>
     <id>https://jaeyeophan.github.io/2017/04/30/issue-management-tool/</id>
     <published>2017-04-29T15:30:28.000Z</published>
-    <updated>2017-04-30T14:11:59.000Z</updated>
+    <updated>2017-04-30T14:12:57.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/github_logo.jpg" alt=""></p>
 <h1 id="Issue-Management-Tool"><a href="#Issue-Management-Tool" class="headerlink" title="Issue Management Tool"></a>Issue Management Tool</h1><p>개발자들에게 정말 많은 사랑을 받고 있는 <code>Github</code>. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 <code>Issue Management Tool</code> 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한 필요성을 느끼고 <code>Project</code>라는 이름의 기능을 추가하였는데요, 이것과 비교도 해보겠습니다.)<br>Github Help에서 제공하는 <a href="https://help.github.com/articles/managing-your-work-with-issues/" target="_blank" rel="external">Issue 관리에 대한 자료</a>입니다. 이 포스팅을 읽기 전에 참고해봐도 좋을 것 같습니다.</p>
@@ -55,7 +55,7 @@
 <p><br></p>
 <h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이 외에도 <code>Waffle</code>, <code>CodeTree</code>, <code>Asana</code> 등등 정말 많은 Tool들이 존재합니다. 제공하는 기능은 조금씩만 다르고 다 거기서 거기인 것 같습니다. 기존에 사용했던 다른 도구들(예를 들면 <code>Slack</code>, <code>Trello</code>, <code>hipchat</code> 등)과 얼마나 통합이 잘 되는지 또한 중요한 쟁점이 될 것 같습니다.</p>
 <p>또 프로젝트에서 사용하는 Tool이 많아질수록 본래 프로젝트를 관리하기 위해 도입했던 관리 Tool을 관리해야 하는 주객전도 현상이 발생할 수 있습니다. 이 부분 또한 인지하여 프로젝트 관리 도구를 도입해야할 것입니다.</p>
-<p>저는 개인적으로 새로운 Tool이 도입되는 부담감이 가장 적고 기존의 Github에 가장 잘 녹아드는 <code>Zenhub</code>이 가장 잘 맞는 것 같습니다:) <em>그러다 보니 포스팅이 <code>Zenhub</code>플러그인 소개하는 쪽으로 많이 기울어졌네요 :) </em></p>
+<p>저는 개인적으로 새로운 Tool이 도입되는 부담감이 가장 적고 기존의 Github에 가장 잘 녹아드는 <code>Zenhub</code>이 가장 잘 맞는 것 같습니다:)</p>
 <p><em>여러분 팀에 맞는 프로젝트 관리 도구는 무엇인가요?</em><br>감사합니다 :)</p>
 ]]></content>
     
