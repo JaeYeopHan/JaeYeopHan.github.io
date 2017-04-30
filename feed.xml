@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-23T07:13:58.000Z</updated>
+  <updated>2017-04-30T14:09:50.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Tool] Issue Management Tool, Zenhub</title>
+    <link href="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/"/>
+    <id>https://jaeyeophan.github.io/2017/04/30/issue-management-tool/</id>
+    <published>2017-04-29T15:30:28.000Z</published>
+    <updated>2017-04-30T14:09:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/github_logo.jpg" alt=""></p>
+<h1 id="Issue-Management-Tool"><a href="#Issue-Management-Tool" class="headerlink" title="Issue Management Tool"></a>Issue Management Tool</h1><p>개발자들에게 정말 많은 사랑을 받고 있는 <code>Github</code>. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 <code>Issue Management Tool</code> 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한 필요성을 느끼고 <code>Project</code>라는 이름의 기능을 추가하였는데요, 이것과 비교도 해보겠습니다.)<br>Github Help에서 제공하는 <a href="https://help.github.com/articles/managing-your-work-with-issues/" target="_blank" rel="external">Issue 관리에 대한 자료</a>입니다. 이 포스팅을 읽기 전에 참고해봐도 좋을 것 같습니다.</p>
+<h2 id="Agile이라는-녀석"><a href="#Agile이라는-녀석" class="headerlink" title="Agile이라는 녀석,"></a>Agile이라는 녀석,</h2><p><img src="/images/agile_cloud_tag.png" alt=""><br> <em> reference&gt;<a href="http://www.onedesk.com/scrum-methodology-vs-agile-methodology/" target="_blank" rel="external">http://www.onedesk.com/scrum-methodology-vs-agile-methodology/</a></em><br><code>Agile 방법론</code>이 대두되면서, 프로젝트의 진행 상황을 공유하고 관리하는 것이 전보다 복잡하고 중요해졌습니다.(<a href="http://blog.rightbrain.co.kr/?p=5810" target="_blank" rel="external">Agile이란 무엇인가</a>) 개발자들간의 의사소통은 물론이고 프로젝트를 관리하는 매니저, 팀장 등과의 의사소통이 매우 중요해졌는데요, 이러한 상황 속에서 매번 회의를 하거나 서로에게 물어보면 그만큼 생산성이 감소하게 됩니다. 보다 효율적으로, Agile하게 프로젝트가 진행될 수 있도록 각종 도구들을 제대로 알고 팀에 적합한 도구를 고르는 것이 중요해졌습니다.</p>
+<h2 id="Github이-제공하는-기능들"><a href="#Github이-제공하는-기능들" class="headerlink" title="Github이 제공하는 기능들"></a>Github이 제공하는 기능들</h2><p><img src="/images/default_github.png" alt=""><br>프로젝트 Repository안에는 viewer인 <code>Code</code> 탭, task 관리를 위한 <code>Issue</code>탭, 그리고 이 이슈들을 관리하기 위한 <code>Label</code>과 <code>Milestone</code>이 존재합니다. 프로젝트에서 진행되고 있는 Issue의 상태(Status) 또는 성격을 <code>Label</code>이라는 Metadata로 관리할 수 있고, <code>Milestone</code>이란 기능으로 단기적인 목표의 기간을 관리할 수 있습니다. 또 <code>Project</code>라는 탭을 통해 kanban 형식으로 Issue들을 관리할 수 있습니다. Trello라는 서비스를 아시나요? Tello가 대표적인 <strong>kanban 형식의 dashboard</strong> 입니다.</p>
+<p><em>cf&gt; 포스팅에서 언급되는 <code>기존 형식의 dashboard</code>란 Agile workflow를 중심으로 드래그 앤 드롭을 통한 우선순위 선정 기능, Label 기능, Real-time dashboard 기능 등을 포함한 kanban 형식의 dashboard을 말합니다.</em></p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><p>Github에서 제공하는 다양한 Plugin 형태의 Tool들은 <a href="https://github.com/integrations" target="_blank" rel="external">Integration Tab</a>에서 볼 수 있습니다. 이미 널리 알려진 <code>JIRA</code>를 제외하고 몇 가지 Tool들을 알아보겠습니다:) 제 나름대로의 판단 기준을 갖고 검색해보았습니다.</p>
+<ol>
+<li>기존의 Github Repository와 연동이 잘 되는가?</li>
+<li>어떤 형식으로 dashboard를 제공하는가? (kanban 형식인가?)</li>
+<li>UI/UX적으로 어떤가?</li>
+<li>부가적인 기능에는 무엇이 있는가?</li>
+</ol>
+<h2 id="Zenhub"><a href="#Zenhub" class="headerlink" title="Zenhub"></a>Zenhub</h2><p><img src="/images/zenhub.png" alt=""><br><code>Zenhub</code>은 기존 형식의 dashboard를 제공합니다. Repository 기준으로 dashboard가 생성되고 기존에 등록되어 있던 Issue들은 물론이고 추후 생성하는 Issue들은 <code>New Issues</code>라는 column으로 들어갑니다. 가장 기본적이고 중요한 Github과의 연동은 문제가 없습니다.</p>
+<h3 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h3><h4 id="기존의-Github에서-Tab만-추가되는-형식"><a href="#기존의-Github에서-Tab만-추가되는-형식" class="headerlink" title="기존의 Github에서 Tab만 추가되는 형식"></a>기존의 Github에서 Tab만 추가되는 형식</h4><p><img src="/images/zenhub_plugin.png" alt=""><br>기존의 Github에서 제공하는 탭에서 Board라는 탭과 Report라는 탭이 추가되었습니다. <code>Zenhub</code>을 추가하게 되면 자동으로 Repository마다 저런 형식으로 탭이 추가됩니다. 기존 Github에서 제공되는 기능에서 Board라는 탭이 추가되는 형식이기 때문에 기존의 Github을 그대로 이용할 수 있다는 장점이 있습니다.</p>
+<h4 id="Chrome-Extension"><a href="#Chrome-Extension" class="headerlink" title="Chrome Extension"></a>Chrome Extension</h4><p><img src="/images/zenhub_chrome_extension.png" alt=""><br>원한다면 Chrome extension을 추가하여 브라우저 어디에서든 변동사항을 파악할 수 있다는 장점도 존재합니다. 접근성면에서 아주 좋습니다.</p>
+<h4 id="Metadata를-통한-Issue-구체화"><a href="#Metadata를-통한-Issue-구체화" class="headerlink" title="Metadata를 통한 Issue 구체화"></a>Metadata를 통한 Issue 구체화</h4><p><code>Zenhub</code>은 Github에서 제공하는 Issue Metadata들에서 추가적으로 몇 가지 기능을 더 제공합니다.<br><img src="/images/zenhub_modal.png" alt=""></p>
+<h5 id="1-Pipeline"><a href="#1-Pipeline" class="headerlink" title="1. Pipeline"></a>1. Pipeline</h5><p>제공되는 dashboard를 기준으로 제공되는 <code>Pipleline</code>이라는 기능으로 Issue의 Status를 설정할 수 있습니다.</p>
+<h5 id="2-Epic"><a href="#2-Epic" class="headerlink" title="2. Epic"></a>2. Epic</h5><p>Github에서는 Issue들을 명시적으로 <code>그룹화</code>할 방법이 없었습니다. <code>Label</code>을 통해서 어떻게든 그룹화하려면 할 수는 있었지만, 아쉬운 점이 많았습니다. <code>Zenhub</code>에서는 <code>epic</code>이라는 기능을 제공하여 Issue들을 그룹화할 수 있습니다.</p>
+<h5 id="3-Estimate"><a href="#3-Estimate" class="headerlink" title="3. Estimate"></a>3. Estimate</h5><p>Issue에 <code>Estimate</code>라는 Metadata를 이용하여 해당 Issue의 <code>복잡도(complexity)</code>를 설정할 수 있습니다. <code>1, 2, 3, 5, 8, 13, 21, 40</code>이라는 총 8단계의 레벨을 제공하고 있습니다. 팀 내부에서의 회의를 통해 일정을 산정하고 그에 맞는 레벨을 설정할 수 있습니다. 플래닝 포커라는 방법으로 일정을 산출할 수 있습니다. <em>&gt; 참고자료:<a href="http://bcho.tistory.com/1041" target="_blank" rel="external">플래닝 포커를 이용한 프로젝트 일정 산정</a></em></p>
+<h4 id="Merge-repository"><a href="#Merge-repository" class="headerlink" title="Merge repository"></a>Merge repository</h4><p><img src="/images/merge_repository.png" alt=""><br>Respository를 <code>merge</code>하여 <strong>하나의 dashboard에서 복수 개의 Respository를</strong> 관리할 수 있습니다. 여러 프로젝트를 통합하여 관리해야 한다면 <code>Zenhub</code>의 merge 기능을 이용할 수 있습니다. 개인 Issue 관리 Repository를 따로 만들어서 자신만의 Issue를 관리할 수 있겠네요:)</p>
+<h4 id="Report-기능"><a href="#Report-기능" class="headerlink" title="Report 기능"></a>Report 기능</h4><p><img src="/images/zenhub_report.png" alt=""><br><code>Burndown</code>, <code>Velocity tracking</code>, <code>Release Report</code> 세 가지의 옵션으로 그래프 형식의 보고서를 보여줍니다. 지정한 <code>Milestone</code>의 진행 상황을 한 눈에 살펴볼 수 있는 좋은 기능입니다 :) <code>Label</code>에 따라서 또는 Issue의 상태에 따라서 다양한 보고서를 볼 수 있습니다.</p>
+<h4 id="To-do-list"><a href="#To-do-list" class="headerlink" title="To do list"></a>To do list</h4><p><img src="/images/zenhub_topbar.png" alt=""><br><code>Zenhub</code>플러그인을 설치하게 되면 위과 같이 상단 bar에 <code>Todo</code>라는 탭이 하나 더 추가됩니다.<br><img src="/images/zenhub_todo.png" alt=""><br>TODO를 관리할 수 있도록 플러그인을 제공해주고 있습니다. 물론 다른 Todo 전용 애플리케이션보다는 기능이 미약합니다.</p>
+<h4 id="기타-부가적인-기능"><a href="#기타-부가적인-기능" class="headerlink" title="기타 부가적인 기능"></a>기타 부가적인 기능</h4><p>그리고 Zenhub에서는 Repository에서 다른 Respository로 손쉽게 이동할 수 있는 통로(?)를 제공해줍니다. Repository 이름 옆에 햄버거 버튼이 생성되는데요, 그 버튼을 통해서 계정에 존재하는 다른 Repository로 이동할 수 있습니다.<br><img src="/images/move_repository.png" alt=""><br>한 가지 또 부가적인 기능은 키보드 자판에서의 <code>b</code>버튼을 shotcut으로 제공해서 repository 화면에서 바로 <code>Board</code>탭으로 이동이 가능하네요:)</p>
+<h3 id="가격"><a href="#가격" class="headerlink" title="가격"></a>가격</h3><p>공식 웹 사이트에는 5명 이하의 작은 팀에 대해서는 무료로 제공한다고 합니다. 물론 이것은 private repository에 대해서 적용되는 사항이구요, public repository에 대해서는 사용자 수에 상관없이 무료로 제공하고 있습니다.</p>
+<h4 id="Github에서-제공하는-Project-기능과비교"><a href="#Github에서-제공하는-Project-기능과비교" class="headerlink" title="Github에서 제공하는 Project 기능과비교"></a>Github에서 제공하는 Project 기능과비교</h4><p><code>Zenhub</code>에서는 dashboard에서 <code>Issue</code>를 클릭하면 <strong>modal형태로</strong> 해당 Issue의 내용이 보이면서 바로 comment를 달거나 <code>Label</code>을 변경하는 등의 작업을 수행할 수 있는 기능을 제공합니다. 그러나 Github에서 제공하는 <code>Project dashboard</code>는 Issue를 클릭하면 해당 Issue 페이지로 redirect되어 (개인적으로는 매우)불편합니다.</p>
+<p>또한 <code>Zenhub</code>을 사용하면 Issue의 특성에 따라서 필터를 적용할 수 있습니다. dashboard에 흩어져 있는 Issue들을 <code>Milestone</code>에 따라서 또는 <code>Label</code>에 따라서 등등의 특성으로 분류가 가능합니다. 아직 Github에서 default로 제공하는 Project 기능은 부족한 점이 많아 보입니다 :(</p>
+<p><a href="https://www.zenhub.com/product" target="_blank" rel="external">Zenhub 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h2 id="그-외-Management-Tools"><a href="#그-외-Management-Tools" class="headerlink" title="그 외 Management Tools"></a>그 외 Management Tools</h2><h3 id="Hueboard"><a href="#Hueboard" class="headerlink" title="Hueboard"></a>Hueboard</h3><p><a href="https://huboard.com/huboard/huboard" target="_blank" rel="external">Hueboard 예시</a><br><code>Zenhub</code>과 마찬가지로 하나의 Repository마다, 하나의 dashboard를 제공해주며 기존의 dashboard 형식을 취합니다. UI적으로는 <code>Zenhub</code>보다 조금 나아보입니다. <code>Zenhub</code>과는 달리 별도의 웹 사이트로 redirect되면서 프로젝트 관리에 대한 총체적인 dashboard를 제공합니다. Filter 기능이 유독 눈에 들어오네요. dashboard에 흩어져있는 각종 Issue 들을 filter로 관리할 수 있다는 장점이 존재합니다. <code>Zenhub</code>에서도 가능했던 기능이지만 UI적으로 깔끔해서 dashboard에 집중할 수가 있을 것 같습니다.<br><a href="https://huboard.com/" target="_blank" rel="external">Hueboard 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><br></h2><h3 id="Zube"><a href="#Zube" class="headerlink" title="Zube"></a>Zube</h3><p><img src="/images/zube_feature.png" alt=""><br>기존의 dashboard 외에 몇 가지 추가적인 기능을 제공합니다. <code>Sprint board</code>, <code>Sprint</code>, <code>Tickets</code> 눈에 들어오는 것은 <code>Analytics</code> 기능입니다.<br><img src="/images/zube_analysis.png" alt=""><br><code>Zenhub</code>에서 제공하는 보고서 유형보다 2종류가 더 많네요. 프로젝트를 처음 시작할 때부터 도입하지 않으면 사용하기에 부담이 생기는 Tool일 것 같다는 생각이 들었습니다. 또한 너무 많은 기능을 제공하면 오히려 생산성을 저해하는 요소가 될 수 있지 않을까 생각이 드는 Tool이었습니다.</p>
+<p><a href="https://zube.io/" target="_blank" rel="external">Zube 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
+<p><br></p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이 외에도 <code>Waffle</code>, <code>CodeTree</code>, <code>Asana</code> 등등 정말 많은 Tool들이 존재합니다. 제공하는 기능은 조금씩만 다르고 다 거기서 거기인 것 같습니다. 기존에 사용했던 다른 도구들(예를 들면 <code>Slack</code>, <code>Trello</code>, <code>hipchat</code> 등)과 얼마나 통합이 잘 되는지 또한 중요한 쟁점이 될 것 같습니다.</p>
+<p>또 프로젝트에서 사용하는 Tool이 많아질수록 본래 프로젝트를 관리하기 위해 도입했던 관리 Tool을 관리해야 하는 주객전도 현상이 발생할 수 있습니다. 이 부분 또한 인지하여 프로젝트 관리 도구를 도입해야할 것입니다.</p>
+<p>저는 개인적으로 새로운 Tool이 도입되는 부담감이 가장 적고 기존의 Github에 가장 잘 녹아드는 <code>Zenhub</code>이 가장 잘 맞는 것 같습니다:) <em>그러다 보니 포스팅이 <code>Zenhub</code>플러그인 소개하는 쪽으로 많이 기울어졌네요 :) </em></p>
+<p><em>여러분 팀에 맞는 프로젝트 관리 도구는 무엇인가요?</em><br>감사합니다 :)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/github_logo.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Issue-Management-Tool&quot;&gt;&lt;a href=&quot;#Issue-Management-Tool&quot; class=&quot;headerlink&quot; title=&quot;
+    
+    </summary>
+    
+      <category term="Tool" scheme="https://jaeyeophan.github.io/categories/Tool/"/>
+    
+    
+      <category term="tool" scheme="https://jaeyeophan.github.io/tags/tool/"/>
+    
+  </entry>
   
   <entry>
     <title>[TS] 1. Basic Types</title>
