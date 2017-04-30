@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-04-30T14:09:50.000Z</updated>
+  <updated>2017-04-30T14:11:59.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/"/>
     <id>https://jaeyeophan.github.io/2017/04/30/issue-management-tool/</id>
     <published>2017-04-29T15:30:28.000Z</published>
-    <updated>2017-04-30T14:09:50.000Z</updated>
+    <updated>2017-04-30T14:11:59.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/github_logo.jpg" alt=""></p>
 <h1 id="Issue-Management-Tool"><a href="#Issue-Management-Tool" class="headerlink" title="Issue Management Tool"></a>Issue Management Tool</h1><p>개발자들에게 정말 많은 사랑을 받고 있는 <code>Github</code>. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 <code>Issue Management Tool</code> 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한 필요성을 느끼고 <code>Project</code>라는 이름의 기능을 추가하였는데요, 이것과 비교도 해보겠습니다.)<br>Github Help에서 제공하는 <a href="https://help.github.com/articles/managing-your-work-with-issues/" target="_blank" rel="external">Issue 관리에 대한 자료</a>입니다. 이 포스팅을 읽기 전에 참고해봐도 좋을 것 같습니다.</p>
@@ -49,7 +49,7 @@
 <h4 id="Github에서-제공하는-Project-기능과비교"><a href="#Github에서-제공하는-Project-기능과비교" class="headerlink" title="Github에서 제공하는 Project 기능과비교"></a>Github에서 제공하는 Project 기능과비교</h4><p><code>Zenhub</code>에서는 dashboard에서 <code>Issue</code>를 클릭하면 <strong>modal형태로</strong> 해당 Issue의 내용이 보이면서 바로 comment를 달거나 <code>Label</code>을 변경하는 등의 작업을 수행할 수 있는 기능을 제공합니다. 그러나 Github에서 제공하는 <code>Project dashboard</code>는 Issue를 클릭하면 해당 Issue 페이지로 redirect되어 (개인적으로는 매우)불편합니다.</p>
 <p>또한 <code>Zenhub</code>을 사용하면 Issue의 특성에 따라서 필터를 적용할 수 있습니다. dashboard에 흩어져 있는 Issue들을 <code>Milestone</code>에 따라서 또는 <code>Label</code>에 따라서 등등의 특성으로 분류가 가능합니다. 아직 Github에서 default로 제공하는 Project 기능은 부족한 점이 많아 보입니다 :(</p>
 <p><a href="https://www.zenhub.com/product" target="_blank" rel="external">Zenhub 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h2 id="그-외-Management-Tools"><a href="#그-외-Management-Tools" class="headerlink" title="그 외 Management Tools"></a>그 외 Management Tools</h2><h3 id="Hueboard"><a href="#Hueboard" class="headerlink" title="Hueboard"></a>Hueboard</h3><p><a href="https://huboard.com/huboard/huboard" target="_blank" rel="external">Hueboard 예시</a><br><code>Zenhub</code>과 마찬가지로 하나의 Repository마다, 하나의 dashboard를 제공해주며 기존의 dashboard 형식을 취합니다. UI적으로는 <code>Zenhub</code>보다 조금 나아보입니다. <code>Zenhub</code>과는 달리 별도의 웹 사이트로 redirect되면서 프로젝트 관리에 대한 총체적인 dashboard를 제공합니다. Filter 기능이 유독 눈에 들어오네요. dashboard에 흩어져있는 각종 Issue 들을 filter로 관리할 수 있다는 장점이 존재합니다. <code>Zenhub</code>에서도 가능했던 기능이지만 UI적으로 깔끔해서 dashboard에 집중할 수가 있을 것 같습니다.<br><a href="https://huboard.com/" target="_blank" rel="external">Hueboard 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h2 id="그-외-Management-Tools"><a href="#그-외-Management-Tools" class="headerlink" title="그 외 Management Tools"></a>그 외 Management Tools</h2><h3 id="Hueboard"><a href="#Hueboard" class="headerlink" title="Hueboard"></a>Hueboard</h3><p><a href="https://huboard.com/huboard/huboard" target="_blank" rel="external">Hueboard 예시</a><br><code>Zenhub</code>과 마찬가지로 하나의 Repository마다, 하나의 dashboard를 제공해주며 기존의 dashboard 형식을 취합니다. UI적으로는 <code>Zenhub</code>보다 조금 나아보입니다. <code>Zenhub</code>과는 달리 별도의 웹 사이트로 redirect되면서 프로젝트 관리에 대한 총체적인 dashboard를 제공합니다. Filter 기능이 유독 눈에 들어오네요. <code>Zenhub</code>에서도 가능했던 기능이지만 UI적으로 깔끔해서 dashboard에 집중할 수가 있을 것 같습니다.<br><a href="https://huboard.com/" target="_blank" rel="external">Hueboard 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a><br></h2><h3 id="Zube"><a href="#Zube" class="headerlink" title="Zube"></a>Zube</h3><p><img src="/images/zube_feature.png" alt=""><br>기존의 dashboard 외에 몇 가지 추가적인 기능을 제공합니다. <code>Sprint board</code>, <code>Sprint</code>, <code>Tickets</code> 눈에 들어오는 것은 <code>Analytics</code> 기능입니다.<br><img src="/images/zube_analysis.png" alt=""><br><code>Zenhub</code>에서 제공하는 보고서 유형보다 2종류가 더 많네요. 프로젝트를 처음 시작할 때부터 도입하지 않으면 사용하기에 부담이 생기는 Tool일 것 같다는 생각이 들었습니다. 또한 너무 많은 기능을 제공하면 오히려 생산성을 저해하는 요소가 될 수 있지 않을까 생각이 드는 Tool이었습니다.</p>
 <p><a href="https://zube.io/" target="_blank" rel="external">Zube 공식 사이트</a>에서 보다 자세한 내용을 확인하실 수 있습니다.</p>
 <p><br></p>
