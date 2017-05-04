@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/05/04/ES6-11-Modulization/</loc>
+        <lastmod>2017-05-04T06:26:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/30/issue-management-tool/</loc>
-        <lastmod>2017-04-30T14:12:57.000Z</lastmod>
+        <lastmod>2017-05-02T12:46:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2017/04/20/ES6-8-Symbol/</loc>
+        <lastmod>2017-05-02T06:54:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,14 +89,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/21/ES6-9-Iterator/</loc>
         <lastmod>2017-04-21T08:18:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/20/ES6-8-Symbol/</loc>
-        <lastmod>2017-04-20T02:54:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -7,13 +7,6 @@
     </url>
 
     <url>
-        <loc>https://jaeyeophan.github.io/categories/ECMAScript6/</loc>
-        <lastmod>2017-04-24T08:58:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jaeyeophan.github.io/categories/TypeScript/</loc>
         <lastmod>2017-04-28T06:16:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,7 +15,14 @@
 
     <url>
         <loc>https://jaeyeophan.github.io/categories/Tool/</loc>
-        <lastmod>2017-04-30T14:12:57.000Z</lastmod>
+        <lastmod>2017-05-02T12:46:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/categories/ECMAScript6/</loc>
+        <lastmod>2017-05-04T06:26:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
