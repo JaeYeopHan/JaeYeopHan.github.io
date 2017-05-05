@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-05-05T09:09:21.000Z</updated>
+  <updated>2017-05-05T09:38:28.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="https://jaeyeophan.github.io/2017/05/05/webpack-tutorial-1/"/>
     <id>https://jaeyeophan.github.io/2017/05/05/webpack-tutorial-1/</id>
     <published>2017-05-05T08:58:38.000Z</published>
-    <updated>2017-05-05T09:09:21.000Z</updated>
+    <updated>2017-05-05T09:38:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/webpack.png" alt=""></p>
 <h1 id="Tool-Webpack2-입문-가이드-1편"><a href="#Tool-Webpack2-입문-가이드-1편" class="headerlink" title="[Tool] Webpack2, 입문 가이드 1편"></a>[Tool] Webpack2, 입문 가이드 1편</h1><h2 id="Webpack이란-무엇인가"><a href="#Webpack이란-무엇인가" class="headerlink" title="Webpack이란 무엇인가"></a>Webpack이란 무엇인가</h2><p>너무 유명해져서 더이상의 말은 필요없을 것 같습니다:) 이에 대해 잘 정리해놓은 문서도 정말 많구요! 이 포스팅에서는 <code>webpack.config.js</code> 파일의 구조에 집중할 예정입니다. 아래 Reference의 링크를 참고해주세요!</p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install -g webpack webpack-dev-server</div><div class="line">$ npm install --save-dev webpack webpack-dev-server</div><div class="line"><span class="comment"># or</span></div><div class="line">$ yarn global add webpack webpack-dev-server</div><div class="line">$ yarn add -D webpack webpack-dev-server</div></pre></td></tr></table></figure>
-<p>Webpack이 제공하는 기능 중 로컬에서도 사용해야 하는 플러그인이 존재하므로 로컬에도 설치해줍니다. 그리고 webpack의 결과물을 확인하기 위해 서버를 띄워야하므로 <code>webpack-dev-server</code>도 함께 설치해줍니다.<br>이제 config 파일을 파헤쳐봅니다…</p>
+<p>Webpack이 제공하는 기능 중 로컬에서도 사용해야 하는 플러그인이 존재하므로 로컬에도 설치해줍니다. 그리고 webpack의 결과물을 확인하기 위해 서버를 띄워야하므로 <code>webpack-dev-server</code>도 함께 설치해줍니다. webpack 실행은 <code>$ webpack</code>이란 명령어로, webpack-dev-server 실행은 <code>$ webpack-dev-server</code>라는 명령어로 가능합니다 :)<br>이제 config 파일을 파헤쳐봅니다…</p>
 <h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><figure class="highlight js"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  <span class="attr">entry</span>: [...],</div><div class="line">  <span class="attr">output</span>: [...],</div><div class="line">  <span class="attr">module</span>: [...],</div><div class="line">  <span class="attr">plugins</span>: [...]</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure>
 <p><code>webpack.config.js</code> 파일은 복잡해보이지만, <code>config</code> 객체를 정의하고 <code>module.exports</code> 구문을 통해 노출시킵니다. 모든 config 파일은 이런 구조로 <code>entry</code>, <code>output</code>, <code>module</code>, <code>plugins</code> 네 가지 설정을 <strong>기본적인</strong> 옵션을 제공합니다. <code>entry</code>, <code>output</code> option만 있을 때는 bundling 작업만 진행합니다.(이 두 option은 반드시 필요합니다.) 그럼, 각각에 대해서 알아봅니다.</p>
 <h3 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h3><p>webpack은 라이브러리 간의 의존성을 그래프(<code>dependency tree</code>)로 표현을 합니다. 이 그래프를 만들 때의 시작점을 <code>entry</code>라는 옵션을 통해 설정할 수 있습니다. 즉, webpack을 이용하여 bundle하고 build할 애플리케이션의 시작점을 설정하는 옵션이라고 할 수 있습니다.</p>
