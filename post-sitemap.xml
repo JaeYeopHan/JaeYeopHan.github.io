@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/05/05/webpack-tutorial-1/</loc>
+        <lastmod>2017-05-05T09:09:21.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/05/04/ES6-11-Modulization/</loc>
         <lastmod>2017-05-04T08:07:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
