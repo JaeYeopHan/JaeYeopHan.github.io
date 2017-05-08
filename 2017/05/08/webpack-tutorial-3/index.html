@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 4. Spread, Rest parameter | Devlog</title>
+    <title>Webpack2, 입문 가이드 3편, Option | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="es6" />
+        <meta name="keywords" content="tool" />
     
-    <meta name="description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta name="keywords" content="es6">
+    <meta name="description" content="[Tool] Webpack2, 입문 가이드 3편, Option&amp;gt; Webpack2, 입문 가이드 1편 &amp;gt;&amp;gt; Webpack2, 입문 가이드 2편 &amp;gt; Config’s other options기본적인 네 가지 옵션, entry, output, module, plugin에 대해 알아봤습니다. 이번 포스팅에서는 좀 더 나아가 추가적인 옵션들도">
+<meta name="keywords" content="tool">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 4. Spread, Rest parameter">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/index.html">
+<meta property="og:title" content="Webpack2, 입문 가이드 3편, Option">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/05/08/webpack-tutorial-3/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T12:01:30.000Z">
+<meta property="og:description" content="[Tool] Webpack2, 입문 가이드 3편, Option&amp;gt; Webpack2, 입문 가이드 1편 &amp;gt;&amp;gt; Webpack2, 입문 가이드 2편 &amp;gt; Config’s other options기본적인 네 가지 옵션, entry, output, module, plugin에 대해 알아봤습니다. 이번 포스팅에서는 좀 더 나아가 추가적인 옵션들도">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/webpack.png">
+<meta property="og:updated_time" content="2017-05-08T08:10:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 4. Spread, Rest parameter">
-<meta name="twitter:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
+<meta name="twitter:title" content="Webpack2, 입문 가이드 3편, Option">
+<meta name="twitter:description" content="[Tool] Webpack2, 입문 가이드 3편, Option&amp;gt; Webpack2, 입문 가이드 1편 &amp;gt;&amp;gt; Webpack2, 입문 가이드 2편 &amp;gt; Config’s other options기본적인 네 가지 옵션, entry, output, module, plugin에 대해 알아봤습니다. 이번 포스팅에서는 좀 더 나아가 추가적인 옵션들도">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/images/webpack.png">
     
     
         <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
@@ -145,18 +145,18 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    <a class="page-title-link" href="/categories/Tool/">Tool</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-4-Spread-Rest-parameter" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-webpack-tutorial-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 4. Spread, Rest parameter
+        Webpack2, 입문 가이드 3편, Option
         </h1>
     
 
@@ -166,37 +166,120 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" class="article-date">
-            <time datetime="2017-04-18T11:59:13.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/05/08/webpack-tutorial-3/" class="article-date">
+            <time datetime="2017-05-08T08:06:52.000Z" itemprop="datePublished">2017-05-08</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/es6/">es6</a>
+        <a class="tag-link" href="/tags/tool/">tool</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-4-Spread-Rest-parameter"><a href="#ES6-4-Spread-Rest-parameter" class="headerlink" title="[ES6] 4. Spread, Rest parameter"></a>[ES6] 4. Spread, Rest parameter</h1><h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prev = [<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">let</span> post = [<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">let</span> spreadObj = [<span class="number">1</span>, <span class="number">2</span>, ...prev, <span class="number">5</span>, <span class="number">6</span>, ...post, <span class="number">9</span>];</div><div class="line"><span class="built_in">console</span>.log(spreadObj); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></div></pre></td></tr></table></figure></p>
-<p>문자열도 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sObj = [...<span class="string">"javascript"</span>];</div><div class="line"><span class="built_in">console</span>.log(sObj); <span class="comment">// ["j", "a", "v", "a", "s", "c", "r", "i", "p", "t"]</span></div></pre></td></tr></table></figure></p>
-<h2 id="Rest-Parameter"><a href="#Rest-Parameter" class="headerlink" title="Rest Parameter"></a>Rest Parameter</h2><p>함수를 호출할 때 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>Rest parameter</code>라고 한다. 함수안의 코드를 확인하지 않고도 호출문의 형태만 보더라도 <code>Rest parameter</code> 의 범위를 확인할 수 있어 가독성이 높아진다. 또한 <code>Rest parameter</code>는 <code>Array</code>, 즉 배열이므로 <code>Array</code> 오브젝트의 메서드를 사용할 수 있다. 그리고 <code>arrow funtion</code>에서도 사용 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> price = [<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>];</div><div class="line"><span class="built_in">Math</span>.max(<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>);</div></pre></td></tr></table></figure></p>
-<p>built in Object인 <code>Math</code>의 메소드 <code>max()</code>를 사용하기 위해서는 위 코드처럼 하나씩 넘겨줘야 한다.<br>또는 다음과 같은 방식을 사용했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.max.call(<span class="built_in">Math</span>, price);</div></pre></td></tr></table></figure></p>
-<p>하지만 Rest parameter를 사용하면 보다 깔끔하게 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> maxPrice = Max.max(...price);</div></pre></td></tr></table></figure></p>
-<p><code>Rest parameter</code>는 동적(dynamic)으로 생성된 파라미터라고 할 수 있기 때문에 함수의 <code>length</code>에서 포함되지 않는다. 기본적으로 함수의 <code>length</code> 프로퍼티는 파라미터의 개수를 의미한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> getElementByRestWithParam = <span class="function">(<span class="params">param, ...rest</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(param);</div><div class="line">    <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(getElementByRestWithParam.length); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
-<p>위 <code>getElementByRestWithParam</code>메소드에 <code>spread operator</code>를 사용하여 인자를 넘겨보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> values = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</div><div class="line">getElementByRestWithParam(...values); <span class="comment">//10 \n [20, 30]</span></div></pre></td></tr></table></figure></p>
-<p><code>param</code>에 해당하는 인자가 따로받아지고 나머지 인자들은 <code>...rest</code>로 넘겨지면서 다시 배열로 넘겨지게 된다!</p>
-<p><code>Rest parameter</code>를 사용했을 때와 기존의 자바스크립트에서 <code>arguments</code>를 사용했을 때의 차이점을 살펴보기 위해 <code>arguments</code>에 대해서 잠깐 살펴보자. <code>arguments</code>는 <code>Array-Like Object</code>라는 공식 명칭을 하고 있는 유사 배열이다.</p>
-<h2 id="Array-like-Object-유사배열"><a href="#Array-like-Object-유사배열" class="headerlink" title="Array-like Object(유사배열)"></a>Array-like Object(유사배열)</h2><p>배열의 특징 중 하나는 index를 갖고 있어서 임의 접근(random access)가 가능하고, 그 index가 순차적으로 증가한다는 것이다. 만약 Object가 key값이 순차적으로 증가하는 값이고, 그에 따른 value가 존재한다고 했을 때, <code>Array-like Object</code>라고 한다.<br>배열의 인덱스 값을 프로퍼티 key 값으로 사용하는 것이다. 그리고 <code>length</code>라는 프로퍼티 값을 갖고 있어서 전개를 할 때는 다음과 같이 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array-like object</span></div><div class="line"><span class="keyword">let</span> arrLikeObj = &#123;</div><div class="line">    <span class="number">0</span> : <span class="string">"zero"</span>,</div><div class="line">    <span class="number">1</span> : <span class="string">"one"</span>,</div><div class="line">    <span class="number">2</span> : <span class="string">"two"</span>,</div><div class="line">    <span class="attr">length</span> : <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLikeObj.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arrLikeObj[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>Array-like Object</code>는 다음 두 가지 규칙을 모두 만족시켜야 한다.<br>1) 프로퍼티 값을 0부터 1씩 증가하면서 순차적으로 작성해야 한다.<br>2) length를 프로퍼티 키로 하여 전체 프로퍼티 수를 작성해야 한다.</p>
-<h3 id="Rest-parameter와-arguments의-차이"><a href="#Rest-parameter와-arguments의-차이" class="headerlink" title="Rest parameter와 arguments의 차이"></a>Rest parameter와 arguments의 차이</h3><p><code>arguments</code>도 <code>Array-like object</code>이기 때문에 <code>for statement</code>로 전개할 수 있다. 하지만 <code>Array</code> 오브젝트의 메서드를 사용할 수 없다. 이것이 치명적인 단점인 것이다. 또 <code>arrow function</code>에서는 <code>arguments</code>를 사용할 수 없다. 이것으로 미루어보아, ES6에서는 <code>arguments</code>를 사용하는 것을 최대한 자제하라는 느낌이다. 사실 <code>Rest parameter</code>에 익숙해지기만 하면 <code>arguments</code>를 통해 인자를 받는 것보다 유연한 코드를 작성할 수 있다.</p>
-<p>한 가지 더 한계점을 지적하자면 <code>arguments</code>는 함수 내부를 봐야 어느 부분에서 <code>arguments</code> 객체를 사용하는지 알 수 있어 코드의 가독성이 떨어지게 된다. 그렇기 때문에 <code>arguments</code> 대신 <code>Rest parameter</code>를 도입한 것이다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>4. end</em></p>
+            <p><img src="/images/webpack.png" alt=""></p>
+<h1 id="Tool-Webpack2-입문-가이드-3편-Option"><a href="#Tool-Webpack2-입문-가이드-3편-Option" class="headerlink" title="[Tool] Webpack2, 입문 가이드 3편, Option"></a>[Tool] Webpack2, 입문 가이드 3편, Option</h1><p><a href="https://jaeyeophan.github.io/2017/05/05/webpack-tutorial-1/">&gt; Webpack2, 입문 가이드 1편 &gt;</a><br><a href="https://jaeyeophan.github.io/2017/05/06/webpack-tutorial-2/">&gt; Webpack2, 입문 가이드 2편 &gt;</a></p>
+<h2 id="Config’s-other-options"><a href="#Config’s-other-options" class="headerlink" title="Config’s other options"></a>Config’s other options</h2><p>기본적인 네 가지 옵션, <code>entry</code>, <code>output</code>, <code>module</code>, <code>plugin</code>에 대해 알아봤습니다. 이번 포스팅에서는 좀 더 나아가 추가적인 옵션들도 살펴봅니다.<br><br></p>
+<h3 id="devServer"><a href="#devServer" class="headerlink" title="devServer"></a>devServer</h3><p>2편에서 <code>HMR(HotModuleReplacement)</code> 플러그인을 사용할 때 추가해줬던 <code>webpack-dev-server</code>와 관련된 옵션입니다. 여러 가지 추가 설정이 존재합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">devServer: &#123;</div><div class="line">    <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">inline</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">port</span>: <span class="number">4000</span>,</div><div class="line">    <span class="attr">compress</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">publicPath</span>: <span class="string">'/dist/'</span>,</div><div class="line">    <span class="attr">contentBase</span>: path.join(__dirname, <span class="string">'/dist/'</span>),</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="pulicPath-‘-dirname-‘"><a href="#pulicPath-‘-dirname-‘" class="headerlink" title="pulicPath: ‘/[dirname]/‘"></a>pulicPath: ‘/[dirname]/‘</h4><p><code>pulicPath</code>를 지정해주지 않았다면 default path는 ‘/‘로 설정되어 있습니다. 그렇기 때문에 <code>$ webpack-dev-server</code> 명령어를 통해 실행하면 다음과 같은 메세지가 나타납니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack output is served from /</div></pre></td></tr></table></figure></p>
+<p>이것은 bundle된 결과 파일들이 <code>http://localhost:[portNumber]</code>에 served되었다는 것을 의미합니다. <code>publicPath</code> 설정으로 이를 지정할 수 있으며 그 값은 예제처럼 <code>/</code>로 둘러쌓여 있어야 합니다. 이 값을 따로 설정해주면 live reloading 기능이 기존의 url로는 안되겠죠? <code>http://localhost:[portNumber]/[publicpath]/</code>로 접근해야 예전처럼 live reloading 기능을 사용하실 수 있습니다.</p>
+<p>이외에도 <code>port</code>, <code>host</code>, <code>proxy</code> 등 다양한 옵션들이 존재합니다. <code>devServer</code>와 관련된 다양한 옵션은 다음 <a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="external">링크</a>에서 볼 수 있습니다.<br><br></p>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>entry point에서 사용할 절대 경로(absolute path)를 지정할 때 사용합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  <span class="attr">context</span>: path.join(__dirname),</div><div class="line">  [...]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h3><h4 id="reslove-alias"><a href="#reslove-alias" class="headerlink" title="reslove.alias"></a>reslove.alias</h4><p>path에 alias를 설정하여 모듈을 <code>import</code>할 때, 보다 간편히가 코드를 작성할 수 있습니다. 다음과 같은 import 구문이 있다고 가정해봅니다.<br><figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Utility &#125; <span class="keyword">from</span> <span class="string">'../../../../utilities/utility'</span>;</div></pre></td></tr></table></figure></p>
+<p>상대경로로 타고 타고 올라가서 해당 경로를 찾아야 하는 불편함이 존재합니다. 이를 해결하기 위해 alias를 사용하면 다음과 같은 코드로 재탄생합니다.<br><figure class="highlight js"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alias: &#123;</div><div class="line">  <span class="attr">Utilities</span>: path.join(__dirname, <span class="string">'src/utilities'</span>);</div><div class="line">  post$: path.join(__dirname, <span class="string">'src/service/post.js'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>path를 마치 상수처럼 선언하여 프로젝트에서 사용할 수 있도록 해줍니다.<br><figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Utility &#125; <span class="keyword">from</span> <span class="string">'Utilities/utility'</span>;</div><div class="line"><span class="keyword">import</span> post <span class="keyword">from</span> <span class="string">'post'</span>;</div></pre></td></tr></table></figure></p>
+<p>디렉토리에 대해서 그리고 파일에 대해서 path를 지정했습니다. 위의 예제처럼 특정 파일에 대해서 alias를 생성할 때, 생성하고자 하는 alias 뒤에 <code>$</code>를 붙여주면 해당 path뒤로 추가적인 path를 설정할 수 없습니다.</p>
+<p><code>resolve</code>와 관련된 다양한 옵션은 다음 <a href="https://webpack.js.org/configuration/resolve/" target="_blank" rel="external">링크</a>에서 볼 수 있습니다.</p>
+<p><br></p>
+<h3 id="devtool"><a href="#devtool" class="headerlink" title="devtool"></a>devtool</h3><p>webpack에서 제공하는 기술 중, <code>SourceMaps</code>이라는 기술이 있습니다. <code>SourceMaps</code>은 하나의 파일로 병합되거나 압축된 자바스크립트, CSS 파일을 원형으로 분리(path 구조까지)하여, 복원해주는 기술입니다.<br><code>devtool</code> 옵션은 <code>SourceMaps</code>을 생성할지 말지를 결정하는 옵션입니다. 에러가 발생할 때, 어느 부분에서 에러가 발생했는지 알아야 디버깅이 수월할텐데요, <code>source map</code>은 bundle된 코드에서 발생한 에러를 기존의 코드와 연결시켜주는 역할을 합니다. <code>devtool</code>에서 설정할 수 있는 옵션들에는 여러 가지가 존재하며 각각의 장단점이 존재합니다.</p>
+<table>
+<thead>
+<tr>
+<th>devtool</th>
+<th>build</th>
+<th>rebuild</th>
+<th>production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eval</td>
+<td>+++</td>
+<td>+++</td>
+<td>no</td>
+</tr>
+<tr>
+<td>cheap-eval-source-map</td>
+<td>+</td>
+<td>++</td>
+<td>no</td>
+</tr>
+<tr>
+<td>cheap-source-map</td>
+<td>+</td>
+<td>0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>cheap-module-eval-source-map</td>
+<td>0</td>
+<td>++</td>
+<td>no</td>
+</tr>
+<tr>
+<td>cheap-module-source-map</td>
+<td>0</td>
+<td>-</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>eval-source-map</td>
+<td>- -</td>
+<td>+</td>
+<td>no</td>
+</tr>
+<tr>
+<td>source-map</td>
+<td>- -</td>
+<td>- -</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>nosources-source-map</td>
+<td>- -</td>
+<td>- -</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://webpack.js.org/configuration/devtool/" target="_blank" rel="external">https://webpack.js.org/configuration/devtool/</a></p>
+<p>Webpack2 공식 홈페이지에서 소개하고 있는 devtool 옵션들입니다. <code>+</code>는 작업 속도가 빠르다는 것을 의마하며 <code>-</code>는 그 반대로 느린 것을 의미합니다. 이 많은 옵션 중에서 개발할 때 적합한 옵션은 무엇이고, 배포할 때 적합한 옵션은 무엇일까요?</p>
+<p>개발 시에는 얼머나 용량을 줄이느냐보다 어디에서 에러가 발생했는지 알 수 있어야 하므로 로그가 상세히 나타나는 옵션을 선택해야하며 생산성을 높이기 위해 빌드 시간이 짧아야 합니다. 배포용은 용량이 우선적으로 작아야 겠죠? 저는 다음과 같이 정리해보았습니다.  </p>
+<p><em>Option for development)</em></p>
+<ul>
+<li><code>cheap-module-eval-source-map</code></li>
+<li><code>inline-source-map</code></li>
+<li><code>eval-source-map</code></li>
+</ul>
+<p><em>Option for production)</em></p>
+<ul>
+<li><code>cheap-module-source-map</code></li>
+</ul>
+<p>각 옵션들에 대한 상세한 내용은 링크를 첨부합니다.<br><a href="http://cheng.logdown.com/posts/2016/03/25/679045" target="_blank" rel="external">&gt; Webpack devtool source map&gt;</a><br><a href="https://perfectacle.github.io/2016/11/14/Webpack-devtool-option-Performance/" target="_blank" rel="external">&gt; (webpack) devtool 옵션 퍼포먼스&gt;</a></p>
+<p><br></p>
+<h3 id="env-EnvironmentPlugin"><a href="#env-EnvironmentPlugin" class="headerlink" title="env, EnvironmentPlugin"></a>env, EnvironmentPlugin</h3><p>환경에 따라 webpack이 수행해줘야 할 작업이 달라질 수 있습니다. 여기서 말하는 <code>환경</code>이란, 개발을 진행하는 과정에서 webpack 작업인지, 배포하는 과정에서의 작업인지로 구분할 수 있습니다. webpack이 작동하는 환경은 기본적으로 <code>development</code>라는 string value로 설정되어 있습니다.<br><figure class="highlight js"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> webpack.EnvironmentPlugin(&#123;</div><div class="line">  <span class="attr">NODE_ENV</span>: <span class="string">'development'</span>,</div><div class="line">  <span class="attr">DEBUG</span>: <span class="literal">false</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>bundle된 파일 전체에서 사용할 수 있는 상수를 만들어서 환경 변수로 사용할 수 있습니다. 이 때 <code>DefinePlugin</code>을 사용할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">  <span class="string">'process.env.NODE_ENV'</span> : <span class="built_in">JSON</span>.stringify(process.env.NODE_ENV),</div><div class="line">  <span class="string">'process.env.DEBUG'</span> : <span class="built_in">JSON</span>.stringify(process.env.DEBUG)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>특정한 환경을 위한 코드를 작성하는 경우, process.env.NODE_ENV를 통해 NODE_ENV의 값을 확인할 수 있습니다. 환경 변수의 값을 확인하는 작업은 성능 저하를 유발하므로 이러한 작업은 낮은 빈도로 실행해야 한다는 점에 주의하세오.</p>
+<p><br></p>
+<h4 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h4><p>이외에도 많은 옵션들이 존재합니다. <a href="https://webpack.js.org/configuration/" target="_blank" rel="external">Webpack 공식 홈페이지</a>에서 확인하실 수 있습니다 :)</p>
+<p>포스팅에서 사용된 예제 코드와 webpack tutorial 시리즈 전체는 <a href="https://github.com/JaeYeopHan/webpack2_tutorial" target="_blank" rel="external">Github repository</a>에서 확인하실 수 있습니다 :D</p>
+<p><em>3편 end</em></p>
+<p>Reference<br><a href="https://webpack.js.org/configuration/" target="_blank" rel="external">Webpack configuration</a><br><a href="https://perfectacle.github.io/2016/11/14/Webpack-devtool-option-Performance/" target="_blank" rel="external">Webpack devtool 옵션 퍼포먼스</a></p>
 
         </div>
         <footer class="article-footer">
@@ -204,7 +287,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/" data-id="cj2fugpsd000g11wgqemexaix" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/05/08/webpack-tutorial-3/" data-id="cj2fugptm001j11wgeo6rlmbd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -328,22 +411,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/05/06/webpack-tutorial-2/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 3. Iteration and for-of statement
+            Webpack2, 입문 가이드 2편: Plugins
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 5. Destructuring and Default Parameter</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -508,7 +585,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/05/08/webpack-tutorial-3/';
     
     (function() {
     var dsq = document.createElement('script');
