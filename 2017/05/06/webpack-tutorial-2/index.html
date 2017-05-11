@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="[Tool] Webpack2, 입문 가이드 2편&amp;gt; Webpack2, 입문 가이드 1편 &amp;gt; Plugins플러그인을 통해 코드를 난독화(Uglify)하여 압축할 수 있고, 공통된 코드(Common chunk)를 분리할 수 있고, 코드의 변경사항을 파악하게 하여 자동으로 재실행시킬 수 있습니다. 이외에도 여러 가지 훌륭한 기능들이 존재하는데요, We">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/webpack.png">
-<meta property="og:updated_time" content="2017-05-06T03:19:06.000Z">
+<meta property="og:updated_time" content="2017-05-08T08:11:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack2, 입문 가이드 2편: Plugins">
 <meta name="twitter:description" content="[Tool] Webpack2, 입문 가이드 2편&amp;gt; Webpack2, 입문 가이드 1편 &amp;gt; Plugins플러그인을 통해 코드를 난독화(Uglify)하여 압축할 수 있고, 공통된 코드(Common chunk)를 분리할 수 있고, 코드의 변경사항을 파악하게 하여 자동으로 재실행시킬 수 있습니다. 이외에도 여러 가지 훌륭한 기능들이 존재하는데요, We">
@@ -204,6 +204,7 @@ ga('send', 'pageview');
 <h3 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h3><p>따로 분리하여 bundle한 css파일과 js파일을 각각 html 파일에 link 태그와 script태그로 추가해줘야 합니다. 이 플러그인은 이것을 자동화해줍니다. 이 플러그인도 마찬가지로 따로 설치가 필요합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev html-webpack-plugin</div><div class="line"><span class="comment"># or</span></div><div class="line">$ yarn add -D html-webpack-plugin</div></pre></td></tr></table></figure></p>
 <p>그리고 plugin에 추가해줍니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">      <span class="attr">template</span>: <span class="string">'./index.html'</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>template 옵션에는 해당하는 html파일의 패스를 입력해주시면 됩니다. <code>$ webpack</code> 명령어를 실행해주면 dist 폴더에 <code>index.html</code>파일이 생성되고 자동으로 bundle된 css파일과 js파일이 link태그와 script태그로 추가된 것을 확인하실 수 있습니다. !webpack에 의해서 자동으로 추가되므로 <strong>우리가 작성하는 </strong> html 파일에는 script태그와 link태그를 작성할 필요가 없습니다. 오히려 작성하면 두 번 load를 하게 되므로 성능상 좋지 않습니다.</p>
+<p>사실 이 플러그인은 우리의 귀차니즘을 해결해주는 것보다 더 훌륭한 존재의 이유가 있습니다. 그것을 바로 <code>caching</code>할 때, bundle 작업의 결과물로 hash 값을 파일 명이 쓰게 되는데, 이 hash 값을 개발자가 예측할 수 없다는 것입니다. 그렇기 때문에 개발자가 추가하지 못하는 것을 webpack이 대신 해줍니다 :) (webpack에서의 caching에 대해서는 추후 포스팅에서 다룹니다.)</p>
 <p>추가적인 다른 옵션은 다음 <a href="https://webpack.js.org/plugins/html-webpack-plugin/" target="_blank" rel="external">링크</a>를 참고하시면 됩니다 :)</p>
 <p><br></p>
 <h3 id="HotModuleReplacementPlugin"><a href="#HotModuleReplacementPlugin" class="headerlink" title="HotModuleReplacementPlugin"></a>HotModuleReplacementPlugin</h3><p><code>HMR</code>이라는 약자로도 많이 불리는 플러그인 입니다. 개발 생산성을 극대화(?)시켜주는 플러그인이라고 할 수 있습니다. 이 플러그인 없이 <code>$ webpack-dev-server --watch</code> 명령어를 실행하여 작업을 하고 저장을 해도 자동 reload가 안됩니다. 다음과 같이 추가해줍니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">  [...]</div><div class="line">  plugins: [</div><div class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -223,7 +224,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/05/06/webpack-tutorial-2/" data-id="cj2fugpu5001v11wgtk22pfa9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/05/06/webpack-tutorial-2/" data-id="cj2jywius001wgcwgul92957q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -374,7 +375,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -385,6 +386,26 @@ ga('send', 'pageview');
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/11/ES6-12-Array-API/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 12. Array API" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
+                            <p class="item-title"><a href="/2017/05/11/ES6-12-Array-API/" class="title">[ES6] 12. Array API</a></p>
+                            <p class="item-date"><time datetime="2017-05-11T05:22:30.000Z" itemprop="datePublished">2017-05-11</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -463,26 +484,6 @@ ga('send', 'pageview');
                             <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
                             <p class="item-title"><a href="/2017/05/04/ES6-11-Modulization/" class="title">[ES6] 11. Modulization</a></p>
                             <p class="item-date"><time datetime="2017-05-04T06:22:01.000Z" itemprop="datePublished">2017-05-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/30/issue-management-tool/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/github_logo.jpg)" alt="[Tool] Issue Management Tool, Zenhub" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Tool/">Tool</a></p>
-                            <p class="item-title"><a href="/2017/04/30/issue-management-tool/" class="title">[Tool] Issue Management Tool, Zenhub</a></p>
-                            <p class="item-date"><time datetime="2017-04-29T15:30:28.000Z" itemprop="datePublished">2017-04-30</time></p>
                         </div>
                     </li>
                 
