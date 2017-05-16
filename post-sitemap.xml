@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/05/16/Everything-about-babel/</loc>
+        <lastmod>2017-05-16T03:06:37.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/05/15/React-1-Introducing-JSX-and-DOM/</loc>
         <lastmod>2017-05-15T04:17:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
