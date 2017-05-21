@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[BDD] 3. Chai-http 사용하여 REST API Test하기 | Devlog</title>
+    <title>[TDD] 3. Chai-http 사용하여 REST API Test하기 | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="bdd" />
+        <meta name="keywords" content="TDD" />
     
-    <meta name="description" content="[BDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
-<meta name="keywords" content="bdd">
+    <meta name="description" content="[TDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
+<meta name="keywords" content="TDD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BDD] 3. Chai-http 사용하여 REST API Test하기">
+<meta property="og:title" content="[TDD] 3. Chai-http 사용하여 REST API Test하기">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/04/23/BDD-3-chai-http/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[BDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
+<meta property="og:description" content="[TDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/tool_chai.png">
-<meta property="og:updated_time" content="2017-04-23T07:32:43.000Z">
+<meta property="og:updated_time" content="2017-05-21T04:42:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[BDD] 3. Chai-http 사용하여 REST API Test하기">
-<meta name="twitter:description" content="[BDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
+<meta name="twitter:title" content="[TDD] 3. Chai-http 사용하여 REST API Test하기">
+<meta name="twitter:description" content="[TDD] 3. Chai-http 사용하여 REST API Test하기&amp;gt;Mocha - Getting started&amp;gt;&amp;gt;Chai - Getting started&amp;gt; 이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다. 테스트에 집중하기 위해 요청을 받을 서버는 json-serv">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/tool_chai.png">
     
     
@@ -156,7 +156,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        [BDD] 3. Chai-http 사용하여 REST API Test하기
+        [TDD] 3. Chai-http 사용하여 REST API Test하기
         </h1>
     
 
@@ -174,7 +174,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/bdd/">bdd</a>
+        <a class="tag-link" href="/tags/TDD/">TDD</a>
     </div>
 
             </div>
@@ -182,7 +182,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/tool_chai.png" alt=""></p>
-<h1 id="BDD-3-Chai-http-사용하여-REST-API-Test하기"><a href="#BDD-3-Chai-http-사용하여-REST-API-Test하기" class="headerlink" title="[BDD] 3. Chai-http 사용하여 REST API Test하기"></a>[BDD] 3. Chai-http 사용하여 REST API Test하기</h1><p><a href="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">&gt;Mocha - Getting started&gt;</a><br><br><a href="https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/">&gt;Chai - Getting started&gt;</a></p>
+<h1 id="TDD-3-Chai-http-사용하여-REST-API-Test하기"><a href="#TDD-3-Chai-http-사용하여-REST-API-Test하기" class="headerlink" title="[TDD] 3. Chai-http 사용하여 REST API Test하기"></a>[TDD] 3. Chai-http 사용하여 REST API Test하기</h1><p><a href="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">&gt;Mocha - Getting started&gt;</a><br><br><a href="https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/">&gt;Chai - Getting started&gt;</a></p>
 <p>이번 포스팅에서는 <code>chai-http</code>라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다.</p>
 <p>테스트에 집중하기 위해 요청을 받을 서버는 <code>json-server</code>라는 모듈을 사용하여 구축하겠습니다. <code>json</code>형태로 데이터를 생성하고 요청을 받을 수 있는 임시 서버입니다. 데이터베이스를 따로 구축하지 않아도 <code>CRUD</code>와 같은 기본적인 API를 제공해주는 모듈입니다. 포스팅에서 다루는 내용보다 더 자세한 내용은 해당 <a href="https://github.com/typicode/json-server" target="_blank" rel="external">링크</a>를 참조하시면 되겠습니다.</p>
 <h2 id="테스트-환경-구축하기"><a href="#테스트-환경-구축하기" class="headerlink" title="테스트 환경 구축하기"></a>테스트 환경 구축하기</h2><p>우선 <code>chai-http</code>를 설치합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yarn add chai-http</div></pre></td></tr></table></figure></p>
@@ -211,7 +211,7 @@ ga('send', 'pageview');
 <h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><figure class="highlight javascript"><figcaption><span>rest.test.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'DELETE'</span>, () =&gt; &#123;</div><div class="line">  it(<span class="string">'delete user'</span>, done =&gt; &#123;</div><div class="line">    chai.request(url)</div><div class="line">        .delete(<span class="string">'/users/4'</span>)</div><div class="line">        .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">            expect(err).to.be.not.ok;</div><div class="line">            expect(res).to.have.status(<span class="number">200</span>);</div><div class="line">            done();</div><div class="line">        &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p><code>delete()</code>메소드를 통해 테스트를 진행할 수 있습니다.</p>
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/javascript_test_tutorial" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>[BDD] 3. end</em></p>
+<p><em>[TDD] 3. end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -219,7 +219,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/23/BDD-3-chai-http/" data-id="cj2vdpd5q00049cwgx9ju9ewi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/04/23/BDD-3-chai-http/" data-id="cj2y7vw3j0004uuwgqkqj58mr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -347,7 +347,7 @@ ga('send', 'pageview');
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [BDD] 2. Chai - Getting started
+            [TDD] 2. Chai - Getting started
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>

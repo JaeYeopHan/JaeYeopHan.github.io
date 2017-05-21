@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[BDD] 1. Mocha - Getting started | Devlog</title>
+    <title>[TDD] 1. Mocha - Getting started | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="bdd" />
+        <meta name="keywords" content="TDD" />
     
-    <meta name="description" content="[BDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
-<meta name="keywords" content="bdd">
+    <meta name="description" content="[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
+<meta name="keywords" content="TDD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BDD] 1. Mocha - Getting started">
+<meta property="og:title" content="[TDD] 1. Mocha - Getting started">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[BDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
+<meta property="og:description" content="[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/tool_mocha.png">
-<meta property="og:updated_time" content="2017-04-23T07:31:20.000Z">
+<meta property="og:updated_time" content="2017-05-21T04:42:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[BDD] 1. Mocha - Getting started">
-<meta name="twitter:description" content="[BDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
+<meta name="twitter:title" content="[TDD] 1. Mocha - Getting started">
+<meta name="twitter:description" content="[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/tool_mocha.png">
     
     
@@ -156,7 +156,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        [BDD] 1. Mocha - Getting started
+        [TDD] 1. Mocha - Getting started
         </h1>
     
 
@@ -174,7 +174,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/bdd/">bdd</a>
+        <a class="tag-link" href="/tags/TDD/">TDD</a>
     </div>
 
             </div>
@@ -182,7 +182,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/tool_mocha.png" alt=""></p>
-<h1 id="BDD-1-Mocha-Getting-started"><a href="#BDD-1-Mocha-Getting-started" class="headerlink" title="[BDD] 1. Mocha - Getting started"></a>[BDD] 1. Mocha - Getting started</h1><p><code>Mocha</code>란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. <code>Mocha</code>는 자체적으로 assertion을 지원하지 않기 때문에 다른 <code>Assertion</code>라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 <code>assert</code>라이브러리가 존재하며 요즘에는 주로 <code>chai</code>라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.<br><a href="http://mochajs.org/" target="_blank" rel="external">&gt;Mocha Documents</a></p>
+<h1 id="TDD-1-Mocha-Getting-started"><a href="#TDD-1-Mocha-Getting-started" class="headerlink" title="[TDD] 1. Mocha - Getting started"></a>[TDD] 1. Mocha - Getting started</h1><p><code>Mocha</code>란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. <code>Mocha</code>는 자체적으로 assertion을 지원하지 않기 때문에 다른 <code>Assertion</code>라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 <code>assert</code>라이브러리가 존재하며 요즘에는 주로 <code>chai</code>라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.<br><a href="http://mochajs.org/" target="_blank" rel="external">&gt;Mocha Documents</a></p>
 <p>Mocha는 기본적으로 BDD 기반의 프레임워크입니다. 하지만 BDD와 TDD 두 종류의 인터페이스를 모두 제공하고 있습니다. 이번 포스팅에서는 BDD 기반의 예제를 살펴봅니다.<br><a href="http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/" target="_blank" rel="external">TDD vs BDD</a></p>
 <h3 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h3><ol>
 <li><code>mocha</code>를 global로 설치해줍니다. <em>(cf <a href="http://jaeyeophan.github.io/2017/04/21/YARN-New-Package-Manger/">YARN, 새로운 Package Manager</a>)</em><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ yarn global add mocha</div><div class="line"><span class="comment">#success Installed "mocha@3.2.0" with binaries:</span></div><div class="line"><span class="comment">#      - mocha</span></div><div class="line"><span class="comment">#      - _mocha</span></div><div class="line"><span class="comment">#✨  Done in 4.23s.</span></div></pre></td></tr></table></figure>
@@ -218,7 +218,7 @@ ga('send', 'pageview');
 <p>각각의 함수들이 위치하는 라인은 상관이 없습니다. 가독성이 좋기 위해 의미상으로 적절한 위치에 코드를 작성했습니다. 정말 간단하게 <code>Mocha</code>를 사용해봤습니다. <code>if</code>문을 통한 테스트 코드 작성이 너무 지저분했는데요, 이제 <code>Mocha</code>와 함께 <code>Chai</code>를 사용해보겠습니다!</p>
 <p><a href="https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/">&gt;&gt;Chai 테스트 프레임워크 &gt;&gt;</a></p>
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/javascript_test_tutorial" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>[BDD] 1. end</em></p>
+<p><em>[TDD] 1. end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -226,7 +226,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" data-id="cj2vdpd4a00009cwg2e01trug" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" data-id="cj2y7vw360000uuwgmp1owfoq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -363,7 +363,7 @@ ga('send', 'pageview');
     
         <a href="/2017/04/23/BDD-2-chai/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[BDD] 2. Chai - Getting started</p>
+        <p class="article-nav-title">[TDD] 2. Chai - Getting started</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
