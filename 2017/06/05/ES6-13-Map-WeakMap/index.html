@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 3. Iteration and for-of statement | Devlog</title>
+    <title>ES6-13-Map-WeakMap | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="es6" />
     
-    <meta name="description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+    <meta name="description" content="[ES6] 13. Map, WeakMap APIMap Object아시다시피, Map오브젝트는 key-value의 자료구조입니다. 기존 자바스크립트의 Object도 마찬가지로 key-value형식으로 구성되는데요, Map오브젝트는 key로 사용될 수 있는 타입이 다양하다는 것이 다른 점이라고 할 수 있습니다. 또한 Map오브젝트는 Object 오브젝트와는">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 3. Iteration and for-of statement">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/index.html">
+<meta property="og:title" content="ES6-13-Map-WeakMap">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/06/05/ES6-13-Map-WeakMap/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+<meta property="og:description" content="[ES6] 13. Map, WeakMap APIMap Object아시다시피, Map오브젝트는 key-value의 자료구조입니다. 기존 자바스크립트의 Object도 마찬가지로 key-value형식으로 구성되는데요, Map오브젝트는 key로 사용될 수 있는 타입이 다양하다는 것이 다른 점이라고 할 수 있습니다. 또한 Map오브젝트는 Object 오브젝트와는">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-19T07:31:26.000Z">
+<meta property="og:updated_time" content="2017-06-05T05:45:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 3. Iteration and for-of statement">
-<meta name="twitter:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
+<meta name="twitter:title" content="ES6-13-Map-WeakMap">
+<meta name="twitter:description" content="[ES6] 13. Map, WeakMap APIMap Object아시다시피, Map오브젝트는 key-value의 자료구조입니다. 기존 자바스크립트의 Object도 마찬가지로 key-value형식으로 구성되는데요, Map오브젝트는 key로 사용될 수 있는 타입이 다양하다는 것이 다른 점이라고 할 수 있습니다. 또한 Map오브젝트는 Object 오브젝트와는">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
     
     
@@ -145,18 +145,18 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-3-Iteration-and-for-of-statement" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ES6-13-Map-WeakMap" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 3. Iteration and for-of statement
+        ES6-13-Map-WeakMap
         </h1>
     
 
@@ -166,8 +166,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" class="article-date">
-            <time datetime="2017-04-18T04:52:45.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/06/05/ES6-13-Map-WeakMap/" class="article-date">
+            <time datetime="2017-06-05T05:44:56.000Z" itemprop="datePublished">2017-06-05</time>
         </a>
     </div>
 
@@ -182,26 +182,34 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-3-Iteration-and-for-of-statement"><a href="#ES6-3-Iteration-and-for-of-statement" class="headerlink" title="[ES6] 3. Iteration and for-of statement"></a>[ES6] 3. Iteration and for-of statement</h1><h2 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a>Iteration</h2><p>ES6에서 이터레이션 프로토콜은 <code>Iterable 프로토콜</code>과 <code>Iterator 프로토콜</code>로 구성된다. 결론부터 말하자면 <code>Iterable</code> 프로토콜은 <code>반복 가능한</code> 오브젝트를 나타내는 프로토콜이며 <code>Iterator</code> 프로토콜은 이터러블 오브젝트(<code>Iterable</code> 프로토콜을 따르는 오브젝트)의 값을 <code>작성한 순서대로</code> 처리하는 프로토콜이다.</p>
-<h2 id="Iterable-프로토콜"><a href="#Iterable-프로토콜" class="headerlink" title="Iterable 프로토콜"></a>Iterable 프로토콜</h2><p>오브젝트의 반복 처리 규약을 정의한다.<br>Iterable Object</p>
-<blockquote>
-<p><code>String</code>, <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>TypedArray</code>, <code>Argument</code> 오브젝트<br>그리고 DOM의 <code>NodeList</code>  </p>
-</blockquote>
-<p>위 <em>built in 오브젝트</em>들은 디폴트로 이터러블 프로토콜을 갖고 있다. 오브젝트에 <code>Symbol.iterator</code>가 있어야 한다. <code>Symbol.iterator</code>가 있는 오브젝트는 이터러블 오브젝트이다. 또한 상속받은 prototype chain에 있어도 이터러블 오브젝트이다. (<code>Symbol</code>에 대해서는 다음 포스팅에서 다룰 예정이다.)</p>
-<p>오브젝트에 프로퍼티 존재 여부를 체크할 때, Symbol의 경우에는 arrayObj[Symbol.iterator]와 같이 대괄호 <code>[]</code>안에 작성해야 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//function values() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
-<p><code>Array</code> 오브젝트는 기본적으로 <code>iterable</code> 프로토콜을 구현한다. 하지만 <code>Object</code> 오브젝트는 <code>iterable</code> 프로토콜을 구현하지 않는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iteratorObj = arr[<span class="built_in">Symbol</span>.iterator](); <span class="comment">//iterator object</span></div></pre></td></tr></table></figure></p>
-<p>위와 같은 방식으로 <code>Array</code> 오브젝트는 <code>iterator</code>를 받을 수 있다.</p>
-<h2 id="JavaScript’s-for-statement"><a href="#JavaScript’s-for-statement" class="headerlink" title="JavaScript’s for statement"></a>JavaScript’s for statement</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>forEach 문은 arrow function과 조합해서 사용하면 추가적인 변수 사용 없이 코드가 깔끔해질 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> categories = [<span class="string">"Korean"</span>, <span class="string">"English"</span>, <span class="string">"Science"</span>];</div><div class="line">categories.forEach(<span class="function"><span class="params">subject</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(subject);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>그러나 for문 중간에 <code>continue</code> or <code>break</code> or <code>return</code> 선언문을 사용할 수 없다. 기존의 for-statement를 사용하는 경우를 보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; subject.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(categoried[i]);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p><code>i</code>의 역할이 index를 잡아주는 것 외에 별 다른 기능이 없다. 그래서 기존에는 <code>for-in statement</code>를 사용했다. 하지만 <code>for-in statement</code> 은 문자열 키를 가진 일반 <code>Object</code> 객체들을 위해 만들어졌다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure></p>
-<p>그래서 ES6에서 <code>for-of statement</code>가 등장했다.<br><code>for-in loop statement</code>는 객체의 프로퍼티들을 루프시키지만 <code>for-of loop statement</code>는 데이터, 즉 배열 내의 value들을 루프시킨다. 또한 for-of는 배열 뿐만 아니라 다양한 Collection에도 동작한다. DOM의 <code>NodeList</code> 같은 유사배열 객체들에도 동작하고 문자열에도 동작한다. 문자열을 유니코드 문자의 배열로 취급하는 것이다. <code>Set</code>, <code>Map</code>에 대해서도 물론 동작한다. key-value 형식의 <code>Map</code>에 대해서는 for (let [key, value] of …) 형식의 <code>destructuring</code>을 사용한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>단 for-of 가 만능은 아니다. <code>Object</code>의 프로퍼티를 루프시키려면 <code>for-in statement</code>를 사용해야 한다. 사실 <code>for-in statement</code>의 원래 목적이 <code>Object</code> 프로퍼티 순회이다. Object를 순회하는 경우를 살펴보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">    <span class="attr">one</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">two</span> : <span class="number">2</span>,</div><div class="line">    <span class="attr">three</span> : <span class="number">3</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>위와 같은 obj라는 오브젝트를 정의한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></p>
-<p><code>for-in statement</code>를 통해서 정의한 오브젝트(obj)의 key를 순회했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(obj[key]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
-<p>오브젝트를 <code>for-of statment</code>로 순회하면 어떻게 될까?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// Uncaught TypeError: obj[Symbol.iterator] is not a function</span></div></pre></td></tr></table></figure></p>
-<p>JavaScript의 Object는 <code>iterable</code> 프로토콜을 구현하고 있지 않기 때문에, <code>Symbol.iterator</code>가 존재하지 않는다.</p>
+<h1 id="ES6-13-Map-WeakMap-API"><a href="#ES6-13-Map-WeakMap-API" class="headerlink" title="[ES6] 13. Map, WeakMap API"></a>[ES6] 13. Map, WeakMap API</h1><h2 id="Map-Object"><a href="#Map-Object" class="headerlink" title="Map Object"></a>Map Object</h2><p>아시다시피, <code>Map</code>오브젝트는 key-value의 자료구조입니다. 기존 자바스크립트의 Object도 마찬가지로 key-value형식으로 구성되는데요, <code>Map</code>오브젝트는 <code>key</code>로 사용될 수 있는 타입이 다양하다는 것이 다른 점이라고 할 수 있습니다. 또한 <code>Map</code>오브젝트는 Object 오브젝트와는 달리 <code>이터러블 오브젝트</code>입니다. 그렇기 때문에 <code>for-of</code> statement를 사용하여 순회할 수 있습니다.</p>
+<p><code>Map</code>오브젝트는 새로 추가되는 값의 <code>key</code>와 기존에 저장되어 있던 데이터의 <code>key</code>의 값이 동일하면 추가되지 않습니다. Java에서의 Map은 key를 hash값으로 저장하기 때문에 동일한 hash 값에 대해서 추가하지 않는데요, JavaScript에서는 조금 다른 방식으로 이를 판단합니다. key와 value가 저장될 때, 엔진이 별도의 일련 번호를 부여하여 이를 판단하게 됩니다. 또한 이 일련번호로 추가된 순서를 보장해줍니다.</p>
+<h5 id="다음과-같이-정리할-수-있겠습니다"><a href="#다음과-같이-정리할-수-있겠습니다" class="headerlink" title="다음과 같이 정리할 수 있겠습니다."></a>다음과 같이 정리할 수 있겠습니다.</h5><ul>
+<li>다양한 타입으로 <code>key</code>를 정의할 수 있다.</li>
+<li>이터러블 오브젝트(iterable object)이다.</li>
+<li>중복된 <code>key</code>를 추가할 수 없다.</li>
+<li>중복된 <code>key</code>를 통해 추가하는 경우 해당 <code>key</code>의 <code>value</code>를 덮어쓴다.<ul>
+<li>즉 기존 <code>key</code>의 순서를 유지한다.</li>
+</ul>
+</li>
+<li>순서를 보장하는 자료구조이다.</li>
+</ul>
+<h4 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h4><p>예제 코드의 길이을 줄이기 위해 <code>Map</code>의 key와 value를 확인하기 위한 함수를 정의해두고 사용하겠습니다 :)<br><figure class="highlight js"><figcaption><span>utils.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printMap</span>(<span class="params">map</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`key: <span class="subst">$&#123;key&#125;</span>, value: <span class="subst">$&#123;value&#125;</span>`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Expected console</span></div><div class="line"><span class="comment">// key: something, value: something</span></div></pre></td></tr></table></figure></p>
+<p><code>Map</code>은 이터러블 오브젝트이기 때문에 <code>[key, value]</code>형식으로 값을 받아서 사용할 수 있습니다.<br>물론 다음과 같이 함수를 정의할 수도 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">map</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(item));<span class="comment">//true</span></div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Expected console</span></div><div class="line"><span class="comment">// [ 'something', 'something' ]</span></div></pre></td></tr></table></figure></p>
+<p><code>for-of</code> statement에서 추출된 <code>item</code>은 <code>Array</code>입니다. 따라서 console에도 <code>Array</code> 타입으로 찍힙니다.</p>
+<h3 id="new-Map"><a href="#new-Map" class="headerlink" title="new Map()"></a>new Map()</h3><p><code>Map</code> 오브젝트는 다음과 같이 생성가능합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> newMap = <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">  [<span class="string">'1'</span>, <span class="string">'one'</span>],</div><div class="line">  [<span class="string">'2'</span>, <span class="string">'two'</span>],</div><div class="line">  [<span class="string">'3'</span>, <span class="string">'three'</span>]</div><div class="line">]);</div><div class="line"></div><div class="line">printMap(newMap);</div><div class="line"><span class="comment">// console</span></div><div class="line"><span class="comment">// key: 1, value: one</span></div><div class="line"><span class="comment">// key: 2, value: two</span></div><div class="line"><span class="comment">// key: 3, value: three</span></div></pre></td></tr></table></figure></p>
+<h3 id="Map-prototype-set-get"><a href="#Map-prototype-set-get" class="headerlink" title="Map.prototype.set(), get()"></a>Map.prototype.set(), get()</h3><p>key와 value를 설정합니다. <code>set()</code> 메소드의 반환 값은 <code>set()</code> 메소드를 호출한 Map입니다. 그래서 chaining처럼 연속적으로 key와 value를 설정해줄 수 있습니다. <code>get()</code>메소드는 인자로 넘겨간 <code>key</code>값과 일치하는 <code>value</code>를 반환합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> webs = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">webs.set(<span class="string">'1'</span>, <span class="string">'React'</span>)</div><div class="line">    .set(<span class="string">'2'</span>, <span class="string">'Angular2'</span>)</div><div class="line">    .set(<span class="string">'3'</span>, <span class="string">'Vue'</span>)</div><div class="line">    .set(<span class="string">'2'</span>, <span class="string">'Redux'</span>);</div><div class="line"></div><div class="line">printMap(webs);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`webs.get('1'): <span class="subst">$&#123;webs.get(<span class="string">'1'</span>)&#125;</span>`</span>);</div><div class="line"><span class="comment">// console</span></div><div class="line"><span class="comment">// key: 1, value: React</span></div><div class="line"><span class="comment">// key: 2, value: Redux</span></div><div class="line"><span class="comment">// key: 3, value: Vue</span></div><div class="line"><span class="comment">// webs.get('1'): React</span></div></pre></td></tr></table></figure></p>
+<h3 id="Map-prototype-entries-keys-values"><a href="#Map-prototype-entries-keys-values" class="headerlink" title="Map.prototype.entries(), keys(), values()"></a>Map.prototype.entries(), keys(), values()</h3><p>각각 해당하는 이터레이터 오브젝트를 반환하는 메소드입니다.</p>
+<h3 id="Map-prototype-has"><a href="#Map-prototype-has" class="headerlink" title="Map.prototype.has()"></a>Map.prototype.has()</h3><p><code>.has()</code>는 파라미터로 전달되는 <code>key</code>에 해당하는 값이 존재하는지에 대한 여부를 <code>boolean</code>으로 반환합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(webs.has(<span class="string">'1'</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(webs.has(<span class="string">'4'</span>));<span class="comment">//false</span></div></pre></td></tr></table></figure></p>
+<h3 id="Map-prototype-delete-clear"><a href="#Map-prototype-delete-clear" class="headerlink" title="Map.prototype.delete(), clear()"></a>Map.prototype.delete(), clear()</h3><p><code>.delete()</code>메소드의 파라미터로 특정 <code>key</code>값을 넘겨주면 해당 key와 value가 map에서 삭제됩니다. <code>.clear()</code>는 모든 <code>key</code>와 <code>value</code>를 삭제합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(webs.size);<span class="comment">// 3</span></div><div class="line">webs.delete(<span class="string">'1'</span>);</div><div class="line"><span class="built_in">console</span>.log(webs.size);<span class="comment">// 2</span></div><div class="line">printMap(webs);</div><div class="line"><span class="comment">// console</span></div><div class="line"><span class="comment">// key: 2, value: Redux</span></div><div class="line"><span class="comment">// key: 3, value: Vue</span></div><div class="line"></div><div class="line">webs.clear();</div><div class="line"><span class="built_in">console</span>.log(webs.size);<span class="comment">// 0</span></div><div class="line">printMap(webs);</div><div class="line"><span class="comment">// console</span></div><div class="line"><span class="comment">// undefined</span></div></pre></td></tr></table></figure></p>
+<h3 id="Map-prototype-forEach"><a href="#Map-prototype-forEach" class="headerlink" title="Map.prototype.forEach"></a>Map.prototype.forEach</h3><p><code>forEach</code>의 파라미터로는 콜백 함수를 넘겨줍니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">webs.forEach(<span class="function">(<span class="params">value, key, obj</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`key: <span class="subst">$&#123;key&#125;</span>, value: <span class="subst">$&#123;value&#125;</span>`</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// console</span></div><div class="line"><span class="comment">// key: 1, value: React</span></div><div class="line"><span class="comment">// key: 2, value: Redux</span></div><div class="line"><span class="comment">// key: 3, value: Vue</span></div></pre></td></tr></table></figure></p>
+<p>넘겨지는 콜백 함수에는 세 가지 인자가 전달될 수 있습니다. key, value의 순서가 조금 다르다는 것에 주의하면 되겠네요. 세 번째 인자로는 콜백 함수 내부에서 <code>this</code>로 참조할 오브젝트가 전달됩니다.</p>
+<h2 id="WeakMap-Object"><a href="#WeakMap-Object" class="headerlink" title="WeakMap Object"></a>WeakMap Object</h2><p><code>WeakMap</code> 오브젝트의 <code>key</code>에는 Object만 지정될 수 있습니다.</p>
+<h3 id="GC와의-연관성"><a href="#GC와의-연관성" class="headerlink" title="GC와의 연관성"></a>GC와의 연관성</h3><p><code>key</code>로 사용하고 있던 Object 오브젝트가 메모리에서 사라질 경우, 즉 GC에 의해서 Garbage Colleting이 되면, 더이상 <code>value</code>의 <code>key</code>로서 역할을 수행하지 못합니다. 그렇기 때문에 이 key에 대한 내용을 삭제해줘야 한다. 메모리에서 사라진 <code>key</code>에 대해서 삭제하는 작업을 <code>WeakMap</code>을 사용하면 자동으로 해결됩니다.</p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p><code>set()</code>, <code>get()</code>, <code>has()</code>, <code>delete()</code> 이 네 가지 API만 제공할 뿐, 열거를 위한 API는 제공하지 않습니다. 또한 <code>size</code> 프로퍼티가 존재하지 않기 때문에, 특정 시점의 <code>[key, value]</code>의 수를 알 수 없습니다. 이는 <code>WeakMap</code> 자체적으로 <code>key</code>를 제거하므로 값이 비결정적이기 때문에 API를 통해 제공되지 않습니다.</p>
+<p><em>cf) <code>Set</code> 자료구조는 <code>Map</code>자료구조의 <code>key</code>에 <code>value</code>가 들어가게 되는 자료구조 입니다. 그러므로 <code>Map</code>과 거의 유사한 API를 제공하며 저장하는 방식의 차이만 존재합니다. 마찬가지로 <code>Set</code>과 <code>WeakSet</code>은 <code>Map</code>과 <code>WeakMap</code>의 관계와 동일합니다.</em></p>
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>3. end</em></p>
+<p><em>13. end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -209,7 +217,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/" data-id="cj3jpqd3n000ialwgn49wqb44" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/06/05/ES6-13-Map-WeakMap/" data-id="cj3jpqd150005alwghcvetj8z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -333,22 +341,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/ES6-2-Arrow-function/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/05/19/React-2-Elements-and-Component/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 2. Arrow function
+            [React] 2. Elements and Component
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 4. Spread, Rest parameter</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -513,7 +515,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/06/05/ES6-13-Map-WeakMap/';
     
     (function() {
     var dsq = document.createElement('script');
