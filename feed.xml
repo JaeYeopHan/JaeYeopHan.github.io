@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-06-05T05:45:37.000Z</updated>
+  <updated>2017-06-05T05:48:54.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ES6-13-Map-WeakMap</title>
+    <title>[ES6] 13. Map, WeakMap</title>
     <link href="https://jaeyeophan.github.io/2017/06/05/ES6-13-Map-WeakMap/"/>
     <id>https://jaeyeophan.github.io/2017/06/05/ES6-13-Map-WeakMap/</id>
     <published>2017-06-05T05:44:56.000Z</published>
-    <updated>2017-06-05T05:45:37.000Z</updated>
+    <updated>2017-06-05T05:48:54.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/javascript_es6.png" alt=""></p>
 <h1 id="ES6-13-Map-WeakMap-API"><a href="#ES6-13-Map-WeakMap-API" class="headerlink" title="[ES6] 13. Map, WeakMap API"></a>[ES6] 13. Map, WeakMap API</h1><h2 id="Map-Object"><a href="#Map-Object" class="headerlink" title="Map Object"></a>Map Object</h2><p>아시다시피, <code>Map</code>오브젝트는 key-value의 자료구조입니다. 기존 자바스크립트의 Object도 마찬가지로 key-value형식으로 구성되는데요, <code>Map</code>오브젝트는 <code>key</code>로 사용될 수 있는 타입이 다양하다는 것이 다른 점이라고 할 수 있습니다. 또한 <code>Map</code>오브젝트는 Object 오브젝트와는 달리 <code>이터러블 오브젝트</code>입니다. 그렇기 때문에 <code>for-of</code> statement를 사용하여 순회할 수 있습니다.</p>
