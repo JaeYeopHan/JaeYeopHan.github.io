@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[React] 2. Elements and Component | Devlog</title>
+    <title>[React] 3. Props and State in Component | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="React" />
     
-    <meta name="description" content="[React] 2. Elements and ComponentElementElement는 화면에 표시되는 내용이며, React를 구성하고 있는 가장 작은 블록이라고 할 수 있습니다. 브라우저 요소인 DOM과 달리 React Element는 보다 적은 비용으로 생성할 수 있으며 React DOM은 React Element와 일치하도록 DOM을 업데이트 합니다">
+    <meta name="description" content="[React] 3. Props and State in ComponentReact Component에는 props라는 것이 존재합니다. propsProps은 컴포넌트가 가지고 있는 속성으로 컴포넌트 내부에서는 this.props.[xxx]와 같은 형식으로 접근할 수 있는 것을 말합니다. Props은 외부에서 컴포넌트로 전달하는 값이기 때문에 컴포넌트 내부에">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[React] 2. Elements and Component">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/05/19/React-2-Elements-and-Component/index.html">
+<meta property="og:title" content="[React] 3. Props and State in Component">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/06/13/React-3-Props-and-State-in-Component/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[React] 2. Elements and ComponentElementElement는 화면에 표시되는 내용이며, React를 구성하고 있는 가장 작은 블록이라고 할 수 있습니다. 브라우저 요소인 DOM과 달리 React Element는 보다 적은 비용으로 생성할 수 있으며 React DOM은 React Element와 일치하도록 DOM을 업데이트 합니다">
+<meta property="og:description" content="[React] 3. Props and State in ComponentReact Component에는 props라는 것이 존재합니다. propsProps은 컴포넌트가 가지고 있는 속성으로 컴포넌트 내부에서는 this.props.[xxx]와 같은 형식으로 접근할 수 있는 것을 말합니다. Props은 외부에서 컴포넌트로 전달하는 값이기 때문에 컴포넌트 내부에">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/react_logo.png">
-<meta property="og:updated_time" content="2017-05-19T05:12:09.000Z">
+<meta property="og:updated_time" content="2017-06-13T02:23:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[React] 2. Elements and Component">
-<meta name="twitter:description" content="[React] 2. Elements and ComponentElementElement는 화면에 표시되는 내용이며, React를 구성하고 있는 가장 작은 블록이라고 할 수 있습니다. 브라우저 요소인 DOM과 달리 React Element는 보다 적은 비용으로 생성할 수 있으며 React DOM은 React Element와 일치하도록 DOM을 업데이트 합니다">
+<meta name="twitter:title" content="[React] 3. Props and State in Component">
+<meta name="twitter:description" content="[React] 3. Props and State in ComponentReact Component에는 props라는 것이 존재합니다. propsProps은 컴포넌트가 가지고 있는 속성으로 컴포넌트 내부에서는 this.props.[xxx]와 같은 형식으로 접근할 수 있는 것을 말합니다. Props은 외부에서 컴포넌트로 전달하는 값이기 때문에 컴포넌트 내부에">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/react_logo.png">
     
     
@@ -149,14 +149,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-React-2-Elements-and-Component" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-React-3-Props-and-State-in-Component" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [React] 2. Elements and Component
+        [React] 3. Props and State in Component
         </h1>
     
 
@@ -166,8 +166,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/05/19/React-2-Elements-and-Component/" class="article-date">
-            <time datetime="2017-05-19T05:02:02.000Z" itemprop="datePublished">2017-05-19</time>
+        <a href="/2017/06/13/React-3-Props-and-State-in-Component/" class="article-date">
+            <time datetime="2017-06-13T02:23:14.000Z" itemprop="datePublished">2017-06-13</time>
         </a>
     </div>
 
@@ -182,36 +182,28 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/react_logo.png" alt=""></p>
-<h1 id="React-2-Elements-and-Component"><a href="#React-2-Elements-and-Component" class="headerlink" title="[React] 2. Elements and Component"></a>[React] 2. Elements and Component</h1><h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p><code>Element</code>는 화면에 표시되는 내용이며, React를 구성하고 있는 가장 작은 블록이라고 할 수 있습니다. 브라우저 요소인 DOM과 달리 React Element는 보다 적은 비용으로 생성할 수 있으며 React DOM은 React Element와 일치하도록 DOM을 업데이트 합니다.</p>
-<h2 id="Rendering-Elements"><a href="#Rendering-Elements" class="headerlink" title="Rendering Elements"></a>Rendering Elements</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>위와 같은 html 코드가 존재합니다. 실제로 존재하는 코드는 <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>뿐이라고 볼 수 있습니다. React에서는 이것을 루트 노드(<code>Root DOM node</code>)라고 부릅니다. 이 태그 내부의 모든 element들은 <code>React DOM</code>에 의해 관리됩니다.</p>
-<p>이전 포스팅에서 다뤘던 예제 코드를 다시 한번 살펴볼 차례입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">);</div><div class="line">ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure></p>
-<p><code>루트 노드</code>를 select하여 내부에 작성한 element를 <code>render</code>할 수 있습니다.</p>
-<p><br></p>
-<h2 id="Immutable-Element"><a href="#Immutable-Element" class="headerlink" title="Immutable Element"></a>Immutable Element</h2><p>React element는 <code>immutable</code>입니다. element 렌더링한 후에는, 해당 element의 자식이나 attribute를 변경할 수 없습니다. React에서는 <strong>새로운 element를 전달</strong>하여 UI를 업데이트할 수 있습니다. 뭔가 너무 비효율적으로 보이지 않나요?</p>
-<p>만약에 렌더링 된 element가 위의 예제처럼 짧지 않고 엄청 긴 element인데, 모든 element를 새로 전달해야 한다니. <strong>하지만</strong> React는 <strong>필요한 부분만 업데이트</strong> 합니다! React DOM은 새로 전달받은 element와 그 자식들을 이전의 element들과 비교하여 업데이트가 필요한 부분만 업데이트 합니다.</p>
-<p>다음은 공식 홈페이지에 올라온 예제 코드입니다. 1초마다 <code>ReactDOM.render()</code>를 호출하여 UI를 업데이트합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> element = (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>It is &#123;new Date().toLocaleTimeString()&#125;.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">  ReactDOM.render(</div><div class="line">    element,</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">setInterval(tick, <span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
-<p>개발자 도구를 열어서 확인해보면 <code>{new Date().toLocaleTimeString()}</code>부분만 업데이트 되는 것을 확인하실 수 있습니다.</p>
-<p><br></p>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>Component는 Element로 구성될 수 있습니다. React에서는 Component를 설계하고 이를 사용하여 UI를 독립적이고 재사용 가능한 부분으로 분할할 수 있습니다.</p>
-<h3 id="Component-정의"><a href="#Component-정의" class="headerlink" title="Component 정의"></a>Component 정의</h3><p>Component는 ES6의 <code>class</code>문법을 사용하여 정의할 수 있고 <code>React.createClass</code> 문법을 통하여 정의할 수 있고, <code>stateless한 Component</code>에 대하여 <code>functional Component</code> 방식으로 정의할 수 있습니다.</p>
-<h4 id="class문법을-사용하여-React-Component를-extends-하는-방식으로-컴포넌트를-정의"><a href="#class문법을-사용하여-React-Component를-extends-하는-방식으로-컴포넌트를-정의" class="headerlink" title="class문법을 사용하여 React.Component를 extends 하는 방식으로 컴포넌트를 정의."></a><code>class</code>문법을 사용하여 React.Component를 extends 하는 방식으로 컴포넌트를 정의.</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Welcome</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello React World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="일반-함수-or-Arrow-function-를-사용하여-컴포넌트를-정의"><a href="#일반-함수-or-Arrow-function-를-사용하여-컴포넌트를-정의" class="headerlink" title="일반 함수(or Arrow function)를 사용하여 컴포넌트를 정의"></a>일반 함수(or Arrow function)를 사용하여 컴포넌트를 정의</h4><p><a href="https://facebook.github.io/react/docs/context.html" target="_blank" rel="external">React 공식 문서</a>에서는 <code>stateless functional component</code>라는 용어로 해당 컴포넌트를 설명하고 있습니다. 개발자들 사이에서는 Pure Component, Dumb Component, Presential Component 라고 불리기도 합니다. UI를 구성하게 되는 Component 중 state가 없거나 LifeCycle API를 사용할 일이 없는 경우 함수를 사용하여 정의합니다. 즉, 렌더링의 역할만 수행하는 컴포넌트를 정의할 때 사용하는 방식이라고 할 수 있습니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">const</span> dumb = <span class="function"><span class="params">()</span> =&gt;</span> (</div><div class="line">	<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">);</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> dumb;</div></pre></td></tr></table></figure>
-<p>위와 같이 Arrow function을 사용할 수도 있지만 일반 함수를 사용하는 경우에는 함수의 이름을 추론할 수 있기 때문에 airbnb convention에서는 다음과 같은 일반 함수 방식을 권장하고 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dumb</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Functional Component에 대해 자세히 설명된 포스팅입니다.<a href="https://velopert.com/2994" target="_blank" rel="external">Velopert-함수형 컴포넌트</a></p>
-<ol>
-<li><code>React.createElement()</code>를 사용하여 컴포넌트를 정의<br>사실 JSX로 작성된 element 또는 Component는 <code>React.createElement()</code>로 컴파일됩니다. React에서 일종의 sugar syntax를 제공하는 셈입니다. 즉 1번 case의 예제 코드는 다음과 같이 컴파일됩니다.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> React.createElement(<span class="string">'div'</span>, <span class="literal">null</span>, <span class="string">`Hello React World`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>물론 위 코드도 <code>babel</code>에 의해 ES5 문법으로 transpile되겠지만 그 결과는 생략했습니다. 저번 포스팅에서도 언급된 <a href="https://github.com/apple77y/javascript/tree/master/react" target="_blank" rel="external">airbnb 에서 제공하는 React convention</a>에서는 JSX를 사용하고 있는데, 특별한 사유가 없다면 위 구문을 사용하지 말라고 합니다.</p>
-<p>정의된 컴포넌트는 ReactDOM에서 render하거나 Component를 정의할 때 사용(composition)할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">Hello</span>/&gt;</span></span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure></p>
-<p>혹시 위 예제와 이전 예제에서 차이점을 발견하셨나요? 일부러 다르게 작성해보았습니다. 달라진 점은 바로 <code>extends</code>하고 있는 클래스가 달라진 점인데요, 이 부분은 어떻게 React 라이브러리를 import하느냐에 따라 달라질 수 있습니다. 바로 위의 예제 같은 경우에는 다음과 같이 import하여 사용할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div></pre></td></tr></table></figure></p>
-<p><code>Component</code>만 import하지 않고 <code>React</code>까지 import하는 것은 바로 <code>React.createElement()</code>로 컴파일 되기 때문입니다. 마찬가지의 이유로 일반 함수로 Component를 정의할 때도 <code>React</code>를 import해줘야 합니다. <code>React.Component</code>보다는 <code>Component</code>만 extends하는 것이 타이핑도 줄고 더 깔끔하겠죠? 물론 snippet이 제공되서 직접 타이핑 할 필요는 없지만요 :)</p>
-<p>Element에 대해서 그리고 Component를 어떻게 정의하는가에 대한 포스팅이었습니다. 감사합니다 :D</p>
+<h1 id="React-3-Props-and-State-in-Component"><a href="#React-3-Props-and-State-in-Component" class="headerlink" title="[React] 3. Props and State in Component"></a>[React] 3. Props and State in Component</h1><p>React Component에는 <code>props</code>라는 것이 존재합니다.</p>
+<h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><p><code>Props</code>은 컴포넌트가 가지고 있는 속성으로 컴포넌트 내부에서는 <code>this.props.[xxx]</code>와 같은 형식으로 접근할 수 있는 것을 말합니다. <code>Props</code>은 외부에서 컴포넌트로 전달하는 값이기 때문에 컴포넌트 내부에서 전달받은 <code>props</code>을 변경해서는 안됩니다. 즉 <code>Props</code>은 immutable한 속성을 갖고 있습니다.</p>
+<h3 id="Use-Props"><a href="#Use-Props" class="headerlink" title="Use Props"></a>Use Props</h3><p>함수로 작성된 Component의 경우와 class 문법으로 작성된 Component의 경우, 두 가지에 대해서 props를 살펴봅니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params">props</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;App name="Jbee" /&gt;,</div><div class="line">  document.getElementById('root')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>Component 외부(해당 Component를 사용하는 Component 또는 render 메소드)에서 name이라는 속성을 props라는 객체를 통해 전달할 수 있습니다. 함수로 작성된 Component에서는 파라미터를 통해 <code>props</code>를 전달받아 이를 내부에서 사용할 수 있습니다. ES6의 destructuring 문법을 사용하면 다음과 같이 사용할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params">&#123;name&#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, &#123;name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;App name="Sara" /&gt;,</div><div class="line">  document.getElementById('root')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>class 문법을 사용하여 Component를 정의하는 경우에는 <code>constructor</code>를 통해 props를 받아 사용할 수 있습니다.<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class App extends Component &#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    return &#123;</div><div class="line">      &lt;div&gt;Hello! &#123;this.props.name&#125;&lt;/div&gt;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;App name="Jbee"/&gt;,</div><div class="line">  document.getElementById('root')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><code>constructor(props)</code>내부에 <code>super(props)</code>이 부분이 보이시나요? 이 부분을 빠뜨리면 에러가 발생합니다. ES6 문법에서도 어떠한 클래스를 상속받은 다음 super를 호출해주지 않으면 에러가 발생하는데요, 그와 같은 원리라고 생각하시면 됩니다.</p>
+<h3 id="TypeChecking-to-Props"><a href="#TypeChecking-to-Props" class="headerlink" title="TypeChecking to Props"></a>TypeChecking to Props</h3><p>컴포넌트가 외부와의 데이터를 주고 받기 위해 props를 사용했는데요, 이럴 경우 props의 Type을 확인해줘야 하는 필요성이 생깁니다. (물론 애플리케이션의 크기가 작을 때는 props를 주고 받는 것이 한 눈에 보이기 때문에 필수적이지는 않습니다. 하지만 정적 언어를 주로 사용하셨던 분들에게는 적지 않은 찝찝함이 남아있을 거라생각합니다.)</p>
+<p>이러한 니즈를 충족시키기 위해 기존에는 React.PropTypes라는 방식을 사용했지만 React v15.5 부터 prop-types라는 npm을 통해 해결합니다. Facebook에서 개발한 <code>Flow</code>를 사용하는 방법도 존재하고, MS의 <code>TypeScript</code>를 사용하는 것도 한 가지 방법이겠습니다 :)</p>
+<p>기존의 방식과 npm을 설치하는 방법은 import 구문이 추가되는 것을 제외하고 모두 동일합니다.<br>App Component에서 받는 props에 대한 TypeChecking 예제 코드입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">App.propTypes = &#123;</div><div class="line">  <span class="attr">title</span>: React.PropType.string,</div><div class="line">  <span class="attr">author</span>: React.PropType.string.isRequired</div><div class="line">  onSubmit: React.PropType.func</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>기존의 React에 포함되어 있는 <code>PropType</code>을 사용하는 경우에는 위와 같이 사용하면 됩니다. 필수적으로 요구하는 값에 대해서는 <code>isRequired</code>라는 속성을 더해줍니다. (포스팅을 작성하는 시점에서는 경고 메시지만 로그로 찍힐 뿐 실행에는 문제가 없습니다.)</p>
+<p><code>Prop-Types</code> npm 설치는 다음과 같습니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install --save prop-types</div><div class="line"><span class="comment"># or</span></div><div class="line">$ yarn add prop-types</div></pre></td></tr></table></figure></p>
+<p>그리고 해당 npm을 import하여 사용할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line">App.propTypes = &#123;</div><div class="line">  <span class="attr">title</span>: PropType.string,</div><div class="line">  <span class="attr">author</span>: PropType.string.isRequired,</div><div class="line">  <span class="attr">onSubmit</span>: PropType.func</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>Prop-Type</code>npm에서는 다음과 같은 Type들을 제공합니다.<br><code>array</code>, <code>bool</code>,<code>func</code>,<code>number</code>,<code>object</code>,<code>string</code>,<code>symbol</code>,<code>node</code>,<code>element</code><br>또한 다음과 같은 메소드를 제공하여 보다 강력한 TypeChecking을 제공합니다.<br><code>instanceOf()</code>,<code>oneOf([[array]])</code>,<code>oneOfType([[array]])</code>  etc…<br>보다 더 자세한 내용은 다음 링크를 참고하시면 됩니다. <a href="https://github.com/reactjs/prop-types" target="_blank" rel="external">reactjs/prop-types</a></p>
+<h3 id="Set-Default-Props"><a href="#Set-Default-Props" class="headerlink" title="Set Default Props"></a>Set Default Props</h3><p>Component에서 외부로부터 받기로 한 props가 전달되지 않았을 경우를 대비해 props에 대한 default value도 지정해줘야 합니다. default props를 지정하는 것은 props의 type을 check하는 것과 매우 유사합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">App.defaultProps = &#123;</div><div class="line">  <span class="attr">title</span>: <span class="string">"unknown"</span>,</div><div class="line">  <span class="attr">author</span>: <span class="string">"unknown"</span>,</div><div class="line">  <span class="attr">onSubmit</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.warn(<span class="string">'onSubmit function is not defined!'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>각 타입에 맞는 적절한 default value를 설정해줄 수 있습니다. propType을 통해 정의한 type은 defaultProps에도 적용됩니다.</p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>Component 내부에서 관리해야하는 상태 값이 존재하는 경우 <code>state</code>를 통해 관리할 수 있습니다. 이 <code>state</code>는 <code>constructor()</code> 내부에서 정의할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">isSelected</span>: <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>위의 예제 코드와 같이 Object로 state를 관리할 수 있습니다. state를 <strong>업데이트할 경우</strong>에는 Component의 <code>.setState()</code>라는 메소드를 사용할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">isSelected</span>: <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">  handleClick() &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">isSelected</span>: <span class="literal">true</span>&#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Component의 <code>.setState()</code>메소드를 사용하는 메소드를 만들었습니다. Component의 메소드를 JSX 구문에서 사용하기 위해서는 <code>constructor</code>내부에서 <code>this</code>를 binding해줘야 합니다. 해당 메소드를 실행하는 시점에서 메소드 내부에 정의된 <code>this</code>가 달라지기 때문입니다.</p>
+<p><code>.setState()</code>에 대해서 추가적으로 반드시 알아둬야 하는 부분이 있습니다. 바로 이 메소드는 비동기로 호출된다는 점입니다. 즉 일반 메소드처럼 콜스택에 추가되어 호출되는 것이 아니라 이벤트 큐로 들어가게 됩니다. 메소드를 호출할 때 이 부분을 유의하여 작성해야 합니다 :)</p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>외부, 즉 상위 컴포넌트에 의해 값이 변경될 수 있는 경우에 대해서는 props를 통해 해결하고 이 props는 해당 컴포넌트에서 변경해서는 안됩니다. 컴포넌트 내부에서 변경될 수 있는 값에 대해서는 state를 통해 해결합니다.</p>
 <p>React와 관련된 포스트는 <a href="https://github.com/JaeYeopHan/react_tutorial_with_docs" target="_blank" rel="external">Github Repository</a>에서 실시간 피드를 받으실 수 있습니다.</p>
-<p>Reference&gt;<br><a href="https://facebook.github.io/react/docs/react-without-jsx.html" target="_blank" rel="external">https://facebook.github.io/react/docs/react-without-jsx.html</a></p>
-<p><em>2. end</em></p>
+<p><em>Reference&gt;</em><br><a href="https://facebook.github.io/react/docs/components-and-props.html" target="_blank" rel="external">https://facebook.github.io/react/docs/components-and-props.html</a><br><a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html" target="_blank" rel="external">https://facebook.github.io/react/docs/typechecking-with-proptypes.html</a></p>
 
         </div>
         <footer class="article-footer">
@@ -219,7 +211,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/05/19/React-2-Elements-and-Component/" data-id="cj3uy1ljm001jo3wggzq07tbe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/06/13/React-3-Props-and-State-in-Component/" data-id="cj3uy1ljg0018o3wgypik3ous" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -343,22 +335,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/05/16/Everything-about-babel/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/06/05/ES6-13-Map-WeakMap/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [Tool] (번역)Babel에 대한 모든 것
+            [ES6] 13. Map, WeakMap
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/06/05/ES6-13-Map-WeakMap/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 13. Map, WeakMap</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -523,7 +509,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/05/19/React-2-Elements-and-Component/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/06/13/React-3-Props-and-State-in-Component/';
     
     (function() {
     var dsq = document.createElement('script');
