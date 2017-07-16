@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/07/16/ES8-Standard-Release-Overview/</loc>
+        <lastmod>2017-07-16T10:11:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/06/13/React-3-Props-and-State-in-Component/</loc>
         <lastmod>2017-06-13T02:23:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
