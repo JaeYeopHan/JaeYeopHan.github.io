@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 4. Spread, Rest parameter | Devlog</title>
+    <title>[React-router] 1. react-router basic | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="es6" />
+        <meta name="keywords" content="React" />
     
-    <meta name="description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta name="keywords" content="es6">
+    <meta name="description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 4. Spread, Rest parameter">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/index.html">
+<meta property="og:title" content="[React-router] 1. react-router basic">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T12:01:30.000Z">
+<meta property="og:description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/react_router_logo.png">
+<meta property="og:updated_time" content="2017-08-30T09:05:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 4. Spread, Rest parameter">
-<meta name="twitter:description" content="[ES6] 4. Spread, Rest parameterSpread이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.1234let prev = [3,4];let post = [7,8];let spreadObj = [1, 2, ...prev">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
+<meta name="twitter:title" content="[React-router] 1. react-router basic">
+<meta name="twitter:description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/images/react_router_logo.png">
     
     
         <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
@@ -145,18 +145,18 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    <a class="page-title-link" href="/categories/React/">React</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-4-Spread-Rest-parameter" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-React-router-1-react-router-basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 4. Spread, Rest parameter
+        [React-router] 1. react-router basic
         </h1>
     
 
@@ -166,37 +166,48 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" class="article-date">
-            <time datetime="2017-04-18T11:59:13.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/08/30/React-router-1-react-router-basic/" class="article-date">
+            <time datetime="2017-08-30T09:03:18.000Z" itemprop="datePublished">2017-08-30</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/es6/">es6</a>
+        <a class="tag-link" href="/tags/React/">React</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-4-Spread-Rest-parameter"><a href="#ES6-4-Spread-Rest-parameter" class="headerlink" title="[ES6] 4. Spread, Rest parameter"></a>[ES6] 4. Spread, Rest parameter</h1><h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prev = [<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">let</span> post = [<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">let</span> spreadObj = [<span class="number">1</span>, <span class="number">2</span>, ...prev, <span class="number">5</span>, <span class="number">6</span>, ...post, <span class="number">9</span>];</div><div class="line"><span class="built_in">console</span>.log(spreadObj); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></div></pre></td></tr></table></figure></p>
-<p>문자열도 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sObj = [...<span class="string">"javascript"</span>];</div><div class="line"><span class="built_in">console</span>.log(sObj); <span class="comment">// ["j", "a", "v", "a", "s", "c", "r", "i", "p", "t"]</span></div></pre></td></tr></table></figure></p>
-<h2 id="Rest-Parameter"><a href="#Rest-Parameter" class="headerlink" title="Rest Parameter"></a>Rest Parameter</h2><p>함수를 호출할 때 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>Rest parameter</code>라고 한다. 함수안의 코드를 확인하지 않고도 호출문의 형태만 보더라도 <code>Rest parameter</code> 의 범위를 확인할 수 있어 가독성이 높아진다. 또한 <code>Rest parameter</code>는 <code>Array</code>, 즉 배열이므로 <code>Array</code> 오브젝트의 메서드를 사용할 수 있다. 그리고 <code>arrow funtion</code>에서도 사용 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> price = [<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>];</div><div class="line"><span class="built_in">Math</span>.max(<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>);</div></pre></td></tr></table></figure></p>
-<p>built in Object인 <code>Math</code>의 메소드 <code>max()</code>를 사용하기 위해서는 위 코드처럼 하나씩 넘겨줘야 한다.<br>또는 다음과 같은 방식을 사용했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.max.call(<span class="built_in">Math</span>, price);</div></pre></td></tr></table></figure></p>
-<p>하지만 Rest parameter를 사용하면 보다 깔끔하게 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> maxPrice = Max.max(...price);</div></pre></td></tr></table></figure></p>
-<p><code>Rest parameter</code>는 동적(dynamic)으로 생성된 파라미터라고 할 수 있기 때문에 함수의 <code>length</code>에서 포함되지 않는다. 기본적으로 함수의 <code>length</code> 프로퍼티는 파라미터의 개수를 의미한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> getElementByRestWithParam = <span class="function">(<span class="params">param, ...rest</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(param);</div><div class="line">    <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(getElementByRestWithParam.length); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
-<p>위 <code>getElementByRestWithParam</code>메소드에 <code>spread operator</code>를 사용하여 인자를 넘겨보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> values = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</div><div class="line">getElementByRestWithParam(...values); <span class="comment">//10 \n [20, 30]</span></div></pre></td></tr></table></figure></p>
-<p><code>param</code>에 해당하는 인자가 따로받아지고 나머지 인자들은 <code>...rest</code>로 넘겨지면서 다시 배열로 넘겨지게 된다!</p>
-<p><code>Rest parameter</code>를 사용했을 때와 기존의 자바스크립트에서 <code>arguments</code>를 사용했을 때의 차이점을 살펴보기 위해 <code>arguments</code>에 대해서 잠깐 살펴보자. <code>arguments</code>는 <code>Array-Like Object</code>라는 공식 명칭을 하고 있는 유사 배열이다.</p>
-<h2 id="Array-like-Object-유사배열"><a href="#Array-like-Object-유사배열" class="headerlink" title="Array-like Object(유사배열)"></a>Array-like Object(유사배열)</h2><p>배열의 특징 중 하나는 index를 갖고 있어서 임의 접근(random access)가 가능하고, 그 index가 순차적으로 증가한다는 것이다. 만약 Object가 key값이 순차적으로 증가하는 값이고, 그에 따른 value가 존재한다고 했을 때, <code>Array-like Object</code>라고 한다.<br>배열의 인덱스 값을 프로퍼티 key 값으로 사용하는 것이다. 그리고 <code>length</code>라는 프로퍼티 값을 갖고 있어서 전개를 할 때는 다음과 같이 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array-like object</span></div><div class="line"><span class="keyword">let</span> arrLikeObj = &#123;</div><div class="line">    <span class="number">0</span> : <span class="string">"zero"</span>,</div><div class="line">    <span class="number">1</span> : <span class="string">"one"</span>,</div><div class="line">    <span class="number">2</span> : <span class="string">"two"</span>,</div><div class="line">    <span class="attr">length</span> : <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLikeObj.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arrLikeObj[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>Array-like Object</code>는 다음 두 가지 규칙을 모두 만족시켜야 한다.<br>1) 프로퍼티 값을 0부터 1씩 증가하면서 순차적으로 작성해야 한다.<br>2) length를 프로퍼티 키로 하여 전체 프로퍼티 수를 작성해야 한다.</p>
-<h3 id="Rest-parameter와-arguments의-차이"><a href="#Rest-parameter와-arguments의-차이" class="headerlink" title="Rest parameter와 arguments의 차이"></a>Rest parameter와 arguments의 차이</h3><p><code>arguments</code>도 <code>Array-like object</code>이기 때문에 <code>for statement</code>로 전개할 수 있다. 하지만 <code>Array</code> 오브젝트의 메서드를 사용할 수 없다. 이것이 치명적인 단점인 것이다. 또 <code>arrow function</code>에서는 <code>arguments</code>를 사용할 수 없다. 이것으로 미루어보아, ES6에서는 <code>arguments</code>를 사용하는 것을 최대한 자제하라는 느낌이다. 사실 <code>Rest parameter</code>에 익숙해지기만 하면 <code>arguments</code>를 통해 인자를 받는 것보다 유연한 코드를 작성할 수 있다.</p>
-<p>한 가지 더 한계점을 지적하자면 <code>arguments</code>는 함수 내부를 봐야 어느 부분에서 <code>arguments</code> 객체를 사용하는지 알 수 있어 코드의 가독성이 떨어지게 된다. 그렇기 때문에 <code>arguments</code> 대신 <code>Rest parameter</code>를 도입한 것이다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>4. end</em></p>
+            <p><img src="/images/react_router_logo.png" alt=""></p>
+<h1 id="React-router-1-react-router-basic"><a href="#React-router-1-react-router-basic" class="headerlink" title="[React-router] 1. react-router basic"></a>[React-router] 1. react-router basic</h1><p><em><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">react-router</a>라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 <code>v4.1.1</code>입니다.</em></p>
+<h2 id="Why-react-router"><a href="#Why-react-router" class="headerlink" title="Why react-router?"></a>Why react-router?</h2><p>React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 <code>html</code>파일로 구성된, 여러 개의 페이지의 웹 애플리케이션이 아닌 단일 페이지로 구성된 웹 애플리케이션을 위한 라이브러리인 것입니다. 하나의 url로 웹 애플리케이션이 실행된다고 볼 수 있습니다. 하지만 이렇게 되면 특정 url에 따른 다른 페이지를 보여줄 수가 없습니다. 이로 인해 여러 가지 아쉬운 점들이 생겼습니다. 물론 html의 <code>anchor</code> 태그(<code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code>)를 사용하면 되지만, 이 태그는 모든 페이지를 모두 reloading합니다. <code>react-router</code>를 사용하게 되면 지정한 부분에 대해서만 reloading시킬 수 있습니다 :D</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yarn add react-router-dom</div><div class="line"><span class="comment"># or</span></div><div class="line">$ npm install react-router-dom</div></pre></td></tr></table></figure>
+<p>React project에서 해당 npm을 추가합니다.</p>
+<p><br></p>
+<h2 id="Sample-code-directory’s-structure"><a href="#Sample-code-directory’s-structure" class="headerlink" title="Sample code directory’s structure"></a>Sample code directory’s structure</h2><p>이번 포스팅에서 사용되는 프로젝트의 구조는 다음과 같습니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">src</div><div class="line">--containers</div><div class="line">----App.js</div><div class="line">--components</div><div class="line">----Navigators.js</div><div class="line">----Home.js</div><div class="line">----Comp1.js</div><div class="line">----Comp2.js</div><div class="line">----Comp3.js</div><div class="line">--index.js</div></pre></td></tr></table></figure></p>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;BrowserRouter <span class="keyword">as</span> Router, Route, Switch&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div></pre></td></tr></table></figure>
+<p><code>BrowserRouter</code>, <code>Route</code>, <code>Switch</code> 세 가지 모듈을 <code>react-router-dom</code>으로부터 불러옵니다.<br>사용하는 방식은 다음과 같습니다.</p>
+<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;Router&gt;</div><div class="line">                &lt;div&gt;</div><div class="line">                    &lt;Navigators/&gt;</div><div class="line">                    //[components according to path]</div><div class="line">                &lt;/div&gt;</div><div class="line">            &lt;/Router&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
+<p><code>Router</code>(<code>BrowserRouter</code>) 태그로 rendering하고자 하는 태그들을 감싸줍니다. <code>Router</code>태그 child로는 하나의 자식, 즉 하나의 태그만이 올 수 있기 때문에 <code>div</code>태그로 하위 태그들을 감싸줍니다. 위 예제는 <code>Navigators</code>에 있는 버튼들로 하위 태그들을 렌더링하기 위한 구조입니다. <code>Router</code>태그 안쪽의 구성을 살펴보겠습니다.</p>
+<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import components</span></div><div class="line"><span class="keyword">import</span> Navigators <span class="keyword">from</span> <span class="string">'../components/Navigators'</span>;</div><div class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'../components/Home'</span>;</div><div class="line"><span class="keyword">import</span> Comp1 <span class="keyword">from</span> <span class="string">'../components/Comp1'</span></div><div class="line"><span class="keyword">import</span> Comp2 <span class="keyword">from</span> <span class="string">'../components/Comp2'</span></div><div class="line"><span class="keyword">import</span> Comp3 <span class="keyword">from</span> <span class="string">'../components/Comp3'</span></div><div class="line"><span class="comment">//...</span></div><div class="line">&lt;Router&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;Navigators/&gt;</div><div class="line">        &lt;Switch&gt;</div><div class="line">            &lt;Route exact path="/" component=&#123;Home&#125;/&gt;</div><div class="line">            &lt;Route path="/comp1" component=&#123;Comp1&#125;/&gt;</div><div class="line">            &lt;Route path="/comp2" component=&#123;Comp2&#125;/&gt;</div><div class="line">            &lt;Route path="/comp3" component=&#123;Comp3&#125;/&gt;</div><div class="line">        &lt;/Switch&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure>
+<p>이제 <code>Switch</code>태그와 <code>Route</code>태그들을 사용해줍니다. 변경될 부분에 대해서 <code>Switch</code>태그로 감싸준 다음, 지정해준 <code>path</code>에 따라서 렌더링될 component를 지정해줍니다.</p>
+<p><code>exact</code>라는 키워드가 <code>/</code> path에 대해서만 지정이 된 것을 확인할 수 있는데요, 이 <code>/</code>는 각각의 <code>/comp1</code>, <code>/comp2</code>, <code>/comp3</code> path에도 포함되는 path입니다. 그렇기 때문에 중복으로 렌더링이 되는데요, <code>exact</code>는 “<code>/</code>일 경우에만 해당 component를 렌더링해!” 라는 의미의 키워드입니다. 렌더링 해줄 컴포넌트는 이렇게만 작성해주면 됩니다!</p>
+<p>이제 <code>Navigators</code> 컴포넌트를 살펴봅시다.</p>
+<figure class="highlight js"><figcaption><span>Navigators.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;NavLink&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div></pre></td></tr></table></figure>
+<p>이 컴포넌트에서는 <code>NavLink</code>라는 녀석을 불러와줍니다.</p>
+<figure class="highlight js"><figcaption><span>Navigators.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Navigators = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        &lt;div className="Navigators"&gt;</div><div class="line">            &lt;NavLink exact to="/"&gt; Home &lt;/NavLink&gt;</div><div class="line">            &lt;NavLink to="/comp1"&gt; One &lt;/NavLink&gt;</div><div class="line">            &lt;NavLink to="/comp2"&gt; Two &lt;/NavLink&gt;</div><div class="line">            &lt;NavLink to="/comp3"&gt; Three &lt;/NavLink&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    );</div><div class="line">&#125;;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Navigators;</div></pre></td></tr></table></figure>
+<p>그리고 <code>NavLink</code> 태그를 사용해서 <code>to</code>를 통해 <code>App.js</code>에서 <code>path</code>로 지정해준 값들과 매핑시켜줍니다. 정말 간단합니다.</p>
+<h3 id="NoMatch"><a href="#NoMatch" class="headerlink" title="NoMatch"></a>NoMatch</h3><p>사용자가 어쩌다가 잘못된 url로 접속했을 시, <code>404 Not Found</code> 페이지가 나타나는데요, 이러한 문제를 방지하기 위해 잘못된 접근을 처리해줄 수 있는 Route를 추가해줍니다. 우선 잘못된 접근에 대해 보여줄 컴포넌트를 만듭니다.<br><figure class="highlight js"><figcaption><span>NoMatch.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> NoMatch = <span class="function">(<span class="params">&#123;location&#125;</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        &lt;div&gt;No match for &#123;location.pathname&#125;&lt;/div&gt;</div><div class="line">    );</div><div class="line">&#125;;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> NoMatch;</div></pre></td></tr></table></figure></p>
+<p>다른 컴포넌트와 다른 건 없습니다. 그리고 <code>App.js</code>에서 <code>Switch</code> 하위에 <code>Route</code>를 추가해주면 됩니다.</p>
+<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> NoMatch <span class="keyword">from</span> <span class="string">'../components/NoMatch'</span>;</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="comment">//[Other Route tags]</span></div><div class="line">&lt;Route component=&#123;NoMatch&#125;/&gt;</div></pre></td></tr></table></figure>
+<p>다른 <code>Route</code>태그들과는 달리 <code>path</code>가 지정되어 있지 않습니다. 이 <code>NoMatch</code>에 해당하는 <code>Route</code>태그는 가장 마지막에 작성해주어야 합니다 :)</p>
+<h4 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h4><p><code>react-router</code>라이브러리는 이 포스팅에서 소개해준 기능외에 <code>Server-Rendering</code>, <code>Code-Splitting</code>, <code>Testing</code> 등 다양한 기능을 제공하고 있는 유용한 라이브러리 입니다 :) 얼른 공식 React에 포함되었으면 좋겠네요!</p>
+<p>!<code>React</code>와 관련된 포스팅은 <a href="https://github.com/JaeYeopHan/react_tutorial_with_docs" target="_blank" rel="external">Github Repository</a>에서 받아볼 수 있으며 <code>watch</code> 또는 <code>star</code>로 피드를 받아보실 수 있습니다.</p>
+<h4 id="Reference-gt"><a href="#Reference-gt" class="headerlink" title="Reference&gt;"></a>Reference&gt;</h4><p><a href="https://reacttraining.com/react-router/web/example/basic" target="_blank" rel="external">react-router docs</a></p>
+<p><em>1. end</em></p>
 
         </div>
         <footer class="article-footer">
@@ -204,7 +215,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/" data-id="cj6ysqk73000mn7wgqmlulxqp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/" data-id="cj6ysqk7l001jn7wg9twx19tw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -328,22 +339,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/07/16/ES8-Standard-Release-Overview/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 3. Iteration and for-of statement
+            ES8 Standard Release Overview
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 5. Destructuring and Default Parameter</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -499,7 +504,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/';
     
     (function() {
     var dsq = document.createElement('script');
