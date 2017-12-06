@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-12-06T11:17:50.000Z</updated>
+  <updated>2017-12-06T11:48:27.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground/"/>
     <id>https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground/</id>
     <published>2017-12-06T11:17:18.000Z</published>
-    <updated>2017-12-06T11:17:50.000Z</updated>
+    <updated>2017-12-06T11:48:27.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-TypeScript-Playground-만들기"><a href="#TS-TypeScript-Playground-만들기" class="headerlink" title="[TS] TypeScript Playground 만들기"></a>[TS] TypeScript Playground 만들기</h1><p>최소한의 npm과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">이 저장소</a>를 clone하면 됩니다!ㅎㅎ</p>
@@ -40,6 +40,7 @@
 <p><br></p>
 <h4 id="tslint-json"><a href="#tslint-json" class="headerlink" title="tslint.json"></a>tslint.json</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"defaultSeverity"</span>: <span class="string">"error"</span>,</div><div class="line">    <span class="attr">"extends"</span>: [</div><div class="line">        <span class="string">"tslint:recommended"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"jsRules"</span>: &#123;&#125;,</div><div class="line">    <span class="attr">"rules"</span>: &#123;</div><div class="line">        <span class="attr">"no-console"</span>: <span class="literal">false</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"rulesDirectory"</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>학습을 위한 playground 프로젝트이므로 <code>no-console</code>을 <code>false</code>로 해줘서 마음껏 콘솔을 찍을 수 있도록 이 부분만 설정해줍니다. 기본적은 tslint rule은 <code>tslint:recommended</code> rule을 적용합니다.</p>
+<p><br></p>
 <h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p>javascript로 transpile될 typescript파일을 브라우저 개발자 도구에서 확인하기 위해서 <code>index.html</code> 파일을 간단히 작성해줍니다.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    Hello, TypeScript world!!</div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>왠만한 설정은 모두 끝났습니다. webpack에 설정한 loader를 잘 타는지 확인하기 위해 index.ts에 console한 번 찍어봅니다.</p>
 <figure class="highlight ts"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`hello typescript world`</span>);</div></pre></td></tr></table></figure>
