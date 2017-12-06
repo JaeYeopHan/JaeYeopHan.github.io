@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 1. let-const | Devlog</title>
+    <title>[TS] TypeScript Playground 만들기 | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="es6" />
+        <meta name="keywords" content="ts" />
     
-    <meta name="description" content="[ES6] 1. let &amp;amp; const자바스크립트의 정체ES6의 문법을 알아보기 전에 자바스크립트의 정체부터 짚고 넘어가자. 자바스크립트(JavaScript)는 스크립트 언어(script language)이다. 스크립트 언어란 언어를 해석하고 실행하는 소프트웨어가 따로 존재하는 언어를 말한다. 자바스크립트를 해석하고 실행하는 소프트웨어는 브라우저이다">
-<meta name="keywords" content="es6">
+    <meta name="description" content="[TS] TypeScript Playground 만들기최소한의 npm과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 이 저장소를 clone하면 됩니다!ㅎㅎ 우선적으로 TypeScript님부터 모셔오도록 합시다 :)1$ npm install -g typescript 프로젝트 세팅디렉토">
+<meta name="keywords" content="ts">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 1. let-const">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/let-const/index.html">
+<meta property="og:title" content="[TS] TypeScript Playground 만들기">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground-만들기/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 1. let &amp;amp; const자바스크립트의 정체ES6의 문법을 알아보기 전에 자바스크립트의 정체부터 짚고 넘어가자. 자바스크립트(JavaScript)는 스크립트 언어(script language)이다. 스크립트 언어란 언어를 해석하고 실행하는 소프트웨어가 따로 존재하는 언어를 말한다. 자바스크립트를 해석하고 실행하는 소프트웨어는 브라우저이다">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-18T06:48:56.000Z">
+<meta property="og:description" content="[TS] TypeScript Playground 만들기최소한의 npm과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 이 저장소를 clone하면 됩니다!ㅎㅎ 우선적으로 TypeScript님부터 모셔오도록 합시다 :)1$ npm install -g typescript 프로젝트 세팅디렉토">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
+<meta property="og:updated_time" content="2017-12-06T11:15:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 1. let-const">
-<meta name="twitter:description" content="[ES6] 1. let &amp;amp; const자바스크립트의 정체ES6의 문법을 알아보기 전에 자바스크립트의 정체부터 짚고 넘어가자. 자바스크립트(JavaScript)는 스크립트 언어(script language)이다. 스크립트 언어란 언어를 해석하고 실행하는 소프트웨어가 따로 존재하는 언어를 말한다. 자바스크립트를 해석하고 실행하는 소프트웨어는 브라우저이다">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
+<meta name="twitter:title" content="[TS] TypeScript Playground 만들기">
+<meta name="twitter:description" content="[TS] TypeScript Playground 만들기최소한의 npm과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 이 저장소를 clone하면 됩니다!ㅎㅎ 우선적으로 TypeScript님부터 모셔오도록 합시다 :)1$ npm install -g typescript 프로젝트 세팅디렉토">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
     
     
         <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
@@ -145,18 +145,18 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-let-const" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-TS-TypeScript-Playground-만들기" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 1. let-const
+        [TS] TypeScript Playground 만들기
         </h1>
     
 
@@ -166,35 +166,52 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/let-const/" class="article-date">
-            <time datetime="2017-04-18T04:48:49.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/12/06/TS-TypeScript-Playground-만들기/" class="article-date">
+            <time datetime="2017-12-06T11:14:01.000Z" itemprop="datePublished">2017-12-06</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/es6/">es6</a>
+        <a class="tag-link" href="/tags/ts/">ts</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-1-let-amp-const"><a href="#ES6-1-let-amp-const" class="headerlink" title="[ES6] 1. let &amp; const"></a>[ES6] 1. let &amp; const</h1><h2 id="자바스크립트의-정체"><a href="#자바스크립트의-정체" class="headerlink" title="자바스크립트의 정체"></a>자바스크립트의 정체</h2><p>ES6의 문법을 알아보기 전에 자바스크립트의 정체부터 짚고 넘어가자. 자바스크립트(JavaScript)는 스크립트 언어(script language)이다. 스크립트 언어란 언어를 해석하고 실행하는 소프트웨어가 따로 존재하는 언어를 말한다. 자바스크립트를 해석하고 실행하는 소프트웨어는 브라우저이다. 이러한 의미에서 Node.js는 스크립트 언어라고 부르기 애매하고 자바스크립트의 문법을 차용한 다른 종류의 언어라고 생각해도 된다. 우선 자바스크립트가 해석되고 실행될 때 일어나는 확보, 선언, 할당의 차이를 짚고 넘어가야 한다.</p>
-<h3 id="확보"><a href="#확보" class="headerlink" title="확보"></a>확보</h3><p>브라우저가 자바스크립트를 해석할 때 두 번 파싱(parsing)하는데 첫번째 파싱 과정이 Lexical parsing이다. 실행하려는 자바스크립트 파일이 어느 정도의 메모리를 필요로 하는지를 파악하기 위해 거치는 파싱 과정인 것이다. 이 때 자바스크립트의 모든 선언문은 호이스팅(Hoisting)된다.</p>
-<h3 id="선언"><a href="#선언" class="headerlink" title="선언"></a>선언</h3><p>말 그대로 선언하는 것이다. 값을 할당하지 않는다. 자바스크립트에서는 선언만 하고 값을 할당하지 않으면 <code>undefined</code>값이 할당된다. 확보만 하고 선언하지 않으면 <code>Reference error</code>가 발생하고 선언을 하게 되면 <code>undefined</code> 값이 나타난다.</p>
-<h3 id="할당"><a href="#할당" class="headerlink" title="할당"></a>할당</h3><p>특정 변수에 값을 할당하는 과정이다. 위 세 가지를 파악해야 var와 let 그리고 const의 차이를 이해할 수 있다</p>
-<h2 id="let-으로-변수-선언-및-할당하기"><a href="#let-으로-변수-선언-및-할당하기" class="headerlink" title="let 으로 변수 선언 및 할당하기"></a>let 으로 변수 선언 및 할당하기</h2><p><code>let</code>으로 정의된 변수들은 호이스팅 되지 않는다(?) 많은 책에서 이렇게 표현을 하고 있지만 이것은 잘못된 표현이다. <code>let</code>으로 선언해도 호이스팅된다. lexical parsing 단계에서 해당 자바스크립트 파일을 실행하기 위한 메모리 공간을 <code>확보</code>해야하기 때문이다. 다만 let 변수로 선언이 되기 전 해당 변수를 사용하려고 하면 <code>Reference error</code>를 발생시키는 것이다. 예제 코드를 보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5 code :: var&gt;&gt;</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></div><div class="line">foo = <span class="number">123</span>;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//123</span></div><div class="line"><span class="comment">//ES6 code :: let&gt;&gt;</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//ReferenceError</span></div><div class="line"><span class="keyword">let</span> foo;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></div><div class="line">foo = <span class="number">123</span>;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//123</span></div></pre></td></tr></table></figure></p>
-<p>let은 유효범위의 시작에서부터 <code>선언</code>될 때까지 <code>temporary dead zone</code>(일시적 사각지대)에 있다. 이 dead zone에서 사용하게 되면 <code>ReferenceError</code>가 발생한다.</p>
-<h2 id="let-in-for-loop"><a href="#let-in-for-loop" class="headerlink" title="let - in for loop"></a>let - in for loop</h2><p><code>let</code>으로 정의된 변수들은 가장 가까운 블록으로 scope이 지정된다. 여기서 블록이란 <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code> 같은 문법으로 지정된 { } 블록을 의미한다. <code>let</code> 키워드를 사용한 변수들은 그들 각각의 함수 block에 귀속된다. <code>var</code> 변수는 함수의 상단으로 호이스팅(hoisting) 된 다음에, 각 루프의 반복 변수가 공유하게 된다. 그 결과, 콜백이 실행될 때는 <code>i</code> 변수가 루프의 마지막 변수로 할당된다. 즉 콜백에서 반복문을 제어하는 변수에 접근할 때 문제가 발생하는 것이다. 이러한 문제를 해결하기 위해 <code>let</code>을 사용할 수 있다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5 code</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadFiles</span>(<span class="params"> userNames </span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> userNames)&#123;</div><div class="line">        _fetchProfiles(userNames[i], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(userNames[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">loadFiles([<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>]);</div><div class="line"></div><div class="line"><span class="built_in">console</span> &gt;</div><div class="line">D <span class="comment">// userNames[4]</span></div><div class="line">D <span class="comment">// userNames[4]</span></div><div class="line">D <span class="comment">// userNames[4]</span></div><div class="line">D <span class="comment">// userNames[4]</span></div></pre></td></tr></table></figure>
-<p>ES6 code<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6 code</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadFiles</span>(<span class="params"> userNames </span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i <span class="keyword">in</span> userNames )&#123;</div><div class="line">        _fetchProfile(userNames[i], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(userNames[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">loadFiles([<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>]);</div><div class="line"></div><div class="line"><span class="built_in">console</span> &gt;</div><div class="line">A <span class="comment">// userNames[1]</span></div><div class="line">B <span class="comment">// userNames[2]</span></div><div class="line">C <span class="comment">// userNames[3]</span></div><div class="line">D <span class="comment">// userNames[4]</span></div></pre></td></tr></table></figure></p>
-<h2 id="let-cannot-be-redeclared"><a href="#let-cannot-be-redeclared" class="headerlink" title="let cannot be redeclared"></a>let cannot be redeclared</h2><p><code>let</code>으로 정의된 변수는 같은 블록에서 재할당될 수는 있지만 재정의는 될 수 없다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6 code</span></div><div class="line"><span class="keyword">let</span> a = <span class="string">'hello'</span>;</div><div class="line">a = <span class="string">'world'</span> <span class="comment">// available</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> a = <span class="string">'hello'</span>;</div><div class="line"><span class="keyword">let</span> a = <span class="string">'world'</span>; <span class="comment">// false -&gt; TypeError : Identifier ‘a’ has already been declared</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> flashMessage = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadFiles</span>(<span class="params">userNames</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> flashMessage = <span class="string">'world'</span>; <span class="comment">// available</span></div><div class="line">    <span class="keyword">return</span> flashMessage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="const-declaration"><a href="#const-declaration" class="headerlink" title="const - declaration"></a>const - declaration</h2><p>const 키워드는 상수라고 불리는 읽기 전용 변수를 생성하는 키워드이다. 한 번 할당되면, 상수는 새로운 값으로 할당될 수 없다. 명시적으로 변경을 시도해도 바뀌지 않는다. const 로 정의된 변수는 초기에 정의할 때, 반드시 값을 할당해줘야 한다. 그렇지 않으면 <code>Syntax Error</code>가 발생하게 된다. const 로 정의된 변수는 <code>let</code>과 마찬가지로, 가장 가까운 블록에 scope이 지정된다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>chapter 1. end</em></p>
+            <p><img src="/images/typescript.png" alt=""></p>
+<h1 id="TS-TypeScript-Playground-만들기"><a href="#TS-TypeScript-Playground-만들기" class="headerlink" title="[TS] TypeScript Playground 만들기"></a>[TS] TypeScript Playground 만들기</h1><p>최소한의 npm과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">이 저장소</a>를 clone하면 됩니다!ㅎㅎ</p>
+<p>우선적으로 <code>TypeScript</code>님부터 모셔오도록 합시다 :)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g typescript</div></pre></td></tr></table></figure></p>
+<h3 id="프로젝트-세팅"><a href="#프로젝트-세팅" class="headerlink" title="프로젝트 세팅"></a>프로젝트 세팅</h3><p>디렉토리를 하나 만들고 <code>npm init</code>을 통해 <code>package.json</code> 설정을 해줍니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir typescript_playground &amp;&amp; <span class="built_in">cd</span> typescript_playground</div><div class="line">$ npm init</div><div class="line"><span class="comment"># set configuration of npm</span></div></pre></td></tr></table></figure></p>
+<p>transpiler를 태울 webpack이 필요한데 그 config파일과 TypeScript 설정파일인 <code>tsconfig.json</code>파일을 생성해줍니다. 그리고 타입스크립트 문법을 익히기 위해 tslint를 사용할건데 tslint 설정 파일인 <code>tslint.json</code>파일도 생성합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ touch webpack.config.js tsconfig.json tslint.json</div><div class="line">$ touch index.html</div><div class="line">$ mkdir src</div><div class="line">$ touch src/index.ts</div></pre></td></tr></table></figure></p>
+<p>다음은 개인 취향에 따른 optional한 세팅 파일들입니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># And create optional files...</span></div><div class="line">$ touch .editorconfig</div><div class="line">$ touch .gitignore</div><div class="line">$ touch README.md</div></pre></td></tr></table></figure></p>
+<p>이 파일들의 내용은 repo를 참고하세요!</p>
+<p>이젠 필요한 npm 모듈들을 설치합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install webpack webpack-dev-server --save-dev</div><div class="line">$ npm install awesome-typescript-loader --save-dev</div></pre></td></tr></table></figure></p>
+<p>프론트엔드 개발자의 영원한 친구 <code>we1bpack</code>과 그 친구 <code>webpack-dev-server</code>를 설치해줍니다. 그리고 공식 문서에는 <code>ts-loader</code>를 사용하던데요, 저희는 가볍게 무시하고 <code>awesome-typescript-loader</code>를 설치해줍니다. 딱 이만큼만 설치하면 됩니다. ES6를 한 번 사용해보려고 <code>babel</code>이며 <code>babel-core</code>며 <code>.babelrc</code>파일이며 온갖 이상한 npm파일과 설정 파일을 생성한 기억이 한 번쯤은 있으실텐데요, 타입스크립트는 여기까지가 끝입니다. (행복합니다.)</p>
+<h3 id="설정-파일-작성하기"><a href="#설정-파일-작성하기" class="headerlink" title="설정 파일 작성하기"></a>설정 파일 작성하기</h3><p>이제 각종 config 파일들을 작성해봅시다. 물론 설정 파일 또한 최소한으로 작성합니다.</p>
+<h4 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h4><figure class="highlight js"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</div><div class="line"><span class="keyword">const</span> &#123; CheckerPlugin &#125; = <span class="built_in">require</span>(<span class="string">'awesome-typescript-loader'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">'./src/index.ts'</span>,</div><div class="line"></div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">'./dist/bundle.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">        <span class="attr">extensions</span>: [<span class="string">'.ts'</span>, <span class="string">'.tsx'</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">devtool</span>: <span class="string">'inline-source-map'</span>,</div><div class="line"></div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.ts?$/</span>,</div><div class="line">                <span class="attr">loader</span>: <span class="string">'awesome-typescript-loader'</span>,</div><div class="line">                <span class="attr">include</span>: path.resolve(__dirname, <span class="string">'src'</span>)</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> CheckerPlugin(),</div><div class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</div><div class="line">    ],</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>이 문서에서는 webpack tutorial을 다루지 않습니다. webpack tutorial은 <a href="https://github.com/JaeYeopHan/webpack2_tutorial" target="_blank" rel="external">여기</a>에서 따라하실 수 있습니다. (깨알홍보!) <code>HotMoudleReplacementPlugin</code> 이 녀석은 도저히 포기할 수 없어서 추가했습니다. 이제 본격적으로 typescript 설정 들어갑니다.</p>
+<p><br></p>
+<h4 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a>tsconfig.json</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    "compilerOptions": &#123;</div><div class="line">        "noImplicitAny": true,</div><div class="line">        "removeComments": true</div><div class="line">    &#125;,</div><div class="line">    "awesomeTypescriptLoaderOptions": &#123;</div><div class="line">        /* ... */</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES6를 처음 시작하던 때의 <code>.babelrc</code>파일이 기억나시나요? 그것과 비슷하다고 볼 수 있는데요, 상당히 간단합니다. 거의 모든 부분을 <code>awesome-typescript-loader</code>에서 cover하고 있고 입맛에 맞게 customize할 수 있도록 <code>&quot;awesomeTypescriptLoaderOptions&quot;</code>라는 이름으로 인터페이스가 열려있습니다.</p>
+<p><br></p>
+<h4 id="tslint-json"><a href="#tslint-json" class="headerlink" title="tslint.json"></a>tslint.json</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"defaultSeverity"</span>: <span class="string">"error"</span>,</div><div class="line">    <span class="attr">"extends"</span>: [</div><div class="line">        <span class="string">"tslint:recommended"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"jsRules"</span>: &#123;&#125;,</div><div class="line">    <span class="attr">"rules"</span>: &#123;</div><div class="line">        <span class="attr">"no-console"</span>: <span class="literal">false</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"rulesDirectory"</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>학습을 위한 playground 프로젝트이므로 <code>no-console</code>을 <code>false</code>로 해줘서 마음껏 콘솔을 찍을 수 있도록 이 부분만 설정해줍니다. 기본적은 tslint rule은 <code>tslint:recommended</code> rule을 적용합니다.</p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p>javascript로 transpile될 typescript파일을 브라우저 개발자 도구에서 확인하기 위해서 <code>index.html</code> 파일을 간단히 작성해줍니다.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    Hello, TypeScript world!!</div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>왠만한 설정은 모두 끝났습니다. webpack에 설정한 loader를 잘 타는지 확인하기 위해 index.ts에 console한 번 찍어봅니다.</p>
+<figure class="highlight ts"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`hello typescript world`</span>);</div></pre></td></tr></table></figure>
+<p>그리고 start!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm start</div></pre></td></tr></table></figure></p>
+<p>브라우저가 자동으로 실행될텐데요, 개발자 도구를 열어보면 hello typescript world라는 console이 찍혀있을 겁니다. 이제 TypeScript로 해볼 수 있는 것을 이것 저것 해보면 됩니다.</p>
+<p>감사합니다.</p>
+<p>해당 포스팅은 소스코드와 함께 다음 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">GitHub Repository</a>에서 확인하실 수 있습니다.</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank" rel="external">GitHub of awesome-typescript-loader</a></li>
+<li><a href="https://github.com/wbuchwalter/tslint-loader" target="_blank" rel="external">GitHub of tslint-loader</a></li>
+<li><a href="https://github.com/JaeYeopHan/webpack2_tutorial" target="_blank" rel="external">Jbee’s Webpack tutorial</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" rel="external">TypeScript Official Document</a></li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -202,7 +219,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/let-const/" data-id="cjauyj3ix002h84wpkhx5jdgf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground-만들기/" data-id="cjauyj3ii001o84wpvtkbb6j9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -334,12 +351,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
+        <a href="/2017/08/30/React-router-1-react-router-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [React-router] 1. react-router basic
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
     
-        <a href="/2017/04/18/ES6-2-Arrow-function/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 2. Arrow function</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -495,7 +516,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/let-const/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground-만들기/';
     
     (function() {
     var dsq = document.createElement('script');

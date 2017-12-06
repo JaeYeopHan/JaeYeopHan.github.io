@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/12/06/TS-TypeScript-Playground-%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</loc>
+        <lastmod>2017-12-06T11:15:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/</loc>
+        <lastmod>2017-11-29T09:34:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/18/ES6-4-Spread-Rest-parameter/</loc>
         <lastmod>2017-09-04T07:08:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -201,14 +217,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/TS-0-Quick-Start/</loc>
         <lastmod>2017-04-19T07:30:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/</loc>
-        <lastmod>2017-04-19T07:30:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
