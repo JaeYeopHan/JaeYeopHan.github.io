@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-12-13T06:58:35.000Z</updated>
+  <updated>2017-12-13T07:00:28.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TS-2-Class</title>
+    <title>[TS] 2. Class</title>
     <link href="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/"/>
     <id>https://jaeyeophan.github.io/2017/12/13/TS-2-Class/</id>
     <published>2017-12-13T06:56:11.000Z</published>
-    <updated>2017-12-13T06:58:35.000Z</updated>
+    <updated>2017-12-13T07:00:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-2-Class"><a href="#TS-2-Class" class="headerlink" title="[TS] 2. Class"></a>[TS] 2. Class</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em><br>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
