@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>TS-2-Class | Devlog</title>
+    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="ts" />
+    
+    <meta name="description" content="[TS] 2. Class이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에">
+<meta name="keywords" content="ts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS-2-Class">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/index.html">
+<meta property="og:site_name" content="Devlog">
+<meta property="og:description" content="[TS] 2. Class이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
+<meta property="og:updated_time" content="2017-12-13T06:58:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TS-2-Class">
+<meta name="twitter:description" content="[TS] 2. Class이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
+    
+    
+        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/devlog_favicon.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79845333-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">JavaScript Developer, Jbee&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-TS-2-Class" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        TS-2-Class
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/12/13/TS-2-Class/" class="article-date">
+            <time datetime="2017-12-13T06:56:11.000Z" itemprop="datePublished">2017-12-13</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ts/">ts</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/typescript.png" alt=""></p>
+<h1 id="TS-2-Class"><a href="#TS-2-Class" class="headerlink" title="[TS] 2. Class"></a>[TS] 2. Class</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em><br>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
+<p><em>ES6 code</em><br><figure class="highlight js"><figcaption><span>Person.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(firstName, lastName) &#123;</div><div class="line">    <span class="keyword">this</span>._firstName = firstName;</div><div class="line">    <span class="keyword">this</span>._lastName = lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  get fullName() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>._firstName&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>._lastName&#125;</span>`</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="string">"Jbee"</span>, <span class="string">"Han"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.fullName); <span class="comment">// Jbee Han</span></div></pre></td></tr></table></figure></p>
+<p>익숙한 클래스의 형태라고 생각합니다. 익숙하지 않으시다면 <a href="https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">ES6 Class에 대한 포스팅</a>을 참고해주세요. TypeScript에서의 클래스에는 ES6 코드와 비교해봤을 때, 이것 저것 키워드가 많이 추가가 됬는데요, 하나씩 알아보기로 합시다.</p>
+<h2 id="1-constructor"><a href="#1-constructor" class="headerlink" title="1. constructor"></a>1. constructor</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name, gender</span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">this</span>.gender = gender; <span class="comment">// Error!</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES6에서는 constructor로 받은 인자를 해당 클래스에 멤버로 등록하기 위해 this로 등록을 해줬습니다. 그 제한 또한 없었습니다. 하지만 타입스크립트에서는 해당 클래스의 프로퍼티로 등록되지 않은 속성에 대해 constructor에서 받을 수 없습니다. 위 코드에서는 <code>gender</code>라는 프로퍼티를 정의하지 않았기 때문에 constructor에서 인자로 받을 수 없습니다.</p>
+<blockquote>
+<p>프로퍼티(or filed member)로 미리 정의되지 않은 인자를 constructor에서 받을 수 없습니다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="2-extend를-통한-상속"><a href="#2-extend를-통한-상속" class="headerlink" title="2. extend를 통한 상속"></a>2. extend를 통한 상속</h2><p>TypeScript에서도 ES6와 마찬가지 방식으로 상속을 구현할 수 있습니다. <code>public</code>, <code>protected</code> 접근제어자로 정의된 프로퍼티와 메소드에 접근할 수 있습니다. (접근제어자에 대해서는 바로 다음 section에서 알아봅니다.)<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  sayName() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Developer <span class="keyword">extends</span> Person &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</div><div class="line">    <span class="keyword">super</span>(name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> devPerson: Person = <span class="keyword">new</span> Developer(<span class="string">"jbee"</span>);</div><div class="line">devPerson.sayName(); <span class="comment">// jbee</span></div></pre></td></tr></table></figure></p>
+<p><code>sayName</code>은 <code>Person</code>클래스에만 정의되어 있는 메소드입니다. <code>Person</code>에서 정의한 대로 <code>this.name</code>을 console에 출력하는 것을 확인할 수 있습니다.</p>
+<blockquote>
+<p>extends 키워드를 통해서 클래스를 상속받아 부모 클래스의 메소드와 프로퍼티에 접근할 수 있습니다.</p>
+</blockquote>
+<h4 id="super"><a href="#super" class="headerlink" title="super"></a>super</h4><p>자식 클래스에서 constructor를 정의하려면 <code>super()</code>를 꼭 호출해줘야 합니다. (이는 ES6 문법과 동일합니다.) <code>super()</code>로 넘어가게 되는 인자 또한 부모 클래스에서 정의한 signature와 동일해야 합니다. 물론 별도로 정의하지 않으면 부모 클래스의 constructor를 따라갑니다.</p>
+<h3 id="Override-method"><a href="#Override-method" class="headerlink" title="Override method"></a>Override method</h3><p><code>Developer</code>클래스에서 해당 메소드 구현하게 되면 부모 클래스의 메소드를 override 하게 됩니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Developer <span class="keyword">extends</span> Person &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</div><div class="line">    <span class="keyword">super</span>(name);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  sayName() &#123;</div><div class="line">    cosole.log(<span class="string">`I'm developer, <span class="subst">$&#123;this.name&#125;</span>`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> devPerson: Person = <span class="keyword">new</span> Developer(<span class="string">"jbee"</span>);</div><div class="line">devPerson.sayName(); <span class="comment">// I'm developer, jbee</span></div></pre></td></tr></table></figure></p>
+<p><code>sayName</code>이라는 메소드는 <code>Developer</code>클래스에서 재정의된 형태로 console에 출력합니다.</p>
+<blockquote>
+<p>부모 클래스를 override하게 되면 부모 클래스에서 정의된 메소드를 재정의할 수 있습니다.</p>
+</blockquote>
+<p>한 가지 짚고 넘어가자면, 자바에서 지원되는 overloading이 지원되지 않습니다. 따라서 다음과 같은 메소드는 추가할 수 없습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Developer <span class="keyword">extends</span> Person &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  sayName(position) &#123; <span class="comment">// Error!</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>[!] Types of property &#39;sayName&#39; are incompatible.</code>라는 에러가 발생합니다. 자식 클래스에서 부모 클래스와 메소드의 이름은 동일하고 signature가 다른 메소드는 정의할 수 없습니다. 이미 부모 클래스에 <code>sayName</code>이라는 메소드가 존재하기 때문에 해당 메소드와 동일한 signature로 override하지 않는 이상, 다른 signature로 또다른 메소드를 정의할 수 없습니다.</p>
+<p><br></p>
+<h2 id="3-Access-Modifier"><a href="#3-Access-Modifier" class="headerlink" title="3. Access Modifier"></a>3. Access Modifier</h2><p>TypeScript에서는 클래스의 프로퍼티 또는 메소드에 접근제어자를 추가할 수 있습니다.</p>
+<h3 id="public-by-default"><a href="#public-by-default" class="headerlink" title="public (by default)"></a>public (by default)</h3><p>타입스크립트에서 아무 접근 제어자를 추가하지 않으면 기본적으로 <code>public</code> 접근제어자와 동일하게 동작합니다. ES6에서와 마찬가지로 클래스 내부, 외부에서 모두 접근할 수 있는 프로퍼티를 정의할 때 사용합니다. <code>getter</code>, <code>setter</code>를 별도로 만들지 않아도 접근이 가능합니다. 위에서 정의한 <code>Person</code>클래스를 사용하여 예시를 보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="string">"jbee"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.name); <span class="comment">// "jbee"</span></div></pre></td></tr></table></figure></p>
+<p>프로퍼티에 바로 접근할 수 있는 것을 확인할 수 있습니다.</p>
+<p><br></p>
+<h3 id="private"><a href="#private" class="headerlink" title="private"></a>private</h3><p><code>private</code> 접근 제어자로 정의된 멤버는 클래스 밖에서 접근할 수 없습니다. 이번 예시 코드에서는 <code>getter</code>, <code>setter</code>를 추가해주기 위해 프로퍼티 명 앞에 <code>_</code>(언더바)를 추가했습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line">  <span class="keyword">private</span> _job: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name, job</span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="string">"jbee"</span>, <span class="string">"Developer"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1._job); <span class="comment">// Error!</span></div></pre></td></tr></table></figure></p>
+<p><code>Property &#39;_job&#39; is private and only accessible within class &#39;Person&#39;.</code>이라는 에러가 발생합니다. 클래스 내부가 아닌 외부에서 <code>private</code>으로 정의된 프로퍼티에 접근하려고 했기 때문에 발생하는 에러입니다. 해당 프로퍼티에 접근하기 위해 <code>getter</code>를 추가하겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">get</span> job() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._job;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="string">"jbee"</span>, <span class="string">"Developer"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.job); <span class="comment">// Developer</span></div></pre></td></tr></table></figure></p>
+<p>이렇게 접근할 수 있게 됩니다. <code>getter</code>, <code>setter</code>를 추가하는 것보다 접근제어자를 <code>public</code>하는 것이 맞는 것 같습니다.</p>
+<blockquote>
+<p>프로퍼티 또는 메소드에 <code>private</code>이라는 접근 제한자를 붙이게 되면 클래스 내에서만 사용할 수 있는 프로퍼티, 그리고 메소드가 됩니다.</p>
+</blockquote>
+<p><br></p>
+<h3 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h3><p>기본적으로는 <code>private</code> 접근 제어자와 동일하게 동작합니다. 하지만 어느 한 곳에서는 접근이 가능한데요, 바로 해당 클래스를 상속한 클래스에서 접근이 가능합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Perosn &#123;</div><div class="line">  <span class="keyword">protected</span> isWorking: <span class="built_in">boolean</span>;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="literal">true</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.isWorking);<span class="comment">// Error!</span></div></pre></td></tr></table></figure></p>
+<p><code>[!] Property &#39;isWorking&#39; is protected and only accessible within class &#39;Person&#39; and its subclasses.</code>라는 에러가 발생합니다. <code>private</code> 접근제어자와 마찬가지로 클래스 외부에서 접근할 수 없음을 뜻합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Developer <span class="keyword">extends</span> Person &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params">isWorking</span>) &#123;</div><div class="line">    <span class="keyword">super</span>(isWorking);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  isWork() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.isWorking);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> devPerson = <span class="keyword">new</span> Developer(<span class="literal">true</span>);</div><div class="line">devPerson.isWork(); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>위 <code>Person</code>클래스를 상속한 클래스에서는 <code>protected</code>로 정의된 프로퍼티에 접근할 수 있습니다.</p>
+<blockquote>
+<p>프로퍼티 또는 메소드에 <code>protected</code>이라는 접근 제한자를 붙이게 되면 클래스 내에서와 해당 클래스를 상속한 클래스 안에서만 사용할 수 있게 됩니다.</p>
+</blockquote>
+<p>이 접근 제어자는 <code>constructor</code>에도 추가될 수 있습니다. <code>constructor</code>에 해당 접근제어자를 추가하는 경우, 해당 클래스는 바로 인스턴스화될 수 없으며 이 클래스를 상속받은 클래스에서 <code>super</code>라는 키워드로 호출이 가능합니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Perosn &#123;</div><div class="line">  <span class="keyword">protected</span> <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> Developer <span class="keyword">extends</span> Person &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="literal">true</span>); <span class="comment">// Error!</span></div><div class="line"><span class="keyword">const</span> devPerson = <span class="keyword">new</span> Developer(); <span class="comment">// OK!</span></div></pre></td></tr></table></figure>
+<p><code>[!] Constructor of class &#39;Person&#39; is protected and only accessible within the class declaration.</code>라는 에러가 발생하며 상속받은 클래스만 인스턴스화 시킬 수 있습니다. 추상클래스(Abstract class)도 마찬가지로 상속을 하기 위한 클래스인데요, 추상 클래스는 구현되지 않은 메소드가 존재하는 반면 이 방식은 모든 메소드가 구현되어야 합니다.</p>
+<h4 id="ES-NEXT"><a href="#ES-NEXT" class="headerlink" title="ES.NEXT"></a>ES.NEXT</h4><p><a href="https://github.com/tc39/proposal-class-fields" target="_blank" rel="external">tc39/proposal-class-field</a>를 참고해보시면, ECMAScript에서도 <code>private</code>에 대한 스펙이 논의 중이며(stage-3) 해당 스펙은 <code>private</code>이라는 키워드 대신 <code>#</code>이라는 키워드로 스펙이 논의 중입니다.</p>
+<p><br></p>
+<h3 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h3><p>자바를 공부하셨던 분이라면 <code>final</code>키워드를 아실텐데요, TypeScript에서는 읽기 전용 프로퍼티를 설정하기 위해 <code>readonly</code>프로퍼티를 사용합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  <span class="keyword">public</span> readonly age: <span class="built_in">number</span>;</div><div class="line"></div><div class="line">  <span class="comment">// ...</span></div><div class="line"></div><div class="line">  <span class="keyword">set</span> setAge(age: <span class="built_in">number</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.age = age; <span class="comment">// Error!</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="number">25</span>);</div><div class="line">p1.age = <span class="number">20</span>; <span class="comment">// Error!</span></div></pre></td></tr></table></figure></p>
+<p><code>[!] Cannot assign to &#39;age&#39; because it is a constant or a read-only property.</code>라는 에러가 발생합니다! <code>readonly</code>키워드가 추가되면 상수(constant)로 인식하게 됩니다.</p>
+<blockquote>
+<p><code>readonly</code>와 함께 정의된 프로퍼티는 <code>constructor</code>에서 한 번 결정되면 수정할 수 없습니다.</p>
+</blockquote>
+<p><br></p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p><code>static</code> 키워드는 ES6에서와 동일하게 사용되며 사용할 수 있습니다. 다만 ES6에서는 메소드에만 해당 키워드를 추가하는 것이 가능했는데요, TypeScript에서는 <code>static</code> 키워드를 프로퍼티에도 추가할 수 있습니다. 해당 키워드를 프로퍼티 또는 메소드에 추가하게 되면 인스턴스를 생성하지 않고 접근하거나 생성할 수 있습니다.<br><em>ES6 code</em><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line">Circle.center = [<span class="number">0</span>,<span class="number">0</span>]</div></pre></td></tr></table></figure></p>
+<p><em>TypeScript code</em><br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Circle &#123;</div><div class="line">  <span class="keyword">static</span> center: <span class="built_in">number</span>[];</div><div class="line">  <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>TypeScript에서 사용하는 클래스에 대해 알아봤습니다. 잘 사용하던 ES6에서의 클래스가 조금 덜떨어져 보일 수 있습니다!</p>
+<p>해당 포스팅 외 다른 타입스크립트 포스팅은 <a href="https://github.com/JaeYeopHan/typescript_tutorial_docs" target="_blank" rel="external">여기</a>에서 보실 수 있으며 예제에 사용된 코드는 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">여기</a>에서 확인하실 수 있습니다.<br>감사합니다.</p>
+<p><em>1. Class end</em></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/classes.html" target="_blank" rel="external">TypeScript Official Document - Class</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" data-id="cjb4pgla3001yzwwp35bk7tco" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
+                        <i class="icon fa fa-medium"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+
+	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
+	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/30/React-router-1-react-router-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [React-router] 1. react-router basic
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/13/TS-2-Class/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="TS-2-Class" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2017/12/13/TS-2-Class/" class="title">TS-2-Class</a></p>
+                            <p class="item-date"><time datetime="2017-12-13T06:56:11.000Z" itemprop="datePublished">2017-12-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/30/React-router-1-react-router-basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_router_logo.png)" alt="[React-router] 1. react-router basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2017/08/30/React-router-1-react-router-basic/" class="title">[React-router] 1. react-router basic</a></p>
+                            <p class="item-date"><time datetime="2017-08-30T09:03:18.000Z" itemprop="datePublished">2017-08-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/16/ES8-Standard-Release-Overview/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/es8_standard_release.png)" alt="ES8 Standard Release Overview" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
+                            <p class="item-title"><a href="/2017/07/16/ES8-Standard-Release-Overview/" class="title">ES8 Standard Release Overview</a></p>
+                            <p class="item-date"><time datetime="2017-07-16T10:11:00.000Z" itemprop="datePublished">2017-07-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/13/React-3-Props-and-State-in-Component/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_logo.png)" alt="[React] 3. Props and State in Component" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2017/06/13/React-3-Props-and-State-in-Component/" class="title">[React] 3. Props and State in Component</a></p>
+                            <p class="item-date"><time datetime="2017-06-13T02:23:14.000Z" itemprop="datePublished">2017-06-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/05/ES6-13-Map-WeakMap/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 13. Map, WeakMap" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
+                            <p class="item-title"><a href="/2017/06/05/ES6-13-Map-WeakMap/" class="title">[ES6] 13. Map, WeakMap</a></p>
+                            <p class="item-date"><time datetime="2017-06-05T05:44:56.000Z" itemprop="datePublished">2017-06-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <p>&copy; Jbee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'jaeyeophan-github-io';
+    
+    
+    var disqus_url = 'https://jaeyeophan.github.io/2017/12/13/TS-2-Class/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
