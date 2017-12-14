@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2017-12-14T05:31:04.000Z</updated>
+  <updated>2017-12-14T05:31:33.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -16,14 +16,14 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[TS] 2. Class</title>
+    <title>[TS] 2. Class in TypeScript</title>
     <link href="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/"/>
     <id>https://jaeyeophan.github.io/2017/12/13/TS-2-Class/</id>
     <published>2017-12-13T06:56:11.000Z</published>
-    <updated>2017-12-14T05:31:04.000Z</updated>
+    <updated>2017-12-14T05:31:33.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/typescript.png" alt=""></p>
-<h1 id="TS-2-Class"><a href="#TS-2-Class" class="headerlink" title="[TS] 2. Class"></a>[TS] 2. Class</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em><br>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
+<h1 id="TS-2-Class-in-TypeScript"><a href="#TS-2-Class-in-TypeScript" class="headerlink" title="[TS] 2. Class in TypeScript"></a>[TS] 2. Class in TypeScript</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em><br>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
 <p><em>ES6 code</em><br><figure class="highlight js"><figcaption><span>Person.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(firstName, lastName) &#123;</div><div class="line">    <span class="keyword">this</span>._firstName = firstName;</div><div class="line">    <span class="keyword">this</span>._lastName = lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  get fullName() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>._firstName&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>._lastName&#125;</span>`</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person(<span class="string">"Jbee"</span>, <span class="string">"Han"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.fullName); <span class="comment">// Jbee Han</span></div></pre></td></tr></table></figure></p>
 <p>익숙한 클래스의 형태라고 생각합니다. 익숙하지 않으시다면 <a href="https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">ES6 Class에 대한 포스팅</a>을 참고해주세요. TypeScript에서의 클래스에는 ES6 코드와 비교해봤을 때, 이것 저것 키워드가 많이 추가가 됬는데요, 하나씩 알아보기로 합시다.</p>
 <h2 id="1-constructor"><a href="#1-constructor" class="headerlink" title="1. constructor"></a>1. constructor</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name, gender</span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">this</span>.gender = gender; <span class="comment">// Error!</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -89,7 +89,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;/images/typescript.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;TS-2-Class&quot;&gt;&lt;a href=&quot;#TS-2-Class&quot; class=&quot;headerlink&quot; title=&quot;[TS] 2. Class&quot;&gt;&lt;/a&gt;[TS]
+&lt;h1 id=&quot;TS-2-Class-in-TypeScript&quot;&gt;&lt;a href=&quot;#TS-2-Class-in-TypeScript&quot; class=&quot;headerlink&quot; ti
     
     </summary>
     
