@@ -9,18 +9,18 @@
     
         <meta name="keywords" content="ts" />
     
-    <meta name="description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄">
+    <meta name="description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types 이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. Table of contents Constructor extend를 통한 상속 Access Modifier public private protected readonly static">
 <meta name="keywords" content="ts">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[TS] 2. Class in TypeScript">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄">
+<meta property="og:description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types 이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. Table of contents Constructor extend를 통한 상속 Access Modifier public private protected readonly static">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
-<meta property="og:updated_time" content="2017-12-14T12:05:10.000Z">
+<meta property="og:updated_time" content="2017-12-17T07:23:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[TS] 2. Class in TypeScript">
-<meta name="twitter:description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄">
+<meta name="twitter:description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types 이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. Table of contents Constructor extend를 통한 상속 Access Modifier public private protected readonly static">
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
     
     
@@ -182,10 +182,24 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/typescript.png" alt=""></p>
-<h1 id="TS-2-Class-in-TypeScript"><a href="#TS-2-Class-in-TypeScript" class="headerlink" title="[TS] 2. Class in TypeScript"></a>[TS] 2. Class in TypeScript</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em><br>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. 자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
+<h1 id="TS-2-Class-in-TypeScript"><a href="#TS-2-Class-in-TypeScript" class="headerlink" title="[TS] 2. Class in TypeScript"></a>[TS] 2. Class in TypeScript</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em></p>
+<p>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다.</p>
+<h4 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h4><ul>
+<li>Constructor</li>
+<li>extend를 통한 상속</li>
+<li>Access Modifier<ul>
+<li>public</li>
+<li>private</li>
+<li>protected</li>
+<li>readonly</li>
+<li>static</li>
+</ul>
+</li>
+</ul>
+<p>자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.</p>
 <p><em>ES6 code</em><br><figure class="highlight js"><figcaption><span>Person.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(firstName, lastName) &#123;</div><div class="line">    <span class="keyword">this</span>._firstName = firstName;</div><div class="line">    <span class="keyword">this</span>._lastName = lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  get fullName() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>._firstName&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>._lastName&#125;</span>`</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1: Person = <span class="keyword">new</span> Person(<span class="string">"Jbee"</span>, <span class="string">"Han"</span>);</div><div class="line"><span class="built_in">console</span>.log(p1.fullName); <span class="comment">// Jbee Han</span></div></pre></td></tr></table></figure></p>
 <p>익숙한 클래스의 형태라고 생각합니다. 익숙하지 않으시다면 <a href="https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">ES6 Class에 대한 포스팅</a>을 참고해주세요. TypeScript에서의 클래스에는 ES6 코드와 비교해봤을 때, 이것 저것 키워드가 많이 추가가 됬는데요, 하나씩 알아보기로 합시다.</p>
-<h2 id="1-constructor"><a href="#1-constructor" class="headerlink" title="1. constructor"></a>1. constructor</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name, gender</span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">this</span>.gender = gender; <span class="comment">// Error!</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-Constructor"><a href="#1-Constructor" class="headerlink" title="1. Constructor"></a>1. Constructor</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params">name, gender</span>) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">this</span>.gender = gender; <span class="comment">// Error!</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>ES6에서는 constructor로 받은 인자를 해당 클래스에 멤버로 등록하기 위해 this로 등록을 해줬습니다. 그 제한 또한 없었습니다. 하지만 타입스크립트에서는 해당 클래스의 프로퍼티로 등록되지 않은 속성에 대해 constructor에서 받을 수 없습니다. 위 코드에서는 <code>gender</code>라는 프로퍼티를 정의하지 않았기 때문에 constructor에서 인자로 받을 수 없습니다.</p>
 <blockquote>
 <p>프로퍼티(or filed member)로 미리 정의되지 않은 인자를 constructor에서 받을 수 없습니다.</p>
@@ -241,7 +255,7 @@ ga('send', 'pageview');
 <p><em>TypeScript code</em><br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Circle &#123;</div><div class="line">  <span class="keyword">static</span> center: <span class="built_in">number</span>[];</div><div class="line">  <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>TypeScript에서 사용하는 클래스에 대해 알아봤습니다. 잘 사용하던 ES6에서의 클래스가 조금 덜떨어져 보일 수 있습니다!</p>
 <p>해당 포스팅 외 다른 타입스크립트 포스팅은 <a href="https://github.com/JaeYeopHan/typescript_tutorial_docs" target="_blank" rel="external">여기</a>에서 보실 수 있으며 예제에 사용된 코드는 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">여기</a>에서 확인하실 수 있습니다.<br>감사합니다.</p>
-<p><em>2. Class end</em></p>
+<p><em>2. Class in TypeScript end</em></p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/classes.html" target="_blank" rel="external">TypeScript Official Document - Class</a></p>
 
         </div>
