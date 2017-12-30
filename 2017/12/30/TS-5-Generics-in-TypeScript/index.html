@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[ES6] 3. Iteration and for-of statement | Devlog</title>
+    <title>[TS] 5. Generics in TypeScript | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="es6" />
+        <meta name="keywords" content="ts" />
     
-    <meta name="description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
-<meta name="keywords" content="es6">
+    <meta name="description" content="[TS] 5. Generics in TypeScriptGenerics는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 Generics syntax에 대해 알아봅니다. Contents Generics? Generics to Class Generics to Function   Generic">
+<meta name="keywords" content="ts">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ES6] 3. Iteration and for-of statement">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/index.html">
+<meta property="og:title" content="[TS] 5. Generics in TypeScript">
+<meta property="og:url" content="https://jaeyeophan.github.io/2017/12/30/TS-5-Generics-in-TypeScript/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
-<meta property="og:updated_time" content="2017-04-19T07:31:26.000Z">
+<meta property="og:description" content="[TS] 5. Generics in TypeScriptGenerics는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 Generics syntax에 대해 알아봅니다. Contents Generics? Generics to Class Generics to Function   Generic">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
+<meta property="og:updated_time" content="2017-12-30T07:12:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[ES6] 3. Iteration and for-of statement">
-<meta name="twitter:description" content="[ES6] 3. Iteration and for-of statementIterationES6에서 이터레이션 프로토콜은 Iterable 프로토콜과 Iterator 프로토콜로 구성된다. 결론부터 말하자면 Iterable 프로토콜은 반복 가능한 오브젝트를 나타내는 프로토콜이며 Iterator 프로토콜은 이터러블 오브젝트(Iterable 프로토콜을 따르는 오브젝">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
+<meta name="twitter:title" content="[TS] 5. Generics in TypeScript">
+<meta name="twitter:description" content="[TS] 5. Generics in TypeScriptGenerics는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 Generics syntax에 대해 알아봅니다. Contents Generics? Generics to Class Generics to Function   Generic">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
     
     
         <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
@@ -145,18 +145,18 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-ES6-3-Iteration-and-for-of-statement" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-TS-5-Generics-in-TypeScript" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ES6] 3. Iteration and for-of statement
+        [TS] 5. Generics in TypeScript
         </h1>
     
 
@@ -166,42 +166,48 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/" class="article-date">
-            <time datetime="2017-04-18T04:52:45.000Z" itemprop="datePublished">2017-04-18</time>
+        <a href="/2017/12/30/TS-5-Generics-in-TypeScript/" class="article-date">
+            <time datetime="2017-12-30T07:11:41.000Z" itemprop="datePublished">2017-12-30</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/es6/">es6</a>
+        <a class="tag-link" href="/tags/ts/">ts</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-3-Iteration-and-for-of-statement"><a href="#ES6-3-Iteration-and-for-of-statement" class="headerlink" title="[ES6] 3. Iteration and for-of statement"></a>[ES6] 3. Iteration and for-of statement</h1><h2 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a>Iteration</h2><p>ES6에서 이터레이션 프로토콜은 <code>Iterable 프로토콜</code>과 <code>Iterator 프로토콜</code>로 구성된다. 결론부터 말하자면 <code>Iterable</code> 프로토콜은 <code>반복 가능한</code> 오브젝트를 나타내는 프로토콜이며 <code>Iterator</code> 프로토콜은 이터러블 오브젝트(<code>Iterable</code> 프로토콜을 따르는 오브젝트)의 값을 <code>작성한 순서대로</code> 처리하는 프로토콜이다.</p>
-<h2 id="Iterable-프로토콜"><a href="#Iterable-프로토콜" class="headerlink" title="Iterable 프로토콜"></a>Iterable 프로토콜</h2><p>오브젝트의 반복 처리 규약을 정의한다.<br>Iterable Object</p>
-<blockquote>
-<p><code>String</code>, <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>TypedArray</code>, <code>Argument</code> 오브젝트<br>그리고 DOM의 <code>NodeList</code>  </p>
-</blockquote>
-<p>위 <em>built in 오브젝트</em>들은 디폴트로 이터러블 프로토콜을 갖고 있다. 오브젝트에 <code>Symbol.iterator</code>가 있어야 한다. <code>Symbol.iterator</code>가 있는 오브젝트는 이터러블 오브젝트이다. 또한 상속받은 prototype chain에 있어도 이터러블 오브젝트이다. (<code>Symbol</code>에 대해서는 다음 포스팅에서 다룰 예정이다.)</p>
-<p>오브젝트에 프로퍼티 존재 여부를 체크할 때, Symbol의 경우에는 arrayObj[Symbol.iterator]와 같이 대괄호 <code>[]</code>안에 작성해야 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//function values() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj[<span class="built_in">Symbol</span>.iterator]); <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
-<p><code>Array</code> 오브젝트는 기본적으로 <code>iterable</code> 프로토콜을 구현한다. 하지만 <code>Object</code> 오브젝트는 <code>iterable</code> 프로토콜을 구현하지 않는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iteratorObj = arr[<span class="built_in">Symbol</span>.iterator](); <span class="comment">//iterator object</span></div></pre></td></tr></table></figure></p>
-<p>위와 같은 방식으로 <code>Array</code> 오브젝트는 <code>iterator</code>를 받을 수 있다.</p>
-<h2 id="JavaScript’s-for-statement"><a href="#JavaScript’s-for-statement" class="headerlink" title="JavaScript’s for statement"></a>JavaScript’s for statement</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>forEach 문은 arrow function과 조합해서 사용하면 추가적인 변수 사용 없이 코드가 깔끔해질 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> categories = [<span class="string">"Korean"</span>, <span class="string">"English"</span>, <span class="string">"Science"</span>];</div><div class="line">categories.forEach(<span class="function"><span class="params">subject</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(subject);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>그러나 for문 중간에 <code>continue</code> or <code>break</code> or <code>return</code> 선언문을 사용할 수 없다. 기존의 for-statement를 사용하는 경우를 보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; subject.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(categoried[i]);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p><code>i</code>의 역할이 index를 잡아주는 것 외에 별 다른 기능이 없다. 그래서 기존에는 <code>for-in statement</code>를 사용했다. 하지만 <code>for-in statement</code> 은 문자열 키를 가진 일반 <code>Object</code> 객체들을 위해 만들어졌다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure></p>
-<p>그래서 ES6에서 <code>for-of statement</code>가 등장했다.<br><code>for-in loop statement</code>는 객체의 프로퍼티들을 루프시키지만 <code>for-of loop statement</code>는 데이터, 즉 배열 내의 value들을 루프시킨다. 또한 for-of는 배열 뿐만 아니라 다양한 Collection에도 동작한다. DOM의 <code>NodeList</code> 같은 유사배열 객체들에도 동작하고 문자열에도 동작한다. 문자열을 유니코드 문자의 배열로 취급하는 것이다. <code>Set</code>, <code>Map</code>에 대해서도 물론 동작한다. key-value 형식의 <code>Map</code>에 대해서는 for (let [key, value] of …) 형식의 <code>destructuring</code>을 사용한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> categories) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>&gt;</div><div class="line">Korean</div><div class="line">English</div><div class="line">Science</div></pre></td></tr></table></figure></p>
-<p>단 for-of 가 만능은 아니다. <code>Object</code>의 프로퍼티를 루프시키려면 <code>for-in statement</code>를 사용해야 한다. 사실 <code>for-in statement</code>의 원래 목적이 <code>Object</code> 프로퍼티 순회이다. Object를 순회하는 경우를 살펴보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">    <span class="attr">one</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">two</span> : <span class="number">2</span>,</div><div class="line">    <span class="attr">three</span> : <span class="number">3</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>위와 같은 obj라는 오브젝트를 정의한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></p>
-<p><code>for-in statement</code>를 통해서 정의한 오브젝트(obj)의 key를 순회했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(obj[key]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
-<p>오브젝트를 <code>for-of statment</code>로 순회하면 어떻게 될까?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> obj) &#123;</div><div class="line">    <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"><span class="comment">// console&gt;</span></div><div class="line"><span class="comment">// Uncaught TypeError: obj[Symbol.iterator] is not a function</span></div></pre></td></tr></table></figure></p>
-<p>JavaScript의 Object는 <code>iterable</code> 프로토콜을 구현하고 있지 않기 때문에, <code>Symbol.iterator</code>가 존재하지 않는다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
-<p><em>3. end</em></p>
+            <p><img src="/images/typescript.png" alt=""></p>
+<h1 id="TS-5-Generics-in-TypeScript"><a href="#TS-5-Generics-in-TypeScript" class="headerlink" title="[TS] 5. Generics in TypeScript"></a>[TS] 5. Generics in TypeScript</h1><p><code>Generics</code>는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 Generics syntax에 대해 알아봅니다.</p>
+<h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><ul>
+<li>Generics?</li>
+<li>Generics to Class</li>
+<li>Generics to Function</li>
+</ul>
+<p><br></p>
+<h2 id="Generics"><a href="#Generics" class="headerlink" title="Generics?"></a>Generics?</h2><p>이전에 다뤘던 인터페이스가 어떠한 ‘틀’을 지정하여 함수 또는 클래스를 정의했다면, 제네릭을 통하여 함수 또는 클래스에 ‘틀’을 ‘주입’하여 그 확장성을 보다 높일 수 있습니다. 즉, 제네릭의 목적은 재사용성(reusable)을 높이고 함수나 클래스의 확장성을 높여 중복된 코드를 방지하기 위함이라고 할 수 있습니다.</p>
+<p><br></p>
+<h2 id="Generics-to-Class"><a href="#Generics-to-Class" class="headerlink" title="Generics to Class"></a>Generics to Class</h2><p>어떠한 장바구니(Basket)에 물건(Item)을 넣어야 한다고 가정을 해봅시다. 이 때, 하나의 장바구니에는 모두 동일한 타입의 물건이 들어있어야 합니다. 이 경우 모든 경우의 수에 해당하는 장바구니를 각각의 클래스로 만들어줘야 하는 문제점이 발생합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> BookBasket &#123; ... &#125;</div><div class="line"><span class="keyword">class</span> CupBasket &#123; ... &#125;</div><div class="line"><span class="keyword">class</span> DollBasket &#123; ... &#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure></p>
+<p>이럴 경우, 제네릭을 사용하여 하나의 클래스에서 타입을 <strong>주입받아</strong> 모든 경우의 수에 해당하는 장바구니를 만들 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Basket&lt;T&gt; &#123;</div><div class="line">  <span class="keyword">private</span> item: T[];</div><div class="line"></div><div class="line">  getItem(index: <span class="built_in">number</span>): T &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.item[index];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>아주 간단한 <code>Basket</code>클래스를 만들어 보았습니다. 일반 클래스를 정의할 때와는 다르게 <code>&lt;T&gt;</code>라는 것이 클래스 이름 옆에 추가된 것을 확인하실 수 있는데요, 해당 클래스 내에서 사용할 타입을 <code>T</code>라는 값으로 받을 수 있게 되는 것입니다. 여기서 <code>T</code>는 별 뜻이 있는게 아니라 Type의 약자입니다. 이렇게 정의한 클래스를 이용하여 여러 경우에 해당하는 장바구니를 생성할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> bookBasket = <span class="keyword">new</span> Basket&lt;Book&gt;();</div><div class="line"><span class="keyword">const</span> cupBasket = <span class="keyword">new</span> Basket&lt;Cup&gt;();</div><div class="line"><span class="keyword">const</span> dollBasket = <span class="keyword">new</span> Basket&lt;Doll&gt;();</div></pre></td></tr></table></figure></p>
+<p><code>new</code> 키워드를 통해 인스턴스를 생성할 때 정의할 때와 마찬가지로 <code>&lt;&gt;</code>와 함께 타입을 지정하여 인스턴스를 생성해줍니다. (<code>Book</code>, <code>Cup</code>, <code>Doll</code>에 대한 인터페이스 정의는 생략합니다.)</p>
+<p><br></p>
+<h2 id="Generics-to-Function"><a href="#Generics-to-Function" class="headerlink" title="Generics to Function"></a>Generics to Function</h2><p>제네릭스는 클래스 뿐만 아니라 함수에도 적용될 수 있는데요, 이전에 살펴보았던 AjaxUtils를 예제로 제네릭에 대해 알아보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params">param: fetchDataParam</span>): <span class="title">Promise</span>&lt;<span class="title">DataFormat</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>위 함수는 <code>fetchDataParam</code>이라는 타입의 인자만 받을 수 있으며 <code>Promise&lt;DataFormat&gt;</code>이라는 타입의 반환만 할 수 있게 설계되어 있습니다. 그러나 함수의 body가 여러 곳에서 중복된다면 <code>fetchDataParam</code> 또는 <code>DataFormat</code>을 위 함수에 주입하여 여러 상황에 대응할 수 있는 함수로 변환시킬 수 있습니다. 이 때, 제네릭이 사용됩니다.</p>
+<p>위 함수에 제네릭을 적용하여 함수의 재사용성을 높여보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchDataOf</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">param: T</span>): <span class="title">Promise</span>&lt;<span class="title">U</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</div><div class="line">    <span class="keyword">return</span> response.json();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>arrow function에도 마찬가지로 적용할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fetchDataOf = <span class="keyword">async</span> &lt;T, U&gt;(param: T): <span class="built_in">Promise</span>&lt;U&gt; =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</div><div class="line">    <span class="keyword">return</span> response.json();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>이렇게 정의를 하면 다음과 같이 호출할 수 있습니다. 여기서 T와 U는 그냥 type의 종류를 나타내는 character라고 생각하시면 됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data: DataFormat = <span class="keyword">await</span> fetchDataOf&lt;<span class="built_in">string</span>, DataFormat&gt;(baseUrl);</div></pre></td></tr></table></figure>
+<p><code>param</code>으로 넘겨주게 되는 인자의 타입이 다르거나, 반환하게 되는 값의 타입이 다를 경우에도 <code>&lt;&gt;</code>에 해당 타입을 지정하여 하나의 함수를 사용할 수 있게 됩니다.</p>
+<p>물론 <any>의 형식으로도 사용할 수 있지만(이럴바에 차라리 자바스크립트를 사용하는 것이 생산성 측면에서 더 좋을 것 같습니다.) 특정 타입을 받아 해당 타입으로 반환한다는 측면에 있어서 안정성과 확장성 두 마리 토끼를 모두 잡을 수 있습니다.</any></p>
+<p><br></p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>실제 개발해서보다는 라이브러리를 개발할 때 많이 사용할 수 있는 Generics에 대해 알아봤습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 <a href="https://github.com/JaeYeopHan/typescript_tutorial_docs" target="_blank" rel="external">여기</a>에서 보실 수 있으며 예제에 사용된 코드는 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">여기</a>에서 확인하실 수 있습니다.<br>감사합니다.</p>
+<p><em>5. Generic in TypeScript end</em></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank" rel="external">TypeScript Official Document - Generics</a></p>
 
         </div>
         <footer class="article-footer">
@@ -209,7 +215,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/" data-id="cjbt0eqy5000gm8wpjt7v6ug5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/12/30/TS-5-Generics-in-TypeScript/" data-id="cjbt0eqyx0026m8wp42u8o8ta" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -341,22 +347,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/04/18/ES6-2-Arrow-function/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/12/28/TS-4-Interface-in-TypeScript/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ES6] 2. Arrow function
+            [TS] 4. Interface in TypeScript
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 4. Spread, Rest parameter</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -512,7 +512,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-3-Iteration-and-for-of-statement/';
+    var disqus_url = 'https://jaeyeophan.github.io/2017/12/30/TS-5-Generics-in-TypeScript/';
     
     (function() {
     var dsq = document.createElement('script');
