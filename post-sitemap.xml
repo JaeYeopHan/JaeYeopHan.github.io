@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/</loc>
+        <lastmod>2018-01-01T08:19:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/12/30/TS-5-Generics-in-TypeScript/</loc>
         <lastmod>2017-12-30T07:12:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
