@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2018-01-02T04:38:09.000Z</updated>
+  <updated>2018-01-02T04:39:18.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>React-tips-for-beginners</title>
+    <title>[번역] React를 본격적으로 하기 전 알면 좋은 6가지</title>
     <link href="https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/"/>
     <id>https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/</id>
     <published>2018-01-02T04:36:04.000Z</published>
-    <updated>2018-01-02T04:38:09.000Z</updated>
+    <updated>2018-01-02T04:39:18.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/react_special_1.png" alt=""></p>
 <h1 id="I-wish-I-knew-these-before-diving-into-React"><a href="#I-wish-I-knew-these-before-diving-into-React" class="headerlink" title="I wish I knew these before diving into React"></a>I wish I knew these before diving into React</h1><p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
