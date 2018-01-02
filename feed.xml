@@ -166,7 +166,7 @@
     <link href="https://jaeyeophan.github.io/2018/01/01/React-React%E1%84%85%E1%85%B3%E1%86%AF-%E1%84%87%E1%85%A9%E1%86%AB%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9-%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5-%E1%84%8C%E1%85%A5%E1%86%AB-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A7%E1%86%AB-%E1%84%8C%E1%85%A9%E1%87%82%E1%84%8B%E1%85%B3%E1%86%AB-6%E1%84%80%E1%85%A1%E1%84%8C%E1%85%B5/"/>
     <id>https://jaeyeophan.github.io/2018/01/01/React-React를-본격적으로-하기-전-알면-좋은-6가지/</id>
     <published>2018-01-01T05:35:02.000Z</published>
-    <updated>2018-01-02T03:56:48.000Z</updated>
+    <updated>2018-01-02T03:57:32.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/image/react_special_1.png" alt=""></p>
 <h1 id="I-wish-I-knew-these-before-diving-into-React"><a href="#I-wish-I-knew-these-before-diving-into-React" class="headerlink" title="I wish I knew these before diving into React"></a>I wish I knew these before diving into React</h1><p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
@@ -231,7 +231,7 @@
 </ul>
 <h3 id="Life-Cycle과-관련된-좋은-Article"><a href="#Life-Cycle과-관련된-좋은-Article" class="headerlink" title="Life Cycle과 관련된 좋은 Article"></a>Life Cycle과 관련된 좋은 Article</h3><ul>
 <li>React Lifecycle Methods - how and when to use them<ul>
-<li><a href="">번역 링크</a></li>
+<li><a href="https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/">번역 링크</a></li>
 <li><a href="https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1" target="_blank" rel="external">원본 링크</a></li>
 </ul>
 </li>
