@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[React-router] 1. react-router basic | Devlog</title>
+    <title>[번역] React를 본격적으로 하기 전, 알면 좋은 6가지 | Devlog</title>
     <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="React" />
     
-    <meta name="description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
+    <meta name="description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[React-router] 1. react-router basic">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/index.html">
+<meta property="og:title" content="[번역] React를 본격적으로 하기 전, 알면 좋은 6가지">
+<meta property="og:url" content="https://jaeyeophan.github.io/2018/01/01/React-Tips-for-beginner/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/react_router_logo.png">
-<meta property="og:updated_time" content="2017-08-30T09:05:18.000Z">
+<meta property="og:description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
+<meta property="og:image" content="https://jaeyeophan.github.io/image/react_special_1.png">
+<meta property="og:updated_time" content="2018-01-02T04:32:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[React-router] 1. react-router basic">
-<meta name="twitter:description" content="[React-router] 1. react-router basicreact-router라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 v4.1.1입니다. Why react-router?React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 html파일로 구성된, 여러">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/react_router_logo.png">
+<meta name="twitter:title" content="[번역] React를 본격적으로 하기 전, 알면 좋은 6가지">
+<meta name="twitter:description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
+<meta name="twitter:image" content="https://jaeyeophan.github.io/image/react_special_1.png">
     
     
         <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
@@ -149,14 +149,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-React-router-1-react-router-basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-React-Tips-for-beginner" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [React-router] 1. react-router basic
+        [번역] React를 본격적으로 하기 전, 알면 좋은 6가지
         </h1>
     
 
@@ -166,8 +166,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/08/30/React-router-1-react-router-basic/" class="article-date">
-            <time datetime="2017-08-30T09:03:18.000Z" itemprop="datePublished">2017-08-30</time>
+        <a href="/2018/01/01/React-Tips-for-beginner/" class="article-date">
+            <time datetime="2018-01-01T05:35:02.000Z" itemprop="datePublished">2018-01-01</time>
         </a>
     </div>
 
@@ -181,33 +181,97 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/react_router_logo.png" alt=""></p>
-<h1 id="React-router-1-react-router-basic"><a href="#React-router-1-react-router-basic" class="headerlink" title="[React-router] 1. react-router basic"></a>[React-router] 1. react-router basic</h1><p><em><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">react-router</a>라이브러리에 대해서 살펴봅니다 :) 포스팅 시점의 react-router의 버전은 <code>v4.1.1</code>입니다.</em></p>
-<h2 id="Why-react-router"><a href="#Why-react-router" class="headerlink" title="Why react-router?"></a>Why react-router?</h2><p>React는 SPA(Single Page Application)를 위한 View 라이브러리입니다.즉 여러 개의 <code>html</code>파일로 구성된, 여러 개의 페이지의 웹 애플리케이션이 아닌 단일 페이지로 구성된 웹 애플리케이션을 위한 라이브러리인 것입니다. 하나의 url로 웹 애플리케이션이 실행된다고 볼 수 있습니다. 하지만 이렇게 되면 특정 url에 따른 다른 페이지를 보여줄 수가 없습니다. 이로 인해 여러 가지 아쉬운 점들이 생겼습니다. 물론 html의 <code>anchor</code> 태그(<code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code>)를 사용하면 되지만, 이 태그는 모든 페이지를 모두 reloading합니다. <code>react-router</code>를 사용하게 되면 지정한 부분에 대해서만 reloading시킬 수 있습니다 :D</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yarn add react-router-dom</div><div class="line"><span class="comment"># or</span></div><div class="line">$ npm install react-router-dom</div></pre></td></tr></table></figure>
-<p>React project에서 해당 npm을 추가합니다.</p>
+            <p><img src="/image/react_special_1.png" alt=""></p>
+<h1 id="I-wish-I-knew-these-before-diving-into-React"><a href="#I-wish-I-knew-these-before-diving-into-React" class="headerlink" title="I wish I knew these before diving into React"></a>I wish I knew these before diving into React</h1><p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
+<h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><ul>
+<li>By default, setState triggers a re-render</li>
+<li>setState updates the local state asynchronously</li>
+<li>Component Lifecycle is important!</li>
+<li>Use componentWillReceiveProps</li>
+<li>Use React Developer Tools</li>
+<li>Use CRA(Create React App)</li>
+</ul>
 <p><br></p>
-<h2 id="Sample-code-directory’s-structure"><a href="#Sample-code-directory’s-structure" class="headerlink" title="Sample code directory’s structure"></a>Sample code directory’s structure</h2><p>이번 포스팅에서 사용되는 프로젝트의 구조는 다음과 같습니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">src</div><div class="line">--containers</div><div class="line">----App.js</div><div class="line">--components</div><div class="line">----Navigators.js</div><div class="line">----Home.js</div><div class="line">----Comp1.js</div><div class="line">----Comp2.js</div><div class="line">----Comp3.js</div><div class="line">--index.js</div></pre></td></tr></table></figure></p>
-<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;BrowserRouter <span class="keyword">as</span> Router, Route, Switch&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div></pre></td></tr></table></figure>
-<p><code>BrowserRouter</code>, <code>Route</code>, <code>Switch</code> 세 가지 모듈을 <code>react-router-dom</code>으로부터 불러옵니다.<br>사용하는 방식은 다음과 같습니다.</p>
-<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">Router</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">Navigators</span>/&gt;</span></div><div class="line">                    //[components according to path]</div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
-<p><code>Router</code>(<code>BrowserRouter</code>) 태그로 rendering하고자 하는 태그들을 감싸줍니다. <code>Router</code>태그 child로는 하나의 자식, 즉 하나의 태그만이 올 수 있기 때문에 <code>div</code>태그로 하위 태그들을 감싸줍니다. 위 예제는 <code>Navigators</code>에 있는 버튼들로 하위 태그들을 렌더링하기 위한 구조입니다. <code>Router</code>태그 안쪽의 구성을 살펴보겠습니다.</p>
-<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import components</span></div><div class="line"><span class="keyword">import</span> Navigators <span class="keyword">from</span> <span class="string">'../components/Navigators'</span>;</div><div class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'../components/Home'</span>;</div><div class="line"><span class="keyword">import</span> Comp1 <span class="keyword">from</span> <span class="string">'../components/Comp1'</span></div><div class="line"><span class="keyword">import</span> Comp2 <span class="keyword">from</span> <span class="string">'../components/Comp2'</span></div><div class="line"><span class="keyword">import</span> Comp3 <span class="keyword">from</span> <span class="string">'../components/Comp3'</span></div><div class="line"><span class="comment">//...</span></div><div class="line">&lt;Router&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;Navigators/&gt;</div><div class="line">        &lt;Switch&gt;</div><div class="line">            &lt;Route exact path="/" component=&#123;Home&#125;/&gt;</div><div class="line">            &lt;Route path="/comp1" component=&#123;Comp1&#125;/&gt;</div><div class="line">            &lt;Route path="/comp2" component=&#123;Comp2&#125;/&gt;</div><div class="line">            &lt;Route path="/comp3" component=&#123;Comp3&#125;/&gt;</div><div class="line">        &lt;/Switch&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure>
-<p>이제 <code>Switch</code>태그와 <code>Route</code>태그들을 사용해줍니다. 변경될 부분에 대해서 <code>Switch</code>태그로 감싸준 다음, 지정해준 <code>path</code>에 따라서 렌더링될 component를 지정해줍니다.</p>
-<p><code>exact</code>라는 키워드가 <code>/</code> path에 대해서만 지정이 된 것을 확인할 수 있는데요, 이 <code>/</code>는 각각의 <code>/comp1</code>, <code>/comp2</code>, <code>/comp3</code> path에도 포함되는 path입니다. 그렇기 때문에 중복으로 렌더링이 되는데요, <code>exact</code>는 “<code>/</code>일 경우에만 해당 component를 렌더링해!” 라는 의미의 키워드입니다. 렌더링 해줄 컴포넌트는 이렇게만 작성해주면 됩니다!</p>
-<p>이제 <code>Navigators</code> 컴포넌트를 살펴봅시다.</p>
-<figure class="highlight js"><figcaption><span>Navigators.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;NavLink&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</div></pre></td></tr></table></figure>
-<p>이 컴포넌트에서는 <code>NavLink</code>라는 녀석을 불러와줍니다.</p>
-<figure class="highlight js"><figcaption><span>Navigators.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Navigators = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"Navigators"</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">exact</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span> Home <span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">"/comp1"</span>&gt;</span> One <span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">"/comp2"</span>&gt;</span> Two <span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">"/comp3"</span>&gt;</span> Three <span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">&#125;;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Navigators;</div></pre></td></tr></table></figure>
-<p>그리고 <code>NavLink</code> 태그를 사용해서 <code>to</code>를 통해 <code>App.js</code>에서 <code>path</code>로 지정해준 값들과 매핑시켜줍니다. 정말 간단합니다.</p>
-<h3 id="NoMatch"><a href="#NoMatch" class="headerlink" title="NoMatch"></a>NoMatch</h3><p>사용자가 어쩌다가 잘못된 url로 접속했을 시, <code>404 Not Found</code> 페이지가 나타나는데요, 이러한 문제를 방지하기 위해 잘못된 접근을 처리해줄 수 있는 Route를 추가해줍니다. 우선 잘못된 접근에 대해 보여줄 컴포넌트를 만듭니다.<br><figure class="highlight js"><figcaption><span>NoMatch.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> NoMatch = <span class="function">(<span class="params">&#123;location&#125;</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>No match for &#123;location.pathname&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">    );</div><div class="line">&#125;;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> NoMatch;</div></pre></td></tr></table></figure></p>
-<p>다른 컴포넌트와 다른 건 없습니다. 그리고 <code>App.js</code>에서 <code>Switch</code> 하위에 <code>Route</code>를 추가해주면 됩니다.</p>
-<figure class="highlight js"><figcaption><span>App.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> NoMatch <span class="keyword">from</span> <span class="string">'../components/NoMatch'</span>;</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="comment">//[Other Route tags]</span></div><div class="line">&lt;Route component=&#123;NoMatch&#125;/&gt;</div></pre></td></tr></table></figure>
-<p>다른 <code>Route</code>태그들과는 달리 <code>path</code>가 지정되어 있지 않습니다. 이 <code>NoMatch</code>에 해당하는 <code>Route</code>태그는 가장 마지막에 작성해주어야 합니다 :)</p>
-<h4 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h4><p><code>react-router</code>라이브러리는 이 포스팅에서 소개해준 기능외에 <code>Server-Rendering</code>, <code>Code-Splitting</code>, <code>Testing</code> 등 다양한 기능을 제공하고 있는 유용한 라이브러리 입니다 :) 얼른 공식 React에 포함되었으면 좋겠네요!</p>
-<p>!<code>React</code>와 관련된 포스팅은 <a href="https://github.com/JaeYeopHan/react_tutorial_with_docs" target="_blank" rel="external">Github Repository</a>에서 받아볼 수 있으며 <code>watch</code> 또는 <code>star</code>로 피드를 받아보실 수 있습니다.</p>
-<h4 id="Reference-gt"><a href="#Reference-gt" class="headerlink" title="Reference&gt;"></a>Reference&gt;</h4><p><a href="https://reacttraining.com/react-router/web/example/basic" target="_blank" rel="external">react-router docs</a></p>
-<p><em>1. end</em></p>
+<h2 id="1-By-default-setState-triggers-a-re-render"><a href="#1-By-default-setState-triggers-a-re-render" class="headerlink" title="1. By default, setState triggers a re-render"></a>1. By default, setState triggers a re-render</h2><blockquote>
+<p>기본적으로 <code>setState</code> 메소드는 해당 컴포넌트의 재렌더링(re-render)을 발생시킨다.</p>
+</blockquote>
+<p>리액트의 기본 동작은 애플리케이션을 구성하고 있는 컴포넌트에서 발생하는 모든 변경사항에 대해서 다시 렌더링 하는 것이고 대부분의 경우 이 이러한 기본 동작에 맡겨도 정상적으로 동작합니다. 하지만 불필요한 re-render는 컴포넌트의 라이프 사이클 압장에서 봤을 때, Best practice일 수 없습니다.</p>
+<p>각각의 컴포넌트들은 <code>shouldComponentUpdate</code>라는 메소드를 가지고 있고 이것은 <code>state</code>가 변경되거나 부모 컴포넌트로부터 새로운 <code>props</code>를 전달받을 때 실행됩니다. React는 이 메소드(<code>shouldComponentUpdate</code>)의 반환 값에 따라서 re-render를 할지에 대한 여부를 결정하게 됩니다.</p>
+<p>기본적으로 <code>shouldComponentUpdate</code> 메소드는 <code>true</code>를 반환합니다. 하지만 React 개발자는 re-render를 원하지 않는 경우에, 이 return value를 <code>false</code>로 오버라이드 할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate(nextProps, nextState) &#123;</div><div class="line">    <span class="keyword">const</span> vitalPropsChange = <span class="keyword">this</span>.props.bar !== nextProps.bar;</div><div class="line">    <span class="keyword">const</span> vitalStateChange = <span class="keyword">this</span>.state.foo !== nextState.foo;    </div><div class="line">    <span class="keyword">return</span> vitalPropsChange || vitalStateChange;</div><div class="line">&#125;</div><div class="line"><span class="comment">// React will not re-render the component unless vitalPropsChange</span></div><div class="line"><span class="comment">// or vitalStateChange is true.</span></div></pre></td></tr></table></figure>
+<h3 id="important-notes"><a href="#important-notes" class="headerlink" title="important notes:"></a>important notes:</h3><ol>
+<li>shouldComponentUpdate를 잘못 설정하거나 이러한 설정을 잊어 버리면 구성 요소가 예상대로 업데이트되지 않아 애플리케이션에 문제가 발생할 수 있습니다.</li>
+<li>shouldComponentUpdate에서 계산을 실행하는 것은 성능과 노력면에서 비용이 많이들 수 있으므로 그만한 가치가 있는지 확인해야합니다. <a href="https://reactjs.org/docs/perf.html" target="_blank" rel="external">React ‘s Performance Tools</a>를 사용하여 shouldComponentUpdate 사용 전후에 낭비되는 사이클 수를 확인하는 것이 좋습니다. 아주 간단한 사용법이 있습니다.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Perf.start() </div><div class="line"><span class="comment">// React operations in-between are recorded for analyses.</span></div><div class="line">Perf.stop()</div><div class="line">Perf.printWasted()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><br></p>
+<h2 id="2-setState-updates-the-local-state-asynchronously"><a href="#2-setState-updates-the-local-state-asynchronously" class="headerlink" title="2. setState updates the local state asynchronously"></a>2. setState updates the local state asynchronously</h2><blockquote>
+<p><code>setState</code> 메소드는 <strong>비동기</strong>로 state를 업데이트 한다.</p>
+</blockquote>
+<p><code>setState</code>메소드는 즉시 실행되는, 동기적으로 실행되는 것이 아니라 하나의 <strong>요청</strong>이라고 생각해야 합니다. 즉, <code>setState</code>를 통해 상태를 변경하더라도 해당 메소드가 실행된 직후에 변경된 상태가 적용되는 것이 아닙니다.</p>
+<p><code>setState</code>를 호출한 직후에 <code>this.state</code>에 접근하는 것은 흔한 실수 입니다. 일반적으로, <code>setState</code> 메소드 내에서 <code>this.state</code>를 사용하는 것은 신뢰할 수 없습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// this.state.value is initially 0</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;<span class="attr">value</span>: <span class="keyword">this</span>.state.value + <span class="number">1</span>&#125;);</div><div class="line"><span class="keyword">this</span>.setState(&#123;<span class="attr">value</span>: <span class="keyword">this</span>.state.value + <span class="number">1</span>&#125;);</div><div class="line"><span class="keyword">this</span>.setState(&#123;<span class="attr">value</span>: <span class="keyword">this</span>.state.value + <span class="number">1</span>&#125;);</div><div class="line"><span class="comment">// this.state.value is 1 instead of 3</span></div></pre></td></tr></table></figure></p>
+<p>만약 이전의 상태에 기반하여 상태를 변경해야 한다면 가장 좋은 방법 중 하나는 <code>updater</code> 함수를 사용하는 것입니다. <code>updater</code>함수를 <code>setState</code> 메소드의 첫번째 인자로 넘기는 방식으로 사용할 수 있습니다. ( <code>setState(updater, [callback])</code> ) 예제 코드입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState</span>) =&gt;</span> (&#123;<span class="attr">value</span>: prevState.value + <span class="number">1</span>&#125;));</div></pre></td></tr></table></figure></p>
+<p>여기서 <code>[callback]</code>은 optional argument로 <code>setState</code>의 실행이 완료된 후 실행되며 해당 <code>callback</code>이 실행된 후에 해당 컴포넌트의 re-render가 이루어집니다. <code>updater</code>에 대한 보다 자세한 내용은 다음 <a href="https://reactjs.org/docs/react-component.html#setstate" target="_blank" rel="external">링크</a>를 참고하세요.</p>
+<h3 id="추가-내용"><a href="#추가-내용" class="headerlink" title="추가 내용"></a>추가 내용</h3><p>React version 16에서 <code>componentWillReceiveProps</code>를 사용하여 상태를 변경할 때는 <strong>동기적으로</strong> 업데이트 해야 합니다.(dispatch request 또는 <code>setTimeout</code>과 같은 비동기적 요청은 해당 메소드에서 처리하면 안 됩니다.)<br><strong>React Fiber</strong> 를 사용하면 라이프 사이클이 진행되기 전에 <code>componentWill[*]</code> 메서드가 여러 번 호출 될 수 있습니다. <code>props</code>이 변경될 때 상태를 비동기적으로 업데이트하려면 <code>componentDidUpdate</code>를 사용해야 합니다.</p>
+<p><br></p>
+<h2 id="3-Component-Lifecycle-is-important"><a href="#3-Component-Lifecycle-is-important" class="headerlink" title="3. Component Lifecycle is important!"></a>3. Component Lifecycle is important!</h2><blockquote>
+<p>컴포넌트의 라이프 사이클이 중요하다!</p>
+</blockquote>
+<p>React를 이해하는데 있어서 가장 첫번째로 이해해야 하는 부분이 바로 <strong>Component life cycle</strong>입니다. 각각의 React 컴포넌트는 component의 life cycle 안에서 특정 시간에 호출할 수 있는 메소드들을 내장하고 있습니다. 이 컴포넌트 내장 메소드들을 올바르게 사용하기 위해서는 해당 메소드들이 실행되는 순서를 이해해야만 합니다. 이 라이프 사이클을 세 부분으로 나눌 수 있습니다.</p>
+<h3 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h3><p>React 컴포넌트의 인스턴스가 생성되고 DOM에 삽입되는 과정의 life cycle 입니다.</p>
+<ol>
+<li>constructor</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ol>
+<h3 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h3><p><code>prop</code> 또는 <code>state</code>의 변경으로 해당 컴포넌트가 re-render 되는 경우의 life cycle 입니다.</p>
+<h4 id="Props-Change"><a href="#Props-Change" class="headerlink" title="Props Change"></a>Props Change</h4><ol>
+<li>componentWillReceiveProps</li>
+<li>shouldComponentUpdate</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+<h4 id="State-Change"><a href="#State-Change" class="headerlink" title="State Change"></a>State Change</h4><ol>
+<li>shouldComponentUpdate</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+<h3 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h3><ul>
+<li>componentWillUnmount</li>
+</ul>
+<h3 id="Life-Cycle과-관련된-좋은-Article"><a href="#Life-Cycle과-관련된-좋은-Article" class="headerlink" title="Life Cycle과 관련된 좋은 Article"></a>Life Cycle과 관련된 좋은 Article</h3><ul>
+<li>React Lifecycle Methods - how and when to use them<ul>
+<li><a href="https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/">번역 링크</a></li>
+<li><a href="https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1" target="_blank" rel="external">원본 링크</a></li>
+</ul>
+</li>
+<li><a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="external">React Official Document</a></li>
+</ul>
+<p><br></p>
+<h2 id="4-Use-componentWillReceiveProps"><a href="#4-Use-componentWillReceiveProps" class="headerlink" title="4. Use componentWillReceiveProps"></a>4. Use componentWillReceiveProps</h2><blockquote>
+<p><code>componentWillReceiveProps</code> 메소드를 사용해라.</p>
+</blockquote>
+<p>만약 <code>props</code>의 변경에 따라서 상태를 변경해야 한다면, 이 <code>componentWillReceiveProps</code> 메소드가 필요합니다. <code>this.props</code>와 <code>nextProps</code>를 비교해서 중요한 변화(significant change)가 있다면 해당 메소드를 실행합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps(nextProps) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.props.foo !== nextProps.foo) &#123;</div><div class="line">    <span class="keyword">this</span>.whenFooChanges();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.porps.bar !== nextProps.bar) &#123;</div><div class="line">    <span class="keyword">this</span>.whenBarChanges();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Two-important-notes"><a href="#Two-important-notes" class="headerlink" title="Two important notes:"></a>Two important notes:</h3><ol>
+<li><code>props</code>가 변경되지 않아도 <code>componentWillReceiveProps</code>는 실행하기 때문에 <code>this.props</code>와 <code>nextProps</code>를 비교하는 것이 중요합니다.</li>
+<li><code>componentWillReceiveProps</code>은 해당 컴포넌트가 <strong>mounted</strong> 되기 전에 실행되어 새로운 <code>props</code>를 받습니다. 이것은 React가 mount 중에는 초기 props에 대해 <code>componentWillReceiveProps</code>를 호출하지 않는다는 것을 의미합니다.</li>
+</ol>
+<p><br></p>
+<h2 id="5-Use-React-Developer-Tools"><a href="#5-Use-React-Developer-Tools" class="headerlink" title="5. Use React Developer Tools"></a>5. Use React Developer Tools</h2><blockquote>
+<p>각종 React 개발자 도구를 사용해라.</p>
+</blockquote>
+<p>React Developer Tools를 사용하면 애플리케이션을 구성하고 있는 React 컴포넌트의 계층, 컴포넌트의 <code>props</code> 및 <code>state</code>를 검사 할 수 있습니다. React는 모두 컴포넌트에 관한 것이기 때문에 많은 경우, 매우 유용합니다. 브라우저 확장 프로그램 (<a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" target="_blank" rel="external">Chrome용</a> 및 <a href="https://addons.mozilla.org/ko/firefox/addon/react-devtools/" target="_blank" rel="external">Firefox 용</a>)과 <a href="https://github.com/facebook/react-devtools/tree/master/packages/react-devtools" target="_blank" rel="external">독립 실행 형 앱</a>으로 존재합니다.</p>
+<p><br></p>
+<h2 id="6-Use-CRA-Create-React-App"><a href="#6-Use-CRA-Create-React-App" class="headerlink" title="6. Use CRA(Create React App)"></a>6. Use CRA(Create React App)</h2><blockquote>
+<p>CRA를 사용해라.</p>
+</blockquote>
+<p>Facebook의 <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="external">Create React App</a>을 사용하면 빌드 구성없이 React 앱을 만들 수 있습니다. CRA는 사용하기가 매우 쉽고 잘 갖춰진 documentation을 가지고 있습니다. Node&gt; = 6 만 있으면 되며 macOS, Windows 및 Linux에서 작동합니다. 개발 생산성을 높여주는 HRM도 해당 scaffolding 모듈에서 지원하고 있습니다. (개인적으로는 글로벌로 설치해도 아쉽지 않은 녀석입니다!)</p>
+<p><br></p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>일부 의역이 들어갔으며 오역이 존재할 수 있습니다. 해당 사항에 대해서는 댓글로 피드백 주시면 감사하겠습니다. 더 좋은 포스팅으로 뵙겠습니다! 감사합니다.</p>
+<p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
 
         </div>
         <footer class="article-footer">
@@ -215,7 +279,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/" data-id="cjbx516ys002adpwpye9cn6ct" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2018/01/01/React-Tips-for-beginner/" data-id="cjbx516yo0021dpwp09dvnkdc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -347,20 +411,20 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/07/16/ES8-Standard-Release-Overview/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/12/30/TS-5-Generics-in-TypeScript/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            ES8 Standard Release Overview
+            [TS] 5. Generics in TypeScript
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2017/12/13/TS-2-Class/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/01/01/React-4-Component-Life-Cycle/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[TS] 2. Class in TypeScript</p>
+        <p class="article-nav-title">[React] 4. Component Life Cycle</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -518,7 +582,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jaeyeophan-github-io';
     
     
-    var disqus_url = 'https://jaeyeophan.github.io/2017/08/30/React-router-1-react-router-basic/';
+    var disqus_url = 'https://jaeyeophan.github.io/2018/01/01/React-Tips-for-beginner/';
     
     (function() {
     var dsq = document.createElement('script');

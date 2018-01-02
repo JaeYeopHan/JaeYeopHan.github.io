@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self"/>
   
   <link href="https://jaeyeophan.github.io/"/>
-  <updated>2018-01-01T08:19:44.000Z</updated>
+  <updated>2018-01-02T04:31:01.000Z</updated>
   <id>https://jaeyeophan.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React-6-tips-for-beginner</title>
+    <link href="https://jaeyeophan.github.io/2018/01/02/React-6-tips-for-beginner/"/>
+    <id>https://jaeyeophan.github.io/2018/01/02/React-6-tips-for-beginner/</id>
+    <published>2018-01-02T04:31:01.000Z</published>
+    <updated>2018-01-02T04:31:01.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>[React] 4. Component Life Cycle</title>
@@ -163,10 +177,10 @@
   
   <entry>
     <title>[번역] React를 본격적으로 하기 전, 알면 좋은 6가지</title>
-    <link href="https://jaeyeophan.github.io/2018/01/01/React-React%E1%84%85%E1%85%B3%E1%86%AF-%E1%84%87%E1%85%A9%E1%86%AB%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9-%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5-%E1%84%8C%E1%85%A5%E1%86%AB-%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A7%E1%86%AB-%E1%84%8C%E1%85%A9%E1%87%82%E1%84%8B%E1%85%B3%E1%86%AB-6%E1%84%80%E1%85%A1%E1%84%8C%E1%85%B5/"/>
-    <id>https://jaeyeophan.github.io/2018/01/01/React-React를-본격적으로-하기-전-알면-좋은-6가지/</id>
+    <link href="https://jaeyeophan.github.io/2018/01/01/React-Tips-for-beginner/"/>
+    <id>https://jaeyeophan.github.io/2018/01/01/React-Tips-for-beginner/</id>
     <published>2018-01-01T05:35:02.000Z</published>
-    <updated>2018-01-02T03:57:32.000Z</updated>
+    <updated>2018-01-02T04:32:37.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/image/react_special_1.png" alt=""></p>
 <h1 id="I-wish-I-knew-these-before-diving-into-React"><a href="#I-wish-I-knew-these-before-diving-into-React" class="headerlink" title="I wish I knew these before diving into React"></a>I wish I knew these before diving into React</h1><p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
