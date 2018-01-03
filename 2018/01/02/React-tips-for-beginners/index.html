@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/react_special_1.png">
-<meta property="og:updated_time" content="2018-01-02T04:39:18.000Z">
+<meta property="og:updated_time" content="2018-01-03T00:58:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[번역] React를 본격적으로 하기 전 알면 좋은 6가지">
 <meta name="twitter:description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
@@ -200,8 +200,8 @@ ga('send', 'pageview');
 <p>기본적으로 <code>shouldComponentUpdate</code> 메소드는 <code>true</code>를 반환합니다. 하지만 React 개발자는 re-render를 원하지 않는 경우에, 이 return value를 <code>false</code>로 오버라이드 할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate(nextProps, nextState) &#123;</div><div class="line">    <span class="keyword">const</span> vitalPropsChange = <span class="keyword">this</span>.props.bar !== nextProps.bar;</div><div class="line">    <span class="keyword">const</span> vitalStateChange = <span class="keyword">this</span>.state.foo !== nextState.foo;    </div><div class="line">    <span class="keyword">return</span> vitalPropsChange || vitalStateChange;</div><div class="line">&#125;</div><div class="line"><span class="comment">// React will not re-render the component unless vitalPropsChange</span></div><div class="line"><span class="comment">// or vitalStateChange is true.</span></div></pre></td></tr></table></figure>
 <h3 id="important-notes"><a href="#important-notes" class="headerlink" title="important notes:"></a>important notes:</h3><ol>
-<li>shouldComponentUpdate를 잘못 설정하거나 이러한 설정을 잊어 버리면 구성 요소가 예상대로 업데이트되지 않아 애플리케이션에 문제가 발생할 수 있습니다.</li>
-<li>shouldComponentUpdate에서 계산을 실행하는 것은 성능과 노력면에서 비용이 많이들 수 있으므로 그만한 가치가 있는지 확인해야합니다. <a href="https://reactjs.org/docs/perf.html" target="_blank" rel="external">React ‘s Performance Tools</a>를 사용하여 shouldComponentUpdate 사용 전후에 낭비되는 사이클 수를 확인하는 것이 좋습니다. 아주 간단한 사용법이 있습니다.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Perf.start() </div><div class="line"><span class="comment">// React operations in-between are recorded for analyses.</span></div><div class="line">Perf.stop()</div><div class="line">Perf.printWasted()</div></pre></td></tr></table></figure>
+<li><code>shouldComponentUpdate</code>를 잘못 설정하거나 이러한 설정을 잊어 버리면 구성 요소가 예상대로 업데이트되지 않아 애플리케이션에 문제가 발생할 수 있습니다.</li>
+<li><code>shouldComponentUpdate</code>에서 계산을 실행하는 것은 성능과 노력면에서 비용이 많이들 수 있으므로 그만한 가치가 있는지 확인해야합니다. <a href="https://reactjs.org/docs/perf.html" target="_blank" rel="external">React ‘s Performance Tools</a>를 사용하여 <code>shouldComponentUpdate</code> 사용 전후에 낭비되는 사이클 수를 확인하는 것이 좋습니다. 아주 간단한 사용법이 있습니다.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Perf.start() </div><div class="line"><span class="comment">// React operations in-between are recorded for analyses.</span></div><div class="line">Perf.stop()</div><div class="line">Perf.printWasted()</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><br></p>
