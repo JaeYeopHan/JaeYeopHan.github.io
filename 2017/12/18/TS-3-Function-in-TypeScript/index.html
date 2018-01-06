@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="[TS] 3. Function in TypeScript&amp;lt; 이전: Class in TypeScript &amp;lt; TypeScript에서 함수를 정의하는데 있어서 몇 가지 추가된 기능에 대해 살펴봅니다. Table of Contents Return type, Parameter type Default Parameter / Rest Parameter Opti">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/typescript.png">
-<meta property="og:updated_time" content="2018-01-02T05:16:57.000Z">
+<meta property="og:updated_time" content="2018-01-06T08:15:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[TS] 3. Function in TypeScript">
 <meta name="twitter:description" content="[TS] 3. Function in TypeScript&amp;lt; 이전: Class in TypeScript &amp;lt; TypeScript에서 함수를 정의하는데 있어서 몇 가지 추가된 기능에 대해 살펴봅니다. Table of Contents Return type, Parameter type Default Parameter / Rest Parameter Opti">
@@ -216,7 +216,7 @@ ga('send', 'pageview');
 <h2 id="Union-Type"><a href="#Union-Type" class="headerlink" title="Union Type"></a>Union Type</h2><p>파라미터에 타입을 지정할 때, 두 가지 이상의 타입이 지정할 필요가 있을 수 있는데요, 그럴 때 Union type을 통해서 파라미터의 타입을 지정해줄 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sayName(position: <span class="built_in">string</span> | <span class="built_in">boolean</span> | <span class="built_in">number</span>): <span class="built_in">void</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> position === <span class="string">"string"</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`string type position`</span>);</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> position === <span class="string">"boolean"</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`boolean type position`</span>)</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`else`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>위 코드에서는 <code>position</code>이라는 파라미터가 <code>string</code>, <code>boolean</code>, <code>number</code> 세 가지의 타입일 수 있다고 signature를 지정했습니다. (예제가 송구스럽네요)</p>
 <p><br></p>
-<h2 id="Overloading"><a href="#Overloading" class="headerlink" title="Overloading"></a>Overloading</h2><p>바로 이전 [Class 포스팅]에서 자바와 같은 오버로딩을 지원하지 않는다고 했는데요, <code>optional parameter</code>와 <code>union type</code> 그리고 <code>any</code>라는 타입을 사용하면 자바에서 구현하는 것과는 조금 다르지만 오버로딩을 구현할 수 있습니다.</p>
+<h2 id="Overloading"><a href="#Overloading" class="headerlink" title="Overloading"></a>Overloading</h2><p>바로 이전 <a href="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/">Class 포스팅</a>에서 자바와 같은 오버로딩을 지원하지 않는다고 했는데요, <code>optional parameter</code>와 <code>union type</code> 그리고 <code>any</code>라는 타입을 사용하면 자바에서 구현하는 것과는 조금 다르지만 오버로딩을 구현할 수 있습니다.</p>
 <figure class="highlight ts"><figcaption><span>Person.ts</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Person &#123;</div><div class="line">  <span class="comment">//..</span></div><div class="line">  sayName(position: <span class="built_in">string</span>, option?: <span class="built_in">string</span>): <span class="built_in">void</span>;</div><div class="line">  sayName(position: <span class="built_in">boolean</span>, option: <span class="built_in">string</span>): <span class="built_in">void</span>;</div><div class="line">  sayName(position: <span class="built_in">string</span> | <span class="built_in">boolean</span>, option: <span class="built_in">any</span>): <span class="built_in">any</span> &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> position === <span class="string">"string"</span>) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`string type position`</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> position === <span class="string">"boolean"</span>) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`boolean type position`</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`else`</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//..</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>위와 같이 동일한 메소드 명에 대해 여러 Signature를 정의할 수 있습니다. 위 코드에서는 <code>sayName</code>이라는 메소드의 Signature가 세 개이며 마지막 메소드에서만 이를 구현하고 있습니다. 그리고 메소드 body에서는 parameter의 타입으로 분기를 하여 로직을 수행하고 있습니다.<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const person: Person = new Person();</div><div class="line"></div><div class="line">person.sayName("FrontEnd");</div><div class="line">person.sayName("FrontEnd", "optional);</div><div class="line">person.sayName(false, "option required");</div><div class="line">// person.sayName(true); Error! (1)</div><div class="line">// person.sayName(1); Error! (2)</div></pre></td></tr></table></figure></p>
 <p><code>sayName</code>을 호출하게 되면, 메소드를 <strong>호출하는 시점에서</strong> 각 상황에 맞는 signature가 적용됩니다. <code>Error (1)</code>을 보면 <code>boolean</code> 타입이 인자로 넘어갔을 경우의 signature에 따라 <code>option</code>이 <code>required</code> 인자이므로 에러가 발생합니다. <code>Error (2)</code>는 어느 signature와도 일치하지 않으니 에러가 발생합니다. 이렇게 TypeScript에서는 여러 signature를 정의한 뒤 메소드 내에서 이를 분기하여 오버로딩을 구현할 수 있습니다.</p>
@@ -232,7 +232,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/12/18/TS-3-Function-in-TypeScript/" data-id="cjbx5agep002dlbwp6cfuki64" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jaeyeophan.github.io/2017/12/18/TS-3-Function-in-TypeScript/" data-id="cjc32rbzo002ab5wpjvcetzip" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -406,6 +406,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/01/03/React-TypeScript-React-Component/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/01/03/React-TypeScript-React-Component/" class="title">[React] TypeScript React Component</a></p>
+                            <p class="item-date"><time datetime="2018-01-03T05:32:42.000Z" itemprop="datePublished">2018-01-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
     
     
@@ -480,26 +500,6 @@ ga('send', 'pageview');
                             <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
                             <p class="item-title"><a href="/2017/12/28/TS-4-Interface-in-TypeScript/" class="title">[TS] 4. Interface in TypeScript</a></p>
                             <p class="item-date"><time datetime="2017-12-28T01:10:52.000Z" itemprop="datePublished">2017-12-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/12/18/TS-3-Function-in-TypeScript/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 3. Function in TypeScript" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2017/12/18/TS-3-Function-in-TypeScript/" class="title">[TS] 3. Function in TypeScript</a></p>
-                            <p class="item-date"><time datetime="2017-12-18T03:15:32.000Z" itemprop="datePublished">2017-12-18</time></p>
                         </div>
                     </li>
                 
