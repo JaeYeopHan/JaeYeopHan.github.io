@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/01/09/TS-6-Decorator/</loc>
+        <lastmod>2018-01-09T00:59:37.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/12/18/TS-3-Function-in-TypeScript/</loc>
         <lastmod>2018-01-06T08:15:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
