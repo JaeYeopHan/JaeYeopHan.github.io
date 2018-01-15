@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/</loc>
+        <lastmod>2018-01-15T12:37:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/</loc>
         <lastmod>2018-01-15T09:37:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -281,14 +289,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/19/ES6-7-Template-literal/</loc>
         <lastmod>2017-04-19T07:30:41.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/</loc>
-        <lastmod>2017-04-18T12:01:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
