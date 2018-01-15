@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="React Lifecycle Methods - how and when to use them해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1 Table of contents">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/react_logo.png">
-<meta property="og:updated_time" content="2018-01-01T08:19:44.000Z">
+<meta property="og:updated_time" content="2018-01-15T09:37:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[React] 4. Component Life Cycle">
 <meta name="twitter:description" content="React Lifecycle Methods - how and when to use them해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1 Table of contents">
@@ -260,7 +260,7 @@ ga('send', 'pageview');
 <li>props가 바뀌었는지 확인합니다. 가끔 <code>props</code>가 변경되지 않은 경우에도 호출됩니다.</li>
 <li>만약 <code>props</code>가 변경되었다면 그에 따라 로직을 구성해야 한다.</li>
 </ol>
-<p>새로운 <code>props</code>를 받았을 때, 다음과 같으 처리합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps(nextProps) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.props.percent !== nextProps.percent) &#123;</div><div class="line">    <span class="keyword">this</span>.setUpPercent(nextProps.percent);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>새로운 <code>props</code>를 받았을 때, 다음과 같이 처리합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps(nextProps) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.props.percent !== nextProps.percent) &#123;</div><div class="line">    <span class="keyword">this</span>.setUpPercent(nextProps.percent);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>하나 더 주의해야 할 것은 <code>componentWillReceiveProps</code>는 초기 렌더링시 호출되지 않습니다. 코드 상으로는 컴포넌트가 <code>props</code>를 받는다는 것을 의미하지만 비교할 기존의 <code>props</code>가 없으므로 로직에 포함되지 않습니다.</p>
 <h4 id="이-메소드의-가장-일반적인-사용-사례-2"><a href="#이-메소드의-가장-일반적인-사용-사례-2" class="headerlink" title="이 메소드의 가장 일반적인 사용 사례"></a>이 메소드의 가장 일반적인 사용 사례</h4><ul>
 <li>해당 컴포넌트의 상태 변경에 영향을 끼지는 <code>props</code>의 변경에 따라 로직을 구성합니다.</li>

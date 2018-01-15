@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/</loc>
+        <lastmod>2018-01-15T09:37:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/01/10/TS-7-TypeScript-type-system/</loc>
         <lastmod>2018-01-10T04:31:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -41,14 +49,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/</loc>
         <lastmod>2018-01-02T04:38:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2018/01/01/React-4-Component-Life-Cycle/</loc>
-        <lastmod>2018-01-01T08:19:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
