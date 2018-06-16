@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/06/16/TS-8-enum-vs-const-enum/</loc>
+        <lastmod>2018-06-16T06:03:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/</loc>
         <lastmod>2018-05-01T05:45:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
