@@ -1,22 +1,17 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Devlog">
-    <title>[TS] 2. Class in TypeScript - Devlog</title>
-    <meta name="author" content="Jbee">
+    <meta charset="utf-8">
     
+    <title>[TS] 2. Class in TypeScript | Devlog</title>
+    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+        <meta name="keywords" content="ts" />
     
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
-    
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\n[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types\n이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다.\nTable of contents\nConstructor\nextend를 통한 상속\nAccess Modifier\npublic\nprivate\nprotected\nreadonly\nstatic\n\n\n\n자바스크립트 개발자라고 하더라도 ES6덕분에 우리는 클래스에 이미 많이 익숙해져 있습니다. 그러나 ES6의 클래스는 뭔가가 조금 아쉬웠는데요, 이 부분을 TypeScript가 채워줄 예정입니다. 일단 ES6에서 클래스를 살펴봅니다.\nES6 codePerson.js12345678910111213class Person &#123;  constructor(firstName, lastName) &#123;    this._firstName = firstName;    this._lastName = lastName;  &#125;  get fullName() &#123;    return `$&#123;this._firstName&#125; $&#123;this._lastName&#125;`;  &#125;&#125;const p1: Person = new Person(\"Jbee\", \"Han\");console.log(p1.fullName); // Jbee Han\n익숙한 클래스의 형태라고 생각합니다. 익숙하지 않으시다면 ES6 Class에 대한 포스팅을 참고해주세요. TypeScript에서의 클래스에는 ES6 코드와 비교해봤을 때, 이것 저것 키워드가 많이 추가가 됬는데요, 하나씩 알아보기로 합시다.\n1. Constructor12345678class Person &#123;  name: string;  constructor(name, gender) &#123;    // ...    this.gender = gender; // Error!  &#125;&#125;\nES6에서는 constructor로 받은 인자를 해당 클래스에 멤버로 등록하기 위해 this로 등록을 해줬습니다. 그 제한 또한 없었습니다. 하지만 타입스크립트에서는 해당 클래스의 프로퍼티로 등록되지 않은 속성에 대해 constructor에서 받을 수 없습니다. 위 코드에서는 gender라는 프로퍼티를 정의하지 않았기 때문에 constructor에서 인자로 받을 수 없습니다.\n\n프로퍼티(or filed member)로 미리 정의되지 않은 인자를 constructor에서 받을 수 없습니다.\n\n\n2. extend를 통한 상속TypeScript에서도 ES6와 마찬가지 방식으로 상속을 구현할 수 있습니다. public, protected 접근제어자로 정의된 프로퍼티와 메소드에 접근할 수 있습니다. (접근제어자에 대해서는 바로 다음 section에서 알아봅니다.)123456789101112131415161718class Person &#123;  name: string;  constructor(name: string) &#123;    this.name = name;  &#125;  sayName() &#123;    console.log(this.name);  &#125;&#125;class Developer extends Person &#123;  constructor(name: string) &#123;    super(name);  &#125;&#125;const devPerson: Person = new Developer(\"jbee\");devPerson.sayName(); // jbee\nsayName은 Person클래스에만 정의되어 있는 메소드입니다. Person에서 정의한 대로 this.name을 console에 출력하는 것을 확인할 수 있습니다.\n\nextends 키워드를 통해서 클래스를 상속받아 부모 클래스의 메소드와 프로퍼티에 접근할 수 있습니다.\n\nsuper자식 클래스에서 constructor를 정의하려면 super()를 꼭 호출해줘야 합니다. (이는 ES6 문법과 동일합니다.) super()로 넘어가게 되는 인자 또한 부모 클래스에서 정의한 signature와 동일해야 합니다. 물론 별도로 정의하지 않으면 부모 클래스의 constructor를 따라갑니다.\nOverride methodDeveloper클래스에서 해당 메소드 구현하게 되면 부모 클래스의 메소드를 override 하게 됩니다.123456789101112class Developer extends Person &#123;  constructor(name: string) &#123;    super(name);  &#125;  sayName() &#123;    cosole.log(`I'm developer, $&#123;this.name&#125;`);  &#125;&#125;const devPerson: Developer = new Developer(\"jbee\");devPerson.sayName(); // I'm developer, jbee\nsayName이라는 메소드는 Developer클래스에서 재정의된 형태로 console에 출력합니다.\n\n부모 클래스를 override하게 되면 부모 클래스에서 정의된 메소드를 재정의할 수 있습니다.\n\n한 가지 짚고 넘어가자면, 자바에서 지원되는 overloading이 지원되지 않습니다. 따라서 다음과 같은 메소드는 추가할 수 없습니다.123456class Developer extends Person &#123;  // ...  sayName(position) &#123; // Error!    // ...  &#125;&#125;\n[!] Types of property &#39;sayName&#39; are incompatible.라는 에러가 발생합니다. 자식 클래스에서 부모 클래스와 메소드의 이름은 동일하고 signature가 다른 메소드는 정의할 수 없습니다. 이미 부모 클래스에 sayName이라는 메소드가 존재하기 때문에 해당 메소드와 동일한 signature로 override하지 않는 이상, 다른 signature로 또다른 메소드를 정의할 수 없습니다.\n\n[!] 하지만 any라는 타입과 함께 오버로딩을 메소드 내부에서 if 문 또는 switch 문으로 분기하여 비슷하게 구현할 수 있습니다. 바로 다음에 다룰 Function 포스팅에서 다루겠\u0010습니다.\n\n\n3. Access ModifierTypeScript에서는 클래스의 프로퍼티 또는 메소드에 접근제어자를 추가할 수 있습니다.\npublic (by default)타입스크립트에서 아무 접근 제어자를 추가하지 않으면 기본적으로 public 접근제어자와 동일하게 동작합니다. ES6에서와 마찬가지로 클래스 내부, 외부에서 모두 접근할 수 있는 프로퍼티를 정의할 때 사용합니다. getter, setter를 별도로 만들지 않아도 접근이 가능합니다. 위에서 정의한 Person클래스를 사용하여 예시를 보겠습니다.12const p1 = new Person(\"jbee\");console.log(p1.name); // \"jbee\"\n프로퍼티에 바로 접근할 수 있는 것을 확인할 수 있습니다.\n\nprivateprivate 접근 제어자로 정의된 멤버는 클래스 밖에서 접근할 수 없습니다. 이번 예시 코드에서는 getter, setter를 추가해주기 위해 프로퍼티 명 앞에 _(언더바)를 추가했습니다.1234567891011class Person &#123;  name: string;  private _job: string;  constructor(name, job) &#123;    // ...  &#125;&#125;const p1: Person = new Person(\"jbee\", \"Developer\");console.log(p1._job); // Error!\nProperty &#39;_job&#39; is private and only accessible within class &#39;Person&#39;.이라는 에러가 발생합니다. 클래스 내부가 아닌 외부에서 private으로 정의된 프로퍼티에 접근하려고 했기 때문에 발생하는 에러입니다. 해당 프로퍼티에 접근하기 위해 getter를 추가하겠습니다.12345678class Person &#123;  // ...  get job() &#123;    return this._job;  &#125;&#125;const p1: Person = new Person(\"jbee\", \"Developer\");console.log(p1.job); // Developer\n이렇게 접근할 수 있게 됩니다. getter, setter를 추가하는 것보다 접근제어자를 public하는 것이 맞는 것 같습니다.\n\n프로퍼티 또는 메소드에 private이라는 접근 제한자를 붙이게 되면 클래스 내에서만 사용할 수 있는 프로퍼티, 그리고 메소드가 됩니다.\n\n\nprotected기본적으로는 private 접근 제어자와 동일하게 동작합니다. 하지만 어느 한 곳에서는 접근이 가능한데요, 바로 해당 클래스를 상속한 클래스에서 접근이 가능합니다.1234567class Perosn &#123;  protected isWorking: boolean;  // ...&#125;const p1: Person = new Person(true);console.log(p1.isWorking);// Error!\n[!] Property &#39;isWorking&#39; is protected and only accessible within class &#39;Person&#39; and its subclasses.라는 에러가 발생합니다. private 접근제어자와 마찬가지로 클래스 외부에서 접근할 수 없음을 뜻합니다.\n123456789101112class Developer extends Person &#123;  constructor(isWorking) &#123;    super(isWorking);  &#125;  isWork() &#123;    console.log(this.isWorking);  &#125;&#125;const devPerson: Developer = new Developer(true);devPerson.isWork(); // true\n위 Person클래스를 상속한 클래스에서는 protected로 정의된 프로퍼티에 접근할 수 있습니다.\n\n프로퍼티 또는 메소드에 protected이라는 접근 제한자를 붙이게 되면 클래스 내에서와 해당 클래스를 상속한 클래스 안에서만 사용할 수 있게 됩니다.\n\n이 접근 제어자는 constructor에도 추가될 수 있습니다. constructor에 해당 접근제어자를 추가하는 경우, 해당 클래스는 바로 인스턴스화될 수 없으며 이 클래스를 상속받은 클래스에서 super라는 키워드로 호출이 가능합니다.\n12345678910111213class Perosn &#123;  protected constructor() &#123;    // ...  &#125;&#125;class Developer extends Person &#123;  constructor() &#123;    super();  &#125;&#125;const p1: Person = new Person(true); // Error!const devPerson: Developer = new Developer(); // OK!\n[!] Constructor of class &#39;Person&#39; is protected and only accessible within the class declaration.라는 에러가 발생하며 상속받은 클래스만 인스턴스화 시킬 수 있습니다. 추상클래스(Abstract class)도 마찬가지로 상속을 하기 위한 클래스인데요, 추상 클래스는 구현되지 않은 메소드가 존재하는 반면 이 방식은 모든 메소드가 구현되어야 합니다.\nES.NEXTtc39/proposal-class-field를 참고해보시면, ECMAScript에서도 private에 대한 스펙이 논의 중이며(stage-3) 해당 스펙은 private이라는 키워드 대신 #이라는 키워드로 스펙이 논의 중입니다.\n\nreadonly자바를 공부하셨던 분이라면 final키워드를 아실텐데요, TypeScript에서는 읽기 전용 프로퍼티를 설정하기 위해 readonly프로퍼티를 사용합니다.123456789101112class Person &#123;  public readonly age: number;  // ...  set setAge(age: number) &#123;    this.age = age; // Error!  &#125;&#125;const p1: Person = new Person(25);p1.age = 20; // Error!\n[!] Cannot assign to &#39;age&#39; because it is a constant or a read-only property.라는 에러가 발생합니다! readonly키워드가 추가되면 상수(constant)로 인식하게 됩니다.\n\nreadonly와 함께 정의된 프로퍼티는 constructor에서 한 번 결정되면 수정할 수 없습니다.\n\n\nstaticstatic 키워드는 ES6에서와 동일하게 사용되며 사용할 수 있습니다. 다만 ES6에서는 메소드에만 해당 키워드를 추가하는 것이 가능했는데요, TypeScript에서는 static 키워드를 프로퍼티에도 추가할 수 있습니다. 해당 키워드를 프로퍼티 또는 메소드에 추가하게 되면 인스턴스를 생성하지 않고 접근하거나 생성할 수 있습니다.ES6 code1234class Circle &#123;  // ...&#125;Circle.center = [0,0]\nTypeScript code1234class Circle &#123;  static center: number[];  //...&#125;\n마무리TypeScript에서 사용하는 클래스에 대해 알아봤습니다. 잘 사용하던 ES6에서의 클래스가 조금 덜떨어져 보일 수 있습니다!\n해당 포스팅 외 다른 타입스크립트 포스팅은 여기에서 보실 수 있으며 예제에 사용된 코드는 여기에서 확인하실 수 있습니다.감사합니다.\n2. Class in TypeScript end\nReferenceTypeScript Official Document - Class\n","dateCreated":"2017-12-13T15:56:11+09:00","dateModified":"2017-12-17T16:23:22+09:00","datePublished":"2017-12-13T15:56:11+09:00","description":"","headline":"[TS] 2. Class in TypeScript","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2017/12/13/TS-2-Class/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2017/12/13/TS-2-Class/","keywords":"ts"}</script>
     <meta name="description" content="[TS] 2. Class in TypeScript이전 포스팅: 1. Basic Types 이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다. Table of contents Constructor extend를 통한 상속 Access Modifier public private protected readonly static">
 <meta name="keywords" content="ts">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="[TS] 2. Class in TypeScript">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/index.html">
 <meta property="og:site_name" content="Devlog">
@@ -29,261 +24,163 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
     
     
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
+        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
     
 
     
+        <link rel="icon" href="/devlog_favicon.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79845333-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Devlog</a>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    <div class="sidebar-container">
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-TS-2-Class" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/ "
-                            
-                            title="Home"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-categories"
-                            
-                            title="Categories"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-tags"
-                            
-                            title="Tags"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-archives"
-                            
-                            title="Archives"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link open-algolia-search"
-                             href="#search"
-                            
-                            title="Search"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="#about"
-                            
-                            title="About"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
-                    
-                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
-                    
-                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Google +</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/mailto"
-                            title="Mail"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/atom.xml"
-                            
-                            title="RSS"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
+            <header class="article-header">
                 
-<article class="post">
     
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            [TS] 2. Class in TypeScript
+        <h1 class="article-title" itemprop="name">
+        [TS] 2. Class in TypeScript
         </h1>
     
-    
-        <div class="post-meta">
-    <time datetime="2017-12-13T15:56:11+09:00">
-	
-		    Dec 13, 2017
-    	
-    </time>
-    
-        <span>in </span>
+
+            </header>
         
-    <a class="category-link" href="/categories/TypeScript/">TypeScript</a>
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/12/13/TS-2-Class/" class="article-date">
+            <time datetime="2017-12-13T06:56:11.000Z" itemprop="datePublished">2017-12-13</time>
+        </a>
+    </div>
 
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ts/">ts</a>
+    </div>
 
-    
-</div>
-
-    
-</div>
-
-    
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-2-Class-in-TypeScript"><a href="#TS-2-Class-in-TypeScript" class="headerlink" title="[TS] 2. Class in TypeScript"></a>[TS] 2. Class in TypeScript</h1><p><em><a href="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">이전 포스팅: 1. Basic Types</a></em></p>
 <p>이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다.</p>
@@ -361,247 +258,352 @@
 <p><em>2. Class in TypeScript end</em></p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/classes.html" target="_blank" rel="external">TypeScript Official Document - Class</a></p>
 
-            
-
         </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/ts/">ts</a>
-
-            </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/30/React-router-1-react-router-basic/" data-tooltip="[React-router] 1. react-router basic" aria-label="PREVIOUS: [React-router] 1. react-router basic">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/18/TS-3-Function-in-TypeScript/" data-tooltip="[TS] 3. Function in TypeScript" aria-label="NEXT: [TS] 3. Function in TypeScript">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
+        <footer class="article-footer">
             
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Google+">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
 
 
-        
-        
-            
-        
+
+    <a data-url="https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" data-id="cjigzxq5g002atjwpin4awx3q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
+            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+        </footer>
     </div>
 </article>
 
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
 
 
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2018 Jbee. All Rights Reserved.
-    </span>
-</footer>
 
-            </div>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/30/React-router-1-react-router-basic/" data-tooltip="[React-router] 1. react-router basic" aria-label="PREVIOUS: [React-router] 1. react-router basic">
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
                 
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
+            
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/18/TS-3-Function-in-TypeScript/" data-tooltip="[TS] 3. Function in TypeScript" aria-label="NEXT: [TS] 3. Function in TypeScript">
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
+                        <i class="icon fa fa-medium"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
         </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/" title="Share on Google+">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+    </div>
 
+	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
+	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/30/React-router-1-react-router-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [React-router] 1. react-router basic
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/12/18/TS-3-Function-in-TypeScript/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[TS] 3. Function in TypeScript</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
 
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <i id="btn-close-shareoptions" class="fa fa-times"></i>
-    <ul class="share-options">
+    
+    <div class="widgets-container">
         
             
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/">
-                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/">
-                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/13/TS-2-Class/">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
         </div>
-        
+    </div>
 
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
+                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
+                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
+                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
         </div>
-        
-            <h4 id="about-card-name">Jbee</h4>
-        
-            <div id="about-card-bio"><p>author.bio</p>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
+    </div>
 
-            </div>
-        
+            
         
     </div>
-</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <p>&copy; Jbee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
         
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+    
+    <script>
+    var disqus_shortname = 'jaeyeophan-github-io';
+    
+    
+    var disqus_url = 'https://jaeyeophan.github.io/2017/12/13/TS-2-Class/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
 
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
     
 
 
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-    </body>
+    </div>
+</body>
 </html>

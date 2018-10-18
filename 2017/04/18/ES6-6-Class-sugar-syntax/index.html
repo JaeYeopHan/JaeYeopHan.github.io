@@ -1,22 +1,17 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Devlog">
-    <title>[ES6] 6. Class sugar syntax - Devlog</title>
-    <meta name="author" content="Jbee">
+    <meta charset="utf-8">
     
+    <title>[ES6] 6. Class sugar syntax | Devlog</title>
+    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+        <meta name="keywords" content="es6" />
     
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
-    
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\n[ES6] 6. Class sugar syntaxES6에서 자바스크립트에는 존재하지 않았던 클래스(Class)가 도입되었다. 자바스크립트에 대해 잘 모르는 사람들이 Java에서의 클래스와 똑같은 기능을 하는 녀석인 줄 알고 많이 혼동한다. 자바스크립트는 기본적으로 프로토타입 기반의 언어이기 때문에 새로 도입된 이 클래스도 프로토타입 기반이다. 객체 지향을 흉내내고 있지만, 그 내부는 여전히 프로토타입으로 구성되어 있는 것이다. 프로토타입 기반으로 객체 지향적으로 설계하는 것이 복잡하여 클래스라는 sugar syntax 문법이 도입된 것이다. 그렇기 때문에 이에 따른 제약사항이 많다. 편한 만큼 고려해야할 사항도 많은 것이다. 하나씩 살펴보자.\n클래스는 선언문 또는 표현식으로 선언할 수 있다.1234567891011121314//클래스 선언문으로 클래스 선언class name &#123;    //...&#125;//클래스 표현식으로 클래스 선언let name = class &#123;    //...&#125;let name = class inner_name &#123;    //...&#125;console.log(typeof name); //function\n자바스크립트 엔진은 class 키워드를 만나면 Class 오브젝트를 생성한다. Class 오브젝트도 마찬가지로 String, Function과 같은 하나의 오브젝트 타입이다.cf&gt; 표현식으로 선언했을 때의 inner-name은 클래스 내부에서 자신을 호출할 때 사용한다.\nClass keyword 특징\n클래스의 선언부는 let과 const와 마찬가지로 호이스팅은 되지만 temporary dead zone이 형성된다.1234567//Not hoistinglet foo = new Foo();class Foo &#123;&#125;//Error:Use before declaration\n\n\n클래스를 선언한 다음, new 키워드를 통해 인스턴스를 생성할 수 있다.\n\n클래스의 코드는 ‘use strict’를 선언하지 않아도 strict 모드에서 실행된다.\n메서드를 작성할 때, function 키워드와 콜론( : )을 작성하지 않는다.\n메서드 사이에 콤마(,)를 작성하지 않는다.12345678910111213//class methodclass Student &#123;    getName() &#123;        console.log(\"name\");    &#125;    getScore() &#123;        console.log(\"score\");    &#125;&#125;let student = new Student();student.getName(); //namestudent.getScore(); //score\n\n\n바로 함수를 정의하고, 콤마(,)가 없다.\n\n생성자 함수를 통해 인스턴스를 생성하면 window에 설정되지만 class 키워드를 통해 생성하면 window에 설정되지 않는다.123456//window object?function Foo() &#123;&#125;console.log(window.Foo); // function Foo() &#123;...&#125;console.log(window.Student); //undefined\n\n\nSugar SyntaxClass keyword는 sugar syntax라고 했다. 자바스크립트는 기본적으로 prototype 기반의 언어이기 때문에 엔진이 prototype에 메서드들을 연결한다. 즉, 클래스에서 메서드를 추가하면 자동으로 prototype에 추가되는 것이다. 자바스크립트에서는 프로토타입을 사용해서 클래스 밖에서도 메서드를 추가할 수 있다. 이미 생성된 인스턴스에 메서드를 추가하게 되면, 이전에 생성되었던 인스턴스들이 새로 추가된 메서드들을 공유해야하기 때문에 부하가 걸리지만 코드가 유연해진다는 장점도 존재한다. 위 예제코드에서 생성한 Student 클래스의 프로토타입에 새로운 메서드를 추가하고 이전에 생성되었던 인스턴스에서 새롭게 추가한 메서드를 호출할 수 있는 것이다.123456//add method to prototypeStudent.prototype.newMethod = function() &#123;    console.log(\"Add new Method\");&#125;student.newMethod(); //Add new Method\nnew 연산자는 constructor를 호출하면서 받은 인자들을 constructor의 파라미터로 전달한다.123456789101112131415//new keywordclass Student &#123;    constructor(name, score) &#123;        this.name = name;        this.score = score;    &#125;    getName() &#123;        return this.name;    &#125;&#125;let s = new Student(\"Jbee\", 100);console.log(s.name); //Jbeeconsole.log(s.score); //100console.log(s.getName()); //Jbee\n위 예제 코드에서 볼 수 있듯이 class 키워드로 선언한 클래스에 대해서 new keyword를 통해 인스턴스를 생성할 수 있다. 이 때 클래스 내부에 별도의 constructor가 설정되어 있지 않으면 기존의 protytype의 constructor가 호출되고 이를 default constructor라고 부른다. 별도로 작성된 constructor는 Student.prototype.constructor로 호출된다. \nnew 키워드가 실행되는 메커니즘은 다음과 같다.\n1. constructor는 우선적으로 빈(empty) 오브젝트(인스턴스)를 생성한다.\n2. 넘겨받은 파라미터를 생성한 빈 오브젝트의 프로퍼티에 설정한다.\n3. 인스턴스를 먼저 생성하므로, constructor 내부에서는 this keyword를 통해 인스턴스 자신을 가리킬 수 있다.\n4. constructor에 별도의 return이 설정되어 있지 않으면 new를 실행한 곳으로 해당 클래스의 인스턴스를 반환한다.\ncf) constructor는 별도의 return을 설정할 수 있다. 하지만 Number, String 값이 return value로 지정되어 있으면 이를 무시하고 인스턴스 자신을 return 한다.\nextends keyword자바스크립트에서도 extends라는 키워드를 통해 클래스 간의 상속이 가능해졌다. 상속받은 클래스(이하 슈퍼클래스)의 메소드를 사용할 수 있다.1234567891011class Foo &#123;    getName() &#123;        console.log(\"Foo\");    &#125;&#125;class Bar extends Foo &#123;&#125;let bar = new Bar();bar.getName(); //Foo\n슈퍼 클래스의 메소드를 오버라이딩(Overriding)할 수 있다.1234567891011121314class Foo &#123;    getName() &#123;        console.log(\"Foo\");    &#125;&#125;class Bar extends Foo &#123;    getName() &#123;        console.log(\"Bar\");    &#125;&#125;let bar = new Bar();bar.getName(); //Bar\nsuper 키워드를 통해 슈퍼 클래스의 메소드에 접근할 수 있다.1234567891011121314class Foo &#123;    getName() &#123;        return \"Foo\";    &#125;&#125;class Bar extends Foo &#123;    getName() &#123;        return super.getName() + \" Bar\";    &#125;&#125;let bar = new Bar();bar.getName(); //Foo Bar\nconstructor keyword서브 클래스에서 정의된 constructor가 없다면 슈퍼 클래스의 constructor가 호출된다.1234567891011class Foo &#123;    constructor() &#123;        console.log(\"Foo constructor\");    &#125;&#125;class Bar extends Foo &#123;&#125;let bar = new Bar();//console&gt; Foo constructor\n서브 클래스에서 constructor를 정의하려면 반드시 constructor 내부에서 super()를 호출해야 한다.1234567891011121314class Foo &#123;    constructor() &#123;        console.log(\"Foo\");    &#125;&#125;class Bar extends Foo &#123;    constructor() &#123;        console.log(\"Bar\");    &#125;&#125;let bar = new Bar();//ReferenceError: this is not defined\nconstructor()메소드 안에서 super()를 호출해주면, 슈퍼 클래스가 생성되고 서브 클래스가 생성된다.12345678910111213141516class Foo &#123;    constructor() &#123;        console.log(\"Foo constructor\");    &#125;&#125;class Bar extends Foo &#123;    constructor() &#123;        super();        console.log(\"Bar constructor\");    &#125;&#125;let bar = new Bar();//console&gt; Foo constructor//console&gt; Bar constructor\nstatic keyword자바스크립트 클래스에서 static 키워드를 사용하면 정적 메소드를 정의할 수 있다. 정적 메소드라 함은 인스턴스를 생성하지 않고 사용할 수 있는 메소드를 말한다. 정적 메소드는 인스턴스를 생성하지 않고도 호출할 수 있지만 인스턴스에서는 호출할 수 없다.12345678910class Foo &#123;    static getName() &#123;        console.log(\"Foo\");    &#125;&#125;Foo.getName(); //Foolet foo = new Foo();foo.getName();//not a function\n정적 메소드는 prototype에 추가되지 않는다.123456789101112class Foo &#123;    static getName() &#123;        console.log(\"Foo\");    &#125;    getAlias() &#123;        console.log(\"foo\");    &#125;&#125;console.log(Foo.prototype.getName === Foo.getName);//falseconsole.log(Foo.prototype.getAlias === new Foo().getAlias);//true\n클래스 내부에서 정적 변수(static variable)를 지정할 수는 없지만 클래스 밖에서 지정할 수 있다.1234class Foo &#123;    //...&#125;Foo.name = \"foo\";\nnew.targetnew.target을 이용하면 슈퍼 클래스에서 서브 클래스의 static method에 접근할 수 있다.12345678910111213141516171819class Foo &#123;    constructor() &#123;        console.log(new.target);//[Function: Bar]        console.log(typeof new.target);//function        console.log(\"Foo: \", new.target.getName());//Foo: bar    &#125;&#125;class Bar extends Foo &#123;    constructor() &#123;        super();    &#125;    static getName() &#123;        return \"bar\";    &#125;&#125;let bar = new Bar();\nES6에서 추가된 sugar syntax class에 대해 정리해봤다. TypeScript에서는 보다 더 객체지향적인 클래스로서 사용할 수 있다. 아직 불완전한 ES6의 클래스는 신경써야할 부분도 많지만 제대로 이해하면 prototype을 사용하는 것보다 효율적으로 자바스크립트 코드를 작성할 수 있을 것이다.\n예제로 사용된 코드는 Github Respository에서 확인하실 수 있습니다.\n6. end\n","dateCreated":"2017-04-18T21:11:41+09:00","dateModified":"2017-11-29T18:34:11+09:00","datePublished":"2017-04-18T21:11:41+09:00","description":"","headline":"[ES6] 6. Class sugar syntax","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/","keywords":"es6"}</script>
     <meta name="description" content="[ES6] 6. Class sugar syntaxES6에서 자바스크립트에는 존재하지 않았던 클래스(Class)가 도입되었다. 자바스크립트에 대해 잘 모르는 사람들이 Java에서의 클래스와 똑같은 기능을 하는 녀석인 줄 알고 많이 혼동한다. 자바스크립트는 기본적으로 프로토타입 기반의 언어이기 때문에 새로 도입된 이 클래스도 프로토타입 기반이다. 객체 지향을">
 <meta name="keywords" content="es6">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="[ES6] 6. Class sugar syntax">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/index.html">
 <meta property="og:site_name" content="Devlog">
@@ -29,261 +24,163 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/javascript_es6.png">
     
     
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
+        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
     
 
     
+        <link rel="icon" href="/devlog_favicon.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79845333-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Devlog</a>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    <div class="sidebar-container">
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-ES6-6-Class-sugar-syntax" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/ "
-                            
-                            title="Home"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-categories"
-                            
-                            title="Categories"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-tags"
-                            
-                            title="Tags"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-archives"
-                            
-                            title="Archives"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link open-algolia-search"
-                             href="#search"
-                            
-                            title="Search"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="#about"
-                            
-                            title="About"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
-                    
-                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
-                    
-                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Google +</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/mailto"
-                            title="Mail"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/atom.xml"
-                            
-                            title="RSS"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
+            <header class="article-header">
                 
-<article class="post">
     
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            [ES6] 6. Class sugar syntax
+        <h1 class="article-title" itemprop="name">
+        [ES6] 6. Class sugar syntax
         </h1>
     
-    
-        <div class="post-meta">
-    <time datetime="2017-04-18T21:11:41+09:00">
-	
-		    Apr 18, 2017
-    	
-    </time>
-    
-        <span>in </span>
+
+            </header>
         
-    <a class="category-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/04/18/ES6-6-Class-sugar-syntax/" class="article-date">
+            <time datetime="2017-04-18T12:11:41.000Z" itemprop="datePublished">2017-04-18</time>
+        </a>
+    </div>
 
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/es6/">es6</a>
+    </div>
 
-    
-</div>
-
-    
-</div>
-
-    
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/javascript_es6.png" alt=""></p>
 <h1 id="ES6-6-Class-sugar-syntax"><a href="#ES6-6-Class-sugar-syntax" class="headerlink" title="[ES6] 6. Class sugar syntax"></a>[ES6] 6. Class sugar syntax</h1><p>ES6에서 자바스크립트에는 존재하지 않았던 클래스(Class)가 도입되었다. 자바스크립트에 대해 잘 모르는 사람들이 Java에서의 클래스와 <strong>똑같은</strong> 기능을 하는 녀석인 줄 알고 많이 혼동한다. 자바스크립트는 기본적으로 프로토타입 기반의 언어이기 때문에 새로 도입된 이 클래스도 프로토타입 기반이다. 객체 지향을 <strong>흉내</strong>내고 있지만, 그 내부는 여전히 프로토타입으로 구성되어 있는 것이다. 프로토타입 기반으로 객체 지향적으로 설계하는 것이 복잡하여 클래스라는 <code>sugar syntax</code> 문법이 도입된 것이다. 그렇기 때문에 이에 따른 제약사항이 많다. 편한 만큼 고려해야할 사항도 많은 것이다. 하나씩 살펴보자.</p>
 <h3 id="클래스는-선언문-또는-표현식으로-선언할-수-있다"><a href="#클래스는-선언문-또는-표현식으로-선언할-수-있다" class="headerlink" title="클래스는 선언문 또는 표현식으로 선언할 수 있다."></a>클래스는 선언문 또는 표현식으로 선언할 수 있다.</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//클래스 선언문으로 클래스 선언</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">name</span> </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//클래스 표현식으로 클래스 선언</span></div><div class="line"><span class="keyword">let</span> name = <span class="class"><span class="keyword">class</span> </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> name = <span class="class"><span class="keyword">class</span> <span class="title">inner_name</span> </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name); <span class="comment">//function</span></div></pre></td></tr></table></figure>
@@ -327,247 +224,352 @@
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
 <p><em>6. end</em></p>
 
-            
-
         </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/es6/">es6</a>
-
-            </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" data-tooltip="[ES6] 5. Destructuring and Default Parameter" aria-label="PREVIOUS: [ES6] 5. Destructuring and Default Parameter">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/19/TypeScript-Recent/" data-tooltip="TypeScript 근황" aria-label="NEXT: TypeScript 근황">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
+        <footer class="article-footer">
             
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Google+">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
 
 
-        
-        
-            
-        
+
+    <a data-url="https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" data-id="cjigzxq4v000vtjwpkkyie1a9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
+            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+        </footer>
     </div>
 </article>
 
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
 
 
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2018 Jbee. All Rights Reserved.
-    </span>
-</footer>
 
-            </div>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" data-tooltip="[ES6] 5. Destructuring and Default Parameter" aria-label="PREVIOUS: [ES6] 5. Destructuring and Default Parameter">
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
                 
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
+            
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/19/TypeScript-Recent/" data-tooltip="TypeScript 근황" aria-label="NEXT: TypeScript 근황">
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
+                        <i class="icon fa fa-medium"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
         </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/" title="Share on Google+">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+    </div>
 
+	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
+	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [ES6] 5. Destructuring and Default Parameter
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/04/19/TypeScript-Recent/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">TypeScript 근황</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
 
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <i id="btn-close-shareoptions" class="fa fa-times"></i>
-    <ul class="share-options">
+    
+    <div class="widgets-container">
         
             
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">
-                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">
-                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
         </div>
-        
+    </div>
 
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
+                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
+                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
+                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
+                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
         </div>
-        
-            <h4 id="about-card-name">Jbee</h4>
-        
-            <div id="about-card-bio"><p>author.bio</p>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
+    </div>
 
-            </div>
-        
+            
         
     </div>
-</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <p>&copy; Jbee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
         
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+    
+    <script>
+    var disqus_shortname = 'jaeyeophan-github-io';
+    
+    
+    var disqus_url = 'https://jaeyeophan.github.io/2017/04/18/ES6-6-Class-sugar-syntax/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
 
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
     
 
 
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-    </body>
+    </div>
+</body>
 </html>
