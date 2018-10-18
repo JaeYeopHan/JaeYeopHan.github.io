@@ -1,17 +1,22 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Devlog">
+    <title>[TDD] 1. Mocha - Getting started - Devlog</title>
+    <meta name="author" content="Jbee">
     
-    <title>[TDD] 1. Mocha - Getting started | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="TDD" />
     
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\n[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주로 chai라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.&gt;Mocha Documents\nMocha는 기본적으로 BDD 기반의 프레임워크입니다. 하지만 BDD와 TDD 두 종류의 인터페이스를 모두 제공하고 있습니다. 이번 포스팅에서는 BDD 기반의 예제를 살펴봅니다.TDD vs BDD\nGetting Started\nmocha를 global로 설치해줍니다. (cf YARN, 새로운 Package Manager)12345$ yarn global add mocha#success Installed \"mocha@3.2.0\" with binaries:#      - mocha#      - _mocha#✨  Done in 4.23s.\n\n\n저는 3.2.0 version의 mocha를 설치했습니다.\n\n보다 간편한 테스트 run을 위해 package.json에 scripts 추가합니다.12345[...]\"scripts\": &#123;  \"test\": \"mocha $(find ./ -name '*./test/**/*.test.js') --recursive -w\"&#125;,[...]\n\n\ntest라는 명령어로 mocha를 실행하며 test디렉토리에 있고 .test.js파일을 찾아 mocha를 실행시킵니다. 그리고 추가적으로 -w옵션을 통해 파일이 변경될 때마다 자동으로 테스트를 수행할 수 있게 합니다.\n\n/src/operator.js 파일을 생성하고 다음 코드를 작성합니다.123exports.sum = (a, b) =&gt; &#123;    return a + b;&#125;;\n\n\n정말 간단하게, 두 수를 파라미터로 받아 합을 반환하는 sum 함수를 테스트해보겠습니다.\n\n/test/operator.test.js 파일을 생성하고 다음 코드를 작성합니다.12const operator = require('../src/operator');const sum = operator.sum;\n\n\n우선 /src/operator.js 파일을 import합니다.123456789101112describe('operator.js Test', () =&gt; &#123;    describe('sum 함수 테스트', () =&gt; &#123;        it ('10과 20를 넘기면 30이 나와야 한다.', done =&gt; &#123;            let result = sum(10, 20);            if (result === 30) &#123;                done();            &#125; else &#123;                throw Error('결과 값이 30이 아니다.');            &#125;        &#125;);    &#125;);&#125;);\n드디어 테스트 코드를 작성했습니다. describe에서는 테스트의 이름을 지정합니다. 위 예제 코드처럼 중첩하여 사용할 수 있으며 테스트를 구분하는 section이라고 표현할 수 있겠습니다. 그리고 실행해야하는 부분(단위 테스트 단위)을 콜백으로 넘겨줍니다. it 구문에는 단위 테스트 이름을 작성하고 실제 실행되는 코드를 콜백(done)으로 넘겨줍니다. 그런 다음, package.json에 작성했던 npm test 명령어를 통해 test를 실행해줍니다.12345$ npm test  sum 함수 테스트    ✓ 10과 20를 넘기면 30이 나와야 한다.  1 passing (2ms)\n이렇게 나왔으면 테스트가 통과한 것입니다. done() 메소드가 실행되면 테스트가 통과하도록 테스트 코드를 작성할 수 있습니다. result === 40처럼 옳지 않은 값을 넣어주면, throw Error()가 실행되면서 테스트가 실패했다는 메세지가 나타납니다.\nMocha의 hookMocha에서는 추가적으로 네 가지의 함수를 제공합니다. 각각은 테스트 코드가 실행되기 전과 후에 실행되는 함수입니다.\n\nbefore: 테스트 코드가 실행되기 전에 한 번 실행된다.\nbeforeEach: (테스트가 여러 개일 경우) 각각의 테스트 코드가 실행되기 전마다 실행된다.\nafterEach: (테스트가 여러 개일 경우) 각각의 테스트 코드가 실행된 후마다 실행된다.\nafter: 모든 테스트 코드가 실행된 후 한 번 실행된다.\n\n123456789101112131415161718192021222324describe('operator.js Test', () =&gt; &#123;    describe('sum 함수 테스트', () =&gt; &#123;        before(() =&gt; &#123;            console.log(\"before\");        &#125;);        beforeEach(() =&gt; &#123;           console.log(\"beforeEach\");        &#125;);        it ('10과 20를 넘기면 30이 나와야 한다.', (done) =&gt; &#123;            let result = sum(10, 20);            if (result === 30) &#123;                done();            &#125; else &#123;                throw Error('결과 값이 30이 아니다.');            &#125;        &#125;);        after(() =&gt; &#123;            console.log(\"after\");        &#125;);        afterEach(() =&gt; &#123;            console.log(\"afterEach\");        &#125;);    &#125;);&#125;);\n각각 상황에 맞는 console.log()를 찍어줬습니다. npm test 명령어를 실행해보겠습니다.12345678910$ npm test  operator.js Test    sum 함수 테스트beforebeforeEach      ✓ 10과 20를 넘기면 30이 나와야 한다.afterEachafter  1 passing (3ms)\n각각의 함수들이 위치하는 라인은 상관이 없습니다. 가독성이 좋기 위해 의미상으로 적절한 위치에 코드를 작성했습니다. 정말 간단하게 Mocha를 사용해봤습니다. if문을 통한 테스트 코드 작성이 너무 지저분했는데요, 이제 Mocha와 함께 Chai를 사용해보겠습니다!\n&gt;&gt;Chai 테스트 프레임워크 &gt;&gt;\n예제로 사용된 코드는 Github Respository에서 확인하실 수 있습니다.\n[TDD] 1. end\n","dateCreated":"2017-04-23T16:07:34+09:00","dateModified":"2017-05-21T13:42:39+09:00","datePublished":"2017-04-23T16:07:34+09:00","description":"","headline":"[TDD] 1. Mocha - Getting started","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/","keywords":"TDD"}</script>
     <meta name="description" content="[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주">
 <meta name="keywords" content="TDD">
-<meta property="og:type" content="article">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="[TDD] 1. Mocha - Getting started">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/index.html">
 <meta property="og:site_name" content="Devlog">
@@ -24,163 +29,261 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/tool_mocha.png">
     
     
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
     
 
     
-        <link rel="icon" href="/devlog_favicon.png" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
 </head>
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Tool/">Tool</a>
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            <article id="post-BDD-1-mocha" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Devlog</a>
+    </div>
+    
         
-            <header class="article-header">
-                
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
     
-        <h1 class="article-title" itemprop="name">
-        [TDD] 1. Mocha - Getting started
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/mailto"
+                            title="Mail"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [TDD] 1. Mocha - Getting started
         </h1>
     
+    
+        <div class="post-meta">
+    <time datetime="2017-04-23T16:07:34+09:00">
+	
+		    Apr 23, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tool/">Tool</a>
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2017/04/23/BDD-1-mocha/" class="article-date">
-            <time datetime="2017-04-23T07:07:34.000Z" itemprop="datePublished">2017-04-23</time>
-        </a>
-    </div>
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/TDD/">TDD</a>
-    </div>
+    
+</div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
             <p><img src="/images/tool_mocha.png" alt=""></p>
 <h1 id="TDD-1-Mocha-Getting-started"><a href="#TDD-1-Mocha-Getting-started" class="headerlink" title="[TDD] 1. Mocha - Getting started"></a>[TDD] 1. Mocha - Getting started</h1><p><code>Mocha</code>란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. <code>Mocha</code>는 자체적으로 assertion을 지원하지 않기 때문에 다른 <code>Assertion</code>라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 <code>assert</code>라이브러리가 존재하며 요즘에는 주로 <code>chai</code>라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.<br><a href="http://mochajs.org/" target="_blank" rel="external">&gt;Mocha Documents</a></p>
 <p>Mocha는 기본적으로 BDD 기반의 프레임워크입니다. 하지만 BDD와 TDD 두 종류의 인터페이스를 모두 제공하고 있습니다. 이번 포스팅에서는 BDD 기반의 예제를 살펴봅니다.<br><a href="http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/" target="_blank" rel="external">TDD vs BDD</a></p>
@@ -220,352 +323,247 @@ ga('send', 'pageview');
 <p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/javascript_test_tutorial" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
 <p><em>[TDD] 1. end</em></p>
 
-        </div>
-        <footer class="article-footer">
             
 
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/TDD/">TDD</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/22/ES6-10-Generator/" data-tooltip="[ES6] 10. Generator" aria-label="PREVIOUS: [ES6] 10. Generator">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/23/BDD-2-chai/" data-tooltip="[TDD] 2. Chai - Getting started" aria-label="NEXT: [TDD] 2. Chai - Getting started">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" data-id="cjigzxq4d0001tjwpz4oy0l5a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-        </footer>
+        
+        
+            
+        
     </div>
 </article>
 
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Jbee. All Rights Reserved.
+    </span>
+</footer>
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
+            </div>
             
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/22/ES6-10-Generator/" data-tooltip="[ES6] 10. Generator" aria-label="PREVIOUS: [ES6] 10. Generator">
                 
-            
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/23/BDD-2-chai/" data-tooltip="[TDD] 2. Chai - Getting started" aria-label="NEXT: [TDD] 2. Chai - Getting started">
                 
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
-    </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/04/22/ES6-10-Generator/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [ES6] 10. Generator
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2017/04/23/BDD-2-chai/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[TDD] 2. Chai - Getting started</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
-    <div class="widgets-container">
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
         
             
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-
             
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
             
         
-    </div>
-</aside>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
                 </div>
-            </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
         </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
         </div>
+        
+            <h4 id="about-card-name">Jbee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
     </div>
-</footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+</div>
 
         
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
     
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
 
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
+    </body>
 </html>

@@ -1,22 +1,40 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Devlog">
+    <title>[Tool] Issue Management Tool, Zenhub - Devlog</title>
+    <meta name="author" content="Jbee">
     
-    <title>[Tool] Issue Management Tool, Zenhub | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="tool" />
     
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\nIssue Management Tool개발자들에게 정말 많은 사랑을 받고 있는 Github. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 Issue Management Tool 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한 필요성을 느끼고 Project라는 이름의 기능을 추가하였는데요, 이것과 비교도 해보겠습니다.)Github Help에서 제공하는 Issue 관리에 대한 자료입니다. 이 포스팅을 읽기 전에 참고해봐도 좋을 것 같습니다.\nAgile이라는 녀석,  reference&gt;http://www.onedesk.com/scrum-methodology-vs-agile-methodology/Agile 방법론이 대두되면서, 프로젝트의 진행 상황을 공유하고 관리하는 것이 전보다 복잡하고 중요해졌습니다.(Agile이란 무엇인가) 개발자들간의 의사소통은 물론이고 프로젝트를 관리하는 매니저, 팀장 등과의 의사소통이 매우 중요해졌는데요, 이러한 상황 속에서 매번 회의를 하거나 서로에게 물어보면 그만큼 생산성이 감소하게 됩니다. 보다 효율적으로, Agile하게 프로젝트가 진행될 수 있도록 각종 도구들을 제대로 알고 팀에 적합한 도구를 고르는 것이 중요해졌습니다.\nGithub이 제공하는 기능들프로젝트 Repository안에는 viewer인 Code 탭, task 관리를 위한 Issue탭, 그리고 이 이슈들을 관리하기 위한 Label과 Milestone이 존재합니다. 프로젝트에서 진행되고 있는 Issue의 상태(Status) 또는 성격을 Label이라는 Metadata로 관리할 수 있고, Milestone이란 기능으로 단기적인 목표의 기간을 관리할 수 있습니다. 또 Project라는 탭을 통해 kanban 형식으로 Issue들을 관리할 수 있습니다. Trello라는 서비스를 아시나요? Tello가 대표적인 kanban 형식의 dashboard 입니다.\ncf&gt; 포스팅에서 언급되는 기존 형식의 dashboard란 Agile workflow를 중심으로 드래그 앤 드롭을 통한 우선순위 선정 기능, Label 기능, Real-time dashboard 기능 등을 포함한 kanban 형식의 dashboard을 말합니다.\nToolsGithub에서 제공하는 다양한 Plugin 형태의 Tool들은 Integration Tab에서 볼 수 있습니다. 이미 널리 알려진 JIRA를 제외하고 몇 가지 Tool들을 알아보겠습니다:) 제 나름대로의 판단 기준을 갖고 검색해보았습니다.\n\n기존의 Github Repository와 연동이 잘 되는가?\n어떤 형식으로 dashboard를 제공하는가? (kanban 형식인가?)\nUI/UX적으로 어떤가?\n부가적인 기능에는 무엇이 있는가?\n\nZenhubZenhub은 기존 형식의 dashboard를 제공합니다. Repository 기준으로 dashboard가 생성되고 기존에 등록되어 있던 Issue들은 물론이고 추후 생성하는 Issue들은 New Issues라는 column으로 들어갑니다. 가장 기본적이고 중요한 Github과의 연동은 문제가 없습니다.\n장점기존의 Github에서 Tab만 추가되는 형식기존의 Github에서 제공하는 탭에서 Board라는 탭과 Report라는 탭이 추가되었습니다. Zenhub을 추가하게 되면 자동으로 Repository마다 저런 형식으로 탭이 추가됩니다. 기존 Github에서 제공되는 기능에서 Board라는 탭이 추가되는 형식이기 때문에 기존의 Github을 그대로 이용할 수 있다는 장점이 있습니다.\nChrome Extension원한다면 Chrome extension을 추가하여 브라우저 어디에서든 변동사항을 파악할 수 있다는 장점도 존재합니다. 접근성면에서 아주 좋습니다.\nMetadata를 통한 Issue 구체화Zenhub은 Github에서 제공하는 Issue Metadata들에서 추가적으로 몇 가지 기능을 더 제공합니다.\n1. Pipeline제공되는 dashboard를 기준으로 제공되는 Pipleline이라는 기능으로 Issue의 Status를 설정할 수 있습니다.\n2. EpicGithub에서는 Issue들을 명시적으로 그룹화할 방법이 없었습니다. Label을 통해서 어떻게든 그룹화하려면 할 수는 있었지만, 아쉬운 점이 많았습니다. Zenhub에서는 epic이라는 기능을 제공하여 Issue들을 그룹화할 수 있습니다.\n3. EstimateIssue에 Estimate라는 Metadata를 이용하여 해당 Issue의 복잡도(complexity)를 설정할 수 있습니다. 1, 2, 3, 5, 8, 13, 21, 40이라는 총 8단계의 레벨을 제공하고 있습니다. 팀 내부에서의 회의를 통해 일정을 산정하고 그에 맞는 레벨을 설정할 수 있습니다. 플래닝 포커라는 방법으로 일정을 산출할 수 있습니다. &gt; 참고자료:플래닝 포커를 이용한 프로젝트 일정 산정\nMerge repositoryRespository를 merge하여 하나의 dashboard에서 복수 개의 Respository를 관리할 수 있습니다. 여러 프로젝트를 통합하여 관리해야 한다면 Zenhub의 merge 기능을 이용할 수 있습니다. 개인 Issue 관리 Repository를 따로 만들어서 자신만의 Issue를 관리할 수 있겠네요:)\nReport 기능Burndown, Velocity tracking, Release Report 세 가지의 옵션으로 그래프 형식의 보고서를 보여줍니다. 지정한 Milestone의 진행 상황을 한 눈에 살펴볼 수 있는 좋은 기능입니다 :) Label에 따라서 또는 Issue의 상태에 따라서 다양한 보고서를 볼 수 있습니다.\nTo do listZenhub플러그인을 설치하게 되면 위과 같이 상단 bar에 Todo라는 탭이 하나 더 추가됩니다.TODO를 관리할 수 있도록 플러그인을 제공해주고 있습니다. 물론 다른 Todo 전용 애플리케이션보다는 기능이 미약합니다.\n기타 부가적인 기능그리고 Zenhub에서는 Repository에서 다른 Respository로 손쉽게 이동할 수 있는 통로(?)를 제공해줍니다. Repository 이름 옆에 햄버거 버튼이 생성되는데요, 그 버튼을 통해서 계정에 존재하는 다른 Repository로 이동할 수 있습니다.한 가지 또 부가적인 기능은 키보드 자판에서의 b버튼을 shotcut으로 제공해서 repository 화면에서 바로 Board탭으로 이동이 가능하네요:)\n가격공식 웹 사이트에는 5명 이하의 작은 팀에 대해서는 무료로 제공한다고 합니다. 물론 이것은 private repository에 대해서 적용되는 사항이구요, public repository에 대해서는 사용자 수에 상관없이 무료로 제공하고 있습니다.\nGithub에서 제공하는 Project 기능과비교Zenhub에서는 dashboard에서 Issue를 클릭하면 modal형태로 해당 Issue의 내용이 보이면서 바로 comment를 달거나 Label을 변경하는 등의 작업을 수행할 수 있는 기능을 제공합니다. 그러나 Github에서 제공하는 Project dashboard는 Issue를 클릭하면 해당 Issue 페이지로 redirect되어 (개인적으로는 매우)불편합니다.\n또한 Zenhub을 사용하면 Issue의 특성에 따라서 필터를 적용할 수 있습니다. dashboard에 흩어져 있는 Issue들을 Milestone에 따라서 또는 Label에 따라서 등등의 특성으로 분류가 가능합니다. 아직 Github에서 default로 제공하는 Project 기능은 부족한 점이 많아 보입니다 :(\nZenhub 공식 사이트에서 보다 자세한 내용을 확인하실 수 있습니다.\n그 외 Management ToolsHueboardHueboard 예시Zenhub과 마찬가지로 하나의 Repository마다, 하나의 dashboard를 제공해주며 기존의 dashboard 형식을 취합니다. UI적으로는 Zenhub보다 조금 나아보입니다. Zenhub과는 달리 별도의 웹 사이트로 redirect되면서 프로젝트 관리에 대한 총체적인 dashboard를 제공합니다. Filter 기능이 유독 눈에 들어오네요. Zenhub에서도 가능했던 기능이지만 UI적으로 깔끔해서 dashboard에 집중할 수가 있을 것 같습니다.Hueboard 공식 사이트에서 보다 자세한 내용을 확인하실 수 있습니다.\nZube기존의 dashboard 외에 몇 가지 추가적인 기능을 제공합니다. Sprint board, Sprint, Tickets 눈에 들어오는 것은 Analytics 기능입니다.Zenhub에서 제공하는 보고서 유형보다 2종류가 더 많네요. 프로젝트를 처음 시작할 때부터 도입하지 않으면 사용하기에 부담이 생기는 Tool일 것 같다는 생각이 들었습니다. 또한 너무 많은 기능을 제공하면 오히려 생산성을 저해하는 요소가 될 수 있지 않을까 생각이 드는 Tool이었습니다.\nZube 공식 사이트에서 보다 자세한 내용을 확인하실 수 있습니다.\n\n마무리이 외에도 Waffle, CodeTree, Asana 등등 정말 많은 Tool들이 존재합니다. 제공하는 기능은 조금씩만 다르고 다 거기서 거기인 것 같습니다. 기존에 사용했던 다른 도구들(예를 들면 Slack, Trello, hipchat 등)과 얼마나 통합이 잘 되는지 또한 중요한 쟁점이 될 것 같습니다.\n또 프로젝트에서 사용하는 Tool이 많아질수록 본래 프로젝트를 관리하기 위해 도입했던 관리 Tool을 관리해야 하는 주객전도 현상이 발생할 수 있습니다. 이 부분 또한 인지하여 프로젝트 관리 도구를 도입해야할 것입니다.\n저는 개인적으로 새로운 Tool이 도입되는 부담감이 가장 적고 기존의 Github에 가장 잘 녹아드는 Zenhub이 가장 잘 맞는 것 같습니다:)\n여러분 팀에 맞는 프로젝트 관리 도구는 무엇인가요?감사합니다 :)\n","dateCreated":"2017-04-30T00:30:28+09:00","dateModified":"2017-05-02T21:46:11+09:00","datePublished":"2017-04-30T00:30:28+09:00","description":"","headline":"[Tool] Issue Management Tool, Zenhub","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2017/04/30/issue-management-tool/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2017/04/30/issue-management-tool/","keywords":"tool"}</script>
     <meta name="description" content="Issue Management Tool개발자들에게 정말 많은 사랑을 받고 있는 Github. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 Issue Management Tool 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한">
 <meta name="keywords" content="tool">
-<meta property="og:type" content="article">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="[Tool] Issue Management Tool, Zenhub">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/index.html">
 <meta property="og:site_name" content="Devlog">
 <meta property="og:description" content="Issue Management Tool개발자들에게 정말 많은 사랑을 받고 있는 Github. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 Issue Management Tool 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한">
 <meta property="og:image" content="https://jaeyeophan.github.io/images/github_logo.jpg">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/agile_cloud_tag.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/default_github.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_plugin.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_chrome_extension.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_modal.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/merge_repository.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_report.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_topbar.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zenhub_todo.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/move_repository.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zube_feature.png">
+<meta property="og:image" content="https://jaeyeophan.github.io/images/zube_analysis.png">
 <meta property="og:updated_time" content="2017-05-02T12:46:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Tool] Issue Management Tool, Zenhub">
@@ -24,163 +42,261 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/github_logo.jpg">
     
     
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
     
 
     
-        <link rel="icon" href="/devlog_favicon.png" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
 </head>
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Tool/">Tool</a>
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            <article id="post-issue-management-tool" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Devlog</a>
+    </div>
+    
         
-            <header class="article-header">
-                
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
     
-        <h1 class="article-title" itemprop="name">
-        [Tool] Issue Management Tool, Zenhub
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/mailto"
+                            title="Mail"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [Tool] Issue Management Tool, Zenhub
         </h1>
     
+    
+        <div class="post-meta">
+    <time datetime="2017-04-30T00:30:28+09:00">
+	
+		    Apr 30, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tool/">Tool</a>
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2017/04/30/issue-management-tool/" class="article-date">
-            <time datetime="2017-04-29T15:30:28.000Z" itemprop="datePublished">2017-04-30</time>
-        </a>
-    </div>
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tool/">tool</a>
-    </div>
+    
+</div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
             <p><img src="/images/github_logo.jpg" alt=""></p>
 <h1 id="Issue-Management-Tool"><a href="#Issue-Management-Tool" class="headerlink" title="Issue Management Tool"></a>Issue Management Tool</h1><p>개발자들에게 정말 많은 사랑을 받고 있는 <code>Github</code>. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 <code>Issue Management Tool</code> 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한 필요성을 느끼고 <code>Project</code>라는 이름의 기능을 추가하였는데요, 이것과 비교도 해보겠습니다.)<br>Github Help에서 제공하는 <a href="https://help.github.com/articles/managing-your-work-with-issues/" target="_blank" rel="external">Issue 관리에 대한 자료</a>입니다. 이 포스팅을 읽기 전에 참고해봐도 좋을 것 같습니다.</p>
 <h2 id="Agile이라는-녀석"><a href="#Agile이라는-녀석" class="headerlink" title="Agile이라는 녀석,"></a>Agile이라는 녀석,</h2><p><img src="/images/agile_cloud_tag.png" alt=""><br> <em> reference&gt;<a href="http://www.onedesk.com/scrum-methodology-vs-agile-methodology/" target="_blank" rel="external">http://www.onedesk.com/scrum-methodology-vs-agile-methodology/</a></em><br><code>Agile 방법론</code>이 대두되면서, 프로젝트의 진행 상황을 공유하고 관리하는 것이 전보다 복잡하고 중요해졌습니다.(<a href="http://blog.rightbrain.co.kr/?p=5810" target="_blank" rel="external">Agile이란 무엇인가</a>) 개발자들간의 의사소통은 물론이고 프로젝트를 관리하는 매니저, 팀장 등과의 의사소통이 매우 중요해졌는데요, 이러한 상황 속에서 매번 회의를 하거나 서로에게 물어보면 그만큼 생산성이 감소하게 됩니다. 보다 효율적으로, Agile하게 프로젝트가 진행될 수 있도록 각종 도구들을 제대로 알고 팀에 적합한 도구를 고르는 것이 중요해졌습니다.</p>
@@ -217,352 +333,247 @@ ga('send', 'pageview');
 <p>저는 개인적으로 새로운 Tool이 도입되는 부담감이 가장 적고 기존의 Github에 가장 잘 녹아드는 <code>Zenhub</code>이 가장 잘 맞는 것 같습니다:)</p>
 <p><em>여러분 팀에 맞는 프로젝트 관리 도구는 무엇인가요?</em><br>감사합니다 :)</p>
 
-        </div>
-        <footer class="article-footer">
             
 
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/tool/">tool</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/23/TS-1-Basic-Types/" data-tooltip="[TS] 1. Basic Types" aria-label="PREVIOUS: [TS] 1. Basic Types">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/04/ES6-11-Modulization/" data-tooltip="[ES6] 11. Modulization" aria-label="NEXT: [ES6] 11. Modulization">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" data-id="cjigzxq5s0035tjwpve71r1su" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-        </footer>
+        
+        
+            
+        
     </div>
 </article>
 
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Jbee. All Rights Reserved.
+    </span>
+</footer>
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
+            </div>
             
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/23/TS-1-Basic-Types/" data-tooltip="[TS] 1. Basic Types" aria-label="PREVIOUS: [TS] 1. Basic Types">
                 
-            
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/04/ES6-11-Modulization/" data-tooltip="[ES6] 11. Modulization" aria-label="NEXT: [ES6] 11. Modulization">
                 
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
-    </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/04/23/TS-1-Basic-Types/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [TS] 1. Basic Types
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2017/05/04/ES6-11-Modulization/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ES6] 11. Modulization</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
-    <div class="widgets-container">
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
         
             
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-
             
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
             
         
-    </div>
-</aside>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
                 </div>
-            </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/04/30/issue-management-tool/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
         </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
         </div>
+        
+            <h4 id="about-card-name">Jbee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
     </div>
-</footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+</div>
 
         
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
     
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    var disqus_url = 'https://jaeyeophan.github.io/2017/04/30/issue-management-tool/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
 
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
+    </body>
 </html>

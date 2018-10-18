@@ -1,17 +1,22 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Devlog">
+    <title>[TS] 4. Interface in TypeScript - Devlog</title>
+    <meta name="author" content="Jbee">
     
-    <title>[TS] 4. Interface in TypeScript | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="ts" />
     
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\n[TS] 4. Interface in TypeScriptinterface는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 syntax에 대해 알아봅니다.\nContents\nInterface?\nUseful Interface\nAvailable properties\nOptional\nreadonly\n\n\nInterface Type\nFunction Type\nIndexable Type\n\n\nClass interface\n\n\nInterface?interface란 객체의 껍데기 또는 설계도 라고 할 수 있을 것 같습니다. 자바스크립트에서는 클래스도 함수도 결국 모두 객체인데요, 클래스 또는 함수의 ‘틀’을 정의할 때 사용할 수 있는 것이 인터페이스 입니다.\n여러 함수가 특정한 시그니처를 동일하게 가져야 할 경우 또는 여러 클래스가 동일한 명세를 정의해야하는 경우 인터페이스를 통해서 정의할 수 있습니다. 인터페이스는 특정 타입으로서 사용될 수 있으며, implements의 대상이 될 수 있습니다. 객체에 인터페이스를 적용하는 경우 또는 반환값 등을 설정할 때 타입으로 이용될 수 있습니다.\n\nUseful Interface함수에서 어떤 객체를 받아야 할 경우, 해당 type을 어떻게 정의할 수 있을까요?12345// AjaxUtils.tsexport async function fetchBasic(param: &#123;url: string&#125;): Promise&lt;Response&gt; &#123;  const response = await fetch(param.url);  return response.json();&#125;\n위와 같이 param이라는 인자의 타입을 literal 형식으로 정의할 수 있습니다. 그런데 그 객체의 프로퍼티가 많아지는 경우에는 어떻게 정의할까요? (반환값 형식에 Promise&lt;?&gt;형식으로 지정을 해줬는데요, 이는 Generics 부분에서 다룰 예정입니다.)\n12345678910export async function fetchData(param: &#123;baseUrl: string, type: string, subject?: string&#125;): Promise&lt;Response&gt; &#123;  const &#123;baseUrl, type, subject&#125; = param;  const response = await fetch(`$&#123;baseUrl&#125;/$&#123;subject&#125;`);  const contentType = response.headers.get(\"content-type\");  if (response.ok &amp;&amp; contentType &amp;&amp; contentType.includes(type)) &#123;    return response.json();  &#125;  throw Error(\"Invalid baseUrl or subject\");&#125;\nliteral로 인자의 타입을 정의하다보니 함수의 signature가 너무 길어졌습니다. 그런데 여기서 Promise&lt;Response&gt; 이 부분도 정의가 필요합니다. 따라서 다음과 같이 길어집니다.1234567891011export async function fetchData(param: &#123;  baseUrl: string,  type: string,  subject?: string&#125;): Promise&lt;&#123;  id: number;  name: string;  company: string;&#125;[]&gt; &#123;  //...&#125;\n뭔가 최대한 가독성을 좋게 하기 위해서 개행을 했지만 성공하진 못한 것 같습니다. 문제는 여기서 끝이 아닙니다. 이 함수를 호출하는 곳에서는 다음과 같은 일이 벌어집니다.\n123456789private async ajax(): Promise&lt;&#123;id: number; name: string; company: string;&#125;[]&gt; &#123;  const data: &#123;id: number; name: string; company: string;&#125;[] = await fetchData(&#123;    baseUrl: \"http://localhost:3000\",    subject: \"users\",    type: \"application/json\"  &#125;);  // ...do something  return data;&#125;\n이 혼란의 상황을 interface를 통해 깔끔하게 정리할 수 있습니다. 인자와 반환값을 interface를 통해 정리해보겠습니다.\n12345678910111213141516// interfaces.tsinterface Character &#123;  id: number;  name: string;  company: string;&#125;export interface dataFormat &#123;  charaters: Character[];&#125;export interface fetchDataParam &#123;  baseUrl: string;  type: string;  subject: string;&#125;\n위와 같이 interfaces.ts라는 파일을 생성하여 인터페이스들을 정의할 수 있습니다.\n12345// AjaxUtils.tsimport &#123; fetchDataParam, dataFormat &#125; from \"./interfaces\";export async function fetchData(param: fetchDataParam): Promise&lt;dataFormat&gt; &#123;  // ...&#125;\nAjaxUtils.ts에서는 정의한 인터페이스를 import하여 인자와 반환값에 해당 인터페이스를 통해 타입을 정의할 수 있습니다.\n12345678910111213// Controller.tsimport &#123; fetchDataParam, dataFormat &#125; from \"./interfaces\";private async ajaxCall(): Promise&lt;dataFormat&gt; &#123;  const param: fetchDataParam = &#123;    baseUrl: \"http://localhost:3000\",    subject: \"users\",    type: \"application/json\"  &#125;;  const data: dataFormat = await fetchData(param);  console.log(data);  return data;&#125;\n호출하는 부분에서도 마찬가지로 interfaces.ts파일에서 필요한 인터페이스를 import하여 타입을 지정해줍니다. 예시 코드에서 처럼 인터페이스를 정의하여 인자에 정의하던 타입들을 깔끔하게 정리할 수 있습니다. 또한 다른 파일에서 해당 함수를 정의하는 부분과 호출하는 부분이 다를 때, 하나의 인터페이스를 공유할 수 있습니다. 인터페이스를 통일시키는 것이 중요할 때 매우 유용하게 사용할 수 있습니다.\n\nAvailable properties인터페이스에도 클래스와 동일하게 optional하게 property를 지정할 수 있으며 readonly 타입으로 property를 지정할 수 있습니다.\nOptional properties1234567interface WeatherSpec &#123;  type: string;  amount?: number;&#125;const rainfall: WeatherSpec = &#123;  type: \"rainfall\",&#125;;\noptional property로 지정한 amount에 대해서는 구현하지 않아도 에러가 발생하지 않는 것을 확인할 수 있습니다.\n\nReadonly properties12345678910export interface WeatherSpec &#123;  readonly type: string;  amount: number;&#125;const rainfall: WeatherSpec = &#123;  type: \"rainfall\",  amount: 24,&#125;rainfall.type = \"snow\"; // Error!rainfall.amout += 3; // OK!\n에러 메시지는 다음과 같습니다. [!] Error: Cannot assign to &#39;type&#39; because it is a constant or a read-only property. 위와 같이 interface에서 readonly로 지정한 프로퍼티에 대해서는 그 값을 바꿀 수 없습니다. 이는 변수를 사용할 때 사용하는 const키워드와 동일한 역할을 수행한다고 이해할 수 있습니다.\n\nInterface Types인터페이스에 프로퍼티를 정의할 때 여러 가지 형식으로 정의할 수 있습니다.\nFunction Type인터페이스의 프로퍼티로 함수의 시그니처를 정의할 수 있습니다. 반환하는 형식 또는 그 값이 다르지만 시그니처를 통일시켜야 하는 경우가 존재할 수 있습니다. 그럴 경우 다음과 같이 interface를 설계하여 함수를 구현할 수 있습니다.1234567891011121314151617181920interface TimeFunc &#123;  (hour: number, minutes: number): any;&#125;const buildTimeStamp: TimeFunc = (hour, minutes): number =&gt; &#123;  if (minutes &lt; 10) &#123;    return Number(`$&#123;hour&#125;0$&#123;minutes&#125;`);  &#125;  return  Number(`$&#123;hour&#125;$&#123;minutes&#125;`);&#125;const buildTimeText: TimeFunc = (hour, minutes): string =&gt; &#123;  if (minutes &lt; 10) &#123;    return `$&#123;hour&#125;시 0$&#123;minutes&#125;분`;  &#125;  return `$&#123;hour&#125;시 $&#123;minutes&#125;분`;&#125;buildTimeStamp(12, 33); //1233buildTimeText(12, 33); //12시 33분\n반환 타입을 제외하고 동일한 형식의 함수를 정의했습니다. 이것은 특정 콜백 함수를 받는 함수를 구현할 때 그 유용성이 더 빛을 발합니다.\n12345678const buildTime = (timeText: string, cb: TimeFunc) =&gt; &#123;  const hour: number = Number(timeText.split(\":\")[0]);  const minutes: number = Number(timeText.split(\":\")[1]);  return cb(hour, minutes);&#125;console.log(buildTime(\"12:33\", buildTimeStamp)); //1233console.log(buildTime(\"12:33\", buildTimeText)); //12시 33분\n콜백 함수를 인자로 받을 때 해당하는 시그니처가 통일되어야 하는 부분을 인터페이스를 통해 해결할 수 있습니다.\n\nIndexable Types자바스크립트에서 다음과 같은 코드는 매우 자연스럽습니다.12345const obj = &#123;  first: 1,  second: 2,&#125;;Object.keys(obj).forEach(key =&gt; console.log(obj[key]));\n즉, 객체의 프로퍼티에 접근할 때, 동적으로 생성된 key를 통해 객체의 프로퍼티에 [] 표기법으로 접근하는 경우입니다. 하지만 이 코드는 타입스크립트에서 동작하지 않습니다.\n[!] Element implicitly has an &#39;any&#39; type because type &#39;{ first: number; second: number; }&#39; has no index signature.이란 에러를 발생시킵니다. 왜냐하면 정의한 obj라는 객체에 index signature가 없기 때문입니다. 따라서 이 에러는 다음과 같이 해결할 수 있습니다.123456789interface Indexable &#123;  [key: string]: any;&#125;;const obj: Indexable = &#123;  first: 1,  second: 2,&#125;;Object.keys(obj).forEach((key: string) =&gt; obj[key]);\nIndexable이란 이름의 인터페이스를 정의해준 다음, string 타입의 key에 any 타입을 지정해줍니다. 이 인터페이스를 통해서 객체를 생성하면 [] 표기법을 통해 객체의 프로퍼티에 접근할 수 있습니다.\n\nClass interface인터페이스를 클래스에서도 사용할 수 있습니다. 상위 클래스를 extends라는 키워드로 상속하듯이 implements라는 키워드로 인터페이스를 구현할 수 있습니다. 클래스는 인터페이스를 implements하면서 인터페이스에 명세되어 있는 기능들을 구현해야 하는 의무를 갖게 됩니다.\n인터페이스에서는 클래스의 프로퍼티(필드 멤버), 메소드 등을 정의할 수 있습니다. 또한 optional 한 명세 또한 정의할 수 있습니다.123456789interface Movable &#123;  velocity: number;  move(time: number): Position;  startPos?: Position;&#125;class BMWCar implements Movable &#123;&#125;\n여기까지 입력했을 때 나타나는 에러 메세지는 다음과 같습니다. [!] Class &#39;Car&#39; incorrectly implements interface &#39;Movable&#39;.. 특정 인터페이스를 구현한 클래스는 인터페이스에 정의된 명세를 구현해야 합니다.\n즉 여기서는 velocity라는 프로퍼티를 포함해야 하며, move라는 메소드를 구현해야만 합니다. 이 BMWCar 클래스는 생성할 때 다음과 같이 생성할 수 있습니다.123456789101112class BMWCar implements Movable &#123;  velocity: number;  constructor(velocity) &#123;    this.velocity = velocity;  &#125;    move(time: number): Position &#123;    //... do something  &#125;&#125;const bmw: Movable = new BMWCar();\nBMWCar라는 타입 말고도 해당 클래스에서 구현한 인터페이스인 Movable 타입으로 지정할 수 있습니다.\nPublic PropertyTypeScript Official Document에 Interfaces describe the public side of the class, rather than both the public and private side. 이런 말이 나옵니다. 인터페이스를 통해 구현해야 함을 명시하는 메소드는 private 접근 제어자로 정의될 메소드가 아니라 public 접근 제어자로 정의될 메소드이어야 한다고 합니다.\n즉, 인터페이스를 통해 명세를 정의할 때는 private 속성말고 public 속성에 대해 정의합니다.\n\n마무리인터페이스를 통해 보다 세밀한 구조 설계와 추상화가 가능해졌습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 여기에서 보실 수 있으며 예제에 사용된 코드는 여기에서 확인하실 수 있습니다.감사합니다.\n3. Interface in TypeScript end\nReferenceTypeScript Official Document - Interface\n","dateCreated":"2017-12-28T10:10:52+09:00","dateModified":"2017-12-28T10:25:25+09:00","datePublished":"2017-12-28T10:10:52+09:00","description":"","headline":"[TS] 4. Interface in TypeScript","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/","keywords":"ts"}</script>
     <meta name="description" content="[TS] 4. Interface in TypeScriptinterface는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 syntax에 대해 알아봅니다. Contents Interface? Useful Interface Available properties Optional readonl">
 <meta name="keywords" content="ts">
-<meta property="og:type" content="article">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="[TS] 4. Interface in TypeScript">
 <meta property="og:url" content="https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/index.html">
 <meta property="og:site_name" content="Devlog">
@@ -24,163 +29,261 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/typescript.png">
     
     
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
     
 
     
-        <link rel="icon" href="/devlog_favicon.png" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
 </head>
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
     
-    <a class="page-title-link" href="/categories/TypeScript/">TypeScript</a>
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            <article id="post-TS-4-Interface-in-TypeScript" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Devlog</a>
+    </div>
+    
         
-            <header class="article-header">
-                
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
     
-        <h1 class="article-title" itemprop="name">
-        [TS] 4. Interface in TypeScript
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/mailto"
+                            title="Mail"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [TS] 4. Interface in TypeScript
         </h1>
     
+    
+        <div class="post-meta">
+    <time datetime="2017-12-28T10:10:52+09:00">
+	
+		    Dec 28, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/TypeScript/">TypeScript</a>
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2017/12/28/TS-4-Interface-in-TypeScript/" class="article-date">
-            <time datetime="2017-12-28T01:10:52.000Z" itemprop="datePublished">2017-12-28</time>
-        </a>
-    </div>
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ts/">ts</a>
-    </div>
+    
+</div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
             <p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-4-Interface-in-TypeScript"><a href="#TS-4-Interface-in-TypeScript" class="headerlink" title="[TS] 4. Interface in TypeScript"></a>[TS] 4. Interface in TypeScript</h1><p><code>interface</code>는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 syntax에 대해 알아봅니다.</p>
 <h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><ul>
@@ -246,352 +349,247 @@ ga('send', 'pageview');
 <p><em>3. Interface in TypeScript end</em></p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank" rel="external">TypeScript Official Document - Interface</a></p>
 
-        </div>
-        <footer class="article-footer">
             
 
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/ts/">ts</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/18/TS-3-Function-in-TypeScript/" data-tooltip="[TS] 3. Function in TypeScript" aria-label="PREVIOUS: [TS] 3. Function in TypeScript">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/30/TS-5-Generics-in-TypeScript/" data-tooltip="[TS] 5. Generics in TypeScript" aria-label="NEXT: [TS] 5. Generics in TypeScript">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
 
-    <a data-url="https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" data-id="cjigzxq5j002gtjwp9g573j4t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-        </footer>
+        
+        
+            
+        
     </div>
 </article>
 
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Jbee. All Rights Reserved.
+    </span>
+</footer>
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
+            </div>
             
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/18/TS-3-Function-in-TypeScript/" data-tooltip="[TS] 3. Function in TypeScript" aria-label="PREVIOUS: [TS] 3. Function in TypeScript">
                 
-            
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/30/TS-5-Generics-in-TypeScript/" data-tooltip="[TS] 5. Generics in TypeScript" aria-label="NEXT: [TS] 5. Generics in TypeScript">
                 
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
-    </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/12/18/TS-3-Function-in-TypeScript/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [TS] 3. Function in TypeScript
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2017/12/30/TS-5-Generics-in-TypeScript/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[TS] 5. Generics in TypeScript</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
-    <div class="widgets-container">
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
         
             
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-
             
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
             
         
-    </div>
-</aside>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
                 </div>
-            </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
         </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
         </div>
+        
+            <h4 id="about-card-name">Jbee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
     </div>
-</footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+</div>
 
         
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
     
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    var disqus_url = 'https://jaeyeophan.github.io/2017/12/28/TS-4-Interface-in-TypeScript/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
 
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
+    </body>
 </html>

@@ -1,17 +1,22 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Devlog">
+    <title>[번역] React를 본격적으로 하기 전 알면 좋은 6가지 - Devlog</title>
+    <meta name="author" content="Jbee">
     
-    <title>[번역] React를 본격적으로 하기 전 알면 좋은 6가지 | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="React" />
     
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"\nI wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488\nTable of contents\nBy default, setState triggers a re-render\nsetState updates the local state asynchronously\nComponent Lifecycle is important!\nUse componentWillReceiveProps\nUse React Developer Tools\nUse CRA(Create React App)\n\n\n1. By default, setState triggers a re-render\n기본적으로 setState 메소드는 해당 컴포넌트의 재렌더링(re-render)을 발생시킨다.\n\n리액트의 기본 동작은 애플리케이션을 구성하고 있는 컴포넌트에서 발생하는 모든 변경사항에 대해서 다시 렌더링 하는 것이고 대부분의 경우 이 이러한 기본 동작에 맡겨도 정상적으로 동작합니다. 하지만 불필요한 re-render는 컴포넌트의 라이프 사이클 압장에서 봤을 때, Best practice일 수 없습니다.\n각각의 컴포넌트들은 shouldComponentUpdate라는 메소드를 가지고 있고 이것은 state가 변경되거나 부모 컴포넌트로부터 새로운 props를 전달받을 때 실행됩니다. React는 이 메소드(shouldComponentUpdate)의 반환 값에 따라서 re-render를 할지에 대한 여부를 결정하게 됩니다.\n기본적으로 shouldComponentUpdate 메소드는 true를 반환합니다. 하지만 React 개발자는 re-render를 원하지 않는 경우에, 이 return value를 false로 오버라이드 할 수 있습니다.\n1234567shouldComponentUpdate(nextProps, nextState) &#123;    const vitalPropsChange = this.props.bar !== nextProps.bar;    const vitalStateChange = this.state.foo !== nextState.foo;        return vitalPropsChange || vitalStateChange;&#125;// React will not re-render the component unless vitalPropsChange// or vitalStateChange is true.\nimportant notes:\nshouldComponentUpdate를 잘못 설정하거나 이러한 설정을 잊어 버리면 구성 요소가 예상대로 업데이트되지 않아 애플리케이션에 문제가 발생할 수 있습니다.\nshouldComponentUpdate에서 계산을 실행하는 것은 성능과 노력면에서 비용이 많이들 수 있으므로 그만한 가치가 있는지 확인해야합니다. React ‘s Performance Tools를 사용하여 shouldComponentUpdate 사용 전후에 낭비되는 사이클 수를 확인하는 것이 좋습니다. 아주 간단한 사용법이 있습니다.1234Perf.start() // React operations in-between are recorded for analyses.Perf.stop()Perf.printWasted()\n\n\n\n2. setState updates the local state asynchronously\nsetState 메소드는 비동기로 state를 업데이트 한다.\n\nsetState메소드는 즉시 실행되는, 동기적으로 실행되는 것이 아니라 하나의 요청이라고 생각해야 합니다. 즉, setState를 통해 상태를 변경하더라도 해당 메소드가 실행된 직후에 변경된 상태가 적용되는 것이 아닙니다.\nsetState를 호출한 직후에 this.state에 접근하는 것은 흔한 실수 입니다. 일반적으로, setState 메소드 내에서 this.state를 사용하는 것은 신뢰할 수 없습니다.12345// this.state.value is initially 0this.setState(&#123;value: this.state.value + 1&#125;);this.setState(&#123;value: this.state.value + 1&#125;);this.setState(&#123;value: this.state.value + 1&#125;);// this.state.value is 1 instead of 3\n만약 이전의 상태에 기반하여 상태를 변경해야 한다면 가장 좋은 방법 중 하나는 updater 함수를 사용하는 것입니다. updater함수를 setState 메소드의 첫번째 인자로 넘기는 방식으로 사용할 수 있습니다. ( setState(updater, [callback]) ) 예제 코드입니다.1this.setState((prevState) =&gt; (&#123;value: prevState.value + 1&#125;));\n여기서 [callback]은 optional argument로 setState의 실행이 완료된 후 실행되며 해당 callback이 실행된 후에 해당 컴포넌트의 re-render가 이루어집니다. updater에 대한 보다 자세한 내용은 다음 링크를 참고하세요.\n\n3. Component Lifecycle is important!\n컴포넌트의 라이프 사이클이 중요하다!\n\nReact를 이해하는데 있어서 가장 첫번째로 이해해야 하는 부분이 바로 Component life cycle입니다. 각각의 React 컴포넌트는 component의 life cycle 안에서 특정 시간에 호출할 수 있는 메소드들을 내장하고 있습니다. 이 컴포넌트 내장 메소드들을 올바르게 사용하기 위해서는 해당 메소드들이 실행되는 순서를 이해해야만 합니다. 이 라이프 사이클을 세 부분으로 나눌 수 있습니다.\nMountingReact 컴포넌트의 인스턴스가 생성되고 DOM에 삽입되는 과정의 life cycle 입니다.\n\nconstructor\ncomponentWillMount\nrender\ncomponentDidMount\n\nUpdatingprop 또는 state의 변경으로 해당 컴포넌트가 re-render 되는 경우의 life cycle 입니다.\nProps Change\ncomponentWillReceiveProps\nshouldComponentUpdate\ncomponentWillUpdate\nrender\ncomponentDidUpdate\n\nState Change\nshouldComponentUpdate\ncomponentWillUpdate\nrender\ncomponentDidUpdate\n\nUnmounting\ncomponentWillUnmount\n\nLife Cycle과 관련된 좋은 Article\nReact Lifecycle Methods - how and when to use them\n번역 링크\n원본 링크\n\n\nReact Official Document\n\n\n4. Use componentWillReceiveProps\ncomponentWillReceiveProps 메소드를 사용해라.\n\n만약 props의 변경에 따라서 상태를 변경해야 한다면, 이 componentWillReceiveProps 메소드가 필요합니다. this.props와 nextProps를 비교해서 중요한 변화(significant change)가 있다면 해당 메소드를 실행합니다.12345678componentWillReceiveProps(nextProps) &#123;  if (this.props.foo !== nextProps.foo) &#123;    this.whenFooChanges();  &#125;  if (this.porps.bar !== nextProps.bar) &#123;    this.whenBarChanges();  &#125;&#125;\nTwo important notes:\nprops가 변경되지 않아도 componentWillReceiveProps는 실행하기 때문에 this.props와 nextProps를 비교하는 것이 중요합니다.\ncomponentWillReceiveProps은 해당 컴포넌트가 mounted 되기 전에 실행되어 새로운 props를 받습니다. 이것은 React가 mount 중에는 초기 props에 대해 componentWillReceiveProps를 호출하지 않는다는 것을 의미합니다.\n\n추가 내용React version 16에서 componentWillReceiveProps를 사용하여 상태를 변경할 때는 동기적으로 업데이트 해야 합니다.(dispatch request 또는 setTimeout과 같은 비동기적 요청은 해당 메소드에서 처리하면 안 됩니다.)React Fiber 를 사용하면 라이프 사이클이 진행되기 전에 componentWill[*] 메서드가 여러 번 호출 될 수 있습니다. props이 변경될 때 상태를 비동기적으로 업데이트하려면 componentDidUpdate를 사용해야 합니다.\n\n5. Use React Developer Tools\n각종 React 개발자 도구를 사용해라.\n\nReact Developer Tools를 사용하면 애플리케이션을 구성하고 있는 React 컴포넌트의 계층, 컴포넌트의 props 및 state를 검사 할 수 있습니다. React는 모두 컴포넌트에 관한 것이기 때문에 많은 경우, 매우 유용합니다. 브라우저 확장 프로그램 (Chrome용 및 Firefox 용)과 독립 실행 형 앱으로 존재합니다.\n\n6. Use CRA(Create React App)\nCRA를 사용해라.\n\nFacebook의 Create React App을 사용하면 빌드 구성없이 React 앱을 만들 수 있습니다. CRA는 사용하기가 매우 쉽고 잘 갖춰진 documentation을 가지고 있습니다. Node&gt; = 6 만 있으면 되며 macOS, Windows 및 Linux에서 작동합니다. 개발 생산성을 높여주는 HRM도 해당 scaffolding 모듈에서 지원하고 있습니다. (개인적으로는 글로벌로 설치해도 아쉽지 않은 녀석입니다!)\n\n역자 덧붙임좋은 참고자료를 첨부합니다.\n\n한국어로 배우는 리액트\nTypeScript-React-Stater\nreact-patterns (영어)\n\n마무리일부 의역이 들어갔으며 오역이 존재할 수 있습니다. 해당 사항에 대해서는 댓글로 피드백 주시면 감사하겠습니다. 더 좋은 포스팅으로 뵙겠습니다! 감사합니다.\n해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488\n","dateCreated":"2018-01-02T13:36:04+09:00","dateModified":"2018-01-03T10:50:16+09:00","datePublished":"2018-01-02T13:36:04+09:00","description":"","headline":"[번역] React를 본격적으로 하기 전 알면 좋은 6가지","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/"},"publisher":{"@type":"Organization","name":"Jbee","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/","keywords":"React"}</script>
     <meta name="description" content="I wish I knew these before diving into React해당 글은 원작자의 허가를 받고 번역한 글 입니다.원본 링크 : https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488 Table of contents By default">
 <meta name="keywords" content="React">
-<meta property="og:type" content="article">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="[번역] React를 본격적으로 하기 전 알면 좋은 6가지">
 <meta property="og:url" content="https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/index.html">
 <meta property="og:site_name" content="Devlog">
@@ -24,163 +29,261 @@
 <meta name="twitter:image" content="https://jaeyeophan.github.io/images/react_special_1.png">
     
     
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
     
 
     
-        <link rel="icon" href="/devlog_favicon.png" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
 </head>
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
     
-    <a class="page-title-link" href="/categories/React/">React</a>
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            <article id="post-React-tips-for-beginners" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Devlog</a>
+    </div>
+    
         
-            <header class="article-header">
-                
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
     
-        <h1 class="article-title" itemprop="name">
-        [번역] React를 본격적으로 하기 전 알면 좋은 6가지
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/mailto"
+                            title="Mail"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [번역] React를 본격적으로 하기 전 알면 좋은 6가지
         </h1>
     
+    
+        <div class="post-meta">
+    <time datetime="2018-01-02T13:36:04+09:00">
+	
+		    Jan 02, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/React/">React</a>
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2018/01/02/React-tips-for-beginners/" class="article-date">
-            <time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time>
-        </a>
-    </div>
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/React/">React</a>
-    </div>
+    
+</div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
             <p><img src="/images/react_special_1.png" alt=""></p>
 <h1 id="I-wish-I-knew-these-before-diving-into-React"><a href="#I-wish-I-knew-these-before-diving-into-React" class="headerlink" title="I wish I knew these before diving into React"></a>I wish I knew these before diving into React</h1><p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
 <h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><ul>
@@ -279,352 +382,247 @@ ga('send', 'pageview');
 <h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>일부 의역이 들어갔으며 오역이 존재할 수 있습니다. 해당 사항에 대해서는 댓글로 피드백 주시면 감사하겠습니다. 더 좋은 포스팅으로 뵙겠습니다! 감사합니다.</p>
 <p><em>해당 글은 원작자의 허가를 받고 번역한 글 입니다.</em><br><em>원본 링크 : <a href="https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488" target="_blank" rel="external">https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488</a></em></p>
 
-        </div>
-        <footer class="article-footer">
             
 
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/React/">React</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/01/React-4-Component-Life-Cycle/" data-tooltip="[React] 4. Component Life Cycle" aria-label="PREVIOUS: [React] 4. Component Life Cycle">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/09/TS-6-Decorator/" data-tooltip="[TS] 6. Decorator" aria-label="NEXT: [TS] 6. Decorator">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
 
-    <a data-url="https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" data-id="cjigzxq5c001ztjwpemt4zp9b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-        </footer>
+        
+        
+            
+        
     </div>
 </article>
 
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Jbee. All Rights Reserved.
+    </span>
+</footer>
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
+            </div>
             
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/01/React-4-Component-Life-Cycle/" data-tooltip="[React] 4. Component Life Cycle" aria-label="PREVIOUS: [React] 4. Component Life Cycle">
                 
-            
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
                 
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/09/TS-6-Decorator/" data-tooltip="[TS] 6. Decorator" aria-label="NEXT: [TS] 6. Decorator">
                 
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
-    </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2018/01/01/React-4-Component-Life-Cycle/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [React] 4. Component Life Cycle
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2018/01/09/TS-6-Decorator/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[TS] 6. Decorator</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
-    <div class="widgets-container">
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
         
             
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-
             
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
             
         
-    </div>
-</aside>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
                 </div>
-            </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
         </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
         </div>
+        
+            <h4 id="about-card-name">Jbee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
     </div>
-</footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+</div>
 
         
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
     
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    var disqus_url = 'https://jaeyeophan.github.io/2018/01/02/React-tips-for-beginners/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
 
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
+    </body>
 </html>
