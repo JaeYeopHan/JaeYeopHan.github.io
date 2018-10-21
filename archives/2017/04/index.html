@@ -1,700 +1,767 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    
-    <title>Archive: 2017/4 | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="description" content="blog posted about front end development">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devlog">
-<meta property="og:url" content="https://jaeyeophan.github.io/archives/2017/04/index.html">
-<meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="blog posted about front end development">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devlog">
-<meta name="twitter:description" content="blog posted about front end development">
-    
-    
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    
-        <link rel="icon" href="/devlog_favicon.png" />
-    
+    <title>
+        
+        undefined
+        
+    </title>
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 <body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
 </div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
 </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg" />
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
         </div>
     </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <i class="icon fa fa-archive"></i>Archive: 2017/4
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            
-
-    
-    
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/30/issue-management-tool/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/github_logo.jpg)" alt="[Tool] Issue Management Tool, Zenhub" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/30/issue-management-tool/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Tool/">Tool</a>
-            </div>
-            <div class="date"><time datetime="2017-04-29T15:30:28.000Z" itemprop="datePublished">2017-04-30</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/30/issue-management-tool/">[Tool] Issue Management Tool, Zenhub</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-Issue Management Tool개발자들에게 정말 많은 사랑을 받고 있는 Github. 이제는 더 이상 없어서는 안 될 존재가 되었는데요:) 이 Github도 약간 아쉬운 부분이 존재합니다. 그래서 이번 포스팅에서는 Github과 함께 사용할 수 있는 Issue Management Tool 몇 가지를 소개해드리려고 합니다. (Github도 이에 대한
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/23/TS-1-Basic-Types/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 1. Basic Types" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/23/TS-1-Basic-Types/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/TypeScript/">TypeScript</a>
-            </div>
-            <div class="date"><time datetime="2017-04-23T07:12:08.000Z" itemprop="datePublished">2017-04-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/23/TS-1-Basic-Types/">[TS] 1. Basic Types</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-[TS] 1. Basic TypesTypeScript에서는 JavaScript에서 사용했었던 number, string, boolean과 같은 데이터 타입을 기반으로 정적 타이핑을 지원합니다.
-본격적인 TypeScript Tutorial 진행을 위해 에디터에 TSLint를 설치하겠습니다. (TypeScript에서 제공하는 Playground에서 해보실 수
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/23/BDD-3-chai-http/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/tool_chai.png)" alt="[TDD] 3. Chai-http 사용하여 REST API Test하기" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/23/BDD-3-chai-http/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Tool/">Tool</a>
-            </div>
-            <div class="date"><time datetime="2017-04-23T07:07:57.000Z" itemprop="datePublished">2017-04-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/23/BDD-3-chai-http/">[TDD] 3. Chai-http 사용하여 REST API Test하기</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-[TDD] 3. Chai-http 사용하여 REST API Test하기&gt;Mocha - Getting started&gt;&gt;Chai - Getting started&gt;
-이번 포스팅에서는 chai-http라는 module을 사용해서 REST API를 테스트하는 코드를 작성해보겠습니다.
-테스트에 집중하기 위해 요청을 받을 서버는 json-serv
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/23/BDD-2-chai/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/tool_chai.png)" alt="[TDD] 2. Chai - Getting started" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Tool/">Tool</a>
-            </div>
-            <div class="date"><time datetime="2017-04-23T07:07:45.000Z" itemprop="datePublished">2017-04-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/23/BDD-2-chai/">[TDD] 2. Chai - Getting started</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-[TDD] 2. Chai - Getting started&gt;Mocha - Getting started&gt;
-이전 포스팅에서 Mocha를 사용한 테스트를 진행해봤습니다. 이전 포스팅의 예제 코드에 Assertion Library인 Chai를 추가해보겠습니다.
-Chai는 세 가지 style의 Assertion을 제공합니다.
-
-assert기본적으로 nod
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/23/BDD-1-mocha/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/tool_mocha.png)" alt="[TDD] 1. Mocha - Getting started" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/23/BDD-1-mocha/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Tool/">Tool</a>
-            </div>
-            <div class="date"><time datetime="2017-04-23T07:07:34.000Z" itemprop="datePublished">2017-04-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/23/BDD-1-mocha/">[TDD] 1. Mocha - Getting started</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-[TDD] 1. Mocha - Getting startedMocha란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. Mocha는 자체적으로 assertion을 지원하지 않기 때문에 다른 Assertion라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 assert라이브러리가 존재하며 요즘에는 주
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/04/22/ES6-10-Generator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/javascript_es6.png)" alt="[ES6] 10. Generator" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jaeyeophan.github.io/2017/04/22/ES6-10-Generator/">0</span>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a>
-            </div>
-            <div class="date"><time datetime="2017-04-22T08:49:54.000Z" itemprop="datePublished">2017-04-22</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/04/22/ES6-10-Generator/">[ES6] 10. Generator</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-[ES6] 10. GeneratorGenerator는 무엇인가?Generator function으로 반환된 값을 Generator Object라고 하고 이 Generator Obejct는 iterator 프로토콜을 따르고 있다. 즉 [Symbol.iterator]가 프로퍼티에 추가되어 있다는 것이다. Generator function안에서는 yield라는
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 1 of 3</span>
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2017/04/page/2/">2</a><a class="page-number" href="/archives/2017/04/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/04/page/2/">&raquo;</a>
-    </nav>
-
-
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li 
+                class=active
+                >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
             
         </ul>
     </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
     
-    <div class="widgets-container">
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input" />
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
         
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
 
 
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
+<!-- 归档列表 -->
 
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
+<div class="archives-container">
 
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
+<div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
+                    <span class="tag-text">2018</span>
+                </span>
+    <ul>
         
-    </div>
-</aside>
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>06-16</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2018/06/16/TS-8-enum-vs-const-enum/">
+                        <span>
+                            [TS] 8. enum vs const enum
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>01-10</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2018/01/10/TS-7-TypeScript-type-system/">
+                        <span>
+                            [TS] 7. TypeScript type system
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>01-09</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2018/01/09/TS-6-Decorator/">
+                        <span>
+                            [TS] 6. Decorator
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>01-02</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2018/01/02/React-tips-for-beginners/">
+                        <span>
+                            [번역] React를 본격적으로 하기 전 알면 좋은 6가지
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>01-01</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2018/01/01/React-4-Component-Life-Cycle/">
+                        <span>
+                            [React] 4. Component Life Cycle
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
 
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
-        </div>
+    </ul>
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2017">
+                    <span class="tag-text">2017</span>
+                </span>
+    <ul>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>12-30</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/12/30/TS-5-Generics-in-TypeScript/">
+                        <span>
+                            [TS] 5. Generics in TypeScript
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>12-28</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/12/28/TS-4-Interface-in-TypeScript/">
+                        <span>
+                            [TS] 4. Interface in TypeScript
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>12-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/12/18/TS-3-Function-in-TypeScript/">
+                        <span>
+                            [TS] 3. Function in TypeScript
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>12-13</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/12/13/TS-2-Class/">
+                        <span>
+                            [TS] 2. Class in TypeScript
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>08-30</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/08/30/React-router-1-react-router-basic/">
+                        <span>
+                            [React-router] 1. react-router basic
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>07-16</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/07/16/ES8-Standard-Release-Overview/">
+                        <span>
+                            ES8 Standard Release Overview
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>06-13</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/06/13/React-3-Props-and-State-in-Component/">
+                        <span>
+                            [React] 3. Props and State in Component
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>06-05</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/06/05/ES6-13-Map-WeakMap/">
+                        <span>
+                            [ES6] 13. Map, WeakMap
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-19</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/19/React-2-Elements-and-Component/">
+                        <span>
+                            [React] 2. Elements and Component
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-16</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/16/Everything-about-babel/">
+                        <span>
+                            [Tool] (번역)Babel에 대한 모든 것
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-15</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/15/React-1-Introducing-JSX-and-DOM/">
+                        <span>
+                            [React] 1. Introducing JSX and DOM
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-11</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/11/ES6-12-Array-API/">
+                        <span>
+                            [ES6] 12. Array API
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-08</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/08/webpack-tutorial-3/">
+                        <span>
+                            Webpack2, 입문 가이드 3편, Option
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-06</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/06/webpack-tutorial-2/">
+                        <span>
+                            Webpack2, 입문 가이드 2편: Plugins
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-05</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/05/webpack-tutorial-1/">
+                        <span>
+                            Webpack2, 입문 가이드 1편
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>05-04</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/05/04/ES6-11-Modulization/">
+                        <span>
+                            [ES6] 11. Modulization
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-30</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/30/issue-management-tool/">
+                        <span>
+                            [Tool] Issue Management Tool, Zenhub
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-23</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/23/TS-1-Basic-Types/">
+                        <span>
+                            [TS] 1. Basic Types
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-23</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/23/BDD-3-chai-http/">
+                        <span>
+                            [TDD] 3. Chai-http 사용하여 REST API Test하기
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-23</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/23/BDD-2-chai/">
+                        <span>
+                            [TDD] 2. Chai - Getting started
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-23</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/23/BDD-1-mocha/">
+                        <span>
+                            [TDD] 1. Mocha - Getting started
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-22</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/22/ES6-10-Generator/">
+                        <span>
+                            [ES6] 10. Generator
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-21</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/21/YARN-New-Package-Manger/">
+                        <span>
+                            YARN, 새로운 Package Manger
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-21</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/21/ES6-9-Iterator/">
+                        <span>
+                            [ES6] 9. Iterator
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-20</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/20/ES6-8-Symbol/">
+                        <span>
+                            [ES6] 8. Symbol
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-19</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/19/ES6-7-Template-literal/">
+                        <span>
+                            [ES6] 7. Template literal
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-19</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/19/TS-0-Quick-Start/">
+                        <span>
+                            [TS] 0. Quick Start
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-19</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/19/TypeScript-Recent/">
+                        <span>
+                            TypeScript 근황
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/ES6-6-Class-sugar-syntax/">
+                        <span>
+                            [ES6] 6. Class sugar syntax
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/ES6-5-Destructuring-and-Default-Parameter/">
+                        <span>
+                            [ES6] 5. Destructuring and Default Parameter
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/ES6-4-Spread-Rest-parameter/">
+                        <span>
+                            [ES6] 4. Spread, Rest parameter
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/ES6-3-Iteration-and-for-of-statement/">
+                        <span>
+                            [ES6] 3. Iteration and for-of statement
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/ES6-2-Arrow-function/">
+                        <span>
+                            [ES6] 2. Arrow function
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>04-18</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2017/04/18/let-const/">
+                        <span>
+                            [ES6] 1. let-const
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
+        
+
+    </ul>
+</div>
+
+</div>
     </div>
+</div>
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By <a href="https://hexo.io/">Hexo</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
 </footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-    
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
-
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = false
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 </html>

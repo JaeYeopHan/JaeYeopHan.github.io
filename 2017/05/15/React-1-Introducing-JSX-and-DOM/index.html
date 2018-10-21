@@ -1,187 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    
-    <title>[React] 1. Introducing JSX and DOM | Devlog</title>
-    <meta name="naver-site-verification" content="00cf5a3b56c1f709c8062d91d5dbe944f2a706b0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-        <meta name="keywords" content="React" />
-    
-    <meta name="description" content="[React] 1. Introducing JSX and DOMJSX란 무엇인가1const element = &amp;lt;h1&amp;gt; Hello, world!&amp;lt;/h1&amp;gt;; JSX라고 불리는 이 구문은 string도 아니고 HTML도 아닙니다. React 라이브러리에서 UI를 구성할 때 사용하는 구문으로 JavaScript의 extension이라고 할 수">
-<meta name="keywords" content="React">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[React] 1. Introducing JSX and DOM">
-<meta property="og:url" content="https://jaeyeophan.github.io/2017/05/15/React-1-Introducing-JSX-and-DOM/index.html">
-<meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="[React] 1. Introducing JSX and DOMJSX란 무엇인가1const element = &amp;lt;h1&amp;gt; Hello, world!&amp;lt;/h1&amp;gt;; JSX라고 불리는 이 구문은 string도 아니고 HTML도 아닙니다. React 라이브러리에서 UI를 구성할 때 사용하는 구문으로 JavaScript의 extension이라고 할 수">
-<meta property="og:image" content="https://jaeyeophan.github.io/images/react_logo.png">
-<meta property="og:updated_time" content="2017-05-15T04:17:05.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[React] 1. Introducing JSX and DOM">
-<meta name="twitter:description" content="[React] 1. Introducing JSX and DOMJSX란 무엇인가1const element = &amp;lt;h1&amp;gt; Hello, world!&amp;lt;/h1&amp;gt;; JSX라고 불리는 이 구문은 string도 아니고 HTML도 아닙니다. React 라이브러리에서 UI를 구성할 때 사용하는 구문으로 JavaScript의 extension이라고 할 수">
-<meta name="twitter:image" content="https://jaeyeophan.github.io/images/react_logo.png">
-    
-    
-        <link rel="alternate" href="feed.xml" title="Devlog" type="application/atom+xml" />
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    
-        <link rel="icon" href="/devlog_favicon.png" />
-    
+    <title>
+        
+        [React] 1. Introducing JSX and DOM - undefined
+        
+    </title>
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-        <script type="text/javascript">
-(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79845333-2', 'auto');
-ga('send', 'pageview');
-
-</script>
-    
-    
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 <body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">FrontEnd Developer, Jbee&#39;s blog</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/React/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tool/">Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TypeScript/">TypeScript</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="http://friendly-belief.surge.sh">About</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
 </div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
 </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
+
+<div class="index-container">
     
-    <a class="page-title-link" href="/categories/React/">React</a>
-    </h1>
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg" />
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-1-Introducing-JSX-and-DOM"><span class="toc-text">[React] 1. Introducing JSX and DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX란-무엇인가"><span class="toc-text">JSX란 무엇인가</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX에-표현식-포함하기"><span class="toc-text">JSX에 표현식 포함하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX는-결국-표현식입니다"><span class="toc-text">JSX는 결국 표현식입니다.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-Elements"><span class="toc-text">DOM Elements</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Camel-Case-Attributes"><span class="toc-text">Camel-Case Attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#다른-Attributes"><span class="toc-text">다른 Attributes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#style"><span class="toc-text">style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#className"><span class="toc-text">className</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onChange"><span class="toc-text">onChange</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#checked"><span class="toc-text">checked</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value"><span class="toc-text">value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defaultValue-defaultChecked"><span class="toc-text">defaultValue, defaultChecked</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#htmlFor"><span class="toc-text">htmlFor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dangerouslySetInnerHTML"><span class="toc-text">dangerouslySetInnerHTML</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
-                        <div class="main-body-content">
-                            <article id="post-React-1-Introducing-JSX-and-DOM" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input" />
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
         
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
+
+
+<div class="post-container">
+    <div class="post-title">
         [React] 1. Introducing JSX and DOM
-        </h1>
-    
-
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2017/05/15/React-1-Introducing-JSX-and-DOM/" class="article-date">
-            <time datetime="2017-05-15T04:15:27.000Z" itemprop="datePublished">2017-05-15</time>
-        </a>
     </div>
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/React/">React</a>
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-05-15 13:15:27</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/react_logo.png" alt=""></p>
+    <div class="post-content ">
+        <p><img src="/images/react_logo.png" alt=""></p>
 <h1 id="React-1-Introducing-JSX-and-DOM"><a href="#React-1-Introducing-JSX-and-DOM" class="headerlink" title="[React] 1. Introducing JSX and DOM"></a>[React] 1. Introducing JSX and DOM</h1><h2 id="JSX란-무엇인가"><a href="#JSX란-무엇인가" class="headerlink" title="JSX란 무엇인가"></a>JSX란 무엇인가</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span> Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</div></pre></td></tr></table></figure>
 <p><code>JSX</code>라고 불리는 이 구문은 <code>string</code>도 아니고 <code>HTML</code>도 아닙니다. React 라이브러리에서 UI를 구성할 때 사용하는 구문으로 <strong>JavaScript의 extension</strong>이라고 할 수 있습니다.(물론, 사용하지 않을 수도 있습니다.) 타 프레임워크에서 사용했던 템플릿 엔진이라고 불리는 것들과 유사한 문법을 취하며(생김새만), JavaScript의 모든 기능을 제공합니다.</p>
 <h2 id="JSX에-표현식-포함하기"><a href="#JSX에-표현식-포함하기" class="headerlink" title="JSX에 표현식 포함하기"></a>JSX에 표현식 포함하기</h2><p>자바스크립트의 표현식을 <code>{}</code>으로 묶어 JSX에 삽입할 수 있습니다. 기존의 템플릿 엔진에서 사용했던 방법과 비슷합니다. ES6에서 도입된 Template literal과도 비슷한 모습을 보입니다. 코드를 살펴보겠습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">);</div><div class="line">ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div><div class="line"><span class="comment">//이 코드는 다음 포스팅에서 설명하며, 다음 예제 코드부터는 추가하지 않습니다.</span></div></pre></td></tr></table></figure></p>
@@ -211,352 +160,57 @@ ga('send', 'pageview');
 <p><em>1. end</em></p>
 <p>Reference&gt;<br><a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank" rel="external">React Documentation - Introducing JSX</a><br><a href="https://facebook.github.io/react/docs/dom-elements.html" target="_blank" rel="external">React Documentation - DOM Elements</a></p>
 
+        
+        <br />
+        <div id="comment-container">
         </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="https://jaeyeophan.github.io/2017/05/15/React-1-Introducing-JSX-and-DOM/" data-id="cjigzxq58001jtjwpakejscpc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            <div class="github-card" data-github="JaeYeopHan" data-width="400" data-height="" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-        </footer>
+        <div id="disqus_thread"></div>
     </div>
-</article>
-
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
     </div>
+</div>
 
-    
-    </section>
-
-
-
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/devjbee" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/JaeYeopHan" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="archive" href="http://asfirstalways.tistory.com" target="_blank">
-                        <i class="icon fa fa-archive"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="medium" href="https://medium.com/@Jbee_" target="_blank">
-                        <i class="icon fa fa-medium"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/feed.xml" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
-
-	<!-- <div class="github-card" data-github="JaeYeopHan" data-height="" data-theme="default"></div> -->
-	<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/05/11/ES6-12-Array-API/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [ES6] 12. Array API
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2017/05/16/Everything-about-babel/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[Tool] (번역)Babel에 대한 모든 것</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
-    <div class="widgets-container">
-        
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 8. enum vs const enum" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TS-8-enum-vs-const-enum/" class="title">[TS] 8. enum vs const enum</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T06:02:44.000Z" itemprop="datePublished">2018-06-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/10/TS-7-TypeScript-type-system/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 7. TypeScript type system" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/10/TS-7-TypeScript-type-system/" class="title">[TS] 7. TypeScript type system</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:31:30.000Z" itemprop="datePublished">2018-01-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/09/TS-6-Decorator/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/typescript.png)" alt="[TS] 6. Decorator" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
-                            <p class="item-title"><a href="/2018/01/09/TS-6-Decorator/" class="title">[TS] 6. Decorator</a></p>
-                            <p class="item-date"><time datetime="2018-01-09T00:59:14.000Z" itemprop="datePublished">2018-01-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/02/React-tips-for-beginners/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_special_1.png)" alt="[번역] React를 본격적으로 하기 전 알면 좋은 6가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/02/React-tips-for-beginners/" class="title">[번역] React를 본격적으로 하기 전 알면 좋은 6가지</a></p>
-                            <p class="item-date"><time datetime="2018-01-02T04:36:04.000Z" itemprop="datePublished">2018-01-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/01/React-4-Component-Life-Cycle/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react_logo.png)" alt="[React] 4. Component Life Cycle" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/React/">React</a></p>
-                            <p class="item-title"><a href="/2018/01/01/React-4-Component-Life-Cycle/" class="title">[React] 4. Component Life Cycle</a></p>
-                            <p class="item-date"><time datetime="2018-01-01T08:08:03.000Z" itemprop="datePublished">2018-01-01</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
-        
-    </div>
-</aside>
-
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <p>&copy; Jbee</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
-        </div>
-    </div>
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By <a href="https://hexo.io/">Hexo</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
 </footer>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-    
-    <script>
-    var disqus_shortname = 'jaeyeophan-github-io';
-    
-    
-    var disqus_url = 'https://jaeyeophan.github.io/2017/05/15/React-1-Introducing-JSX-and-DOM/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 
 
-
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 </html>
