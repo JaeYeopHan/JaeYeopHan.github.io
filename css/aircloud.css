@@ -1151,6 +1151,9 @@ pre .javascript .function {
   }
 }
 .toc-article {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
   width: 240px;
 }
 .toc-article ol {
