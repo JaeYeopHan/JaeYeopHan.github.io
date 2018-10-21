@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
     <meta name="keyword" content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
 
     <title>
         
@@ -21,6 +21,7 @@
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -107,27 +108,29 @@
     
     <div class="index-middle">
         <!-- Main Content -->
-        
-
-
-<div class="post-container">
+        <div class="post-container">
     <div class="post-title">
         [Vuetorials] 2. Vue의 전반적인 concept
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2018-10-21 16:27:24</span></span>
+        <span class="attr">
+            Post：<span>
+                2018-10-21 16:27:24</span></span>
         
-        <span class="attr">Tags：/
-        
-        <a class="tag" href="/tags/#vue" title="vue">vue</a>
-        <span>/</span>
-        
-        
+        <span class="attr">
+            Tags：/
+            
+            <a class="tag" href="/tags/#vue" title="vue">
+                vue</a>
+            <span>/</span>
+            
+            
         </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-
+        <span class="attr">
+            Visit：<span id="busuanzi_value_page_pv"></span>
+        </span>
+        
     </div>
     <div class="post-content ">
         <p><img src="/images/vuetorials.png" alt=""></p>
@@ -179,7 +182,10 @@
 </ul>
 </li>
 <li><code>props</code>로 지정한 것들이 default 가 <code>required: false</code>임.</li>
-<li><code>&lt;template&gt;</code>에는 Single Root Element 가 들어가야 함.</li>
+<li><code>&lt;template&gt;</code>에는 Single Root Element 가 들어가야 함.<ul>
+<li>render function 을 사용하면 multi-root components 를 렌더링 할 수 있긴 함.</li>
+</ul>
+</li>
 </ul>
 <h2 id="개인적인-인상"><a href="#개인적인-인상" class="headerlink" title="개인적인 인상"></a>개인적인 인상</h2><p>Vue 를 홍보할 때 흔히 “러닝커브가 쉽다.”라는 말을 함. 그러나 초기 접근이 쉽다는 것은 그만큼 magic(눈에 보이지 않는 로직, 라이브러리에서 처리하는 로직)이 많다는 것임. 이를 제대로 이해하지 못한다면 애플리케이션의 크기가 커졌을 경우나 복잡한 로직 디버깅이 힘들어짐. 매직이 많다는 것이 나쁘다는 것은 아님. 함께 프로젝트를 진행하는 팀원 모두가 동일하게 이 매직에 대해 이해하고 있으면 매직은 발목을 붙잡는 것이 아니라 오히려 생산성을 증대시켜주는 녀석으로 바뀜.</p>
 <p><code>&lt;template&gt;</code>으로 HTML 을 분리하느냐 JSX 문법으로 HTML 을 흡수하느냐는 Vue 와 React 를 구분짓는 큰 요소 중 하나라고 생각함. 가독성 측면에서는 익숙한게 좋은 거라고 생각함. 딱히 둘 중 뭐가 더 나은지는 아직 잘 모르겠음. 아직 개발하기에는 JSX 가 편한 듯. 만약 프론트엔드 개발 인력 중 마크업을 작성하는 인력이 나뉘어져 있다면 Vue 가 더 편할지도 모르겠음.</p>
@@ -189,11 +195,9 @@
 
         
         <br>
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
     </div>
 </div>
+
     </div>
 </div>
 
