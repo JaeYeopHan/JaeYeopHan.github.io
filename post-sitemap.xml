@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue%E1%84%8B%E1%85%B4-%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%B5%E1%86%AB-concept/</loc>
-        <lastmod>2018-10-21T07:30:39.000Z</lastmod>
+        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue-concept/</loc>
+        <lastmod>2018-10-21T07:38:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-intro/</loc>
+        <lastmod>2018-10-21T07:38:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +26,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-1-vue-cli-3-0/</loc>
         <lastmod>2018-10-21T07:22:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%A5%E1%84%80%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5/</loc>
-        <lastmod>2018-10-21T07:21:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
