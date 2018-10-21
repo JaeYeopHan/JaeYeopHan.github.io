@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -80,7 +80,7 @@
     </div>
     
     <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6-2-Arrow-Function"><span class="toc-text">[ES6] 2. Arrow Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#자바스크립트의-Scope"><span class="toc-text">자바스크립트의 Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#새로운-function의-등장"><span class="toc-text">새로운 function의 등장</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-function-Rule"><span class="toc-text">Arrow function Rule</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-Function은-this를-bind하지-않는다"><span class="toc-text">Arrow Function은 this를 bind하지 않는다!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this의-정체"><span class="toc-text">this의 정체</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6-2-Arrow-Function"><span class="toc-text">[ES6] 2. Arrow Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#자바스크립트의-Scope"><span class="toc-text">자바스크립트의 Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#새로운-function의-등장"><span class="toc-text">새로운 function의 등장</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-function-Rule"><span class="toc-text">Arrow function Rule</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-Function은-this를-bind하지-않는다"><span class="toc-text">Arrow Function은 this를 bind하지 않는다!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this의-정체"><span class="toc-text">this의 정체</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,7 +127,7 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/javascript_es6.png" alt=""></p>
@@ -137,18 +137,18 @@
 <h3 id="자바스크립트의-Scope"><a href="#자바스크립트의-Scope" class="headerlink" title="자바스크립트의 Scope"></a>자바스크립트의 Scope</h3><p>자바스크립트에서 생성자 함수를 통해 객체를 생성하면 변수 scope가 변경된다. 즉, 생성자 함수 내부에서의 this는 자신을 호출한 대상이 아닌 생성자 함수를 가리키게 된다. 생성자 함수를 통해 생성되는 객체의 과정 때문이다. 그래서 우리는 여태껏 별의 별짓을 다해왔다. <code>self</code>며 <code>bind</code>며 jQuery에서는 <code>proxy</code>라는 녀석도 사용했다.</p>
 <h3 id="새로운-function의-등장"><a href="#새로운-function의-등장" class="headerlink" title="새로운 function의 등장"></a>새로운 function의 등장</h3><p>하지만 이제는 새로 도입된 Arrow function 을 사용하여 변수 스코프를 보존하자. Arrow function를 통해서 함수를 정의하게 되면, 변수들이 사용되는 위치와는 상관없이 변수들이 정의되어 있는 값으로 scope가 binding  된다. 한 가지 특징을 덧붙이자면, arrow function을 사용하게 되면 <code>arguments</code> 객체가 생성되지 않는다. 하지만 우리는 ES6 문법을 사용하는 이상, <code>arguments</code>는 필요하지 않다!</p>
 <h3 id="Arrow-function-Rule"><a href="#Arrow-function-Rule" class="headerlink" title="Arrow function Rule"></a>Arrow function Rule</h3><p>ES6의 arrow function에는 몇 가지 규칙이 존재하며 대부분의 <code>lamda</code>에서도 비슷한 규칙을 가지고 있어서 <code>lamda</code>를 사용해본 경험이 있다면 어색하지 않을 것이다.<br>1) Parameter와 화살표 사이에서 개행할 수 없다.<br>2) Parameter가 하나일 때는 괄호를 생략할 수 있다.<br>3) Parameter가 없으면 소괄호( ( ) )만 작성한다.<br>4) Block scope({ })를 지정하지 않고 한 줄로 arrow function을 사용할 때는 return이 생략될 수 있다.<br>5) 그 반대로 block scope를 사용한다면 return을 명시해줘야 한다.</p>
-<h3 id="Arrow-Function은-this를-bind하지-않는다"><a href="#Arrow-Function은-this를-bind하지-않는다" class="headerlink" title="Arrow Function은 this를 bind하지 않는다!"></a>Arrow Function은 this를 bind하지 않는다!</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//#todos</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//ES6</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Arrow-Function은-this를-bind하지-않는다"><a href="#Arrow-Function은-this를-bind하지-않는다" class="headerlink" title="Arrow Function은 this를 bind하지 않는다!"></a>Arrow Function은 this를 bind하지 않는다!</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//#todos</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"todos"</span>).addEventListener(<span class="string">"click"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="this의-정체"><a href="#this의-정체" class="headerlink" title="this의 정체"></a>this의 정체</h3><p>ES5에서 <code>this</code> 결정되는 세 가지 조건을 짚고 넘어가자.<br>1) 생성자 내에서<br>생성자 함수를 <code>new</code>라는 키워드를 통해 호출하면 내부에서 <code>this</code>는 인스턴스 그 자체를 가리킨다. 생성자 함수 내부에서 <code>return this;</code>가 생략되어 있기 때문이다.<br>2) 함수 내에서<br><code>this</code>는 생략된 매개 변수이다. 무엇이 함수를 호출했는가가 <code>this</code>를 결정한다.<br>3) <code>bind</code>, <code>apply</code>, <code>call</code> method or <code>proxy</code> method of jQuery<br><code>this</code>는 메소드로 바꿔준 대상을 가리키게 된다.</p>
 <blockquote>
 <p>그렇다면 arrow function 내에서 <code>this</code>는 무엇을 가리키는가.</p>
 </blockquote>
 <p>해당 function을 정의한 영역의 <code>this</code>를 가져온다. 한 단계 더 위의 <code>element</code>를 가리키는 것이다. 그렇기 때문에 <code>prototype</code>에 함수를 정의할 때 arrow function을 사용할 때 내부적으로 <code>this</code>를 사용하게 되면 객체를 가리키지 않고 <code>window</code> 객체를 가리키게 된다. 또한 arrow function은 명식적으로 <code>bind</code>, <code>call</code>로 <code>this</code>를 넣어줘도 이를 무시한다. </p>
 <p>ES6의 arrow function은 단순히 함수를 간단하게 작성할 수 있는 문법이 아니다. 기존의 방식대로 function을 작성해야만 의도대로 작동하는 function이 존재할 수 있고, arrow function으로 기존의 function을 작성하던 방식보다 편하게 작성할 수 있게 된 것이다. 두 가지 방식의 차이점을 제대로 이해하고 새로운 문법과 기존의 문법을 적재적소에서 사용하는 것이 중요해졌다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
+<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="noopener">Github Respository</a>에서 확인하실 수 있습니다.</p>
 <p><em>2. end</em></p>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

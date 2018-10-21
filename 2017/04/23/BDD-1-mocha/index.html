@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -80,7 +80,7 @@
     </div>
     
     <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TDD-1-Mocha-Getting-started"><span class="toc-text">[TDD] 1. Mocha - Getting started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-Started"><span class="toc-text">Getting Started</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mocha의-hook"><span class="toc-text">Mocha의 hook</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TDD-1-Mocha-Getting-started"><span class="toc-text">[TDD] 1. Mocha - Getting started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-Started"><span class="toc-text">Getting Started</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mocha의-hook"><span class="toc-text">Mocha의 hook</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,33 +127,33 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/tool_mocha.png" alt=""></p>
-<h1 id="TDD-1-Mocha-Getting-started"><a href="#TDD-1-Mocha-Getting-started" class="headerlink" title="[TDD] 1. Mocha - Getting started"></a>[TDD] 1. Mocha - Getting started</h1><p><code>Mocha</code>란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. <code>Mocha</code>는 자체적으로 assertion을 지원하지 않기 때문에 다른 <code>Assertion</code>라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 <code>assert</code>라이브러리가 존재하며 요즘에는 주로 <code>chai</code>라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.<br><a href="http://mochajs.org/" target="_blank" rel="external">&gt;Mocha Documents</a></p>
-<p>Mocha는 기본적으로 BDD 기반의 프레임워크입니다. 하지만 BDD와 TDD 두 종류의 인터페이스를 모두 제공하고 있습니다. 이번 포스팅에서는 BDD 기반의 예제를 살펴봅니다.<br><a href="http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/" target="_blank" rel="external">TDD vs BDD</a></p>
+<h1 id="TDD-1-Mocha-Getting-started"><a href="#TDD-1-Mocha-Getting-started" class="headerlink" title="[TDD] 1. Mocha - Getting started"></a>[TDD] 1. Mocha - Getting started</h1><p><code>Mocha</code>란 러너를 포함하고 있는 테스트 프레임워크로 사용자 수가 가장 많은 테스크 프레임워크입니다. <code>Mocha</code>는 자체적으로 assertion을 지원하지 않기 때문에 다른 <code>Assertion</code>라이브러리와 함께 사용해야 합니다. 기본적으로 node에서 제공하는 <code>assert</code>라이브러리가 존재하며 요즘에는 주로 <code>chai</code>라는 라이브러리와 함께 사용한다고 합니다. 라이브러리에 대한 내용은 공식 문서를 참조하시면 되겠습니다.<br><a href="http://mochajs.org/" target="_blank" rel="noopener">&gt;Mocha Documents</a></p>
+<p>Mocha는 기본적으로 BDD 기반의 프레임워크입니다. 하지만 BDD와 TDD 두 종류의 인터페이스를 모두 제공하고 있습니다. 이번 포스팅에서는 BDD 기반의 예제를 살펴봅니다.<br><a href="http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/" target="_blank" rel="noopener">TDD vs BDD</a></p>
 <h3 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h3><ol>
-<li><code>mocha</code>를 global로 설치해줍니다. <em>(cf <a href="http://jaeyeophan.github.io/2017/04/21/YARN-New-Package-Manger/">YARN, 새로운 Package Manager</a>)</em><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ yarn global add mocha</div><div class="line"><span class="comment">#success Installed "mocha@3.2.0" with binaries:</span></div><div class="line"><span class="comment">#      - mocha</span></div><div class="line"><span class="comment">#      - _mocha</span></div><div class="line"><span class="comment">#✨  Done in 4.23s.</span></div></pre></td></tr></table></figure>
+<li><code>mocha</code>를 global로 설치해줍니다. <em>(cf <a href="http://jaeyeophan.github.io/2017/04/21/YARN-New-Package-Manger/">YARN, 새로운 Package Manager</a>)</em><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add mocha</span><br><span class="line"><span class="comment">#success Installed "mocha@3.2.0" with binaries:</span></span><br><span class="line"><span class="comment">#      - mocha</span></span><br><span class="line"><span class="comment">#      - _mocha</span></span><br><span class="line"><span class="comment">#✨  Done in 4.23s.</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>저는 3.2.0 version의 <code>mocha</code>를 설치했습니다.</p>
-<ol>
-<li>보다 간편한 테스트 run을 위해 <code>package.json</code>에 scripts 추가합니다.<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[...]</div><div class="line">"scripts": &#123;</div><div class="line">  "test": "mocha $(find ./ -name '*./test/**/*.test.js') --recursive -w"</div><div class="line">&#125;,</div><div class="line">[...]</div></pre></td></tr></table></figure>
+<ol start="2">
+<li>보다 간편한 테스트 run을 위해 <code>package.json</code>에 scripts 추가합니다.<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line">"scripts": &#123;</span><br><span class="line">  "test": "mocha $(find ./ -name '*./test/**/*.test.js') --recursive -w"</span><br><span class="line">&#125;,</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><code>test</code>라는 명령어로 <code>mocha</code>를 실행하며 <code>test</code>디렉토리에 있고 <code>.test.js</code>파일을 찾아 <code>mocha</code>를 실행시킵니다. 그리고 추가적으로 <code>-w</code>옵션을 통해 파일이 변경될 때마다 자동으로 테스트를 수행할 수 있게 합니다.</p>
-<ol>
-<li><code>/src/operator.js</code> 파일을 생성하고 다음 코드를 작성합니다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>/src/operator.js</code> 파일을 생성하고 다음 코드를 작성합니다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>정말 간단하게, 두 수를 파라미터로 받아 합을 반환하는 <code>sum</code> 함수를 테스트해보겠습니다.</p>
-<ol>
-<li><code>/test/operator.test.js</code> 파일을 생성하고 다음 코드를 작성합니다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> operator = <span class="built_in">require</span>(<span class="string">'../src/operator'</span>);</div><div class="line"><span class="keyword">const</span> sum = operator.sum;</div></pre></td></tr></table></figure>
+<ol start="4">
+<li><code>/test/operator.test.js</code> 파일을 생성하고 다음 코드를 작성합니다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> operator = <span class="built_in">require</span>(<span class="string">'../src/operator'</span>);</span><br><span class="line"><span class="keyword">const</span> sum = operator.sum;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>우선 <code>/src/operator.js</code> 파일을 <code>import</code>합니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'operator.js Test'</span>, () =&gt; &#123;</div><div class="line">    describe(<span class="string">'sum 함수 테스트'</span>, () =&gt; &#123;</div><div class="line">        it (<span class="string">'10과 20를 넘기면 30이 나와야 한다.'</span>, done =&gt; &#123;</div><div class="line">            <span class="keyword">let</span> result = sum(<span class="number">10</span>, <span class="number">20</span>);</div><div class="line">            <span class="keyword">if</span> (result === <span class="number">30</span>) &#123;</div><div class="line">                done();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'결과 값이 30이 아니다.'</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>드디어 테스트 코드를 작성했습니다. <code>describe</code>에서는 테스트의 <code>이름</code>을 지정합니다. 위 예제 코드처럼 중첩하여 사용할 수 있으며 테스트를 구분하는 <code>section</code>이라고 표현할 수 있겠습니다. 그리고 실행해야하는 부분(단위 테스트 단위)을 콜백으로 넘겨줍니다. <code>it</code> 구문에는 단위 테스트 이름을 작성하고 실제 실행되는 코드를 콜백(<code>done</code>)으로 넘겨줍니다. 그런 다음, <code>package.json</code>에 작성했던 <code>npm test</code> 명령어를 통해 test를 실행해줍니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm test</div><div class="line">  sum 함수 테스트</div><div class="line">    ✓ 10과 20를 넘기면 30이 나와야 한다.</div><div class="line"></div><div class="line">  1 passing (2ms)</div></pre></td></tr></table></figure></p>
+<p>우선 <code>/src/operator.js</code> 파일을 <code>import</code>합니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">'operator.js Test'</span>, () =&gt; &#123;</span><br><span class="line">    describe(<span class="string">'sum 함수 테스트'</span>, () =&gt; &#123;</span><br><span class="line">        it (<span class="string">'10과 20를 넘기면 30이 나와야 한다.'</span>, done =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> result = sum(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">            <span class="keyword">if</span> (result === <span class="number">30</span>) &#123;</span><br><span class="line">                done();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'결과 값이 30이 아니다.'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>드디어 테스트 코드를 작성했습니다. <code>describe</code>에서는 테스트의 <code>이름</code>을 지정합니다. 위 예제 코드처럼 중첩하여 사용할 수 있으며 테스트를 구분하는 <code>section</code>이라고 표현할 수 있겠습니다. 그리고 실행해야하는 부분(단위 테스트 단위)을 콜백으로 넘겨줍니다. <code>it</code> 구문에는 단위 테스트 이름을 작성하고 실제 실행되는 코드를 콜백(<code>done</code>)으로 넘겨줍니다. 그런 다음, <code>package.json</code>에 작성했던 <code>npm test</code> 명령어를 통해 test를 실행해줍니다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm test</span><br><span class="line">  sum 함수 테스트</span><br><span class="line">    ✓ 10과 20를 넘기면 30이 나와야 한다.</span><br><span class="line"></span><br><span class="line">  1 passing (2ms)</span><br></pre></td></tr></table></figure></p>
 <p>이렇게 나왔으면 테스트가 통과한 것입니다. <code>done()</code> 메소드가 실행되면 테스트가 통과하도록 테스트 코드를 작성할 수 있습니다. <code>result === 40</code>처럼 옳지 않은 값을 넣어주면, <code>throw Error()</code>가 실행되면서 테스트가 실패했다는 메세지가 나타납니다.</p>
 <h3 id="Mocha의-hook"><a href="#Mocha의-hook" class="headerlink" title="Mocha의 hook"></a>Mocha의 hook</h3><p><code>Mocha</code>에서는 추가적으로 네 가지의 함수를 제공합니다. 각각은 테스트 코드가 실행되기 전과 후에 실행되는 함수입니다.</p>
 <ul>
@@ -162,15 +162,15 @@
 <li>afterEach<br>: (테스트가 여러 개일 경우) 각각의 테스트 코드가 실행된 후마다 실행된다.</li>
 <li>after<br>: 모든 테스트 코드가 실행된 후 한 번 실행된다.</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'operator.js Test'</span>, () =&gt; &#123;</div><div class="line">    describe(<span class="string">'sum 함수 테스트'</span>, () =&gt; &#123;</div><div class="line">        before(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"before"</span>);</div><div class="line">        &#125;);</div><div class="line">        beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="string">"beforeEach"</span>);</div><div class="line">        &#125;);</div><div class="line">        it (<span class="string">'10과 20를 넘기면 30이 나와야 한다.'</span>, (done) =&gt; &#123;</div><div class="line">            <span class="keyword">let</span> result = sum(<span class="number">10</span>, <span class="number">20</span>);</div><div class="line">            <span class="keyword">if</span> (result === <span class="number">30</span>) &#123;</div><div class="line">                done();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'결과 값이 30이 아니다.'</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        after(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"after"</span>);</div><div class="line">        &#125;);</div><div class="line">        afterEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"afterEach"</span>);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>각각 상황에 맞는 <code>console.log()</code>를 찍어줬습니다. <code>npm test</code> 명령어를 실행해보겠습니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="built_in">test</span></div><div class="line">  operator.js Test</div><div class="line">    sum 함수 테스트</div><div class="line">before</div><div class="line">beforeEach</div><div class="line">      ✓ 10과 20를 넘기면 30이 나와야 한다.</div><div class="line">afterEach</div><div class="line">after</div><div class="line"></div><div class="line">  1 passing (3ms)</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">'operator.js Test'</span>, () =&gt; &#123;</span><br><span class="line">    describe(<span class="string">'sum 함수 테스트'</span>, () =&gt; &#123;</span><br><span class="line">        before(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"before"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"beforeEach"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        it (<span class="string">'10과 20를 넘기면 30이 나와야 한다.'</span>, (done) =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> result = sum(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">            <span class="keyword">if</span> (result === <span class="number">30</span>) &#123;</span><br><span class="line">                done();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'결과 값이 30이 아니다.'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        after(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"after"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        afterEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"afterEach"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>각각 상황에 맞는 <code>console.log()</code>를 찍어줬습니다. <code>npm test</code> 명령어를 실행해보겠습니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="built_in">test</span></span><br><span class="line">  operator.js Test</span><br><span class="line">    sum 함수 테스트</span><br><span class="line">before</span><br><span class="line">beforeEach</span><br><span class="line">      ✓ 10과 20를 넘기면 30이 나와야 한다.</span><br><span class="line">afterEach</span><br><span class="line">after</span><br><span class="line"></span><br><span class="line">  1 passing (3ms)</span><br></pre></td></tr></table></figure></p>
 <p>각각의 함수들이 위치하는 라인은 상관이 없습니다. 가독성이 좋기 위해 의미상으로 적절한 위치에 코드를 작성했습니다. 정말 간단하게 <code>Mocha</code>를 사용해봤습니다. <code>if</code>문을 통한 테스트 코드 작성이 너무 지저분했는데요, 이제 <code>Mocha</code>와 함께 <code>Chai</code>를 사용해보겠습니다!</p>
 <p><a href="https://jaeyeophan.github.io/2017/04/23/BDD-2-chai/">&gt;&gt;Chai 테스트 프레임워크 &gt;&gt;</a></p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/javascript_test_tutorial" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
+<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/javascript_test_tutorial" target="_blank" rel="noopener">Github Respository</a>에서 확인하실 수 있습니다.</p>
 <p><em>[TDD] 1. end</em></p>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -80,7 +80,7 @@
     </div>
     
     <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TS-5-Generics-in-TypeScript"><span class="toc-text">[TS] 5. Generics in TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Contents"><span class="toc-text">Contents</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics"><span class="toc-text">Generics?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics-to-Class"><span class="toc-text">Generics to Class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics-to-Function"><span class="toc-text">Generics to Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#마무리"><span class="toc-text">마무리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TS-5-Generics-in-TypeScript"><span class="toc-text">[TS] 5. Generics in TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Contents"><span class="toc-text">Contents</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics"><span class="toc-text">Generics?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics-to-Class"><span class="toc-text">Generics to Class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generics-to-Function"><span class="toc-text">Generics to Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#마무리"><span class="toc-text">마무리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li>
 </div>
     
 </div>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,7 +127,7 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/typescript.png" alt=""></p>
@@ -140,26 +140,26 @@
 <p><br></p>
 <h2 id="Generics"><a href="#Generics" class="headerlink" title="Generics?"></a>Generics?</h2><p>이전에 다뤘던 인터페이스가 어떠한 ‘틀’을 지정하여 함수 또는 클래스를 정의했다면, 제네릭을 통하여 함수 또는 클래스에 ‘틀’을 ‘주입’하여 그 확장성을 보다 높일 수 있습니다. 즉, 제네릭의 목적은 재사용성(reusable)을 높이고 함수나 클래스의 확장성을 높여 중복된 코드를 방지하기 위함이라고 할 수 있습니다.</p>
 <p><br></p>
-<h2 id="Generics-to-Class"><a href="#Generics-to-Class" class="headerlink" title="Generics to Class"></a>Generics to Class</h2><p>어떠한 장바구니(Basket)에 물건(Item)을 넣어야 한다고 가정을 해봅시다. 이 때, 하나의 장바구니에는 모두 동일한 타입의 물건이 들어있어야 합니다. 이 경우 모든 경우의 수에 해당하는 장바구니를 각각의 클래스로 만들어줘야 하는 문제점이 발생합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> BookBasket &#123; ... &#125;</div><div class="line"><span class="keyword">class</span> CupBasket &#123; ... &#125;</div><div class="line"><span class="keyword">class</span> DollBasket &#123; ... &#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure></p>
-<p>이럴 경우, 제네릭을 사용하여 하나의 클래스에서 타입을 <strong>주입받아</strong> 모든 경우의 수에 해당하는 장바구니를 만들 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Basket&lt;T&gt; &#123;</div><div class="line">  <span class="keyword">private</span> item: T[];</div><div class="line"></div><div class="line">  getItem(index: <span class="built_in">number</span>): T &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.item[index];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>아주 간단한 <code>Basket</code>클래스를 만들어 보았습니다. 일반 클래스를 정의할 때와는 다르게 <code>&lt;T&gt;</code>라는 것이 클래스 이름 옆에 추가된 것을 확인하실 수 있는데요, 해당 클래스 내에서 사용할 타입을 <code>T</code>라는 값으로 받을 수 있게 되는 것입니다. 여기서 <code>T</code>는 별 뜻이 있는게 아니라 Type의 약자입니다. 이렇게 정의한 클래스를 이용하여 여러 경우에 해당하는 장바구니를 생성할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> bookBasket = <span class="keyword">new</span> Basket&lt;Book&gt;();</div><div class="line"><span class="keyword">const</span> cupBasket = <span class="keyword">new</span> Basket&lt;Cup&gt;();</div><div class="line"><span class="keyword">const</span> dollBasket = <span class="keyword">new</span> Basket&lt;Doll&gt;();</div></pre></td></tr></table></figure></p>
+<h2 id="Generics-to-Class"><a href="#Generics-to-Class" class="headerlink" title="Generics to Class"></a>Generics to Class</h2><p>어떠한 장바구니(Basket)에 물건(Item)을 넣어야 한다고 가정을 해봅시다. 이 때, 하나의 장바구니에는 모두 동일한 타입의 물건이 들어있어야 합니다. 이 경우 모든 경우의 수에 해당하는 장바구니를 각각의 클래스로 만들어줘야 하는 문제점이 발생합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> BookBasket &#123; ... &#125;</span><br><span class="line"><span class="keyword">class</span> CupBasket &#123; ... &#125;</span><br><span class="line"><span class="keyword">class</span> DollBasket &#123; ... &#125;</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure></p>
+<p>이럴 경우, 제네릭을 사용하여 하나의 클래스에서 타입을 <strong>주입받아</strong> 모든 경우의 수에 해당하는 장바구니를 만들 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Basket&lt;T&gt; &#123;</span><br><span class="line">  <span class="keyword">private</span> item: T[];</span><br><span class="line"></span><br><span class="line">  getItem(index: <span class="built_in">number</span>): T &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.item[index];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>아주 간단한 <code>Basket</code>클래스를 만들어 보았습니다. 일반 클래스를 정의할 때와는 다르게 <code>&lt;T&gt;</code>라는 것이 클래스 이름 옆에 추가된 것을 확인하실 수 있는데요, 해당 클래스 내에서 사용할 타입을 <code>T</code>라는 값으로 받을 수 있게 되는 것입니다. 여기서 <code>T</code>는 별 뜻이 있는게 아니라 Type의 약자입니다. 이렇게 정의한 클래스를 이용하여 여러 경우에 해당하는 장바구니를 생성할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bookBasket = <span class="keyword">new</span> Basket&lt;Book&gt;();</span><br><span class="line"><span class="keyword">const</span> cupBasket = <span class="keyword">new</span> Basket&lt;Cup&gt;();</span><br><span class="line"><span class="keyword">const</span> dollBasket = <span class="keyword">new</span> Basket&lt;Doll&gt;();</span><br></pre></td></tr></table></figure></p>
 <p><code>new</code> 키워드를 통해 인스턴스를 생성할 때 정의할 때와 마찬가지로 <code>&lt;&gt;</code>와 함께 타입을 지정하여 인스턴스를 생성해줍니다. (<code>Book</code>, <code>Cup</code>, <code>Doll</code>에 대한 인터페이스 정의는 생략합니다.)</p>
 <p><br></p>
-<h2 id="Generics-to-Function"><a href="#Generics-to-Function" class="headerlink" title="Generics to Function"></a>Generics to Function</h2><p>제네릭스는 클래스 뿐만 아니라 함수에도 적용될 수 있는데요, 이전에 살펴보았던 AjaxUtils를 예제로 제네릭에 대해 알아보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params">param: fetchDataParam</span>): <span class="title">Promise</span>&lt;<span class="title">DataFormat</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Generics-to-Function"><a href="#Generics-to-Function" class="headerlink" title="Generics to Function"></a>Generics to Function</h2><p>제네릭스는 클래스 뿐만 아니라 함수에도 적용될 수 있는데요, 이전에 살펴보았던 AjaxUtils를 예제로 제네릭에 대해 알아보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params">param: fetchDataParam</span>): <span class="title">Promise</span>&lt;<span class="title">DataFormat</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>위 함수는 <code>fetchDataParam</code>이라는 타입의 인자만 받을 수 있으며 <code>Promise&lt;DataFormat&gt;</code>이라는 타입의 반환만 할 수 있게 설계되어 있습니다. 그러나 함수의 body가 여러 곳에서 중복된다면 <code>fetchDataParam</code> 또는 <code>DataFormat</code>을 위 함수에 주입하여 여러 상황에 대응할 수 있는 함수로 변환시킬 수 있습니다. 이 때, 제네릭이 사용됩니다.</p>
-<p>위 함수에 제네릭을 적용하여 함수의 재사용성을 높여보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchDataOf</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">param: T</span>): <span class="title">Promise</span>&lt;<span class="title">U</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</div><div class="line">    <span class="keyword">return</span> response.json();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>arrow function에도 마찬가지로 적용할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fetchDataOf = <span class="keyword">async</span> &lt;T, U&gt;(param: T): <span class="built_in">Promise</span>&lt;U&gt; =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</div><div class="line">    <span class="keyword">return</span> response.json();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>위 함수에 제네릭을 적용하여 함수의 재사용성을 높여보겠습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchDataOf</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">param: T</span>): <span class="title">Promise</span>&lt;<span class="title">U</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>arrow function에도 마찬가지로 적용할 수 있습니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchDataOf = <span class="keyword">async</span> &lt;T, U&gt;(param: T): <span class="built_in">Promise</span>&lt;U&gt; =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;param&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>이렇게 정의를 하면 다음과 같이 호출할 수 있습니다. 여기서 T와 U는 그냥 type의 종류를 나타내는 character라고 생각하시면 됩니다.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data: DataFormat = <span class="keyword">await</span> fetchDataOf&lt;<span class="built_in">string</span>, DataFormat&gt;(baseUrl);</div></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data: DataFormat = <span class="keyword">await</span> fetchDataOf&lt;<span class="built_in">string</span>, DataFormat&gt;(baseUrl);</span><br></pre></td></tr></table></figure>
 <p><code>param</code>으로 넘겨주게 되는 인자의 타입이 다르거나, 반환하게 되는 값의 타입이 다를 경우에도 <code>&lt;&gt;</code>에 해당 타입을 지정하여 하나의 함수를 사용할 수 있게 됩니다.</p>
 <p>물론 <any>의 형식으로도 사용할 수 있지만(이럴바에 차라리 자바스크립트를 사용하는 것이 생산성 측면에서 더 좋을 것 같습니다.) 특정 타입을 받아 해당 타입으로 반환한다는 측면에 있어서 안정성과 확장성 두 마리 토끼를 모두 잡을 수 있습니다.</any></p>
 <p><br></p>
-<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>실제 개발해서보다는 라이브러리를 개발할 때 많이 사용할 수 있는 Generics에 대해 알아봤습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 <a href="https://github.com/JaeYeopHan/typescript_tutorial_docs" target="_blank" rel="external">여기</a>에서 보실 수 있으며 예제에 사용된 코드는 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="external">여기</a>에서 확인하실 수 있습니다.<br>감사합니다.</p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>실제 개발해서보다는 라이브러리를 개발할 때 많이 사용할 수 있는 Generics에 대해 알아봤습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 <a href="https://github.com/JaeYeopHan/typescript_tutorial_docs" target="_blank" rel="noopener">여기</a>에서 보실 수 있으며 예제에 사용된 코드는 <a href="https://github.com/JaeYeopHan/typescript_playground" target="_blank" rel="noopener">여기</a>에서 확인하실 수 있습니다.<br>감사합니다.</p>
 <p><em>5. Generic in TypeScript end</em></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank" rel="external">TypeScript Official Document - Generics</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank" rel="noopener">TypeScript Official Document - Generics</a></p>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,30 +127,30 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-0-Quick-Start"><a href="#TS-0-Quick-Start" class="headerlink" title="[TS] 0. Quick Start"></a>[TS] 0. Quick Start</h1><p>이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요.</p>
 <h2 id="Install-TypeScript"><a href="#Install-TypeScript" class="headerlink" title="Install TypeScript"></a>Install TypeScript</h2><p>npm을 통해서 간단하게 TypeScript를 설치할 수 있습니다. VSCode 등 타입스크립트를 지원하는 에디터에서는 플러그인을 통해서 설치가 가능합니다.</p>
-<p>via npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g typescript</div></pre></td></tr></table></figure></p>
-<p>command를 이용하여 또는 Editor를 열어 <code>greeter.ts</code>라는 파일을 만듭니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ touch greeter.ts</div></pre></td></tr></table></figure></p>
-<p><code>greeter.ts</code>코드는 다음과 같습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = <span class="string">"Jane User"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
-<p>TypeScript는 <code>.ts</code>라는 확장자를 사용합니다. 이 파일은 컴파일되어 <code>greeter.js</code>파일이 됩니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsc greeter.ts</div></pre></td></tr></table></figure></p>
+<p>via npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g typescript</span><br></pre></td></tr></table></figure></p>
+<p>command를 이용하여 또는 Editor를 열어 <code>greeter.ts</code>라는 파일을 만듭니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch greeter.ts</span><br></pre></td></tr></table></figure></p>
+<p><code>greeter.ts</code>코드는 다음과 같습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = <span class="string">"Jane User"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<p>TypeScript는 <code>.ts</code>라는 확장자를 사용합니다. 이 파일은 컴파일되어 <code>greeter.js</code>파일이 됩니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc greeter.ts</span><br></pre></td></tr></table></figure></p>
 <p><code>tsc</code>라는 명령어를 통해서 TypeScript로 작성된 파일을 컴파일할 수 있습니다.<br>현재 <code>greeter.ts</code>에 작성되어있는 코드는 기존의 JavaScript와 다를 바가 없습니다. 이 JavaScript code인 <code>greeter.ts</code>에 TypeScript 문법을 하나씩 추가해보겠습니다.</p>
-<h2 id="TypeScript가-제공하는-대표적인-기능"><a href="#TypeScript가-제공하는-대표적인-기능" class="headerlink" title="TypeScript가 제공하는 대표적인 기능"></a>TypeScript가 제공하는 대표적인 기능</h2><h3 id="Type-annotations"><a href="#Type-annotations" class="headerlink" title="Type annotations"></a>Type annotations</h3><p>동적으로 변수의 타입을 결정했던 JavaScript에게 타입이 생겼습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>TypeScript</strong>는 Type을 제공합니다. Type annotations는 함수가 받는 parameter에 타입을 지정해주어, 함수 내부에서 별도의 타입 체크 없이 parameter를 사용할 수 있게 해줍니다. 즉, <code>person</code>에 다른 타입의 parameter가 주어지면 error가 발생하게 됩니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
-<p>error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">greeter.ts(7,26): Supplied parameters do not match any signature of call target</div></pre></td></tr></table></figure></p>
+<h2 id="TypeScript가-제공하는-대표적인-기능"><a href="#TypeScript가-제공하는-대표적인-기능" class="headerlink" title="TypeScript가 제공하는 대표적인 기능"></a>TypeScript가 제공하는 대표적인 기능</h2><h3 id="Type-annotations"><a href="#Type-annotations" class="headerlink" title="Type annotations"></a>Type annotations</h3><p>동적으로 변수의 타입을 결정했던 JavaScript에게 타입이 생겼습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>TypeScript</strong>는 Type을 제공합니다. Type annotations는 함수가 받는 parameter에 타입을 지정해주어, 함수 내부에서 별도의 타입 체크 없이 parameter를 사용할 수 있게 해줍니다. 즉, <code>person</code>에 다른 타입의 parameter가 주어지면 error가 발생하게 됩니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<p>error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeter.ts(7,26): Supplied parameters do not match any signature of call target</span><br></pre></td></tr></table></figure></p>
 <p>타입스크립트는 코드의 구조와 작성된 <code>type annotation</code>으로 정적 분석을 제공합니다. 위와 같이 error가 발생하더라도 타입스크립트 파일은 컴파일되어 <code>.js</code>파일을 만들게 됩니다. TypeScript의 역할은 제대로 동작하지 않을 것 같은 코드에 대해 개발자에게 <code>warning</code>해주는 역할이라고 생각해도 될 것 같습니다 :)</p>
-<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><p>Java개발자라면 익숙한 <code>interface</code> 문법입니다. 위에서 사용했던 예제를 <code>interface</code>를 사용하여 확장해보겠습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Person &#123;</div><div class="line">    firstName: <span class="built_in">string</span>;</div><div class="line">    lastName: <span class="built_in">string</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: Person</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person.firstName + <span class="string">" "</span> + person.lastName;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = &#123; firstName: <span class="string">"Jane"</span>, lastName: <span class="string">"User"</span> &#125;;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</div></pre></td></tr></table></figure></p>
+<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><p>Java개발자라면 익숙한 <code>interface</code> 문법입니다. 위에서 사용했던 예제를 <code>interface</code>를 사용하여 확장해보겠습니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    firstName: <span class="built_in">string</span>;</span><br><span class="line">    lastName: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params">person: Person</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + person.firstName + <span class="string">" "</span> + person.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = &#123; firstName: <span class="string">"Jane"</span>, lastName: <span class="string">"User"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.innerHTML = greeter(user);</span><br></pre></td></tr></table></figure></p>
 <p>함수의 parameter에 <code>String</code>이라는 타입 대신 인터페이스(interface)를 적용했습니다. Java의 Generic과 비슷하게 보이는데요, interface를 사용하여 함수가 넘겨받는 parameter의 타입을 보다 구체적으로 정의할 수 있게 되었습니다. 위의 예제 코드와 마찬가지로 정의된 type과 맞지 않은 type의 parameter가 전달되면 error를 출력합니다.</p>
-<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><p>ES6(ECMAScript2015)에서부터 추가된 <code>Class</code> 문법입니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Student &#123;</div><div class="line">    fullName: <span class="built_in">string</span>;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> firstName, <span class="keyword">public</span> middleInitial, <span class="keyword">public</span> lastName</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.fullName = firstName + <span class="string">" "</span> + middleInitial + <span class="string">" "</span> + lastName;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> Student(<span class="string">"Jane"</span>, <span class="string">"M."</span>, <span class="string">"User"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><p>ES6(ECMAScript2015)에서부터 추가된 <code>Class</code> 문법입니다.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Student &#123;</span><br><span class="line">    fullName: <span class="built_in">string</span>;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> firstName, <span class="keyword">public</span> middleInitial, <span class="keyword">public</span> lastName</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.fullName = firstName + <span class="string">" "</span> + middleInitial + <span class="string">" "</span> + lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> Student(<span class="string">"Jane"</span>, <span class="string">"M."</span>, <span class="string">"User"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>ES6의 <code>Class</code>와는 약간 다른 모습을 보입니다. 바로 Class 내부에서 <code>field member</code>를 갖게 된 것입니다. 하지만 그 근본은 ES6의 <code>Class</code>와 같습니다. JavaScript에서 프로토타입을 통해 구현했던 OOP를 보다 간결한 방법으로 문법을 제공하는 것입니다.</p>
 <p>공식 문서에서 제공하는 Quick Start를 통해서 TypeScript 맛보기를 해봤습니다. 감사합니다.</p>
 <p><em>0. Quick start end</em></p>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

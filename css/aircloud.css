@@ -341,19 +341,21 @@ body {
   flex-direction: row;
 }
 .post-preview .post-time {
-  font-size: 17px;
+  font-size: 12px;
   color: #999999;
-  width: 125px;
+  width: 78px;
   font-weight: 300;
   line-height: 24px;
 }
 .post-preview .post-info {
   flex: 1;
+  margin-bottom: 16px;
 }
 .post-preview .post-info a {
   cursor: pointer;
   text-decoration: none;
 }
+
 .post-preview .post-info a h3 {
   line-height: 24px;
   cursor: pointer;
@@ -672,23 +674,23 @@ body {
 }
 .post-content h1 {
   color: #3d3d3d;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 60px;
+  margin-bottom: 30px;
   line-height: 1;
 }
 .post-content h2 {
   color: #3d3d3d;
-  margin-top: 20px;
+  margin-top: 60px;
   margin-bottom: 20px;
 }
 .post-content h3 {
   color: #3d3d3d;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 .post-content h4 {
   color: #3d3d3d;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 .post-content h5 {
@@ -1215,15 +1217,14 @@ pre .javascript .function {
 .gitment-comment p {
   text-indent: 0;
 }
-
+.post-preview .post-info a img {
+  float: left;
+  width: 100%;
+  margin-right: 16px;
+}
 /* pc 대응 */
 @media screen and (min-width: 480px) {
   .post-container {
     width: calc(100% - 200px);
-  }
-  .post-content p img {
-    display: block;
-    margin: auto;
-    width: 40%;
   }
 }

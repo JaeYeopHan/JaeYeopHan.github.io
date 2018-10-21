@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -80,7 +80,7 @@
     </div>
     
     <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TS-8-enum-vs-const-enum"><span class="toc-text">[TS] 8. enum vs const enum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TS-8-enum-vs-const-enum"><span class="toc-text">[TS] 8. enum vs const enum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,29 +127,29 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/typescript.png" alt=""></p>
 <h1 id="TS-8-enum-vs-const-enum"><a href="#TS-8-enum-vs-const-enum" class="headerlink" title="[TS] 8. enum vs const enum"></a>[TS] 8. enum vs const enum</h1><p>TypeScript 문법 중 <code>enum</code> 이라는 것이 있다. 주로 상수를 선언할 때 namespace 를 줘서 상수끼리의 응집도를 높이고 그 의미를 더할 수 있으며 VSCode 의 auto complete 의 지원을 받을 때 유용하다. 이 <code>enum</code> 키워드를 사용하는 방법에는 두 가지가 존재한다. 그냥 <code>enum</code> 키워드를 사용해 선언할 수 있으며 <code>const</code> 키워드와 함께 사용하여 <code>const enum</code>으로 선언할 수 있다.</p>
 <p>이 두 가지는 무엇이 다를까.</p>
-<p><a href="http://www.typescriptlang.org/play/" target="_blank" rel="external">TypeScript Playground</a>에 가서 JavaScript 로 compile 된 모습을 먼저 살펴보자.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> JustEnumNumber &#123;</div><div class="line">  zero,</div><div class="line">  one</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(JustNumber.one); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p><a href="http://www.typescriptlang.org/play/" target="_blank" rel="noopener">TypeScript Playground</a>에 가서 JavaScript 로 compile 된 모습을 먼저 살펴보자.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> JustEnumNumber &#123;</span><br><span class="line">  zero,</span><br><span class="line">  one</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(JustNumber.one); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p>간단한 <code>enum</code> 을 선언했다. 이 <code>JustEnumNumber</code>는 다음과 같이 transpile 된다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> JustEnumNumber;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">JustEnumNumber</span>) </span>&#123;</div><div class="line">  JustEnumNumber[(JustEnumNumber[<span class="string">"zero"</span>] = <span class="number">0</span>)] = <span class="string">"zero"</span>;</div><div class="line">  JustEnumNumber[(JustEnumNumber[<span class="string">"one"</span>] = <span class="number">1</span>)] = <span class="string">"one"</span>;</div><div class="line">&#125;)(JustEnumNumber || (JustEnumNumber = &#123;&#125;));</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(JustNumber.one); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> JustEnumNumber;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">JustEnumNumber</span>) </span>&#123;</span><br><span class="line">  JustEnumNumber[(JustEnumNumber[<span class="string">"zero"</span>] = <span class="number">0</span>)] = <span class="string">"zero"</span>;</span><br><span class="line">  JustEnumNumber[(JustEnumNumber[<span class="string">"one"</span>] = <span class="number">1</span>)] = <span class="string">"one"</span>;</span><br><span class="line">&#125;)(JustEnumNumber || (JustEnumNumber = &#123;&#125;));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(JustNumber.one); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p><code>enum</code>에 대해 알아본 적이 있다면 익숙한 JavaScript 형태로 transpile 되는 것을 확인할 수 있다. 사실 저 코드는 조금 복잡해보여도 다음과 같은 코드이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> JustEnumNumber;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">JustEnumNumber</span>) </span>&#123;</div><div class="line">  JustEnumNumber[<span class="string">"zero"</span>] = <span class="number">0</span>;</div><div class="line">  JustEnumNumber[<span class="string">"one"</span>] = <span class="number">1</span>;</div><div class="line">  JustEnumNumber[<span class="number">0</span>] = <span class="string">"zero"</span>;</div><div class="line">  JustEnumNumber[<span class="number">1</span>] = <span class="string">"one"</span>;</div><div class="line">&#125;)(JustEnumNumber || (JustEnumNumber = &#123;&#125;));</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> JustEnumNumber;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">JustEnumNumber</span>) </span>&#123;</span><br><span class="line">  JustEnumNumber[<span class="string">"zero"</span>] = <span class="number">0</span>;</span><br><span class="line">  JustEnumNumber[<span class="string">"one"</span>] = <span class="number">1</span>;</span><br><span class="line">  JustEnumNumber[<span class="number">0</span>] = <span class="string">"zero"</span>;</span><br><span class="line">  JustEnumNumber[<span class="number">1</span>] = <span class="string">"one"</span>;</span><br><span class="line">&#125;)(JustEnumNumber || (JustEnumNumber = &#123;&#125;));</span><br></pre></td></tr></table></figure>
 <p>이젠 <code>const enum</code>을 보자.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">enum</span> ConstEnumNumber &#123;</div><div class="line">  zero,</div><div class="line">  one</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(ConstEnumNumber.one); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">enum</span> ConstEnumNumber &#123;</span><br><span class="line">  zero,</span><br><span class="line">  one</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(ConstEnumNumber.one); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p>아까와 같은 간단한 <code>enum</code>을 선언했고 플레이그라운드에서 JavaScript 도 transpile 을 해보자.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span> <span class="comment">/* one */</span>); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> <span class="comment">/* one */</span>); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p><code>enum</code> 구현체는 다 사라지고 console 을 위한 코드만 남아있다. <code>const</code> 키워드를 사용하고 안 하고의 차이가 좀 큰 것 같다.</p>
-<p>다시 <code>`JustEnumNumber</code>코드를 보자.<code>enum</code>만으로 선언할 경우, namespace 를 위한 변수가 선언이 된다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> JustEnumNumber;</div></pre></td></tr></table></figure>
+<p>다시 <code></code>JustEnumNumber<code>코드를 보자.</code>enum`만으로 선언할 경우, namespace 를 위한 변수가 선언이 된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> JustEnumNumber;</span><br></pre></td></tr></table></figure>
 <p>그리고 선언된 변수를 객체로 우리가 원하는 상수값들을 선언하게 된다. 이 때 선언된 변수는 transpile 되어서도 남아있게 되어 우리는 <code>enum</code>으로 선언한 객체 자체에 접근할 수 있다.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(JustEnumNumber); <span class="comment">// [object object]</span></div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(JustEnumNumber); <span class="comment">// [object object]</span></span><br></pre></td></tr></table></figure>
 <p>하지만 <code>const enum</code>으로 enum 을 선언하게 되면 compile 단계에서 namespace 가 날라가게 되므로 접근할 수 없다.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(ConstEnumNumber); <span class="comment">// [ERROR] 'const' enums can only be used in property or index access expressions or the right hand side of an import declaration or export assignment or type query.</span></div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(ConstEnumNumber); <span class="comment">// [ERROR] 'const' enums can only be used in property or index access expressions or the right hand side of an import declaration or export assignment or type query.</span></span><br></pre></td></tr></table></figure>
 <p>내부 상수값들이 전부 compile 단계에서 대치된 것이다. 내부 필드를 전부 상수로 변경하기 때문에 런타임에 의존 모듈의 영향을 받지 않게 되며, 코드 크기가 더 적기 때문에 더 선호된다고 한다.</p>
 <p>사실 이 부분은 TypeScript Official Document 에 다음과 같이 나와있다.</p>
 <blockquote>
@@ -157,21 +157,21 @@
 </blockquote>
 <p>그렇다면 <code>enum</code>만으로 선언하는 경우는 언제일까.</p>
 <p>우선 namespace 가 남아있으니 우리는 enum 을 이렇게도 사용할 수 있다.</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(JustEnumNumber[JustEnumNumber.one]); <span class="comment">// one</span></div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(JustEnumNumber[JustEnumNumber.one]); <span class="comment">// one</span></span><br></pre></td></tr></table></figure>
 <p>상수만으로 로그가 찍히면 알아보기 힘드니 reverse 참조를 하여 로그를 찍을 수 있다. lookup object 로 사용하는 것이다. 하지만 이렇게 선언된 enum 은 런타임에 이 lookup object 를 통해 참조가 이루어지므로 조심해야 한다. 물론 webpack 환경에서는</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">module, exports, __webpack_require__</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">module, exports, __webpack_require__</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이렇게 scope 를 쳐주지만 test 환경에서는 browser 객체(ex. window…)를 참조하는 경우 에러가 발생할 수 있다.</p>
 <p>참고한 블로그의 문장을 인용하여 해당 글을 마친다.</p>
 <blockquote>
 <p><code>const enum</code> is a <strong>compile-time only</strong> feature, while the original <code>enum</code> is a <strong>runtime + compile-time</strong>feature. Most projects will be well suited for <code>const enum</code>, but there may be cases where <code>enum</code> is preferred.</p>
 </blockquote>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://www.typescriptlang.org/docs/handbook/enums.html" target="_blank" rel="external">https://www.typescriptlang.org/docs/handbook/enums.html</a></li>
-<li><a href="https://www.sitepoint.com/10-essential-typescript-tips-tricks-angular/?WT.mc_id=link-twitter-jeliknes" target="_blank" rel="external">https://www.sitepoint.com/10-essential-typescript-tips-tricks-angular/?WT.mc_id=link-twitter-jeliknes</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/enums.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/enums.html</a></li>
+<li><a href="https://www.sitepoint.com/10-essential-typescript-tips-tricks-angular/?WT.mc_id=link-twitter-jeliknes" target="_blank" rel="noopener">https://www.sitepoint.com/10-essential-typescript-tips-tricks-angular/?WT.mc_id=link-twitter-jeliknes</a></li>
 </ul>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog posted about front end development">
-    <meta name="keyword" content="undefined">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/gitment.css">
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
@@ -45,7 +45,7 @@
         <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/images/profile.jpeg" />
+            <img src="/images/profile.jpeg">
         </div>
         <div class="name">
             <i>
@@ -54,21 +54,21 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>
                         HOME</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>
                         ARCHIVES</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="https://jbee-resume.now.sh" target="_blank">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>
@@ -90,7 +90,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input" />
+            <input id="search-input">
             <span id="begin-search">
                 search</span>
         </div>
@@ -127,28 +127,28 @@
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
-</span>
+
     </div>
     <div class="post-content ">
         <p><img src="/images/javascript_es6.png" alt=""></p>
-<h1 id="ES6-4-Spread-Rest-parameter"><a href="#ES6-4-Spread-Rest-parameter" class="headerlink" title="[ES6] 4. Spread, Rest parameter"></a>[ES6] 4. Spread, Rest parameter</h1><h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prev = [<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">let</span> post = [<span class="number">7</span>,<span class="number">8</span>];</div><div class="line"><span class="keyword">let</span> spreadObj = [<span class="number">1</span>, <span class="number">2</span>, ...prev, <span class="number">5</span>, <span class="number">6</span>, ...post, <span class="number">9</span>];</div><div class="line"><span class="built_in">console</span>.log(spreadObj); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></div></pre></td></tr></table></figure></p>
-<p>문자열도 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sObj = [...<span class="string">"javascript"</span>];</div><div class="line"><span class="built_in">console</span>.log(sObj); <span class="comment">// ["j", "a", "v", "a", "s", "c", "r", "i", "p", "t"]</span></div></pre></td></tr></table></figure></p>
-<h2 id="Rest-Parameter"><a href="#Rest-Parameter" class="headerlink" title="Rest Parameter"></a>Rest Parameter</h2><p>함수를 호출할 때 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>Rest parameter</code>라고 한다. 함수안의 코드를 확인하지 않고도 호출문의 형태만 보더라도 <code>Rest parameter</code> 의 범위를 확인할 수 있어 가독성이 높아진다. 또한 <code>Rest parameter</code>는 <code>Array</code>, 즉 배열이므로 <code>Array</code> 오브젝트의 메서드를 사용할 수 있다. 그리고 <code>arrow funtion</code>에서도 사용 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> price = [<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>];</div><div class="line"><span class="built_in">Math</span>.max(<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>);</div></pre></td></tr></table></figure></p>
-<p>built in Object인 <code>Math</code>의 메소드 <code>max()</code>를 사용하기 위해서는 위 코드처럼 하나씩 넘겨줘야 한다.<br>또는 다음과 같은 방식을 사용했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, price);</div></pre></td></tr></table></figure></p>
-<p>하지만 Rest parameter를 사용하면 보다 깔끔하게 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> maxPrice = Max.max(...price);</div></pre></td></tr></table></figure></p>
-<p><code>Rest parameter</code>는 동적(dynamic)으로 생성된 파라미터라고 할 수 있기 때문에 함수의 <code>length</code>에서 포함되지 않는다. 기본적으로 함수의 <code>length</code> 프로퍼티는 파라미터의 개수를 의미한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> getElementByRestWithParam = <span class="function">(<span class="params">param, ...rest</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(param);</div><div class="line">    <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(getElementByRestWithParam.length); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
-<p>위 <code>getElementByRestWithParam</code>메소드에 <code>spread operator</code>를 사용하여 인자를 넘겨보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> values = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</div><div class="line">getElementByRestWithParam(...values); <span class="comment">//10 \n [20, 30]</span></div></pre></td></tr></table></figure></p>
+<h1 id="ES6-4-Spread-Rest-parameter"><a href="#ES6-4-Spread-Rest-parameter" class="headerlink" title="[ES6] 4. Spread, Rest parameter"></a>[ES6] 4. Spread, Rest parameter</h1><h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>이터러블 오브젝트(Iterable object)의 엘리먼트를 하나씩 분리하여 전개한다. 전개한 결과를 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> prev = [<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> post = [<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">let</span> spreadObj = [<span class="number">1</span>, <span class="number">2</span>, ...prev, <span class="number">5</span>, <span class="number">6</span>, ...post, <span class="number">9</span>];</span><br><span class="line"><span class="built_in">console</span>.log(spreadObj); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure></p>
+<p>문자열도 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sObj = [...<span class="string">"javascript"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(sObj); <span class="comment">// ["j", "a", "v", "a", "s", "c", "r", "i", "p", "t"]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Rest-Parameter"><a href="#Rest-Parameter" class="headerlink" title="Rest Parameter"></a>Rest Parameter</h2><p>함수를 호출할 때 <code>spread</code> 연산자로 파라미터를 작성한 형태를 <code>Rest parameter</code>라고 한다. 함수안의 코드를 확인하지 않고도 호출문의 형태만 보더라도 <code>Rest parameter</code> 의 범위를 확인할 수 있어 가독성이 높아진다. 또한 <code>Rest parameter</code>는 <code>Array</code>, 즉 배열이므로 <code>Array</code> 오브젝트의 메서드를 사용할 수 있다. 그리고 <code>arrow funtion</code>에서도 사용 가능하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> price = [<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>];</span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">12</span>, <span class="number">20</span>, <span class="number">18</span>);</span><br></pre></td></tr></table></figure></p>
+<p>built in Object인 <code>Math</code>의 메소드 <code>max()</code>를 사용하기 위해서는 위 코드처럼 하나씩 넘겨줘야 한다.<br>또는 다음과 같은 방식을 사용했다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, price);</span><br></pre></td></tr></table></figure></p>
+<p>하지만 Rest parameter를 사용하면 보다 깔끔하게 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maxPrice = Max.max(...price);</span><br></pre></td></tr></table></figure></p>
+<p><code>Rest parameter</code>는 동적(dynamic)으로 생성된 파라미터라고 할 수 있기 때문에 함수의 <code>length</code>에서 포함되지 않는다. 기본적으로 함수의 <code>length</code> 프로퍼티는 파라미터의 개수를 의미한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getElementByRestWithParam = <span class="function">(<span class="params">param, ...rest</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(param);</span><br><span class="line">    <span class="built_in">console</span>.log(rest);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getElementByRestWithParam.length); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
+<p>위 <code>getElementByRestWithParam</code>메소드에 <code>spread operator</code>를 사용하여 인자를 넘겨보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> values = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</span><br><span class="line">getElementByRestWithParam(...values); <span class="comment">//10 \n [20, 30]</span></span><br></pre></td></tr></table></figure></p>
 <p><code>param</code>에 해당하는 인자가 따로받아지고 나머지 인자들은 <code>...rest</code>로 넘겨지면서 다시 배열로 넘겨지게 된다!</p>
 <p><code>Rest parameter</code>를 사용했을 때와 기존의 자바스크립트에서 <code>arguments</code>를 사용했을 때의 차이점을 살펴보기 위해 <code>arguments</code>에 대해서 잠깐 살펴보자. <code>arguments</code>는 <code>Array-Like Object</code>라는 공식 명칭을 하고 있는 유사 배열이다.</p>
-<h2 id="Array-like-Object-유사배열"><a href="#Array-like-Object-유사배열" class="headerlink" title="Array-like Object(유사배열)"></a>Array-like Object(유사배열)</h2><p>배열의 특징 중 하나는 index를 갖고 있어서 임의 접근(random access)가 가능하고, 그 index가 순차적으로 증가한다는 것이다. 만약 Object가 key값이 순차적으로 증가하는 값이고, 그에 따른 value가 존재한다고 했을 때, <code>Array-like Object</code>라고 한다.<br>배열의 인덱스 값을 프로퍼티 key 값으로 사용하는 것이다. 그리고 <code>length</code>라는 프로퍼티 값을 갖고 있어서 전개를 할 때는 다음과 같이 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Array-like object</span></div><div class="line"><span class="keyword">let</span> arrLikeObj = &#123;</div><div class="line">    <span class="number">0</span> : <span class="string">"zero"</span>,</div><div class="line">    <span class="number">1</span> : <span class="string">"one"</span>,</div><div class="line">    <span class="number">2</span> : <span class="string">"two"</span>,</div><div class="line">    <span class="attr">length</span> : <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLikeObj.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arrLikeObj[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Array-like-Object-유사배열"><a href="#Array-like-Object-유사배열" class="headerlink" title="Array-like Object(유사배열)"></a>Array-like Object(유사배열)</h2><p>배열의 특징 중 하나는 index를 갖고 있어서 임의 접근(random access)가 가능하고, 그 index가 순차적으로 증가한다는 것이다. 만약 Object가 key값이 순차적으로 증가하는 값이고, 그에 따른 value가 존재한다고 했을 때, <code>Array-like Object</code>라고 한다.<br>배열의 인덱스 값을 프로퍼티 key 값으로 사용하는 것이다. 그리고 <code>length</code>라는 프로퍼티 값을 갖고 있어서 전개를 할 때는 다음과 같이 한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array-like object</span></span><br><span class="line"><span class="keyword">let</span> arrLikeObj = &#123;</span><br><span class="line">    <span class="number">0</span> : <span class="string">"zero"</span>,</span><br><span class="line">    <span class="number">1</span> : <span class="string">"one"</span>,</span><br><span class="line">    <span class="number">2</span> : <span class="string">"two"</span>,</span><br><span class="line">    length : <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arrLikeObj.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arrLikeObj[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>Array-like Object</code>는 다음 두 가지 규칙을 모두 만족시켜야 한다.<br>1) 프로퍼티 값을 0부터 1씩 증가하면서 순차적으로 작성해야 한다.<br>2) length를 프로퍼티 키로 하여 전체 프로퍼티 수를 작성해야 한다.</p>
 <h3 id="Rest-parameter와-arguments의-차이"><a href="#Rest-parameter와-arguments의-차이" class="headerlink" title="Rest parameter와 arguments의 차이"></a>Rest parameter와 arguments의 차이</h3><p><code>arguments</code>도 <code>Array-like object</code>이기 때문에 <code>for statement</code>로 전개할 수 있다. 하지만 <code>Array</code> 오브젝트의 메서드를 사용할 수 없다. 이것이 치명적인 단점인 것이다. 또 <code>arrow function</code>에서는 <code>arguments</code>를 사용할 수 없다. 이것으로 미루어보아, ES6에서는 <code>arguments</code>를 사용하는 것을 최대한 자제하라는 느낌이다. 사실 <code>Rest parameter</code>에 익숙해지기만 하면 <code>arguments</code>를 통해 인자를 받는 것보다 유연한 코드를 작성할 수 있다.</p>
 <p>한 가지 더 한계점을 지적하자면 <code>arguments</code>는 함수 내부를 봐야 어느 부분에서 <code>arguments</code> 객체를 사용하는지 알 수 있어 코드의 가독성이 떨어지게 된다. 그렇기 때문에 <code>arguments</code> 대신 <code>Rest parameter</code>를 도입한 것이다.</p>
-<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="external">Github Respository</a>에서 확인하실 수 있습니다.</p>
+<p>예제로 사용된 코드는 <a href="https://github.com/JaeYeopHan/ECMAScript6_study" target="_blank" rel="noopener">Github Respository</a>에서 확인하실 수 있습니다.</p>
 <p><em>4. end</em></p>
 
         
-        <br />
+        <br>
         <div id="comment-container">
         </div>
         <div id="disqus_thread"></div>

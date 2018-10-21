@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
     <url>
         <loc>https://jaeyeophan.github.io</loc>
         <changefreq>daily</changefreq>
@@ -29,7 +30,14 @@
 
     <url>
         <loc>https://jaeyeophan.github.io/categories/TypeScript/</loc>
-        <lastmod>2018-06-16T06:14:51.000Z</lastmod>
+        <lastmod>2018-10-21T07:08:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/categories/Vue/</loc>
+        <lastmod>2018-10-21T07:30:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
