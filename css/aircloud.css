@@ -706,6 +706,9 @@ body {
 #comment-container {
   text-indent: 0;
 }
+#lv-container {
+  text-indent: 0;
+}
 .post-content li p {
   display: inline;
 }
@@ -1223,7 +1226,13 @@ pre .javascript .function {
   margin-right: 16px;
 }
 /* pc 대응 */
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 1024px) {
+  .index-container {
+    width: calc(100% - 200px);
+  }
+}
+@media screen and (min-width: 560px) {
+  .post-preview-container,
   .post-container {
     width: calc(100% - 200px);
   }
