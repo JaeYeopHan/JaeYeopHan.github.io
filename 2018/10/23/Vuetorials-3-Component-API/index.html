@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <title>
+        
+        [Vuetorials] 3. Component API - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg">
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuetorials-3-Component-API"><span class="toc-text">[Vuetorials] 3. Component API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-API"><span class="toc-text">Component API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-text">props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data"><span class="toc-text">data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed"><span class="toc-text">computed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render"><span class="toc-text">render</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Stateless-Functional-Component"><span class="toc-text">Stateless Functional Component</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#마무리"><span class="toc-text">마무리</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        [Vuetorials] 3. Component API
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+            Post：<span>
+                2018-10-23 12:01:56</span></span>
+        
+        <span class="attr">
+            Tags：/
+            
+            <a class="tag" href="/tags/#vue" title="vue">
+                vue</a>
+            <span>/</span>
+            
+            
+        </span>
+        <span class="attr">
+            Visit：<span id="busuanzi_value_page_pv"></span>
+        </span>
+        
+    </div>
+    <div class="post-content ">
+        <p><img src="/images/vuetorials.png" alt=""></p>
+<h1 id="Vuetorials-3-Component-API"><a href="#Vuetorials-3-Component-API" class="headerlink" title="[Vuetorials] 3. Component API"></a>[Vuetorials] 3. Component API</h1><h2 id="Component-API"><a href="#Component-API" class="headerlink" title="Component API"></a>Component API</h2><p>컴포넌트에는 여러 가지 내용들이 기술될 수 있음. 객체에 <code>[key-value]</code> 형식으로 기술됨. 성격이 다른 옵션 API 들이 아무런 그룹없이 존재할 수 있기 때문에 객체로 기술할 경우 인위적인 그룹화가 필요해보임. (내키는대로 작성하게 되면 가독성 폭망할 듯.)</p>
+<ol>
+<li>DOM rendering 과 관련된 내용</li>
+<li>컴포넌트에서 사용될 data 에 대한 내용</li>
+<li>컴포넌트의 라이프 사이클 메소드</li>
+<li>에셋이라고 표현한 옵션들.</li>
+<li>기타라고 표현한 옵션들</li>
+</ol>
+<p>각각의 내용에 대해서는 <a href="https://kr.vuejs.org/v2/api/#data" target="_blank" rel="noopener">공식 문서</a>에 잘 나와있음. 자질구레한 <strong>제한</strong>이 있고 이런 제한에 대해서는 <strong>런타임에</strong> 에러가 발생함. 몇 가지 짚고 넘어갈 API 만 살펴봄.</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a><a href="https://kr.vuejs.org/v2/api/#props" target="_blank" rel="noopener">props</a></h3><p>컴포넌트가 전달받을 props 에 대해 기술하기 위한 API 임. 단순히 배열로 표현이 가능하지만 객체로 기술할 경우, 타입 체크 및 유효성 검사 로직을 추가할 수 있음. 검사 대상은 다음 네 가지 임.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    <span class="comment">// 타입 체크만</span></span><br><span class="line">    height: <span class="built_in">Number</span>,</span><br><span class="line">    <span class="comment">// 타입 체크와 유효성 검사</span></span><br><span class="line">    age: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">0</span>,</span><br><span class="line">      required: <span class="literal">true</span>,</span><br><span class="line">      validator: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value &gt;= <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>props</code>에 추가될 수 있는 프로퍼티를 interface 로 구성하자면 다음과 같음.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> PropPropertyInterface &#123;</span><br><span class="line">  <span class="keyword">type</span>?: <span class="built_in">Function</span> | <span class="built_in">Array</span>&lt;<span class="built_in">Function</span>&gt; | <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">default</span>?: <span class="built_in">any</span> = <span class="literal">undefined</span>;</span><br><span class="line">  required?: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line">  validator?: <span class="built_in">Function</span> = <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그 무엇하나 필수가 아님. 필수가 아니기 때문에 <code>age: {}</code>로 해도 그냥 돌아감. props 와 관련된 로직은 <a href="https://github.com/vuejs/vue/blob/dev/src/core/util/props.js#L14" target="_blank" rel="noopener">여기</a>에서 볼 수 있음. JavaScript 환경에서는 Interface 또는 type alias 를 별도로 지원하지 않으니 반쪽짜리 타입 체크가 될 수 밖에 없음. 그런데 props 를 정의해둔 것이 <code>required: false</code>라는게 약간 이해가 안 감. <code>props</code>으로 지정하고 <code>optional</code>로 조정하는게 맞지 않나 생각이 듬. <code>validator</code> 부분과 객체로 기술 한다는 부분에서는 React 의 <a href="https://github.com/facebook/prop-types" target="_blank" rel="noopener">prop-types</a>보다 낫다고 봄. 실제로 <code>validator</code>를 쓸 지는 잘 모르겠음. (제보 부탁드림.)</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a><a href="https://kr.vuejs.org/v2/api/#data" target="_blank" rel="noopener">data</a></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; ... &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// or</span></span><br><span class="line">  data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; ... &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>data 는 <code>this</code>에 value 들을 바인딩(binding)해야 하기 때문에 메소드 형태나 <code>function</code> keyword 를 사용하여 함수 형태로 기술해줘야 함. 화살표 함수(arrow function)을 쓰면 this binding 이 외부 context 를 잡게 되고 undefined 가 되어 <code>data</code>로 기술한 객체에 Vue 인스턴스에서 접근할 수 없음. 이게 런타임에서 에러나는게 참 아쉬움.</p>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a><a href="https://kr.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">computed</a></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    totalSum: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; ... &#125; <span class="comment">// only getter</span></span><br><span class="line">    addTo: &#123;</span><br><span class="line">      get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.num;</span><br><span class="line">      &#125;,</span><br><span class="line">      set: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.num + val;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 API 는 <a href="https://kr.vuejs.org/v2/guide/computed.html" target="_blank" rel="noopener"><strong>cache</strong></a>가 핵심임. getter 와 setter 로 접근이 가능함. 변경 사항을 반영할 때 caching 때문에 methods 를 사용하는 것보다 빠르게 계산할 수 있음. <code>cache:false</code>를 통해서 cache 기능을 끌 수도 있음. <code>data</code> API 와 마찬가지로 각각의 프로퍼티는 arrow function 을 사용하면 안 됨. (같은 이유임)</p>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a><a href="https://kr.vuejs.org/v2/api/#render" target="_blank" rel="noopener">render</a></h3><p>React 에서 익숙하게 봐오던 API 임. Vue 컴포넌트에서는 <code>&lt;template&gt;</code> 태그로 HTML 을 기술할 수 있었음. 하지만 이 API 를 통해 React 처럼 렌더링 될 HTML 을 기술할 수 있음. <code>render</code> function 에는 <code>createElement: () =&gt; VNode</code>가 파라미터로 전달됨. 이걸 이용해서 HTML 엘리먼트를 기술할 수 있음.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      <span class="string">"ul"</span>,</span><br><span class="line">      <span class="keyword">this</span>.todos.map(<span class="function"><span class="params">item</span> =&gt;</span> createElement(<span class="string">"li"</span>, item.content))</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>각각의 태그를 저렇게 명시해줘야 하는 부분이 너무 귀찮음. <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx" target="_blank" rel="noopener">babel-plugin-transform-vue-jsx</a>를 추가하면 <code>render</code> 함수의 return value 를 JSX 로 사용할 수 있음.</p>
+<h4 id="Stateless-Functional-Component"><a href="#Stateless-Functional-Component" class="headerlink" title="Stateless Functional Component"></a>Stateless Functional Component</h4><p>이 API 로 상태가 없는 functional component 를 만들 수 있음. (일단 React 에 비해 뭘 잔뜩 적어줘야 함.)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; props &#125; = context;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'ul'</span>, props.todos.map(...))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Vue 는 기본적으로 <code>this</code>에 필요한 데이터나 메소드 등을 binding 해주는데 함수형 컴포넌트(Functional Component)일 경우, <code>this</code>에 접근하지 못하기 때문에 <code>functional: true</code>일 경우, <code>render</code> function 에 두번째 파라미터로 <code>context</code>를 넘겨줌. 이 <code>context</code>를 <strong>FunctionalRenderContext</strong>이라 하며 <code></code>data<code>,</code>props<code>,</code>listeners` 등에 접근할 수 있음. 이 함수형 컴포넌트의 경우에는 multi-root 로 렌더링 할 수 있음.</p>
+<h4 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h4><p>다루지 않은 많은 API 들이 존재하지만 필요할 때 공식 문서에서 확인 가능함. 해당 글이 길어졌기 때문에 다뤄야 할 다른 API 가 있으면 다른 포스팅에서 다룰 예정임.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://kr.vuejs.org/v2/api/" target="_blank" rel="noopener">Vue Official Doucument</a></li>
+</ul>
+
+        
+        <br>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By Jbee with <a href="https://hexo.io/">Hexo</a> Theme JbeeCloud Inspired <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
