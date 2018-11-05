@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/11/05/Vuetorials-4-Internal-Component/</loc>
+        <lastmod>2018-11-05T11:50:14.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-intro/</loc>
-        <lastmod>2018-10-27T10:14:34.106Z</lastmod>
+        <lastmod>2018-11-05T11:47:50.933Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

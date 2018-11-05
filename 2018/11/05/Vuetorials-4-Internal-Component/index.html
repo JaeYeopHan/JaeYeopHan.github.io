@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="">
+
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[Vuetorials] 4. 내장 컴포넌트">
+    <meta property="og:image" content="/images/vuetorials.png">
+    <meta property="og:description" content="Blog posted about front end development">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:creator" content="@JbeeLjyhanll">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <title>
+        
+        [Vuetorials] 4. 내장 컴포넌트 |
+        
+        FELog
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg">
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuetorials-4-내장-컴포넌트"><span class="toc-text">[Vuetorials] 4. 내장 컴포넌트</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Slot"><span class="toc-text">Slot</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#언제-쓰는가"><span class="toc-text">언제 쓰는가</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#component"><span class="toc-text">component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keep-alive"><span class="toc-text">keep-alive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#마무리"><span class="toc-text">마무리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        [Vuetorials] 4. 내장 컴포넌트
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+            Post：<span>
+                2018-11-05 20:48:30</span></span>
+        
+        <span class="attr">
+            Tags：/
+            
+            <a class="tag" href="/tags/#vue" title="vue">
+                vue</a>
+            <span>/</span>
+            
+            
+        </span>
+        <span class="attr">
+            Visit：<span id="busuanzi_value_page_pv"></span>
+        </span>
+        
+    </div>
+    <div class="post-content ">
+        <p><img src="/images/vuetorials.png" alt=""></p>
+<h1 id="Vuetorials-4-내장-컴포넌트"><a href="#Vuetorials-4-내장-컴포넌트" class="headerlink" title="[Vuetorials] 4. 내장 컴포넌트"></a>[Vuetorials] 4. 내장 컴포넌트</h1><p>Vue 에서 제공하고 있는 컴포넌트에 대해 알아보는 포스팅.</p>
+<h2 id="Slot"><a href="#Slot" class="headerlink" title="Slot"></a><a href="https://vuejs.org/v2/guide/components-slots.html" target="_blank" rel="noopener">Slot</a></h2><p>일단 이 <code>Slot</code> 이라는 것은 Vue 에서 특별히 만든 그런 기능이 아님. <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="noopener">w3c/proposals - Slots-Proposal.md</a>가 있음. 이 Slots 을 제대로 이해하려고 했더니 <code>Shadow Tree</code>까지 봐야함. 자세한 내용은 <a href="http://w3c.github.io/webcomponents/spec/shadow/" target="_blank" rel="noopener">관련 Spec 문서</a>를 봐야 함. <a href="https://kr.vuejs.org/v2/api/#slot-1" target="_blank" rel="noopener">API</a>는 별 게 없음. <a href="https://kr.vuejs.org/v2/guide/components.html#%EB%8B%A8%EC%9D%BC-%EC%8A%AC%EB%A1%AF" target="_blank" rel="noopener">공식 문서 설명</a>도 딱히 도움이 되진 않음. 일단 문법 자체가 처음 보면 익숙하지 않아서 부모-자식 이 부분이 약간 헷갈림.</p>
+<h4 id="언제-쓰는가"><a href="#언제-쓰는가" class="headerlink" title="언제 쓰는가"></a>언제 쓰는가</h4><p>Vue 에서 component 를 등록하고 렌더링할 때 보통 <code>props</code>로 데이터를 전달하거나 함수를 전달함. 그런데 children 에 <code>HTML</code> 또는 Vue 컴포넌트를 전달해서 렌더링하고 싶을 때가 있음. 이 때 slot 을 사용할 수 있음.</p>
+<p>사실 React 사용자에겐 ‘응? 그냥 props 로 JSX 넘겨주면 되지 않나?’ 할 수 있음. Vue 에서는 <code>components</code>에 컴포넌트를 등록해야 <code>template</code>에서 렌더링 할 수 있음. 근데 <code>props</code>로 전달함과 동시에 <code>components</code>에 등록할 수 없음.</p>
+<p>그냥 props 로 전달하는 것보다 slot 이 더 Composability(합성 가능성)를 극대화 할 수 있는 기능이라고 하는데, 아직 감이 잘 안 잡힘.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"todo-header"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"todo-container"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"todo-filters"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"todo-footer"</span> <span class="attr">:author</span>=<span class="string">'"Jbee"'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>slot 을 사용하는 가장 쉽고 대표적인 예제는 layout 을 잡기 위한 <code>.vue</code> 임. 위와 같이 <code>TodoLayout.vue</code>를 지정한 후,</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">todo-layout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 정의한 컴포넌트를 slot으로 배포 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">todo-title</span></span></span><br><span class="line"><span class="tag">      <span class="attr">msg</span>=<span class="string">"TODO APP"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">slot</span>=<span class="string">"todo-header"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">todo-title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 축약형 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">todo-container</span> <span class="attr">slot</span>=<span class="string">"todo-container"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- scope를 통해 전달받은 props를 렌더링 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"todo-footer"</span> <span class="attr">slot-scope</span>=<span class="string">"props"</span>&gt;</span></span><br><span class="line">      Copyright: @&#123;&#123; props.author &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">todo-layout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>이렇게 <code>todo-layout</code> 컴포넌트에 주입할 수 있음. <code>slot=&quot;A&quot;</code> 어트리뷰트와 <code>&lt;slot name=&quot;A&quot; /&gt;</code>로 부모-자식 관계를 정의함.</p>
+<h2 id="component"><a href="#component" class="headerlink" title="component"></a><a href="https://vuejs.org/v2/api/#component" target="_blank" rel="noopener">component</a></h2><p><strong>동적 컴포넌트</strong>를 정의할 때 편리한 내장 컴포넌트 API. <code>is</code>라는 속성과 함께 사용됨.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentFilterView"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- shorten --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;component :is="currentFilterView"&gt;&lt;/component&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">    component: &#123;</span></span><br><span class="line"><span class="undefined">      A,</span></span><br><span class="line"><span class="undefined">      B,</span></span><br><span class="line"><span class="undefined">      C,</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>currentFilterView</code>는 Vue 컴포넌트에서 <code>data</code>로 지정된 속성임. 이 값에 <code>A</code> 또는 <code>B</code> 또는 <code>C</code> 값(컴포넌트이름)이 들어갈 경우, <code>component</code> 태그에 <code>A</code> 또는 <code>B</code> 또는 <code>C</code>컴포넌트가 렌더링 됨. <code>component</code> 태그 하위에 렌더링 되는게 아니라 바로 그 자리에 대체됨. 언뜻보면 단순한 <code>switch statement</code> sugar syntax 같지만, <code>keep-alive</code> 라는 내장 컴포넌트로 감싸줄 경우, cache 를 타게 됨.</p>
+<h2 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><a href="https://vuejs.org/v2/api/#keep-alive" target="_blank" rel="noopener">keep-alive</a></h2><p><a href="https://github.com/vuejs/vue/blob/dev/src/core/components/keep-alive.js#L51" target="_blank" rel="noopener">무엇이 어떻게 caching 되는가</a>를 보면 인스턴스를 destroy 하지 않고 남겨둠. 즉 <code>keep-alive</code>라는 <a href="https://github.com/vuejs/vue/blob/dev/src/core/components/keep-alive.js#L55" target="_blank" rel="noopener">추상 엘리먼트</a>로 감싸져있는 컴포넌트들이 변경될 때, 사라질 인스턴스를 메모리에서 제거하지 않음. 이로 인해 불필요한 re-render 를 막고 활성화되을 때 변경되었던 상태가 비활성화 후 다시 활성화 되었을 때 유지 됨. <a href="https://kr.vuejs.org/v2/api/#keep-alive" target="_blank" rel="noopener">공식 문서</a>에서는 <code>transition</code> 내장 컴포넌트와 함께 사용하여 애니메이션 된 상태를 유지할 때 사용하기도 한다고 되어있음.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"currentFilterView"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>아까 <code>component</code>를 정의한 부모에 <code>keep-alive</code> 태그로 감싸주면 됨. <code>keep-alive</code> 하위에 렌더링되는 컴포넌트들은 두 가지 hook 이 mixin 으로 추가됨. <code>activated</code>, <code>deactivated</code> 두 가지 훅(hook)은 해당 컴포넌트가 활성화 될 때, 비활성화 될 때 호출됨.</p>
+<p><code>:include</code>, <code>:exclude</code>디렉티브를 통해서 caching 을 적용할 컴포넌트와 적용하지 않을 컴포넌트를 적용할 수 있음. String, 정규식, 배열을 전달할 수 있음. (<a href="https://github.com/vuejs/vue/blob/dev/src/core/components/keep-alive.js#L51" target="_blank" rel="noopener">관련 코드</a>)</p>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p><code>transition</code>과 <code>trasition-group</code>은 animation 관련하여 함께 다루는 것이 좋을 듯하여 이번 장에서 다루지 않음. React 는 개발자 너희들이 알아서 해라 식이었다면 Vue 는 <code>computed</code>도 그렇고 <code>keep-alive</code>도 그렇고 라이브러리 자체에서 제공하고 있는 API 를 충분히 활용할 수 있을 듯하다.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://skyronic.com/blog/vue-slots-example" target="_blank" rel="noopener">https://skyronic.com/blog/vue-slots-example</a></li>
+<li><a href="https://daveceddia.com/pluggable-slots-in-react-components/" target="_blank" rel="noopener">https://daveceddia.com/pluggable-slots-in-react-components/</a></li>
+</ul>
+
+        
+        <br>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By Jbee with <a href="https://hexo.io/">Hexo</a> Theme JbeeCloud Inspired <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
