@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue-concept/</loc>
+        <lastmod>2018-11-15T12:24:24.383Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-1-vue-cli-3-0/</loc>
         <lastmod>2018-11-15T11:56:00.590Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +42,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2018/11/05/Vuetorials-4-Internal-Component/</loc>
         <lastmod>2018-11-05T11:52:13.099Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue-concept/</loc>
-        <lastmod>2018-10-23T04:37:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

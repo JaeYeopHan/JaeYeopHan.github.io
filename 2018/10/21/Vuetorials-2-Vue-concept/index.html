@@ -155,7 +155,7 @@
 <p>Angular 의 경우 세 가지는 모두 별도 파일로 기술됨.</p>
 <p>Vue 는 하나의 <code>.vue</code>라는 파일에서 HTML/CSS/JavaScript 를 모두 기술하게 함. 이게 <strong>싱글 파일 컴포넌트</strong>임. 이 세 가지 다른 언어는 <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code> 이라는 태그로 구분됨. 관심사의 분리라는 측면에서는 앵귤러와 리액트의 중간쯤 단계로 타협을 본 것 같음.</p>
 <p><strong>‘분리’</strong>를 하게 되면 <strong>“정적인 HTML 과 JavaScript 로직을 어떻게 유기적으로 연동할 것인가?”</strong> 이 부분이 이슈가 됨. 애초에 분리를 하지 않은 React 는 JSX 문법으로 HTML 을 기술하기 때문에 JavaScript 와 아주 자연스럽게 연동됨. 앵귤러와 뷰는 그렇지 못하기 때문에 ‘<strong>디렉티브</strong>‘라는 것이 있음.</p>
-<h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><p>HTML 에 JavaScrpit 를 입히기 위해 추가하는 속성(attribute) 중 하나라고 생각하면 편함. <code>v-on</code>, <code>v-for</code> 등 여러 가지 디렉티브가 있고 custom directive 도 만들어서 등록할 수 있음. JSX 의 경우, onclick 을 <code>onClick</code>으로 표현했다면 Vue 의 디렉티브로는 <code>v-on:click</code> 이렇게 이벤트를 등록함. 축약형도 제공하고 있는데 이게 처음에는 조금 헷갈릴 수 있겠다 싶었음. <code>(v-on:click</code>은 <code>@click</code>으로 <code>v-bind:</code>는 <code>:</code>으로 축약 가능.)</p>
+<h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><p>HTML 에 JavaScrpit 를 입히기 위해 추가하는 속성(attribute) 중 하나라고 생각하면 편함. <code>v-on</code>, <code>v-for</code> 등 여러 가지 디렉티브가 있고 custom directive 도 만들어서 등록할 수 있음. JSX 의 경우, onclick 을 <code>onClick</code>으로 표현했다면 Vue 의 디렉티브로는 <code>v-on:click</code> 이렇게 이벤트를 등록함. 축약형도 제공하고 있는데 이게 처음에는 조금 헷갈릴 수 있겠다 싶었음. <code>(v-on:click</code>은 <code>@click</code>으로 <code>v-bind:</code>는 <code>:</code>으로 축약 가능.) <a href="https://vuejs.org/v2/style-guide/#Directive-shorthands-strongly-recommended" target="_blank" rel="noopener">공식 스타일 가이드</a>에서는 둘 중 하나로 통일해서 작성하라고 함. 이 공식 스타일은 꼭 한 번 읽고 개발을 진행하는게 좋음.</p>
 <h2 id="Component-를-생성"><a href="#Component-를-생성" class="headerlink" title="Component 를 생성"></a>Component 를 생성</h2><p><code>.vue</code>에서 js 로직을 기술하기 위해 <code>&lt;script&gt;</code>를 만드는 방법은 기본적으로 3 가지 정도가 있음.</p>
 <h3 id="1-Vue-component"><a href="#1-Vue-component" class="headerlink" title="1. Vue.component"></a>1. Vue.component</h3><p>이 방식으로 컴포넌트를 선언하게 되면 그 컴포넌트는 전역 컴포넌트(Global Component)가 됨. JavaScript 를 처음 공부할 때부터 전역 공간을 오염시키지 않기 위해 <a href="http://asfirstalways.tistory.com/233" target="_blank" rel="noopener">Name space pattern</a>과 <a href="http://asfirstalways.tistory.com/234" target="_blank" rel="noopener">Module pattern</a>을 배웠던 기억이 남. 전역 컴포넌트는 다음과 같은 이슈가 있기 때문에 개인적으론 사용을 지양하고 싶음.</p>
 <ul>
@@ -196,13 +196,13 @@
 <li>3.0 에서 immutable version 의 value 가 추가된다고 하는데 어떤 형태일지 궁금함.</li>
 </ul>
 </li>
-<li><code>props</code>로 지정한 것들이 default 가 <code>required: false</code>임.</li>
 <li><code>&lt;template&gt;</code>에는 Single Root Element 가 들어가야 함.<ul>
 <li>Vue 의 함수형 컴포넌트로 multi-root components 를 렌더링 할 수 있긴 함. (3 장에서 다룰 예정.)</li>
 </ul>
 </li>
 </ul>
-<h2 id="개인적인-인상"><a href="#개인적인-인상" class="headerlink" title="개인적인 인상"></a>개인적인 인상</h2><p>Vue 를 홍보할 때 흔히 “러닝커브가 쉽다.”라는 말을 함. 그러나 초기 접근이 쉽다는 것은 그만큼 magic(눈에 보이지 않는 로직, 라이브러리에서 처리하는 로직)이 많다는 것임. 이를 제대로 이해하지 못한다면 애플리케이션의 크기가 커졌을 경우나 복잡한 로직 디버깅이 힘들어짐. 매직이 많다는 것이 나쁘다는 것은 아님. 함께 프로젝트를 진행하는 팀원 모두가 동일하게 이 매직에 대해 이해하고 있으면 매직은 발목을 붙잡는 것이 아니라 오히려 생산성을 증대시켜주는 녀석으로 바뀜.</p>
+<h2 id="개인적인-인상"><a href="#개인적인-인상" class="headerlink" title="개인적인 인상"></a>개인적인 인상</h2><p>Vue 를 홍보할 때 흔히 “러닝커브가 낮다.”라는 말을 함. 그러나 초기 접근이 쉽다는 것은 그만큼 magic(눈에 보이지 않는 로직, 라이브러리에서 처리하는 로직)이 많다는 것임. 이를 제대로 이해하지 못한다면 애플리케이션의 크기가 커졌을 경우나 복잡한 로직 디버깅이 힘들어짐. 매직이 많다는 것이 나쁘다는 것은 아님. 함께 프로젝트를 진행하는 팀원 모두가 동일하게 이 매직에 대해 이해하고 있으면 매직은 발목을 붙잡는 것이 아니라 오히려 생산성을 증대시켜주는 녀석으로 바뀜.</p>
+<p>그리고 배우기 쉽다는 것은 es6 선행 학습 없이, npm, webpack 등의 선행 학습 없이 jQuery 쓰듯이 script 태그에 cdn에 올려놓고 바로 시작할 수 있어서 생긴 말이 아닐까 하는 생각이 들었음.</p>
 <p><code>&lt;template&gt;</code>으로 HTML 을 분리하느냐 JSX 문법으로 HTML 을 흡수하느냐는 Vue 와 React 를 구분짓는 큰 요소 중 하나라고 생각함. 가독성 측면에서는 익숙한게 좋은 거라고 생각함. 딱히 둘 중 뭐가 더 나은지는 아직 잘 모르겠음. 아직 개발하기에는 JSX 가 편한 듯. 만약 프론트엔드 개발 인력 중 마크업을 작성하는 인력이 나뉘어져 있다면 Vue 가 더 편할지도 모르겠음.</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://frontendsociety.com/why-you-shouldnt-use-vue-component-ff019fbcac2e" target="_blank" rel="noopener">https://frontendsociety.com/why-you-shouldnt-use-vue-component-ff019fbcac2e</a></li>
