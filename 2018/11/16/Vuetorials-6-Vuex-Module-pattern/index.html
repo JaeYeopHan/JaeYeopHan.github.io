@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="">
+
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[Vuetorials] 6. Vuex Module pattern">
+    <meta property="og:image" content="/images/vuetorials.png">
+    <meta property="og:description" content="Blog posted about front end development">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:creator" content="@JbeeLjyhanll">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <title>
+        
+        [Vuetorials] 6. Vuex Module pattern |
+        
+        FELog
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Adsense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7348753832160730",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg">
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuetorials-6-Vuex-Module-pattern"><span class="toc-text">[Vuetorials] 6. Vuex Module pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#구조"><span class="toc-text">구조</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Modules"><span class="toc-text">Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#namespaced"><span class="toc-text">namespaced</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#modules"><span class="toc-text">modules</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#중복된-코드를-줄여보자"><span class="toc-text">중복된 코드를 줄여보자.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#그-외"><span class="toc-text">그 외</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#마무리"><span class="toc-text">마무리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        [Vuetorials] 6. Vuex Module pattern
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+            Post：<span>
+                2018-11-16 09:47:02</span></span>
+        
+        <span class="attr">
+            Tags：/
+            
+            <a class="tag" href="/tags/#vue" title="vue">
+                vue</a>
+            <span>/</span>
+            
+            
+        </span>
+        <span class="attr">
+            Visit：<span id="busuanzi_value_page_pv"></span>
+        </span>
+        
+    </div>
+    <div class="post-content ">
+        <p><img src="/images/vuetorials.png" alt=""></p>
+<h1 id="Vuetorials-6-Vuex-Module-pattern"><a href="#Vuetorials-6-Vuex-Module-pattern" class="headerlink" title="[Vuetorials] 6. Vuex Module pattern"></a>[Vuetorials] 6. Vuex Module pattern</h1><h2 id="구조"><a href="#구조" class="headerlink" title="구조"></a><a href="https://vuex.vuejs.org/guide/structure.html" target="_blank" rel="noopener">구조</a></h2><p>Vuex 를 구성할 때 <code>action</code>, <code>mutation</code>, <code>getter</code> 이런 식으로 나누거나 각각의 module 을 기준으로 나눠 <code>index.js</code>에서 세 가지를 모두 기술할 수 있음. <code>modules</code>를 나눠 구성하는 경우 root 에서 사용하는 <code>action</code>과 <code>mutation</code>을 분리할 수 있음. <code>action</code>과 <code>mutation</code>은 <strong>actionType 을 공유</strong>하기 때문에 <code>types.js</code>로 별도 관리하기도 함.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">└── store</span><br><span class="line">    ├── index.js          # where we &apos;assemble&apos; modules and export the store</span><br><span class="line">    ├── actions.js        # root actions</span><br><span class="line">    ├── mutations.js      # root mutations</span><br><span class="line">    └── modules</span><br><span class="line">        ├── A             # A module</span><br><span class="line">        │   ├── index.js</span><br><span class="line">        │   └── types.js</span><br><span class="line">        └── B             # B module</span><br><span class="line">            ├── index.js</span><br><span class="line">            └── types.js</span><br></pre></td></tr></table></figure>
+<h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a><a href="https://vuex.vuejs.org/guide/modules.html" target="_blank" rel="noopener">Modules</a></h2><p>각각을 <code>modules</code>로 작성할 경우 다음과 같이 작성할 수 있음.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  key: &#123;</span><br><span class="line">    state: <span class="built_in">Object</span>,</span><br><span class="line">    namespaced?: <span class="built_in">Boolean</span>,</span><br><span class="line">    mutations?: <span class="built_in">Object</span>,</span><br><span class="line">    actions?: <span class="built_in">Object</span>,</span><br><span class="line">    getters?: <span class="built_in">Object</span>,</span><br><span class="line">    modules?: Module</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>다른 것은 이전 포스팅에서 다 다룬 내용이고 <code>namespaced</code>라는 것이 있음.</p>
+<h4 id="namespaced"><a href="#namespaced" class="headerlink" title="namespaced"></a>namespaced</h4><p>기본적으로 모듈에서 작성된 action, mutation, getter 들은 global namespace 에 등록됨. 이 때 <code>namespaced: true</code>로 지정을 해주면 <strong>해당 모듈의 namespace 로 제한됨.</strong> (완전 매력있는 API임.) 이 기능과 action type을 상수로 분리하여 작성을 했다면 한 가지 추가 작업이 더 필요함. 다음의 경우를 보자.</p>
+<figure class="highlight js"><figcaption><span>todos/type.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_ITEM = <span class="string">'ADD_ITEM'</span></span><br></pre></td></tr></table></figure>
+<p>이 action type을 action과 mutation과 <code>mapActions</code>해주는 곳에서 같이 사용한다고 가정했을 때,</p>
+<figure class="highlight js"><figcaption><span>todos/actions.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  [ADD_ITEM](&#123; commit &#125;, payload) &#123;</span><br><span class="line">    commit(ADD_ITEM, payload.newItem);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>todos/mutations.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  [ADD_ITEM](state, newItem) &#123;</span><br><span class="line">    state.items.push(newItem);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Vuex에서 바로 제공되는 <code>mapActions</code> helper를 바로 쓸 수 없음. namespace를 넣어줘야 함. 이 namespace는 module에 등록했을 때의 key 값이 됨.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions(<span class="string">"todos"</span>, [ ADD_ITEM ])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 경우 저 액션은 <code>todos/ADD_ITEM</code>이 됨. 개인적으로는 <code>createNamespacedHelpers</code>를 쓰는 게 더 좋아보임.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import &#123; mapActions &#125; from 'vuex'</span></span><br><span class="line"><span class="keyword">import</span> &#123; createNamespacedHelpers &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; mapActions &#125; = createNamespacedHelpers(<span class="string">"todos"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions([ ADD_ITEM ])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 modules에서 정의한 <strong>namespace로 한 번 wrapping 후</strong> <code>mapActions</code>로 binding 해야 함. 이렇게 해주면 action type에 자동으로 <code>todos</code>라는 namespace가 추가됨. 위 예제 코드에서는 컴포넌트 단에서 named helper를 만들어줬지만 아예 store 디렉토리 내부에서 <code>NAMESPACE</code>를 지정하여 바인딩 헬퍼를 만들고 컴포넌트 단에서는 그것을 import하여 사용하는 것이 좋아보임.</p>
+<h4 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h4><p>중첩 모듈 작성이 가능함. <code>module</code> 내부에 트리 형식으로 또 <code>module</code>을 등록할 수 있음. 이 경우에도 <code>namespaced</code>를 지정해주면 <code>namespace</code>가 중첩되어 접근할 수 있음. namespace 중복은 <code>/</code>으로 중첩됨. (<a href="https://github.com/vuejs/vuex/blob/dev/src/module/module-collection.js#L16" target="_blank" rel="noopener">관련 코드</a>)</p>
+<h3 id="중복된-코드를-줄여보자"><a href="#중복된-코드를-줄여보자" class="headerlink" title="중복된 코드를 줄여보자."></a>중복된 코드를 줄여보자.</h3><p><code>namespaced: true</code>인 상태에서 Vuex getters를 정의하면 component에서 <code>mapGetters</code>할 때 다음과 같은 중복이 발생함.</p>
+<figure class="highlight js"><figcaption><span>MyComponent.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// Object 방식</span></span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapGetters(&#123;</span><br><span class="line">      doneItems: <span class="string">"doneItems"</span>,</span><br><span class="line">      activeItems: <span class="string">"activeItems"</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// or</span></span><br><span class="line">    ...mapGetters([</span><br><span class="line">      <span class="string">"doneItems"</span>,</span><br><span class="line">      <span class="string">"activeItems"</span>,</span><br><span class="line">    ])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런 작업을 반복하게 되고 getters를 string으로 참조하기 때문에 에러가 발생할 수 있음. 이를 util function을 만들어 해결할 수도 있음.</p>
+<p>객체로 전달하고 싶을 경우 다음과 같은 util을 만들 수 있음.<br><figure class="highlight js"><figcaption><span>utils/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">convertToMapGettersTarget</span>(<span class="params">getters</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(getters).reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</span><br><span class="line">    obj[key] = key;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>배열로 전달하고 싶을 경우는 더 간단함.<br><figure class="highlight js"><figcaption><span>utils/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">convertToMapGettersTarget</span>(<span class="params">getters</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...Object.keys(getters)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>이 Util function을 사용해보자.</p>
+<figure class="highlight js"><figcaption><span>store/modules/todos/getters.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getter = &#123;</span><br><span class="line">  doneItems: ...,</span><br><span class="line">  activeItems: ...,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todosMappedGetters = convertToMapGettersTarget(getters);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; todosMappedGetters &#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> getter;</span><br></pre></td></tr></table></figure>
+<p><code>todosMappedGetters</code>를 만들어두고 이걸 component에서 사용할 수 있음.</p>
+<figure class="highlight js"><figcaption><span>MyComponent.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapGetters(&#123; ...todosMappedGetters &#125;)</span><br><span class="line">    <span class="comment">// or</span></span><br><span class="line">    ...mapGetters([ ...todosMappedGetters ])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 <code>MyComponent.vue</code>에서 모든 todos/getters를 참조하게 되지만 <code>todosMappedGetters</code>를 조금 작은 단위로 만들어두면 중복된 코드도 방지하고 코드량도 줄일 수 있음.</p>
+<h3 id="그-외"><a href="#그-외" class="headerlink" title="그 외"></a>그 외</h3><ul>
+<li>Vuex 생성자에 <code>strict: true</code>로 지정하면 <code>mutations</code>이외에 상태 변이에서 에러를 발생시킬 수 있음.</li>
+<li><code>Vuex.Store</code>에서 제공하고 있는 API 가 여럿 있음. <code>subscribe</code>, <code>registerModule</code> 등. 활용하면 좋은 기능을 추가할 수 있을 것 같다는 막연한 생각.</li>
+</ul>
+<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p><code>redux</code>, <code>mobx</code>, <code>mobx-state-tree</code> 등의 상태 관리 라이브러리가 많음. <code>mutation</code>이란 부분은 MobX 와 비슷하고 트리 형식으로 구성하는 것은 MST 와 비슷하고 action 을 dispatch 하는 부분에 있어서는 redux 와 비슷한 듯. 그리고 다시 한 번 느끼는 거지만 Vue 쪽은 많은 편의성을 제공하려고 하다보니 그런건지 문서 상에서만 접할 수 있는 (코드 상으로는 파악이 불가능한) 그래서 꼭 읽어봐야 하는 그런 것들이 많은 듯.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://stackoverflow.com/questions/40390411/vuex-2-0-dispatch-versus-commit" target="_blank" rel="noopener">https://stackoverflow.com/questions/40390411/vuex-2-0-dispatch-versus-commit</a></li>
+</ul>
+
+        
+        <br>
+    </div>
+        <!-- Disqus -->
+    <div id="disqus_thread"></div>
+    <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//jaeyeophan-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By Jbee with <a href="https://hexo.io/">Hexo</a> Theme JbeeCloud Inspired <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
