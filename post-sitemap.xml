@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/</loc>
+        <lastmod>2018-11-16T06:20:06.941Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-1-vue-cli-3-0/</loc>
         <lastmod>2018-11-16T03:01:14.735Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,14 +34,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-intro/</loc>
         <lastmod>2018-11-16T01:43:10.420Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/</loc>
-        <lastmod>2018-11-16T01:07:33.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
