@@ -180,6 +180,8 @@
 <li><code>&lt;template&gt;</code>을 기술할 때 pure html 로도 기술할 수 있고 <a href="https://github.com/pugjs/pug" target="_blank" rel="noopener">pug(구 jade)</a>로도 기술할 수 있음.</li>
 <li><code>&lt;style&gt;</code> 기술 시에도 <code>lang</code>으로 pure css, scss 등 선택할 수 있음.</li>
 <li><code>&lt;style scoped&gt;</code>, <code>&lt;style module&gt;</code>을 통해 component 범위에서만 적용되는 style 을 기술 할 수 있음. (짱짱)</li>
+<li>JSX보다 표준에 가까움.</li>
+<li>cli가 좋음.</li>
 </ul>
 <h2 id="나름의-단점"><a href="#나름의-단점" class="headerlink" title="나름의 단점"></a>나름의 단점</h2><ul>
 <li>JSX 에선 뭐든 <code>{}</code>로 감싸서 전달하면 됐는데, 문법이 약간 헷갈림.<ul>
@@ -187,7 +189,10 @@
 <li>클래스 조작하기 위해 일반 <code>class</code> attribute 가 아니라 <code>v-bind:class</code>로 기술해야 함.</li>
 <li>directive 에는 string 으로 기술.</li>
 <li>삼항 연산자를 넘기려면 string 안에 <code>[]</code>로 기술.</li>
-<li>토글을 위한 syntax 도 제공하는데 이건 <code>{}</code>로 기술.</li>
+<li>토글을 위한 syntax 도 제공하는데 이건 <code>{}</code>로 기술.<ul>
+<li>lint가 이러한 부분을 잡아주지 못하기 때문에 팀 내에서 약속된 규칙을 만드는 것이 중요함.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>컴포넌트 내부에서 관리되는 data 들이 immutable 이 아닌게 조금 찝찝함.<ul>
@@ -198,6 +203,10 @@
 </li>
 <li><code>&lt;template&gt;</code>에는 Single Root Element 가 들어가야 함.<ul>
 <li>Vue 의 함수형 컴포넌트로 multi-root components 를 렌더링 할 수 있긴 함. (3 장에서 다룰 예정.)</li>
+</ul>
+</li>
+<li>Object-based API 임.<ul>
+<li>3.0에 Class-based API가 나온다고 하니 기대 중.</li>
 </ul>
 </li>
 </ul>
