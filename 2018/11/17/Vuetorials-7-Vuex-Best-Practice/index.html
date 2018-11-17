@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blog posted about front end development">
+    <meta name="keyword" content="">
+
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="[Vuetorials 7. Vuex Best Practice]">
+    <meta property="og:image" content="/images/vuetorials.png">
+    <meta property="og:description" content="Blog posted about front end development">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:creator" content="@JbeeLjyhanll">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <title>
+        
+        [Vuetorials 7. Vuex Best Practice] |
+        
+        FELog
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Adsense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7348753832160730",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/images/profile.jpeg">
+        </div>
+        <div class="name">
+            <i>
+                Jbee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>
+                        HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>
+                        ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jbee-resume.now.sh" target="_blank">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>
+                        ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuex-Best-Practice로-가는-여정"><span class="toc-text">Vuex Best Practice로 가는 여정</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1-module-pattern-with-namespace"><span class="toc-text">Step 1. module pattern with namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem"><span class="toc-text">Problem!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-Binding-helpers"><span class="toc-text">Step 2. Binding helpers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-1"><span class="toc-text">Problem</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-3-binding-시-사용되는-namespace를-제거하자"><span class="toc-text">Step 3. binding 시 사용되는 namespace를 제거하자.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-4-Extract-constant-in-action"><span class="toc-text">Step 4. Extract constant in action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-5-Extract-constant-in-getters"><span class="toc-text">Step 5. Extract constant in getters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">
+                search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> FrontEnd Engineer, Jbee&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        [Vuetorials 7. Vuex Best Practice]
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+            Post：<span>
+                2018-11-17 17:09:44</span></span>
+        
+        <span class="attr">
+            Tags：/
+            
+            <a class="tag" href="/tags/#vue" title="vue">
+                vue</a>
+            <span>/</span>
+            
+            
+        </span>
+        <span class="attr">
+            Visit：<span id="busuanzi_value_page_pv"></span>
+        </span>
+        
+    </div>
+    <div class="post-content ">
+        <p><img src="/images/vuetorials.png" alt=""></p>
+<h1 id="Vuex-Best-Practice로-가는-여정"><a href="#Vuex-Best-Practice로-가는-여정" class="headerlink" title="Vuex Best Practice로 가는 여정"></a>Vuex Best Practice로 가는 여정</h1><p>Vuex에 대한 설명은 다음 두 글을 첨부함.</p>
+<ul>
+<li><a href="https://jaeyeophan.github.io/2018/11/07/Vuetorials-5-Vuex/">5. Vuex API</a></li>
+<li><a href="https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/">6. Vuex Module pattern</a></li>
+</ul>
+<p>진행하고 있는 프로젝트에서 Vuex를 어떻게 하면 잘 사용할 수 있을까 고민을 했고 그 과정을 기록함. 관전 포인트는 다음과 같음.</p>
+<ul>
+<li>String을 덜 사용할 수는 없는가?<ul>
+<li>오류 발생가능성을 낮추기 위해</li>
+</ul>
+</li>
+<li>생산성이 좋은가?</li>
+<li>가독성이 좋은가?</li>
+<li>유지보수에는 적절한가?</li>
+</ul>
+<p>예제 코드는 실제 product 코드 대신 Todo application 예제를 사용함. <a href="https://github.com/JaeYeopHan/vuex-best-practice-lab/pull/1/files" target="_blank" rel="noopener">refactoring pull request</a></p>
+<h2 id="Step-1-module-pattern-with-namespace"><a href="#Step-1-module-pattern-with-namespace" class="headerlink" title="Step 1. module pattern with namespace"></a>Step 1. module pattern with namespace</h2><p>Vuex에서 관리하게 되는 상태가 커지면 커질수록 <code>state</code>, <code>action</code>, <code>mutation</code> 관리가 제대로 이뤄지지 않음. 그렇기 때문에 Vuex 공식 문서에서도 <strong>module</strong>이란 것을 소개하고 있음. 또한 Vuex에서는 <code>namespaced</code>라는 아주 훌륭한 API를 지원하고 있기 때문에 여기까지는 대부분의 Vue application에서는 적용하고 있을 것 같음.</p>
+<figure class="highlight js"><figcaption><span>@/store/modules/todos/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    todos,</span><br><span class="line">    <span class="comment">// other modules...</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>@/store/modules/todos/</code> directory 밑에 각각 <code>state.js</code>, <code>getters.js</code>, <code>mutations.js</code>, <code>actions.js</code>를 만들어두고 <code>todos/index.js</code>에서 <code>namespaced: true</code>로 export 해줌.</p>
+<p>컴포넌트에서 Vuex는 다음과 같이 사용할 수 있음.</p>
+<figure class="highlight js"><figcaption><span>todo.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// state</span></span><br><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    allItems: <span class="keyword">this</span>.$store.state.todos.items,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// getters</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  doneItems() &#123;</span><br><span class="line">  	<span class="keyword">return</span> <span class="keyword">this</span>.$store.getters[<span class="string">"todos/doneItems"</span>];</span><br><span class="line">  &#125;,</span><br><span class="line">  activeItems() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters[<span class="string">"todos/activeItems"</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// actions</span></span><br><span class="line">method: &#123;</span><br><span class="line">  addItem() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$store.dispatch(<span class="string">"todos/addItem"</span>, &#123; newItem &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>실제 product 코드에서는 state, getter 등이 크지 않으면 <code>index.js</code> 에서 전부 처리하고 분리가 필요한 부분만 분리하여 작성하고 있음.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem!"></a>Problem!</h3><ul>
+<li>안 그래도 <code>.</code> 이 깊어지는 코드인데 <code>todos</code> 라는 <strong>namespace가 추가</strong>되면서 한 depth 또 추가됨.</li>
+<li>Vuex에 정의된 모든 state, getters, actions에 접근이 가능함.</li>
+<li>만약 <code>todos</code> 라는 namespace가 변경된다면…?</li>
+<li><code>doneItems</code>, <code>addItem</code> 등등의 이름이 변경된다면…?</li>
+</ul>
+<p><strong>끔찍함.</strong> 위와 같은 이유로 1번은 고려하지 않음. (사실 난 중복된 string을 가만히 볼 수 없는 병에 걸려있음.)</p>
+<h2 id="Step-2-Binding-helpers"><a href="#Step-2-Binding-helpers" class="headerlink" title="Step 2. Binding helpers"></a>Step 2. Binding helpers</h2><p>이 부분도 Vuex 공식 문서에서 나옴. 보통 <code>react-redux</code>, <code>mobx-react</code> 이런 라이브러리에서 제공하는 기능인데 Vuex에서는 자체적으로 제공함. 근데 이 helper API가 일관성이 없는게 문제임. 그리고 namespace가 들어가게 되면 작업이 추가됨.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions, mapState, mapGetters &#125; <span class="keyword">from</span> <span class="string">"vuex"</span>;</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  ...mapState(<span class="string">"todos"</span>, &#123;</span><br><span class="line">    allItems: <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> items,</span><br><span class="line">  &#125;),</span><br><span class="line">  ...mapGetters(<span class="string">"todos"</span>, &#123;</span><br><span class="line">	  doneItems: <span class="string">"doneItems"</span>,</span><br><span class="line">  	activeItems: <span class="string">"activeItems"</span></span><br><span class="line">	&#125;),</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  ...mapActions(<span class="string">"todos"</span>, [</span><br><span class="line">    <span class="string">"addItem"</span>,</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>바인딩을 해줄 때, 첫번째 인자로 namespace를 추가해줘야 함. (namespace가 별도로 존재하지 않을 경우 바로 binding 객체를 넣어줌.)</p>
+<h4 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem"></a>Problem</h4><ul>
+<li>Step 1의 2번 3번 문제점과 동일</li>
+</ul>
+<p>이 binding helper는 depth를 줄이는 데에는 성공적이지만 아직 string 중복 처리는 이뤄지지 않음.</p>
+<h2 id="Step-3-binding-시-사용되는-namespace를-제거하자"><a href="#Step-3-binding-시-사용되는-namespace를-제거하자" class="headerlink" title="Step 3. binding 시 사용되는 namespace를 제거하자."></a>Step 3. binding 시 사용되는 namespace를 제거하자.</h2><p>Vuex에서 제공하는 <a href="https://github.com/vuejs/vuex/blob/dev/src/helpers.js#L117" target="_blank" rel="noopener">createNamespacedHelpers</a>란 API를 사용할 수 있음,</p>
+<figure class="highlight js"><figcaption><span>@/store/modules/todos/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createNamespacedHelpers &#125; <span class="keyword">from</span><span class="string">"vuex"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; NAMESPACE &#125; <span class="keyword">from</span> <span class="string">"./types"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; mapState, mapGetters, mapActions &#125; = createNamespacedHelpers(NAMESPACE);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; mapState, mapGetters, mapActions &#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; <span class="comment">/* namespaced, state, getters, mutations, actions */</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>컴포넌트에서 바로 정의해서 사용해도 되지만 store 단에서 정의하고 export 함. 컴포넌트 단에서 <code>NAMESPACE</code>를 import할 필요는 없다는 판단하에 진행함. 이렇게 정의해두고 이 namespace를 추가한 helper binding 함수를 사용하자.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import &#123; mapActions, mapState, mapGetters &#125; from "vuex";</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapActions, mapState, mapGetters &#125; <span class="keyword">from</span> <span class="string">"@/store/modules/todos"</span>;</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  ...mapState(&#123;</span><br><span class="line">    allItems: <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> items,</span><br><span class="line">  &#125;),</span><br><span class="line">  ...mapGetters(&#123;</span><br><span class="line">	  doneItems: <span class="string">"doneItems"</span>,</span><br><span class="line">  	activeItems: <span class="string">"activeItems"</span></span><br><span class="line">	&#125;),</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  ...mapActions([</span><br><span class="line">    <span class="string">"addItem"</span>,</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>namespace 중복을 제거했음. 아직 Step 1의 3번 문제점이었떤 constant들이 남아있음.</p>
+<h2 id="Step-4-Extract-constant-in-action"><a href="#Step-4-Extract-constant-in-action" class="headerlink" title="Step 4. Extract constant in action"></a>Step 4. Extract constant in action</h2><p>Vuex 코드를 작성하다보면 <code>action</code>과 <code>mutation</code> 에서 많은 중복이 발생함. <code>mutation</code>에서 정의한 것을 그대로 <code>action</code> 에서 <code>commit</code> 해줘야 하기 때문임. (그렇다고 컴포넌트에서 commit 하면 안 됨… <a href="https://jaeyeophan.github.io/2018/11/07/Vuetorials-5-Vuex/#mutations">참고</a>) 그래서 이 부분을 상수로 추출고 이를 공통으로 사용할 수 있음.</p>
+<p>일단 <code>action</code>과 <code>mutation</code>에서 사용되는 type을 별도 파일로 분리하자.</p>
+<figure class="highlight js"><figcaption><span>@/store/module/todos/types.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namespace</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> NAMESPACE = <span class="string">"todos"</span>;</span><br><span class="line"><span class="comment">// actions</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_ITEM = <span class="string">"ADD_ITEM"</span>;</span><br></pre></td></tr></table></figure>
+<p>이에 따라 정의한 <code>mutation.js</code>와 <code>actions.js</code>도 변경됨.</p>
+<figure class="highlight js"><figcaption><span>@/store/mdules/todos/mutations.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">"./types"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  [actions.ADD_ITEM](state, newItem) &#123;</span><br><span class="line">    state.items.push(newItem);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>@/store/mdules/todos/actions.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">"./types"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  [actions.ADD_ITEM](&#123; commit &#125;, payload) &#123;</span><br><span class="line">    commit(actions.ADD_ITEM, payload.newItem);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이제 이 constant를 컴포넌트에서도 사용하자.</p>
+<figure class="highlight js"><figcaption><span>todo.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions, mapState, mapGetters &#125; <span class="keyword">from</span> <span class="string">"@/store/modules/todos"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> <span class="string">"@/store/modules/todos/action-types"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions([</span><br><span class="line">      actions.ADD_ITEM,</span><br><span class="line">    ]),</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Step-5-Extract-constant-in-getters"><a href="#Step-5-Extract-constant-in-getters" class="headerlink" title="Step 5. Extract constant in getters"></a>Step 5. Extract constant in getters</h2><p>나와 같은 병에 걸렸다면 <code>getters</code>에서의 중복도 불편할 것이라 생각됨. 이제 getters의 상수를 제거하자.</p>
+<figure class="highlight js"><figcaption><span>@/store/mdules/todos/getters.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DONE_ITEMS = <span class="string">"DONE_ITEMS"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ACTIVE_ITEMS = <span class="string">"ACTIVE_ITEMS"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  [DONE_ITEMS]: <span class="function"><span class="params">state</span> =&gt;</span> state.items.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.isDone),</span><br><span class="line">  [ACTIVE_ITEMS]: <span class="function"><span class="params">state</span> =&gt;</span> state.items.filter(<span class="function"><span class="params">todo</span> =&gt;</span> !todo.isDone)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>컴포넌트에서 getters를 바인딩하자.</p>
+<figure class="highlight js"><figcaption><span>todo.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> getters <span class="keyword">from</span> <span class="string">"@/store/modules/todos/getters"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapState(&#123;</span><br><span class="line">      allItems: <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> items,</span><br><span class="line">    &#125;),</span><br><span class="line">    ...mapGetters(&#123;</span><br><span class="line">      doneItems: getter.DONE_ITEMS,</span><br><span class="line">      activeItems: getter.ACTIVE_ITEMS,</span><br><span class="line">    &#125;),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>사실 이 getters는 이렇게도 표현 가능함. (as <code>mapActions</code>)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...mapGetters([</span><br><span class="line">  getter.DONE_ITEMS,</span><br><span class="line">  getter.ACTIVE_ITEMS,</span><br><span class="line">]),</span><br></pre></td></tr></table></figure>
+<p><code>getters</code>는 컴포넌트에서 <strong>값</strong>으로 사용되기 때문에 <code>doneItems</code>와 <code>activeItems</code>로 다시 mapping 시킴. 이게 더 깔끔해 보임.<br><code>getters</code>와 <code>actions</code>를 전부 상수로 binding 했음. 이제 컴포넌트에서는 <code>this.doneItems</code> 이렇게 getter에 접근할 수 있고 <code>this[actions.ADD_ITEM]()</code> 이렇게 action에 접근할 수 있음.</p>
+<p>vuex 코드를 작성하면서 발생한 문제점들을 해결했음.</p>
+<p>사실 원래 <code>getters</code>의 key값도 <code>types.js</code>에서 관리를 하려고 했으나</p>
+<ol>
+<li>컴포넌트 단에서 상수를 사용할 때, getters의 key값인지 action type인지 구분되지 않음.</li>
+<li><code>getters</code>의 key 값은 <code>getters</code>에서만 사용하므로 굳이 <code>types.js</code>에 위치할 필요가 없음.</li>
+</ol>
+<p><code>getters.js</code> 내부에서 상수로 분리 후 export 함. 그리고 <code>getters</code>로 <code>* as</code> 하면 action type과 구분지을 수 있음.</p>
+<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><ul>
+<li>상태 트리를 설계할 때, 기본적으로 <code>namespaced: true</code>로 진행.</li>
+<li>디렉토리 이름과 namespace를 통일.</li>
+<li>바인딩 헬퍼는 <code>createNamespacedHelpers</code>로 custom하여 사용.</li>
+<li>state) arrow function + destructuring으로 분해해서 binding.<ul>
+<li><code>({ items }) =&gt; items</code></li>
+<li>use: <code>this.items</code></li>
+</ul>
+</li>
+<li>getter) <code>{ ... }</code>에 binding.<ul>
+<li><code>{ key: getters.[GETTER] }</code></li>
+<li>use: <code>this.key</code></li>
+</ul>
+</li>
+<li>action의 경우, <code>[...]</code>에 binding.<ul>
+<li><code>[ ACTION_TYPE ]</code> </li>
+<li>use: <code>this[ACTION_TYPPE]</code></li>
+</ul>
+</li>
+</ul>
+<p>더 좋은 방법이 있다면 피드백 부탁드립니다 :) 관련 코드는 <a href="https://github.com/JaeYeopHan/vuex-best-practice-lab" target="_blank" rel="noopener">Vuex best practice GitHub Repository</a>에서 확인 가능합니다.</p>
+<p><em>감사합니다.</em></p>
+
+        
+        <br>
+    </div>
+        <!-- Disqus -->
+    <div id="disqus_thread"></div>
+    <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//jaeyeophan-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <li>
+            <a target="_blank" href="https://twitter.com/JbeeLjyhanll">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-twitter"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://www.facebook.com/devjbee">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-facebook"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="https://github.com/JaeYeopHan">
+                <span class="fa-stack fa-lg">
+                    <i class="iconfont icon-github"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p>
+        Created By Jbee with <a href="https://hexo.io/">Hexo</a> Theme JbeeCloud Inspired <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

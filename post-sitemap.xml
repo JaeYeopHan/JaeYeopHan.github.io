@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://jaeyeophan.github.io/2018/11/17/Vuetorials-7-Vuex-Best-Practice/</loc>
+        <lastmod>2018-11-17T08:23:40.576Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/</loc>
         <lastmod>2018-11-16T07:53:24.484Z</lastmod>
         <changefreq>weekly</changefreq>
