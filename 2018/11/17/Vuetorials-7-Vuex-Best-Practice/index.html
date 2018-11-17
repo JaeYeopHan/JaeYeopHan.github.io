@@ -9,7 +9,7 @@
     <meta name="keyword" content="">
 
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="[Vuetorials 7. Vuex Best Practice]">
+    <meta property="og:title" content="[Vuetorials] 7. Vuex Best Practice로 가는 여정">
     <meta property="og:image" content="/images/vuetorials.png">
     <meta property="og:description" content="Blog posted about front end development">
     <meta property="twitter:card" content="summary">
@@ -19,7 +19,7 @@
 
     <title>
         
-        [Vuetorials 7. Vuex Best Practice] |
+        [Vuetorials] 7. Vuex Best Practice로 가는 여정 |
         
         FELog
     </title>
@@ -96,7 +96,7 @@
     </div>
     
     <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuex-Best-Practice로-가는-여정"><span class="toc-text">Vuex Best Practice로 가는 여정</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1-module-pattern-with-namespace"><span class="toc-text">Step 1. module pattern with namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem"><span class="toc-text">Problem!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-Binding-helpers"><span class="toc-text">Step 2. Binding helpers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-1"><span class="toc-text">Problem</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-3-binding-시-사용되는-namespace를-제거하자"><span class="toc-text">Step 3. binding 시 사용되는 namespace를 제거하자.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-4-Extract-constant-in-action"><span class="toc-text">Step 4. Extract constant in action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-5-Extract-constant-in-getters"><span class="toc-text">Step 5. Extract constant in getters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuex-Best-Practice로-가는-여정"><span class="toc-text">Vuex Best Practice로 가는 여정</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1-module-pattern-with-namespace"><span class="toc-text">Step 1. module pattern with namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem"><span class="toc-text">Problem!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-Binding-helpers"><span class="toc-text">Step 2. Binding helpers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Problem-1"><span class="toc-text">Problem</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-3-binding-시-사용되는-namespace를-제거하자"><span class="toc-text">Step 3. binding 시 사용되는 namespace를 제거하자.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-4-Extract-constant-in-action"><span class="toc-text">Step 4. Extract constant in action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-5-Extract-constant-in-getters"><span class="toc-text">Step 5. Extract constant in getters</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remained-Task"><span class="toc-text">Remained Task</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li></ol>
 </div>
     
 </div>
@@ -125,7 +125,7 @@
         <!-- Main Content -->
         <div class="post-container">
     <div class="post-title">
-        [Vuetorials 7. Vuex Best Practice]
+        [Vuetorials] 7. Vuex Best Practice로 가는 여정
     </div>
 
     <div class="post-meta">
@@ -154,7 +154,8 @@
 <li><a href="https://jaeyeophan.github.io/2018/11/07/Vuetorials-5-Vuex/">5. Vuex API</a></li>
 <li><a href="https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/">6. Vuex Module pattern</a></li>
 </ul>
-<p>진행하고 있는 프로젝트에서 Vuex를 어떻게 하면 잘 사용할 수 있을까 고민을 했고 그 과정을 기록함. 관전 포인트는 다음과 같음.</p>
+<p>진행하고 있는 프로젝트에서 Vuex를 어떻게 하면 잘 사용할 수 있을까 고민을 했고 그 과정을 기록함. 총 다섯 단계로 나누어져 있음.</p>
+<p>관전 포인트는 다음과 같음.</p>
 <ul>
 <li>String을 덜 사용할 수는 없는가?<ul>
 <li>오류 발생가능성을 낮추기 위해</li>
@@ -165,6 +166,9 @@
 <li>유지보수에는 적절한가?</li>
 </ul>
 <p>예제 코드는 실제 product 코드 대신 Todo application 예제를 사용함. <a href="https://github.com/JaeYeopHan/vuex-best-practice-lab/pull/1/files" target="_blank" rel="noopener">refactoring pull request</a></p>
+<blockquote>
+<p>Let’s Refactoring 🚧</p>
+</blockquote>
 <h2 id="Step-1-module-pattern-with-namespace"><a href="#Step-1-module-pattern-with-namespace" class="headerlink" title="Step 1. module pattern with namespace"></a>Step 1. module pattern with namespace</h2><p>Vuex에서 관리하게 되는 상태가 커지면 커질수록 <code>state</code>, <code>action</code>, <code>mutation</code> 관리가 제대로 이뤄지지 않음. 그렇기 때문에 Vuex 공식 문서에서도 <strong>module</strong>이란 것을 소개하고 있음. 또한 Vuex에서는 <code>namespaced</code>라는 아주 훌륭한 API를 지원하고 있기 때문에 여기까지는 대부분의 Vue application에서는 적용하고 있을 것 같음.</p>
 <figure class="highlight js"><figcaption><span>@/store/modules/todos/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    todos,</span><br><span class="line">    <span class="comment">// other modules...</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><code>@/store/modules/todos/</code> directory 밑에 각각 <code>state.js</code>, <code>getters.js</code>, <code>mutations.js</code>, <code>actions.js</code>를 만들어두고 <code>todos/index.js</code>에서 <code>namespaced: true</code>로 export 해줌.</p>
@@ -212,6 +216,7 @@
 <li><code>getters</code>의 key 값은 <code>getters</code>에서만 사용하므로 굳이 <code>types.js</code>에 위치할 필요가 없음.</li>
 </ol>
 <p><code>getters.js</code> 내부에서 상수로 분리 후 export 함. 그리고 <code>getters</code>로 <code>* as</code> 하면 action type과 구분지을 수 있음.</p>
+<h3 id="Remained-Task"><a href="#Remained-Task" class="headerlink" title="Remained Task"></a>Remained Task</h3><p><code>mapState({ ... })</code>, <code>mapGetters({ ... })</code>는 <code>{}</code>로 받고 <code>mapActions([ ... ])</code>는 <code>[]</code>로 받는다. 같은 binding helper인데 일관성이 없다.</p>
 <h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><ul>
 <li>상태 트리를 설계할 때, 기본적으로 <code>namespaced: true</code>로 진행.</li>
 <li>디렉토리 이름과 namespace를 통일.</li>

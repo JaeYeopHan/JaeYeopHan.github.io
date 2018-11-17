@@ -9,7 +9,15 @@
 
     <url>
         <loc>https://jaeyeophan.github.io/2018/11/17/Vuetorials-7-Vuex-Best-Practice/</loc>
-        <lastmod>2018-11-17T08:23:40.576Z</lastmod>
+        <lastmod>2018-11-17T08:35:34.627Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-intro/</loc>
+        <lastmod>2018-11-17T08:24:14.557Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,14 +42,6 @@
     <url>
         <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue-concept/</loc>
         <lastmod>2018-11-16T01:53:05.179Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jaeyeophan.github.io/2018/10/21/Vuetorials-0-intro/</loc>
-        <lastmod>2018-11-16T01:43:10.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
